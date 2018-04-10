@@ -101,17 +101,19 @@ class ConsultaExterna{
 
 	public function crear(/*Parametros*/){
 	}
-	public function listarPorExpediente(/*Parametros*/){
+	public function listarPorPaciente(/*Parametros*/){
 	}
 	public function actualizar(/*Parametros*/){
 	}
 	public function eliminar(/*Parametros*/){
 	}
-	public function listarDiarias(/*Parametros*/){
+	public function listarPorHoy(/*Parametros*/){
 	}
 	public function listarPorCentroMedico(/*Parametros*/){
 	}
 	public function listarPorMedico(/*Parametros*/){
+	}
+	public function listarPorConsultorio(/*Parametros*/){
 	}
 
 }
