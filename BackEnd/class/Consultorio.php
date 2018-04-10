@@ -41,9 +41,11 @@ class Consultorio{
 	}
 	public function listarPorMedico(/*Parametros*/){
 	}
-	public function eliminar(/*Parametros*/){
+	public function actualizar(/*Parametros*/){
 	}
-	public function asignar(/*Parametros*/){
+	public function vincularMedico(/*Parametros*/){
+	}
+	public function desvincularMedico(/*Parametros*/){
 	}
 
 }
