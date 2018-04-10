@@ -59,9 +59,9 @@ class Telefono{
 	}
 	public function listarTodos(/*Parametros*/){
 	}
-	public function addToPersona(/*Parametros*/){
+	public function agregarPersona(/*Parametros*/){
 	}
-	public function addToCentro(/*Parametros*/){
+	public function agregarCentro(/*Parametros*/){
 	}
 	public function buscarPorPersona(/*Parametros*/){
 	}
@@ -71,7 +71,13 @@ class Telefono{
 	}
 	public function eliminarDeCentro(/*Parametros*/){
 	}
-	public function addTipoTelefono(/*Parametros*/){
+	public function agregarTipoTelefono(/*Parametros*/){
+	}
+	public function listarTipoTelefono(/*Parametros*/){
+	}
+	public function eliminarTipoTelefono(/*Parametros*/){
+	}
+	public function actualizarTipoTelefono(/*Parametros*/){
 	}
 
 }
