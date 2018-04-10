@@ -63,14 +63,6 @@ class Cirugia{
 	}
 	public function actualizarTipoCirugia(/*Parametros*/){
 	}
-	public function agregarViaSuministro(/*Parametros*/){
-	}
-	public function eliminarViaSuministro(/*Parametros*/){
-	}
-	public function actualizarViaSuministro(/*Parametros*/){
-	}
-	public function listarViaSuministro(/*Parametros*/){
-	}
 
 }
 ?>
