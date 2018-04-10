@@ -96,6 +96,14 @@ class Examen{
 	}
 	public function actualizarTipoExamen(/*Parametros*/){
 	}
+	public function crear(/*Parametros*/){
+	}
+	public function listarTodos(/*Parametros*/){
+	}
+	public function eliminar(/*Parametros*/){
+	}
+	public function actualizar(/*Parametros*/){
+	}
 
 }
 ?>

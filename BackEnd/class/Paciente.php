@@ -80,6 +80,7 @@ class Paciente extends Persona{
 	}
 
 	public function crear(/*Parametros*/){
+		//SE DEBE CREAR EXPEDIENTE
 	}
 	public function listar(/*Parametros*/){
 	}
@@ -94,6 +95,12 @@ class Paciente extends Persona{
 	public function buscarPorApellido(/*Parametros*/){
 	}
 	public function buscarPorNoIdentidad(/*Parametros*/){
+	}
+	public function getNumeroExpediente(){
+	}
+	public function setNatalidad(){
+	}
+	public function setDefuncion(){
 	}
 }
 ?>

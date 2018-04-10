@@ -91,6 +91,14 @@ class Tratamiento{
 	}
 	public function eliminarViaSuministro(/*Parametros*/){
 	}
+	public function crear(/*Parametros*/){
+	}
+	public function listarTodos(/*Parametros*/){
+	}
+	public function eliminar(/*Parametros*/){
+	}
+	public function actualizar(/*Parametros*/){
+	}
 
 }
 ?>
