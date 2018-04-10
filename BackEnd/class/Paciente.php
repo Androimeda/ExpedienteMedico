@@ -89,6 +89,11 @@ class Paciente extends Persona{
 	}
 	public function eliminar(/*Parametros*/){
 	}
-
+	public function buscarPorNombre(/*Parametros*/){
+	}
+	public function buscarPorApellido(/*Parametros*/){
+	}
+	public function buscarPorNoIdentidad(/*Parametros*/){
+	}
 }
 ?>

@@ -45,6 +45,11 @@ class Paramedico extends Persona{
 	}
 	public function listarTodos(/*Parametros*/){
 	}
-
+	public function buscarPorNombre(/*Parametros*/){
+	}
+	public function buscarPorApellido(/*Parametros*/){
+	}
+	public function buscarPorNoIdentidad(/*Parametros*/){
+	}
 }
 ?>

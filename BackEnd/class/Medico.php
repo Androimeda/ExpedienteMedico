@@ -56,6 +56,11 @@ class Medico extends Persona{
 	}
 	public function listar(/*Parametros*/){
 	}
-
+	public function buscarPorNombre(/*Parametros*/){
+	}
+	public function buscarPorApellido(/*Parametros*/){
+	}
+	public function buscarPorNoIdentidad(/*Parametros*/){
+	}
 }
 ?>
