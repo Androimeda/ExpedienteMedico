@@ -1,69 +1,113 @@
 <?php
 class Persona{
-	private $p_nombre;
-	private $s_nombre;
-	private $p_apellido;
-	private $s_apellido;
-	private $no_identidad;
+	private $idPersona;
+	private $pNombre;
+	private $sNombre;
+	private $pApellido;
+	private $sApellido;
+	private $direccion;
+	private $noIdentidad;
+	private $sexo;
+	private $correo;
 
 	public function __construct(
-		$p_nombre = null,
-		$s_nombre = null,
-		$p_apellido = null,
-		$s_apellido = null,
-		$no_identidad = null
+		$idPersona = null,
+		$pNombre = null,
+		$sNombre = null,
+		$pApellido = null,
+		$sApellido = null,
+		$direccion = null,
+		$noIdentidad = null,
+		$sexo = null,
+		$correo = null
 	){
-		$this->p_nombre = $p_nombre;
-		$this->s_nombre = $s_nombre;
-		$this->p_apellido = $p_apellido;
-		$this->s_apellido = $s_apellido;
-		$this->no_identidad = $no_identidad;
+		$this->idPersona = $idPersona;
+		$this->pNombre = $pNombre;
+		$this->sNombre = $sNombre;
+		$this->pApellido = $pApellido;
+		$this->sApellido = $sApellido;
+		$this->direccion = $direccion;
+		$this->noIdentidad = $noIdentidad;
+		$this->sexo = $sexo;
+		$this->correo = $correo;
 	}
 
 	public function __toString(){
 		$var = "Persona{"
-		."p_nombre: ".$this->p_nombre." , "
-		."s_nombre: ".$this->s_nombre." , "
-		."p_apellido: ".$this->p_apellido." , "
-		."s_apellido: ".$this->s_apellido." , "
-		."no_identidad: ".$this->no_identidad;
+		."idPersona: ".$this->idPersona." , "
+		."pNombre: ".$this->pNombre." , "
+		."sNombre: ".$this->sNombre." , "
+		."pApellido: ".$this->pApellido." , "
+		."sApellido: ".$this->sApellido." , "
+		."direccion: ".$this->direccion." , "
+		."noIdentidad: ".$this->noIdentidad." , "
+		."sexo: ".$this->sexo." , "
+		."correo: ".$this->correo;
 		return $var."}";
 	}
 
-	public function getP_nombre(){
-		return $this->p_nombre;
+	public function getIdPersona(){
+		return $this->idPersona;
 	}
 
-	public function setP_nombre($p_nombre){
-		$this->p_nombre = $p_nombre;
+	public function setIdPersona($idPersona){
+		$this->idPersona = $idPersona;
 	}
-	public function getS_nombre(){
-		return $this->s_nombre;
-	}
-
-	public function setS_nombre($s_nombre){
-		$this->s_nombre = $s_nombre;
-	}
-	public function getP_apellido(){
-		return $this->p_apellido;
+	public function getPNombre(){
+		return $this->pNombre;
 	}
 
-	public function setP_apellido($p_apellido){
-		$this->p_apellido = $p_apellido;
+	public function setPNombre($pNombre){
+		$this->pNombre = $pNombre;
 	}
-	public function getS_apellido(){
-		return $this->s_apellido;
-	}
-
-	public function setS_apellido($s_apellido){
-		$this->s_apellido = $s_apellido;
-	}
-	public function getNo_identidad(){
-		return $this->no_identidad;
+	public function getSNombre(){
+		return $this->sNombre;
 	}
 
-	public function setNo_identidad($no_identidad){
-		$this->no_identidad = $no_identidad;
+	public function setSNombre($sNombre){
+		$this->sNombre = $sNombre;
+	}
+	public function getPApellido(){
+		return $this->pApellido;
+	}
+
+	public function setPApellido($pApellido){
+		$this->pApellido = $pApellido;
+	}
+	public function getSApellido(){
+		return $this->sApellido;
+	}
+
+	public function setSApellido($sApellido){
+		$this->sApellido = $sApellido;
+	}
+	public function getDireccion(){
+		return $this->direccion;
+	}
+
+	public function setDireccion($direccion){
+		$this->direccion = $direccion;
+	}
+	public function getNoIdentidad(){
+		return $this->noIdentidad;
+	}
+
+	public function setNoIdentidad($noIdentidad){
+		$this->noIdentidad = $noIdentidad;
+	}
+	public function getSexo(){
+		return $this->sexo;
+	}
+
+	public function setSexo($sexo){
+		$this->sexo = $sexo;
+	}
+	public function getCorreo(){
+		return $this->correo;
+	}
+
+	public function setCorreo($correo){
+		$this->correo = $correo;
 	}
 
 }
