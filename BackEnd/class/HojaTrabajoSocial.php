@@ -3,6 +3,7 @@ class HojaTrabajoSocial{
 	private $idTS;
 	private $descripcion;
 	private $idExpediente;
+	private $idCentroMedico;
 
 	public function __construct(
 		$idTS = null,
@@ -44,6 +45,14 @@ class HojaTrabajoSocial{
 		$this->idExpediente = $idExpediente;
 	}
 
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
+
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+
 	public function crear(/*Parametros*/){
 	}
 	public function listarTodos(/*Parametros*/){
@@ -54,6 +63,7 @@ class HojaTrabajoSocial{
 	}
 	public function eliminar(/*Parametros*/){
 	}
-
+	public function listarPorPaciente(){
+	}
 }
 ?>

@@ -3,19 +3,71 @@ Campos:
 	idTS
 	descripcion
 	idExpediente
+	idCentroMedico
 Métodos:
 	crear
-		IN
-		OUT
-	listarTodos
-		IN
-		OUT
-	listar
-		IN
-		OUT
+		IN {
+			descripcion: 'char',
+			idExpediente: int
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	
+	listarTodos /*Por centro*/
+		IN {idExpediente: int, idCentroMedico: int}
+		OUT [
+			{
+				idTS: int,,
+				descripcion: 'char',,
+				centroMedico: 'char',
+				tipoCentroMedico: 'char',
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				idTS: int,,
+				descripcion: 'char',,
+				centroMedico: 'char',
+				tipoCentroMedico: 'char',
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},
+		]
+	
+	listarPorPaciente
+		IN {idExpediente: int}
+		OUT	[
+			{
+				idTS: int,,
+				descripcion: 'char',,
+				centroMedico: 'char',
+				tipoCentroMedico: 'char',
+				fecha: 'date'
+			},{
+				idTS: int,,
+				descripcion: 'char',,
+				centroMedico: 'char',
+				tipoCentroMedico: 'char',
+				fecha: 'date'
+			},
+		]
+	
 	actualizar
 		IN
 		OUT
+	
 	eliminar
 		IN
 		OUT

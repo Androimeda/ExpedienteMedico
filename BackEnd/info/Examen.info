@@ -10,35 +10,157 @@ Campos:
 
 Métodos:
 	agregarTipoExamen
-		IN {idTipoExamen:'char', }
-		OUT
+		IN {descripcion: 'char'}
+		OUT {mensaje: 'char', resultado: bool}
 	listarTipoExamen
-		IN
-		OUT
-	eliminarTipoExamen
-		IN
-		OUT
+		IN {}
+		OUT [{idTipoExamen:'char', descripcion: 'char'},{idTipoExamen:'char', descripcion: 'char'}]
 	actualizarTipoExamen
-		IN
-		OUT
+		IN {idTipoExamen:'char', descripcion: 'char'}
+		OUT {mensaje: 'char', resultado: bool}
 	crear
-		IN
-		OUT
+		IN {
+			urlDocumento: 'char',
+			idTipo: int,
+			idCentroMedico: int,
+			observacion: 'char',
+			idExpediente: int,
+			fecha: 'date',
+		}
+		OUT {mensaje: 'char', resultado: bool}
+
 	listarTodos
-		IN
-		OUT
+		IN {}
+		OUT [
+			{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
+
 	eliminar
-		IN
-		OUT
+		IN {idExamen: int}
+		OUT {mensaje: 'char', resultado: bool}
+	
 	actualizar
 		IN
-		OUT
+		OUT {mensaje: 'char', resultado: bool}
+	
 	listarPorPaciente
-		IN
-		OUT
+		IN {idExpediente: int}
+		OUT [
+			{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date'
+			},{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date'
+			}
+		]
+
 	listarPorCentro
-		IN
-		OUT
-	listarPorTipo
-		IN
-		OUT
+		IN {idCentroMedico: int}
+		OUT [
+			{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
+
+	listarPorTipo # y Centro
+		IN {idTipo: int, idCentroMedico: int}
+		OUT [
+			{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				urlDocumento: 'char',
+				idTipo: int,
+				idCentroMedico: int,
+				observacion: 'char',
+				idExpediente: int,
+				fecha: 'date',
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
