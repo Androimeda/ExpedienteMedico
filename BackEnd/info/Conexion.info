@@ -1,38 +1,4 @@
-<?php
-class Conexion{
-	private $host;
-	private $db;
-	private $usuario;
-	private $pass;
-	private $link;
-	private $do=false;
 
-	public function __construct(
-		$host = "localhost",
-		$db = "XE",
-		$usuario = "EXPEDIENTE",
-		$pass = "asd.456",
-		$link = null
-	){
-		$this->host = $host;
-		$this->db = $db;
-		$this->usuario = $usuario;
-		$this->pass = $pass;
-    // Conexion con Oracle a tráves de OCI8
-    $this->link = oci_connect(
-      $this->usuario,
-      $this->pass,
-      $this->host.'/'.$this->db
-    );
-    // Comprueba la conexion
-    if (!$this->link) {
-      $e = oci_error();
-      echo "Error: ".$e["code"]."<br>";
-      echo "Mensaje: ".$e["message"]."<br>";
-    }else{
-      $this->do=true;
-    }
-	}
 
 	public function query($sql){
     if ($this->do) {
@@ -62,3 +28,24 @@ class Conexion{
   }
 }
 ?>
+Conexion
+Campos
+	host
+	db
+usuario
+	pass
+	link
+	do=false
+
+Métodos:
+	 query
+		IN 
+		OUT 
+
+	filas
+		IN {}
+		OUT 
+
+	close
+		IN 
+		OUT  

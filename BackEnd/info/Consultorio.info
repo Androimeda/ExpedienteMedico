@@ -1,52 +1,33 @@
-<?php
-class Consultorio{
-	private $idConsultorio;
-	private $idPiso;
+campos Consultorio:
+	idConsultorio
+	idPiso
 
-	public function __construct(
-		$idConsultorio = null,
-		$idPiso = null
-	){
-		$this->idConsultorio = $idConsultorio;
-		$this->idPiso = $idPiso;
-	}
 
-	public function __toString(){
-		$var = "Consultorio{"
-		."idConsultorio: ".$this->idConsultorio." , "
-		."idPiso: ".$this->idPiso;
-		return $var."}";
-	}
+	crear
+		IN  { idPiso:int}
+		OUT  {mensaje:'char', resultado: bool}
+	
+	listarPorPiso
+		IN  { idPiso:int}
+		OUT [{ idConsultorio:int,idPiso:int}]
+		
+	listarPorCentro
+		IN  { idCentroMedico:int}
+		OUT [{ idConsultorio:int,idPiso:int}]
 
-	public function getIdConsultorio(){
-		return $this->idConsultorio;
-	}
+	listarPorMedico
+		IN  { idMedico:int}
+		OUT [{ idConsultorio:int,idPiso:int}]
 
-	public function setIdConsultorio($idConsultorio){
-		$this->idConsultorio = $idConsultorio;
-	}
-	public function getIdPiso(){
-		return $this->idPiso;
-	}
+	actualizar
+		IN  { idConsultorio:int, idPiso:int}
+		OUT {mensaje:'char', resultado: bool}
+	
+	vincularMedico
+		IN  { idConsultorio:int, idPiso:int,idMedico:int}
+		OUT {mensaje:'char', resultado: bool}
+	
+	
+	/*desvincularMedico*/
+	
 
-	public function setIdPiso($idPiso){
-		$this->idPiso = $idPiso;
-	}
-
-	public function crear(/*Parametros*/){
-	}
-	public function listarPorPiso(/*Parametros*/){
-	}
-	public function listarPorCentro(/*Parametros*/){
-	}
-	public function listarPorMedico(/*Parametros*/){
-	}
-	public function actualizar(/*Parametros*/){
-	}
-	public function vincularMedico(/*Parametros*/){
-	}
-	public function desvincularMedico(/*Parametros*/){
-	}
-
-}
-?>
