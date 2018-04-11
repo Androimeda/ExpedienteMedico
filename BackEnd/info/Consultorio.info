@@ -1,91 +1,33 @@
-<<<<<<< Updated upstream
-<?php
-class Consultorio{
-	private $idConsultorio;
-	private $idPiso;
-=======
-<<<<<<< HEAD
 campos Consultorio:
 	idConsultorio
 	idPiso
->>>>>>> Stashed changes
 
-	public function __construct(
-		$idConsultorio = null,
-		$idPiso = null
-	){
-		$this->idConsultorio = $idConsultorio;
-		$this->idPiso = $idPiso;
-	}
 
-	public function __toString(){
-		$var = "Consultorio{"
-		."idConsultorio: ".$this->idConsultorio." , "
-		."idPiso: ".$this->idPiso;
-		return $var."}";
-	}
-
-	public function getIdConsultorio(){
-		return $this->idConsultorio;
-	}
-
-	public function setIdConsultorio($idConsultorio){
-		$this->idConsultorio = $idConsultorio;
-	}
-	public function getIdPiso(){
-		return $this->idPiso;
-	}
-
-<<<<<<< Updated upstream
-	public function setIdPiso($idPiso){
-		$this->idPiso = $idPiso;
-	}
-
-	public function crear(/*Parametros*/){
-	}
-	public function listarPorPiso(/*Parametros*/){
-	}
-	public function listarPorCentro(/*Parametros*/){
-	}
-	public function listarPorMedico(/*Parametros*/){
-	}
-	public function actualizar(/*Parametros*/){
-	}
-	public function vincularMedico(/*Parametros*/){
-	}
-	public function desvincularMedico(/*Parametros*/){
-	}
-
-}
-?>
-=======
-=======
-Consultorio
-Campos:
-	idConsultorio
-	idPiso
-
-Métodos:
 	crear
-		IN
-		OUT
+		IN  { idPiso:int}
+		OUT  {mensaje:'char', resultado: bool}
+	
 	listarPorPiso
-		IN
-		OUT
+		IN  { idPiso:int}
+		OUT [{ idConsultorio:int,idPiso:int}]
+		
 	listarPorCentro
-		IN
-		OUT
+		IN  { idCentroMedico:int}
+		OUT [{ idConsultorio:int,idPiso:int}]
+
 	listarPorMedico
-		IN
-		OUT
+		IN  { idMedico:int}
+		OUT [{ idConsultorio:int,idPiso:int}]
+
 	actualizar
-		IN
-		OUT
+		IN  { idConsultorio:int, idPiso:int}
+		OUT {mensaje:'char', resultado: bool}
+	
 	vincularMedico
-		IN
-		OUT
-	desvincularMedico
-		IN
-		OUT
->>>>>>> master
->>>>>>> Stashed changes
+		IN  { idConsultorio:int, idPiso:int,idMedico:int}
+		OUT {mensaje:'char', resultado: bool}
+	
+	
+	/*desvincularMedico*/--> borrar
+	
+

@@ -1,106 +1,37 @@
-<<<<<<< Updated upstream
-<?php
-class Edificio{
-	private $idEdificio;
-	private $nombre;
-	private $idCentroMedico;
-
-	public function __construct(
-		$idEdificio = null,
-		$nombre = null,
-		$idCentroMedico = null
-	){
-		$this->idEdificio = $idEdificio;
-		$this->nombre = $nombre;
-		$this->idCentroMedico = $idCentroMedico;
-	}
-
-	public function __toString(){
-		$var = "Edificio{"
-		."idEdificio: ".$this->idEdificio." , "
-		."nombre: ".$this->nombre." , "
-		."idCentroMedico: ".$this->idCentroMedico;
-		return $var."}";
-	}
-   
-	public function getIdEdificio(){
-		return $this->idEdificio;
-	}
-
-	public function setIdEdificio($idEdificio){
-		$this->idEdificio = $idEdificio;
-	}
-	public function getNombre(){
-		return $this->nombre;
-	}
-
-	public function setNombre($nombre){
-		$this->nombre = $nombre;
-	}
-	public function getIdCentroMedico(){
-		return $this->idCentroMedico;
-	}
-
-	public function setIdCentroMedico($idCentroMedico){
-		$this->idCentroMedico = $idCentroMedico;
-	}
-
-	public function crear(/*Parametros*/){
-	}
-	public function listarPorCentro(/*Parametros*/){
-	}
-	public function listar(/*Parametros*/){
-	}
-	public function actualizar(/*Parametros*/){
-	}
-	public function listarPiso(/*Parametros*/){
-	}
-	public function agregarPiso(/*Parametros*/){
-	}
-	public function eliminarPiso(/*Parametros*/){
-	}
-	public function actualizarPiso(/*Parametros*/){
-	}
-
-}
-?>
-=======
-Edificio
-Campos:
-	idEdificio
+campos Edificio:
+	dEdificio
 	nombre
 	idCentroMedico
-Métodos:
+
 	crear
-		IN
-		OUT
+		IN  { idEdificio:int, nombre: 'char', idCentroMedico: int}
+		OUT  {mensaje:'char', resultado: bool}
+	
 	listarPorCentro
-		IN
-		OUT
+		IN  {idCentroMedico:int}
+		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
+	
 	listar
-		IN
-		OUT
+		IN  {idEdificio:int}
+		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
+
 	actualizar
-		IN
-		OUT
+		IN  {idEdificio:int}
+		OUT  {mensaje:'char', resultado: bool}
+
 	listarPiso
-		IN
-		OUT
+		IN  {idpiso:int}
+		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
+
 	agregarPiso
-<<<<<<< Updated upstream
 		IN  {idEdificio:int,idPiso: int}
 		OUT  {mensaje:'char', resultado: bool}
 	
 	/*eliminarPiso*/
-	
-=======
-		IN
-		OUT
-	eliminarPiso
-		IN
-		OUT
->>>>>>> Stashed changes
+	/*eliminar Edificio*/
 	actualizarPiso
-		IN
-		OUT
->>>>>>> Stashed changes
+		IN  {idpiso:int}
+		OUT  {mensaje:'char', resultado: bool}
+
+	
+

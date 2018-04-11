@@ -1,19 +1,11 @@
 
-=======
-<<<<<<< HEAD
-
 Cirugia
 Campos:
-=======
-Cirugia
-Campos: 
->>>>>>> master
 	idCirugia
 	idIngreso
 	idTipoCirugia
 	idMedico
 	fechaHora
-<<<<<<< Updated upstream
 
 Métodos:
 
@@ -25,10 +17,10 @@ Métodos:
 				IN  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
 				OUT  {mensaje:'char', resultado: bool}
 	
-  eliminarTipoCirugia
+  /*eliminarTipoCirugia
 				IN  [{ idCirugia:int}]
 				OUT  {mensaje:'char', resultado: bool}
-	
+	*/
   actualizarTipoCirugia
 			IN  [{ idCirugia:int}]
 			OUT  {mensaje:'char', resultado: bool}
@@ -57,40 +49,3 @@ Métodos:
 			IN  [{idMedico: int, fechaHora: DATE}]
 			OUT  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
 
-=======
-Métodos: 
-	listarTipoCirugia
-		IN
-		OUT
-	agregarTipoCirugia
-		IN
-		OUT
-	eliminarTipoCirugia
-		IN
-		OUT
-	actualizarTipoCirugia
-		IN
-		OUT
-	agregar
-		IN
-		OUT
-	listarPorPaciente
-		IN
-		OUT
-	listarPorMedico
-		IN
-		OUT
-	listarPorHoy
-		IN
-		OUT
-	listarPorCentroMedico
-		IN
-		OUT
-	listarPorCentroFecha
-		IN
-		OUT
-	listarPorMedicoFecha
-		IN
-		OUT
->>>>>>> Stashed changes
->>>>>>> Stashed changes
