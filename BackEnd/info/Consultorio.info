@@ -28,6 +28,6 @@ campos Consultorio:
 		OUT {mensaje:'char', resultado: bool}
 	
 	
-	/*desvincularMedico*/
+	/*desvincularMedico*/--> borrar
 	
 

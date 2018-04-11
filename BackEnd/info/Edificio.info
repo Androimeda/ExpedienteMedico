@@ -28,7 +28,7 @@ campos Edificio:
 		OUT  {mensaje:'char', resultado: bool}
 	
 	/*eliminarPiso*/
-	
+	/*eliminar Edificio*/
 	actualizarPiso
 		IN  {idpiso:int}
 		OUT  {mensaje:'char', resultado: bool}

@@ -17,10 +17,10 @@ Métodos:
 				IN  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
 				OUT  {mensaje:'char', resultado: bool}
 	
-  eliminarTipoCirugia
+  /*eliminarTipoCirugia
 				IN  [{ idCirugia:int}]
 				OUT  {mensaje:'char', resultado: bool}
-	
+	*/
   actualizarTipoCirugia
 			IN  [{ idCirugia:int}]
 			OUT  {mensaje:'char', resultado: bool}
