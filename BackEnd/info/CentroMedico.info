@@ -7,17 +7,18 @@ Campos:
 
 Métodos:
 	crear
-		IN
-		OUT
+		IN { nombre:'char', direccion:'char',
+				idTipoCentro:int}
+		OUT [{ idCentroMedico:int, nombre:'char', direccion:'char',
+				idTipoCentro:int}]
 	listarTodos
-		IN
-		OUT
+		IN {}
+		OUT [{ idCentroMedico:int, nombre:'char', direccion:'char',
+				idTipoCentro:int}]
 	actualizar
-		IN
-		OUT
+		IN {idCentroMedico: int}
+		OUT  {mensaje:'char', resultado: bool}
 	eliminar
-		IN
-		OUT
-	listar
-		IN
-		OUT
+		IN {idCentroMedico: int}
+		OUT {mensaje:'char', resultado: bool}
+	

@@ -8,20 +8,29 @@ Campos:
 
 Métodos:
 	crear
-		IN
-		OUT
+		IN :{ observacion:'char', idParamedico:int,
+				idAmbulancia:int, idExpediente:int } 
+		OUT: {mensaje: 'char', resultado: bool}
+
 	listarPorPaciente
-		IN
-		OUT
+		IN [{idExpediente: int}]
+		OUT [{idAtencion: int, observacion:'char', idParamedico: int, idAmbulancia: int
+				,idExpediente: int}]
 	listarPorCentroMedico
-		IN
-		OUT
+			IN {idCentroMedico: int}
+		OUT [{idAtencion: int, observacion:'char', idParamedico: int, idAmbulancia: int
+				,idExpediente: int}]
 	listarPorParamedico
-		IN
-		OUT
+		IN {idParamedico: int}
+		OUT [{idAtencion: int, observacion:'char', idParamedico: int, idAmbulancia: int
+				,idExpediente: int}]
+
 	actualizar
-		IN
-		OUT
+		IN [{idAtencion: int}]
+		OUT  {mensaje:'char', resultado: bool}
+
 	eliminar
-		IN
-		OUT
+		IN [{idAtencion: int}]
+		OUT  {mensaje:'char', resultado: bool}
+			crear
+	

@@ -6,17 +6,22 @@ Campos:
 
 Métodos:
 	crear
-		IN
-		OUT
+		IN :{placa: 'char', id_centro_medico: 1} 
+		OUT: {mensaje: 'char', resultado: bool}
+
 	listarTodos
-		IN
-		OUT
+		IN: {}
+		OUT:[{idAmbulancia: int, placa:'char', idCentroMedico: int},
+				 {idAmbulancia: int, placa:'char', idCentroMedico: int}]
+		
 	actualizar
-		IN
-		OUT
+		IN {idAmbulancia: int ,placa: 'char', id_centro_medico: 1}
+		OUT {mensaje:'char', resultado: bool}
+
 	eliminar
-		IN
-		OUT
+		IN {idAmbulancia:int}
+		OUT {mensaje:'char', resultado: bool}
+
 	listarPorCentroMedico
-		IN
-		OUT
+		IN {}
+		OUT [{idAmbulancia: int, placa:'char', idCentroMedico: int}]
