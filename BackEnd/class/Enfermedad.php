@@ -46,11 +46,23 @@ class Enfermedad{
 
 	public function agregarTipoEnfermedad(/*Parametros*/){
 	}
-	public function eliminarTipoEnfermedad(/*Parametros*/){
-	}
 	public function listarTipoEnfermedad(/*Parametros*/){
 	}
 	public function actualizarTipoEnfermedad(/*Parametros*/){
+	}
+	public function listarTodos(/*Parametros*/){
+	}
+	public function listarPorTipo(/*Parametros*/){
+	}
+	public function crear(/*Parametros*/){
+	}
+	public function actualizar(/*Parametros*/){
+	}
+	public function listarPorPaciente(/*Parametros*/){
+	}
+	public function diagnosticarEnfermedad(/*Parametros*/){
+	}
+	public function quitarDiagnostico(/*Parametros*/){
 	}
 
 }

@@ -88,7 +88,7 @@ class Examen{
 		$this->fecha = $fecha;
 	}
 
-	public function addTipoExamen(/*Parametros*/){
+	public function agregarTipoExamen(/*Parametros*/){
 	}
 	public function listarTipoExamen(/*Parametros*/){
 	}
@@ -103,6 +103,12 @@ class Examen{
 	public function eliminar(/*Parametros*/){
 	}
 	public function actualizar(/*Parametros*/){
+	}
+	public function listarPorPaciente(/*Parametros*/){
+	}
+	public function listarPorCentro(/*Parametros*/){
+	}
+	public function listarPorTipo(/*Parametros*/){
 	}
 
 }

@@ -6,6 +6,7 @@ class Emergencia{
 	private $idExpediente;
 	private $idAtencion;
 	private $idCentroMedico;
+	private $idMedico;
 
 	public function __construct(
 		$idIngreso = null,
@@ -13,7 +14,8 @@ class Emergencia{
 		$fechaHoraAtencion = null,
 		$idExpediente = null,
 		$idAtencion = null,
-		$idCentroMedico = null
+		$idCentroMedico = null,
+		$idMedico = null
 	){
 		$this->idIngreso = $idIngreso;
 		$this->observacion = $observacion;
@@ -21,6 +23,7 @@ class Emergencia{
 		$this->idExpediente = $idExpediente;
 		$this->idAtencion = $idAtencion;
 		$this->idCentroMedico = $idCentroMedico;
+		$this->idMedico = $idMedico;
 	}
 
 	public function __toString(){
@@ -30,7 +33,8 @@ class Emergencia{
 		."fechaHoraAtencion: ".$this->fechaHoraAtencion." , "
 		."idExpediente: ".$this->idExpediente." , "
 		."idAtencion: ".$this->idAtencion." , "
-		."idCentroMedico: ".$this->idCentroMedico;
+		."idCentroMedico: ".$this->idCentroMedico." , "
+		."idMedico: ".$this->idMedico;
 		return $var."}";
 	}
 
@@ -76,6 +80,13 @@ class Emergencia{
 	public function setIdCentroMedico($idCentroMedico){
 		$this->idCentroMedico = $idCentroMedico;
 	}
+	public function getIdMedico(){
+		return $this->idMedico;
+	}
+
+	public function setIdMedico($idMedico){
+		$this->idMedico = $idMedico;
+	}
 
 	public function crear(/*Parametros*/){
 	}
@@ -86,6 +97,14 @@ class Emergencia{
 	public function listarPorCentroMedico(/*Parametros*/){
 	}
 	public function listarPorPaciente(/*Parametros*/){
+	}
+	public function listarPorMedico(/*Parametros*/){
+	}
+	public function listarPorHoy(/*Parametros*/){
+	}
+	public function listarPorCentroFecha(/*Parametros*/){
+	}
+	public function listarPorMedicoFecha(/*Parametros*/){
 	}
 
 }

@@ -80,9 +80,13 @@ class Cirugia{
 	}
 	public function listarPorMedico(/*Parametros*/){
 	}
-	public function listarDiarias(/*Parametros*/){
+	public function listarPorHoy(/*Parametros*/){
 	}
 	public function listarPorCentroMedico(/*Parametros*/){
+	}
+	public function listarPorCentroFecha(/*Parametros*/){
+	}
+	public function listarPorMedicoFecha(/*Parametros*/){
 	}
 
 }
