@@ -1,0 +1,23 @@
+CentroMedico
+Campos:
+	idCentroMedico
+	nombre
+	direccion
+	idTipoCentro
+
+Métodos:
+	crear
+		IN
+		OUT
+	listarTodos
+		IN
+		OUT
+	actualizar
+		IN
+		OUT
+	eliminar
+		IN
+		OUT
+	listar
+		IN
+		OUT

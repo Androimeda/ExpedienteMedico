@@ -1,0 +1,22 @@
+Ambulancia
+Campos: 
+	idAmbulancia
+	placa
+	idCentroMedico
+
+Métodos:
+	crear
+		IN
+		OUT
+	listarTodos
+		IN
+		OUT
+	actualizar
+		IN
+		OUT
+	eliminar
+		IN
+		OUT
+	listarPorCentroMedico
+		IN
+		OUT

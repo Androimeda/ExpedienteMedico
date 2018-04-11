@@ -1,0 +1,27 @@
+AtencionPreHospitalaria
+Campos:
+	idAtencion
+	observacion
+	idParamedico
+	idAmbulancia
+	idExpediente
+
+Métodos:
+	crear
+		IN
+		OUT
+	listarPorPaciente
+		IN
+		OUT
+	listarPorCentroMedico
+		IN
+		OUT
+	listarPorParamedico
+		IN
+		OUT
+	actualizar
+		IN
+		OUT
+	eliminar
+		IN
+		OUT

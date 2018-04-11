@@ -54,8 +54,6 @@ class Ambulancia{
 	}
 	public function listarPorCentroMedico(/*Parametros*/){
 	}
-	// public function buscarPorParamedico(/*Parametros*/){
-	// }
 
 }
 ?>
