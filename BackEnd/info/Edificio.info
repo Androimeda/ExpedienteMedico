@@ -1,37 +1,65 @@
-campos Edificio:
-	dEdificio
-	nombre
-	idCentroMedico
+<?php
+class Edificio{
+	private $idEdificio;
+	private $nombre;
+	private $idCentroMedico;
 
-	crear
-		IN  { idEdificio:int, nombre: 'char', idCentroMedico: int}
-		OUT  {mensaje:'char', resultado: bool}
-	
-	listarPorCentro
-		IN  {idCentroMedico:int}
-		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
-	
-	listar
-		IN  {idEdificio:int}
-		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
+	public function __construct(
+		$idEdificio = null,
+		$nombre = null,
+		$idCentroMedico = null
+	){
+		$this->idEdificio = $idEdificio;
+		$this->nombre = $nombre;
+		$this->idCentroMedico = $idCentroMedico;
+	}
 
-	actualizar
-		IN  {idEdificio:int}
-		OUT  {mensaje:'char', resultado: bool}
+	public function __toString(){
+		$var = "Edificio{"
+		."idEdificio: ".$this->idEdificio." , "
+		."nombre: ".$this->nombre." , "
+		."idCentroMedico: ".$this->idCentroMedico;
+		return $var."}";
+	}
 
-	listarPiso
-		IN  {idpiso:int}
-		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
+	public function getIdEdificio(){
+		return $this->idEdificio;
+	}
 
-	agregarPiso
-		IN  {idEdificio:int,idPiso: int}
-		OUT  {mensaje:'char', resultado: bool}
-	
-	/*eliminarPiso*/
-	
-	actualizarPiso
-		IN  {idpiso:int}
-		OUT  {mensaje:'char', resultado: bool}
+	public function setIdEdificio($idEdificio){
+		$this->idEdificio = $idEdificio;
+	}
+	public function getNombre(){
+		return $this->nombre;
+	}
 
-	
+	public function setNombre($nombre){
+		$this->nombre = $nombre;
+	}
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
 
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+
+	public function crear(/*Parametros*/){
+	}
+	public function listarPorCentro(/*Parametros*/){
+	}
+	public function listar(/*Parametros*/){
+	}
+	public function actualizar(/*Parametros*/){
+	}
+	public function listarPiso(/*Parametros*/){
+	}
+	public function agregarPiso(/*Parametros*/){
+	}
+	public function eliminarPiso(/*Parametros*/){
+	}
+	public function actualizarPiso(/*Parametros*/){
+	}
+
+}
+?>
