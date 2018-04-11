@@ -115,6 +115,8 @@ class Hospitalizacion{
 	}
 	public function eliminar(/*Parametros*/){
 	}
+	public function listarPorFecha(/*Parametros*/){
+	}
 
 }
 ?>

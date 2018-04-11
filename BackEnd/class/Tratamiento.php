@@ -79,7 +79,7 @@ class Tratamiento{
 
 	public function agregarTipoTratamiento(/*Parametros*/){
 	}
-	public function eliminarTipoTratamiento(/*Parametros*/){
+	public function actualizarTipoTratamiento(/*Parametros*/){
 	}
 	public function listarTipoTratamiento(/*Parametros*/){
 	}
@@ -98,6 +98,12 @@ class Tratamiento{
 	public function eliminar(/*Parametros*/){
 	}
 	public function actualizar(/*Parametros*/){
+	}
+	public function listarPorPaciente(/*Parametros*/){
+	}
+	public function recetar(/*Parametros*/){
+	}
+	public function borrarReceta(/*Parametros*/){
 	}
 
 }
