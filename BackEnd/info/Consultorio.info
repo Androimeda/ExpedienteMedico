@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 <?php
 class Consultorio{
 	private $idConsultorio;
 	private $idPiso;
+=======
+<<<<<<< HEAD
+campos Consultorio:
+	idConsultorio
+	idPiso
+>>>>>>> Stashed changes
 
 	public function __construct(
 		$idConsultorio = null,
@@ -29,6 +36,7 @@ class Consultorio{
 		return $this->idPiso;
 	}
 
+<<<<<<< Updated upstream
 	public function setIdPiso($idPiso){
 		$this->idPiso = $idPiso;
 	}
@@ -50,3 +58,34 @@ class Consultorio{
 
 }
 ?>
+=======
+=======
+Consultorio
+Campos:
+	idConsultorio
+	idPiso
+
+Métodos:
+	crear
+		IN
+		OUT
+	listarPorPiso
+		IN
+		OUT
+	listarPorCentro
+		IN
+		OUT
+	listarPorMedico
+		IN
+		OUT
+	actualizar
+		IN
+		OUT
+	vincularMedico
+		IN
+		OUT
+	desvincularMedico
+		IN
+		OUT
+>>>>>>> master
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 class Edificio{
 	private $idEdificio;
@@ -21,7 +22,7 @@ class Edificio{
 		."idCentroMedico: ".$this->idCentroMedico;
 		return $var."}";
 	}
-
+   
 	public function getIdEdificio(){
 		return $this->idEdificio;
 	}
@@ -63,3 +64,43 @@ class Edificio{
 
 }
 ?>
+=======
+Edificio
+Campos:
+	idEdificio
+	nombre
+	idCentroMedico
+Métodos:
+	crear
+		IN
+		OUT
+	listarPorCentro
+		IN
+		OUT
+	listar
+		IN
+		OUT
+	actualizar
+		IN
+		OUT
+	listarPiso
+		IN
+		OUT
+	agregarPiso
+<<<<<<< Updated upstream
+		IN  {idEdificio:int,idPiso: int}
+		OUT  {mensaje:'char', resultado: bool}
+	
+	/*eliminarPiso*/
+	
+=======
+		IN
+		OUT
+	eliminarPiso
+		IN
+		OUT
+>>>>>>> Stashed changes
+	actualizarPiso
+		IN
+		OUT
+>>>>>>> Stashed changes

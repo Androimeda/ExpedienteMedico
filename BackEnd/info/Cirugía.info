@@ -1,93 +1,96 @@
-<?php
-class Cirugia{
-	private $idCirugia;
-	private $idIngreso;
-	private $idTipoCirugia;
-	private $idMedico;
-	private $fechaHora;
 
-	public function __construct(
-		$idCirugia = null,
-		$idIngreso = null,
-		$idTipoCirugia = null,
-		$idMedico = null,
-		$fechaHora = null
-	){
-		$this->idCirugia = $idCirugia;
-		$this->idIngreso = $idIngreso;
-		$this->idTipoCirugia = $idTipoCirugia;
-		$this->idMedico = $idMedico;
-		$this->fechaHora = $fechaHora;
-	}
+=======
+<<<<<<< HEAD
 
-	public function __toString(){
-		$var = "Cirugia{"
-		."idCirugia: ".$this->idCirugia." , "
-		."idIngreso: ".$this->idIngreso." , "
-		."idTipoCirugia: ".$this->idTipoCirugia." , "
-		."idMedico: ".$this->idMedico." , "
-		."fechaHora: ".$this->fechaHora;
-		return $var."}";
-	}
+Cirugia
+Campos:
+=======
+Cirugia
+Campos: 
+>>>>>>> master
+	idCirugia
+	idIngreso
+	idTipoCirugia
+	idMedico
+	fechaHora
+<<<<<<< Updated upstream
 
-	public function getIdCirugia(){
-		return $this->idCirugia;
-	}
+Métodos:
 
-	public function setIdCirugia($idCirugia){
-		$this->idCirugia = $idCirugia;
-	}
-	public function getIdIngreso(){
-		return $this->idIngreso;
-	}
+	
+  listarTipoCirugia
+				IN {}
+				OUT [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
+  agregarTipoCirugia
+				IN  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
+				OUT  {mensaje:'char', resultado: bool}
+	
+  eliminarTipoCirugia
+				IN  [{ idCirugia:int}]
+				OUT  {mensaje:'char', resultado: bool}
+	
+  actualizarTipoCirugia
+			IN  [{ idCirugia:int}]
+			OUT  {mensaje:'char', resultado: bool}
+	
+  listarPorPaciente
+			IN  [{ idExpediente:int}]
+			OUT  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
 
-	public function setIdIngreso($idIngreso){
-		$this->idIngreso = $idIngreso;
-	}
-	public function getIdTipoCirugia(){
-		return $this->idTipoCirugia;
-	}
+  listarPorMedico
+			IN  [{ idMedico:int}]
+			OUT  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
+	
+  listarPorHoy
+			IN  [{fechaHora: DATE}]
+			OUT  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
+	
+  listarPorCentroMedico
+			IN  [{idCentroMedico: int}]
+			OUT  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
+	
+  listarPorCentroFecha
+			IN  [{idCentroMedico: int, fechaHora: DATE}]
+			OUT  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
 
-	public function setIdTipoCirugia($idTipoCirugia){
-		$this->idTipoCirugia = $idTipoCirugia;
-	}
-	public function getIdMedico(){
-		return $this->idMedico;
-	}
+  listarPorMedicoFecha
+			IN  [{idMedico: int, fechaHora: DATE}]
+			OUT  [{ idCirugia:int,idIngreso:int,idTipoCirugia:int, idMedico:int, fechaHora: DATE}]
 
-	public function setIdMedico($idMedico){
-		$this->idMedico = $idMedico;
-	}
-	public function getFechaHora(){
-		return $this->fechaHora;
-	}
-
-	public function setFechaHora($fechaHora){
-		$this->fechaHora = $fechaHora;
-	}
-
-	public function listarTipoCirugia(/*Parametros*/){
-	}
-	public function agregarTipoCirugia(/*Parametros*/){
-	}
-	public function eliminarTipoCirugia(/*Parametros*/){
-	}
-	public function actualizarTipoCirugia(/*Parametros*/){
-	}
-	public function agregar(/*Parametros*/){
-	}
-	public function listarPorPaciente(/*Parametros*/){
-	}
-	public function listarPorMedico(/*Parametros*/){
-	}
-	public function listarPorHoy(/*Parametros*/){
-	}
-	public function listarPorCentroMedico(/*Parametros*/){
-	}
-	public function listarPorCentroFecha(/*Parametros*/){
-	}
-	public function listarPorMedicoFecha(/*Parametros*/){
-	}
-
-}
-?>
+=======
+Métodos: 
+	listarTipoCirugia
+		IN
+		OUT
+	agregarTipoCirugia
+		IN
+		OUT
+	eliminarTipoCirugia
+		IN
+		OUT
+	actualizarTipoCirugia
+		IN
+		OUT
+	agregar
+		IN
+		OUT
+	listarPorPaciente
+		IN
+		OUT
+	listarPorMedico
+		IN
+		OUT
+	listarPorHoy
+		IN
+		OUT
+	listarPorCentroMedico
+		IN
+		OUT
+	listarPorCentroFecha
+		IN
+		OUT
+	listarPorMedicoFecha
+		IN
+		OUT
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
