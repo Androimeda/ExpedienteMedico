@@ -101,11 +101,11 @@ class ConsultaExterna{
 
 	public function crear(/*Parametros*/){
 	}
-	public function listarPorPaciente(/*Parametros*/){
-	}
 	public function actualizar(/*Parametros*/){
 	}
 	public function eliminar(/*Parametros*/){
+	}
+	public function listarPorPaciente(/*Parametros*/){
 	}
 	public function listarPorHoy(/*Parametros*/){
 	}

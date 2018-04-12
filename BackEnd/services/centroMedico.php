@@ -4,16 +4,25 @@
 	if(isset($_POST['accion'])){
 		$conexion = new Conexion();
 		switch ($_POST['accion']) {
-			// case '':
-			// 	$response['result'] = '';
-			// break;
+			case 'crear':
+				$response['result'] = '';
+			break;
+			case 'listarTodos':
+				$response['result'] = '';
+			break;
+			case 'actualizar':
+				$response['result'] = '';
+			break;
+			case 'eliminar':
+				$response['result'] = '';
+			break;
 			default:
 				$response['status']=false;
 				$response['code']=404;
 				$response['message']='Petición no reconocida [404]';
 			break;
 		}
-		$conexion->cerrarConexion();
+		$conexion->close();
 		$response['status']=true;
 		$response['message']='OK [200]';
 		$response['code']=200;

@@ -1,4 +1,3 @@
-
 Cirugia
 Campos:
 	idCirugia
@@ -27,6 +26,15 @@ Métodos:
 			IN  { idTipoCirugia: int, tipoCirugia: 'char'}
 			OUT {mensaje:'char', resultado: bool}
 	
+	agregar
+		IN {
+			idIngreso: int,
+			idTipoCirugia: int,
+			idMedico: int,
+			fechaHora: 'char',
+		}
+		OUT {mensaje:'char', resultado: bool}
+
   listarPorPaciente
 			IN  {idExpediente:int}
 			OUT  [

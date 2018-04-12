@@ -63,8 +63,6 @@ class CentroMedico{
 	}
 	public function eliminar(/*Parametros*/){
 	}
-	public function listar(/*Parametros*/){
-	}
 
 }
 ?>

@@ -70,8 +70,6 @@ class Cirugia{
 	}
 	public function agregarTipoCirugia(/*Parametros*/){
 	}
-	public function eliminarTipoCirugia(/*Parametros*/){
-	}
 	public function actualizarTipoCirugia(/*Parametros*/){
 	}
 	public function agregar(/*Parametros*/){
