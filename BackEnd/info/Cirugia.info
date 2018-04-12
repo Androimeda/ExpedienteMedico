@@ -1,0 +1,271 @@
+
+Cirugia
+Campos:
+	idCirugia
+	idIngreso
+	idTipoCirugia
+	idMedico
+	fechaHora
+
+Métodos:
+
+	
+  listarTipoCirugia
+				IN {}
+				OUT [{
+					idTipoCirugia: int,
+					tipoCirugia: 'char'
+				}]
+
+  agregarTipoCirugia
+				IN  {
+					tipoCirugia: 'char'
+				}
+				OUT  {mensaje:'char', resultado: bool}
+
+  actualizarTipoCirugia
+			IN  { idTipoCirugia: int, tipoCirugia: 'char'}
+			OUT {mensaje:'char', resultado: bool}
+	
+  listarPorPaciente
+			IN  {idExpediente:int}
+			OUT  [
+				{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				},{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				}
+			]
+  listarPorMedico
+			IN  { idMedico:int, idCentroMedico: int}
+			OUT  [
+				{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				},{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				}
+			]
+  listarPorHoy
+			IN  {fechaHora: 'date', idCentroMedico: int}
+			OUT  [
+				{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				},{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				}
+			]
+
+	
+  listarPorCentroMedico
+			IN  {idCentroMedico: int}
+			OUT  [
+				{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				},{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				}
+			]
+
+	
+  listarPorCentroFecha
+			IN  {idCentroMedico: int, fechaHora: 'date'}
+			OUT  [
+				{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				},{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				}
+			]
+
+
+  listarPorMedicoFecha
+			IN  {idCentroMedico: int, idMedico: int, fechaHora: 'date'}
+			OUT  [
+				{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				},{
+					idCirugia:int,
+					idIngreso:int,
+					idTipoCirugia:int,
+					tipoCirugia: 'char',
+					idMedico:int,
+					medico: 'char',
+					idPaciente: int,
+					paciente: {
+						pNombre: 'char'
+						sNombre: 'char'
+						pApellido: 'char'
+						sApellido: 'char',
+						noIdentidad: 'int',
+						sexo: (F|M)
+					}
+					fechaHora: 'date'
+				}
+			]
+
+

@@ -1,5 +1,5 @@
 campos Consulta:
-	dConsulta
+	idConsulta
 	idConsultorio
 	idExpediente
 	idMedico
@@ -10,18 +10,19 @@ campos Consulta:
 
 
 	crear
-		IN  { idConsultorio:int,idExpediente:int,idMedico:int, fechaHora: DATE, sintomas:'char',
-				diagnostico:'char',observacion:'char'}
+		IN  {
+			idConsultorio:int,
+			idExpediente:int,
+			idMedico:int,
+			fechaHora: 'date',
+			sintomas:'char',
+			diagnostico:'char',
+			observacion:'char'
+		}
 		OUT  {mensaje:'char', resultado: bool}
-	
-	listarPorPaciente
-		IN  {}
-		OUT [{ idConsultorio:int,idExpediente:int,idMedico:int, fechaHora: DATE, sintomas:'char',
-				diagnostico:'char',observacion:'char'}]
 
-	
 	actualizar
-			IN  { idConsulta:int,idExpediente:int,idMedico:int, fechaHora: DATE, sintomas:'char',
+			IN  { idConsulta:int,idExpediente:int,idMedico:int, fechaHora: 'date', sintomas:'char',
 				diagnostico:'char',observacion:'char'}
 			OUT  {mensaje:'char', resultado: bool}
 	
@@ -29,24 +30,190 @@ campos Consulta:
 			IN  [{ idConsulta:int}]
 			OUT  {mensaje:'char', resultado: bool}
 
+	listarPorPaciente
+		IN  {}
+		OUT [
+			{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			},{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			}
+		]
+	
 	listarPorHoy
-			IN  {fechaHora:DATE}
-			OUT [{ idConsulta: int,idConsultorio:int,idExpediente:int,idMedico:int, fechaHora: DATE, sintomas:'char',
-				diagnostico:'char',observacion:'char'}]	
-
+			IN  {fechaHora:'date'}
+		OUT [
+			{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			},{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			}
+		]
 	listarPorCentroMedico
 			IN  {idCentroMedico: int}
-			OUT [{ idConsulta: int,idConsultorio:int,idExpediente:int,idMedico:int, fechaHora: DATE, sintomas:'char',
-				diagnostico:'char',observacion:'char'}]	
-
+		OUT [
+			{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			},{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			}
+		]
 	listarPorMedico
-			IN  {idMedico: int}
-			OUT [{idConsulta: int, idConsultorio:int,idExpediente:int,idMedico:int, fechaHora: DATE, sintomas:'char',
-				diagnostico:'char',observacion:'char'}]	
-	
+			IN  {idCentroMedico:int, idMedico: int}
+		OUT [
+			{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			},{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			}
+		]	
 	listarPorConsultorio
 			IN  {idConsultorio: int}
-			OUT [{idConsulta: int, idConsultorio:int,idExpediente:int,idMedico:int, fechaHora: DATE, sintomas:'char',
-				diagnostico:'char',observacion:'char'}]	
-
+		OUT [
+			{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			},{
+				idConsultorio:int,
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+				idMedico:int,
+				fechaHora: 'date',
+				sintomas:'char',
+				diagnostico:'char',
+				observacion:'char'
+			}
+		]
 

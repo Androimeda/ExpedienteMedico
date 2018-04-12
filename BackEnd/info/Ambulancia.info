@@ -6,7 +6,7 @@ Campos:
 
 Métodos:
 	crear
-		IN :{placa: 'char', id_centro_medico: 1} 
+		IN :{placa: 'char', idCentroMedico: idCentroMedico} 
 		OUT: {mensaje: 'char', resultado: bool}
 
 	listarTodos
@@ -15,7 +15,7 @@ Métodos:
 				 {idCentroMedico: int, centroMedico: 'char', idAmbulancia: int, placa:'char', idCentroMedico: int}]
 		
 	actualizar
-		IN {idAmbulancia: int ,placa: 'char', id_centro_medico: 1}
+		IN {idAmbulancia: int ,placa: 'char', idCentroMedico: int}
 		OUT {mensaje:'char', resultado: bool}
 
 	eliminar

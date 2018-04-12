@@ -9,15 +9,17 @@ Métodos:
 	crear
 		IN { nombre:'char', direccion:'char',
 				idTipoCentro:int}
-		OUT [{ idCentroMedico:int, nombre:'char', direccion:'char',
-				idTipoCentro:int}]
+
+		OUT {mensaje: 'char', resultado: bool}
 	listarTodos
 		IN {}
 		OUT [{ idCentroMedico:int, nombre:'char', direccion:'char',
-				idTipoCentro:int}]
+				idTipoCentro:int, tipoCentro: 'char'}]
+	
 	actualizar
 		IN {idCentroMedico: int}
 		OUT  {mensaje:'char', resultado: bool}
+	
 	eliminar
 		IN {idCentroMedico: int}
 		OUT {mensaje:'char', resultado: bool}

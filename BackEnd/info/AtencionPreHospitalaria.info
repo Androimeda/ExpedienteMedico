@@ -13,24 +13,74 @@ Métodos:
 		OUT: {mensaje: 'char', resultado: bool}
 
 	listarPorPaciente
-		IN [{idExpediente: int}]
-		OUT [{idAtencion: int, observacion:'char', idParamedico: int, idAmbulancia: int
-				,idExpediente: int}]
+		IN {idExpediente: int}
+		OUT [
+			{
+				idAtencion: int,
+				observacion:'char',
+				idParamedico: int,
+				paramedico: 'char',
+				idAmbulancia: int,
+				idExpediente: int
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
 	listarPorCentroMedico
 			IN {idCentroMedico: int}
-		OUT [{idAtencion: int, observacion:'char', idParamedico: int, idAmbulancia: int
-				,idExpediente: int}]
+		OUT [
+			{
+				idAtencion: int,
+				observacion:'char',
+				idParamedico: int,
+				paramedico: 'char',
+				idAmbulancia: int,
+				idExpediente: int
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
+
+	
 	listarPorParamedico
 		IN {idParamedico: int}
-		OUT [{idAtencion: int, observacion:'char', idParamedico: int, idAmbulancia: int
-				,idExpediente: int}]
+		OUT [
+			{
+				idAtencion: int,
+				observacion:'char',
+				idParamedico: int,
+				paramedico: 'char',
+				idAmbulancia: int,
+				idExpediente: int
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
+
 
 	actualizar
 		IN [{idAtencion: int}]
-		OUT  {mensaje:'char', resultado: bool}
+		OUT {mensaje: 'char', resultado: bool}
 
 	eliminar
 		IN [{idAtencion: int}]
-		OUT  {mensaje:'char', resultado: bool}
-			crear
+		OUT {mensaje: 'char', resultado: bool}
 	

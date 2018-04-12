@@ -1,5 +1,5 @@
 campos Edificio:
-	dEdificio
+	idEdificio
 	nombre
 	idCentroMedico
 
@@ -24,7 +24,7 @@ campos Edificio:
 		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
 
 	agregarPiso
-		IN  {idEdificio:int,idPiso: int}
+		IN  {idEdificio:int,descripcion: 'char'}
 		OUT  {mensaje:'char', resultado: bool}
 	
 	/*eliminarPiso*/
