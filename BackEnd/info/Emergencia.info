@@ -9,29 +9,248 @@ Campos:
 	idMedico
 Métodos:
 	crear
-		IN
-		OUT
+		IN {
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idExpediente: int,
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	eliminar
-		IN
-		OUT
+		IN {idIngreso: int}
+		OUT {mensaje: 'char', resultado: bool}
 	actualizar
-		IN
-		OUT
+		IN {
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idExpediente: int,
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	listarPorCentroMedico
-		IN
-		OUT
+		IN {idCentroMedico: int}
+		OUT [
+			{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		},{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		}
+		]
 	listarPorPaciente
-		IN
-		OUT
+		IN {idPaciente: int}
+		OUT [
+			{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		},{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		}
+		]
 	listarPorMedico
-		IN
-		OUT
+		IN {idCentroMedico: int, idMedico: int}
+		OUT [
+			{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		},{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		}
+		]
 	listarPorHoy
-		IN
-		OUT
+		IN {idCentroMedico: int}
+		OUT [
+			{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		},{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		}
+		]
 	listarPorCentroFecha
-		IN
-		OUT
+		IN {idCentroMedico: int, fechaHoraAtencion: 'date'}
+		OUT [
+			{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		},{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		}
+		]
 	listarPorMedicoFecha
-		IN
-		OUT
+		IN {idCentroMedico: int, idMedico: int, fechaHoraAtencion: 'date'}
+		OUT [
+			{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		},{
+			idIngreso: int,
+			observacion: 'char',
+			fechaHoraAtencion: 'date',
+			idAtencion: int,
+			idCentroMedico: int,
+			idMedico: int,
+			idExpediente: int,
+			paciente: {
+				pNombre: 'char'
+				sNombre: 'char'
+				pApellido: 'char'
+				sApellido: 'char',
+				noIdentidad: 'int',
+				sexo: (F|M)
+			}
+		}
+		]

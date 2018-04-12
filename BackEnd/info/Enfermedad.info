@@ -3,14 +3,106 @@ Campos:
 	idEnfermedad
 	enfermedad
 	idTipoEnfermedad
+Métodos
+	agregarTipoEnfermedad
+		IN {tipoEnfermedad: 'char'}
+		OUT {mensaje: 'char', resultado: bool}
+	listarTipoEnfermedad
+		IN {}
+		OUT {
+			idTipoEnfermedad: int,
+			tipoEnfermedad: 'char'
+		}
+	actualizarTipoEnfermedad
+		IN {
+			idTipoEnfermedad: int,
+			tipoEnfermedad: 'char'
+		}
+		OUT {idTipoEnfermedad: int, tipoEnfermedad: 'char'}
+	listarTodos
+		IN {}
+		OUT [
+			{
+				idEnfermedad: int,
+				idTipoEnfermedad: int,
+				tipoEnfermedad: 'char',
+				enfermedad: 'char'
+			},{
+				idEnfermedad: int,
+				idTipoEnfermedad: int,
+				tipoEnfermedad: 'char',
+				enfermedad: 'char'
+			}
+		]
+	listarPorTipo
+		IN {idTipoEnfermedad: int}
+		OUT [
+			{
+				idEnfermedad: int,
+				idTipoEnfermedad: int,
+				tipoEnfermedad: 'char',
+				enfermedad: 'char'
+			},{
+				idEnfermedad: int,
+				idTipoEnfermedad: int,
+				tipoEnfermedad: 'char',
+				enfermedad: 'char'
+			}
+		]
+	crear
+		IN {
+			enfermedad: 'char',
+			idTipoEnfermedad: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	actualizar
+		IN {
+			idEnfermedad: int,
+			enfermedad: 'char',
+			idTipoEnfermedad: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	listarPorPaciente
+		IN {idPaciente: int}
+		OUT [
+			{
+				idEnfermedad: int,
+				idTipoEnfermedad: int,
+				tipoEnfermedad: 'char',
+				enfermedad: 'char'
+				idMedico: int,
+				medico: 'char',
+				estado: bool,
+				fechaDiagnostico: 'date',
+				idConsulta: int	
+			},{
+				idEnfermedad: int,
+				idTipoEnfermedad: int,
+				tipoEnfermedad: 'char',
+				enfermedad: 'char'
+				idMedico: int,
+				medico: 'char',
+				estado: bool,
+				fechaDiagnostico: 'date',
+				idConsulta: int	
+			}
+		]
 
-agregarTipoEnfermedad
-listarTipoEnfermedad
-actualizarTipoEnfermedad
-listarTodos
-listarPorTipo
-crear
-actualizar
-listarPorPaciente
-diagnosticarEnfermedad
-quitarDiagnostico
+	diagnosticarEnfermedad
+		IN {
+			idEnfermedad: int,
+			idMedico: int,
+			estado: 1,
+			fechaDiagnostico: 'date',
+			idExpediente: int,
+			idConsulta: int
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	
+	quitarDiagnostico
+		IN {
+			idEnfermedad: int,
+			idExpediente: int,
+			idConsulta: int
+		}
+		OUT {mensaje: 'char', resultado: bool}
