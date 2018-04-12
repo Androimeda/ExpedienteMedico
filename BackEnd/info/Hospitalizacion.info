@@ -10,29 +10,271 @@ Campos:
 	idExpediente
 Método:
 	crear
-		IN
-		OUT
+		IN {
+			observacion: 'char',
+			fechaHoraIngreso: 'date',
+			fechaHoraAlta: 'date',
+			idPiso: int,
+			cama: 'char',
+			idMedico: int,
+			idExpediente: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	listarPorCentro
-		IN
-		OUT
+		IN {idCentroMedico: int}
+		OUT [
+			{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				},{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
 	listarPorPaciente
-		IN
-		OUT
+		IN {idExpediente: int}
+		OUT [
+			{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				},{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
 	listarPorMedico
-		IN
-		OUT
+		IN {idMedico: int}
+		OUT [
+			{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				},{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
 	listarPorPiso
-		IN
-		OUT
+		IN {idPiso: int}
+		OUT [
+			{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				},{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
 	darAlta
-		IN
+		IN {idIngreso: int, fechaHoraAlta: 'date'}
 		OUT
 	actualizar
-		IN
-		OUT
+		IN {
+				idIngreso int, 
+				observacion 'char', 
+				fechaHoraIngreso 'date', 
+				fechaHoraAlta 'date', 
+				idPiso int,
+				cama 'char', 
+				idMedico int, 
+				idExpediente int, 
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	eliminar
-		IN
-		OUT
+		IN {idIngreso: int}
+		OUT {mensaje: 'char', resultado: bool}
 	listarPorFecha
-		IN
-		OUT
+		IN {idCentroMedico: int, fechaHoraIngreso: 'date'}
+		OUT [
+			{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				},{
+				idIngreso: int,
+				observacion: 'char',
+				fechaHoraIngreso: 'date',
+				fechaHoraAlta: 'date',
+				centroMedico: 'char',
+				tipoCentro: 'char',
+				edificio: 'char',
+				sala: 'char', /*Piso*/
+				cama: 'char',
+				idMedico: int,
+				medico: 'char',
+				especialidad: 'char',
+				idExpediente: int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]

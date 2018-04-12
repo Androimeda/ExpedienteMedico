@@ -87,6 +87,13 @@ class Referencia{
 	}
 	public function actualizar(/*Parametros*/){
 	}
-
+	public function listarPorPaciente(/*Parametros*/){
+	}
+	public function listarPorCentroRemite(/*Parametros*/){
+	}
+	public function listarRecibidas(/*Parametros*/){
+	}
+	public function listarPorMedico(/*Parametros*/){
+	}
 }
 ?>

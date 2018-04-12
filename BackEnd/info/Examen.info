@@ -39,6 +39,7 @@ Métodos:
 				observacion: 'char',
 				idExpediente: int,
 				fecha: 'date',
+				idExpediente: int,
 				paciente: {
 					pNombre: 'char'
 					sNombre: 'char'
@@ -54,6 +55,7 @@ Métodos:
 				observacion: 'char',
 				idExpediente: int,
 				fecha: 'date',
+				idExpediente: int,
 				paciente: {
 					pNombre: 'char'
 					sNombre: 'char'
@@ -103,6 +105,7 @@ Métodos:
 				observacion: 'char',
 				idExpediente: int,
 				fecha: 'date',
+				idExpediente: int,
 				paciente: {
 					pNombre: 'char'
 					sNombre: 'char'
@@ -118,6 +121,7 @@ Métodos:
 				observacion: 'char',
 				idExpediente: int,
 				fecha: 'date',
+				idExpediente: int,
 				paciente: {
 					pNombre: 'char'
 					sNombre: 'char'
@@ -139,6 +143,7 @@ Métodos:
 				observacion: 'char',
 				idExpediente: int,
 				fecha: 'date',
+				idExpediente: int,
 				paciente: {
 					pNombre: 'char'
 					sNombre: 'char'
@@ -154,6 +159,7 @@ Métodos:
 				observacion: 'char',
 				idExpediente: int,
 				fecha: 'date',
+				idExpediente: int,
 				paciente: {
 					pNombre: 'char'
 					sNombre: 'char'

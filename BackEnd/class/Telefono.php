@@ -57,7 +57,9 @@ class Telefono{
 
 	public function crear(/*Parametros*/){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarPorPersona(/*Parametros*/){
+	}
+	public function listarPorCentroMedico(/*Parametros*/){
 	}
 	public function agregarPersona(/*Parametros*/){
 	}
@@ -74,8 +76,6 @@ class Telefono{
 	public function agregarTipoTelefono(/*Parametros*/){
 	}
 	public function listarTipoTelefono(/*Parametros*/){
-	}
-	public function eliminarTipoTelefono(/*Parametros*/){
 	}
 	public function actualizarTipoTelefono(/*Parametros*/){
 	}

@@ -8,17 +8,172 @@ Campos:
 	idCentroMedicoRecibe
 Métodos:
 	crear
-		IN
-		OUT
-	listar
-		IN
-		OUT
-	listarTodos
-		IN
-		OUT
+		IN {
+			descripcion:'char',
+			idMedico:int,
+			idExpediente:int,
+			idCentroMedicoRemite:int,
+			idCentroMedicoRecibe:int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	eliminar
-		IN
-		OUT
+		IN {idReferencia: int}
+		OUT {mensaje: 'char', resultado: bool}
 	actualizar
-		IN
-		OUT
+		IN {
+			idReferencia: int,
+			descripcion:'char',
+			idMedico:int,
+			idExpediente:int,
+			idCentroMedicoRemite:int,
+			idCentroMedicoRecibe:int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	listarPorPaciente
+		IN {}
+		OUT[
+			{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
+	listarPorCentroRemite
+		IN {idCentroMedicoRemite: int}
+		OUT[
+			{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
+	listarRecibidas
+		IN {idCentroMedicoRecibe: int}
+		OUT[
+			{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]
+	listarPorMedico
+		IN {idCentroMedicoRemite: int,idMedico:int}
+		OUT[
+			{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			},{
+				descripcion:'char',
+				idMedico:int,
+				centroMedicoRemite:'char',
+				tipoCentroRemite: 'char',
+				centroMedicoRecibe:'char',
+				tipoCentroRecibe: 'char'
+				idExpediente:int,
+				paciente: {
+					pNombre: 'char'
+					sNombre: 'char'
+					pApellido: 'char'
+					sApellido: 'char',
+					noIdentidad: 'int',
+					sexo: (F|M)
+				}
+			}
+		]

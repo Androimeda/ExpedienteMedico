@@ -65,9 +65,14 @@ Métodos:
 		]
 	
 	actualizar
-		IN
-		OUT
+		IN {	
+			idTS:int,
+			descripcion:'char',
+			idExpediente:int,
+			idCentroMedico:int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	
 	eliminar
-		IN
-		OUT
+		IN {idTS: int}
+		OUT {mensaje: 'char', resultado: bool}

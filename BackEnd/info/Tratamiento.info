@@ -6,46 +6,124 @@ Campos:
 	fechaInicio
 	duracionTratamiento
 	idTipoTratamiento
+	idViaSuministro
 Métodos:
 	agregarTipoTratamiento
-		IN
-		OUT
+		IN {tipoTratamiento: 'char'}
+		OUT {mensaje: 'char', resultado: bool}
 	actualizarTipoTratamiento
-		IN
-		OUT
+		IN {
+			idTipoTratamiento: int,
+			tipoTratamiento: 'char'
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	listarTipoTratamiento
-		IN
-		OUT
+		IN {}
+		OUT {
+			idTipoTratamiento: int,
+			tipoTratamiento: 'char'
+		}
 	listarViaSuministro
-		IN
-		OUT
+		IN {}
+		OUT {
+			idViaSuministro: int,
+			viaSuministro: 'char'
+		}
 	agregarViaSuministro
-		IN
-		OUT
+		IN {viaSuministro: 'char'}
+		OUT {mensaje: 'char', resultado: bool}
 	actualizarViaSuministro
-		IN
-		OUT
-	eliminarViaSuministro
-		IN
-		OUT
+		IN {
+			idViaSuministro: int,
+			viaSuministro: 'char'
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	crear
-		IN
+		IN {
+			dosis: 'char',
+			intervaloTiempo: 'char',
+			fechaInicio: 'date',
+			duracionTratamiento: 'char',
+			idTipoTratamiento: int,
+			idViaSuministro: int,
+
+		}
 		OUT
 	listarTodos
-		IN
-		OUT
-	eliminar
-		IN
-		OUT
+		IN {}
+		OUT [
+			{
+				idTratamiento: int, 
+				dosis: 'char', 
+				intervaloTiempo: 'char', 
+				fechaInicio: 'char', 
+				duracionTratamiento: 'char', 
+				idTipoTratamiento: int,
+				tipoTratamiento: 'char',
+				idViaSuministro: int,
+				viaSuministro: 'char'
+			},{
+				idTratamiento: int, 
+				dosis: 'char', 
+				intervaloTiempo: 'char', 
+				fechaInicio: 'char', 
+				duracionTratamiento: 'char', 
+				idTipoTratamiento: int,
+				tipoTratamiento: 'char',
+				idViaSuministro: int,
+				viaSuministro: 'char'
+			}
+
+		]
 	actualizar
-		IN
-		OUT
+		IN {
+			idTratamiento: int,
+			dosis: 'char',
+			intervaloTiempo: 'char',
+			fechaInicio: 'date',
+			duracionTratamiento: 'char',
+			idTipoTratamiento: int,
+			idViaSuministro: int,
+
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	listarPorPaciente
-		IN
-		OUT
+		IN {idPaciente: int}
+		OUT [
+			{
+				idTratamiento: int, 
+				dosis: 'char', 
+				intervaloTiempo: 'char', 
+				fechaInicio: 'char', 
+				duracionTratamiento: 'char', 
+				idTipoTratamiento: int,
+				tipoTratamiento: 'char',
+				idViaSuministro: int,
+				viaSuministro: 'char'
+			},{
+				idTratamiento: int, 
+				dosis: 'char', 
+				intervaloTiempo: 'char', 
+				fechaInicio: 'char', 
+				duracionTratamiento: 'char', 
+				idTipoTratamiento: int,
+				tipoTratamiento: 'char',
+				idViaSuministro: int,
+				viaSuministro: 'char'
+			}
+
+		]
 	recetar
-		IN
-		OUT
+		IN {
+			idTratamiento: int,
+			idConsulta: int,
+			idMedico: int
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	borrarReceta
-		IN
-		OUT
+		IN {
+			idTratamiento: int,
+			idConsulta: int,
+			idMedico: int
+		}
+		OUT {mensaje: 'char', resultado: bool}

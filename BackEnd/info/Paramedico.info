@@ -4,26 +4,163 @@ Campos:
 	licencia
 Métodos:
 	crear
-		IN
-		OUT
+		IN {
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			direccion: 'char',
+			sexo: (F|M),
+			noIdentidad: 'char',
+			correo: 'char'
+			idPais: int,
+			licencia; 'char',
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	eliminar
-		IN
-		OUT
+		IN {idParamedico: int}
+		OUT {mensaje: 'char', resultado: bool}
 	actualizar
-		IN
+		IN {
+			direccion: 'char',
+			correo: 'char'
+			licencia; 'char',
+		}
 		OUT
 	listar
-		IN
-		OUT
-	listarTodos
-		IN
-		OUT
+		IN {idParamedico}
+		OUT {
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		}
+	listarTodos /*Por Centro*/
+		IN {idCentroMedico: int}
+		OUT [
+			{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		},{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		}
+		]
 	buscarPorNombre
-		IN
-		OUT
+		IN {
+			pNombre: 'char',
+			sNombre: 'char'
+		}
+		OUT [
+			{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		},{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		}
+		]
 	buscarPorApellido
-		IN
-		OUT
+		IN{
+			pApellido: 'char',
+			sApellido: 'char',
+		}
+		OUT [
+			{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		},{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		}
+		]
 	buscarPorNoIdentidad
-		IN
-		OUT
+		IN {noIdentidad: 'char'}
+		OUT [
+			{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		},{
+			idParamedico: int,
+			licencia: 'char',
+			idPersona: int,
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			noIdentidad: 'char',
+			pais: 'char',
+			sexo: (F|M),
+			correo: 'char'
+		}
+		]

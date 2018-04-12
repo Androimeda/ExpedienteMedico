@@ -6,6 +6,7 @@ class Tratamiento{
 	private $fechaInicio;
 	private $duracionTratamiento;
 	private $idTipoTratamiento;
+	private $idViaSuministro;
 
 	public function __construct(
 		$idTratamiento = null,
@@ -13,7 +14,8 @@ class Tratamiento{
 		$intervaloTiempo = null,
 		$fechaInicio = null,
 		$duracionTratamiento = null,
-		$idTipoTratamiento = null
+		$idTipoTratamiento = null,
+		$idViaSuministro =null
 	){
 		$this->idTratamiento = $idTratamiento;
 		$this->dosis = $dosis;
@@ -21,6 +23,7 @@ class Tratamiento{
 		$this->fechaInicio = $fechaInicio;
 		$this->duracionTratamiento = $duracionTratamiento;
 		$this->idTipoTratamiento = $idTipoTratamiento;
+		$this->idViaSuministro = $idViaSuministro;
 	}
 
 	public function __toString(){
@@ -30,6 +33,7 @@ class Tratamiento{
 		."intervaloTiempo: ".$this->intervaloTiempo." , "
 		."fechaInicio: ".$this->fechaInicio." , "
 		."duracionTratamiento: ".$this->duracionTratamiento." , "
+		."idViaSuministro: ".$this->idViaSuministro." , "
 		."idTipoTratamiento: ".$this->idTipoTratamiento;
 		return $var."}";
 	}
@@ -75,6 +79,13 @@ class Tratamiento{
 
 	public function setIdTipoTratamiento($idTipoTratamiento){
 		$this->idTipoTratamiento = $idTipoTratamiento;
+	}
+	public function getIdViaSuministro(){
+		return $this->IdViaSuministro;
+	}
+
+	public function setIdViaSuministro($IdViaSuministro){
+		$this->IdViaSuministro = $IdViaSuministro;
 	}
 
 	public function agregarTipoTratamiento(/*Parametros*/){

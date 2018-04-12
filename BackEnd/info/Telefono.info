@@ -5,39 +5,117 @@ Campos:
 	idTipoTelefono
 	idPais
 Métodos:
-	crear
-		IN
-		OUT
-	listarTodos
-		IN
-		OUT
+	
+	listarPorPersona
+		IN {idPersona: int}
+		OUT [
+			{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			},{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			}
+		]
+	
+	listarPorCentroMedico
+		IN {idCentroMedico: int}
+		OUT [
+			{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			},{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			}
+		]
+	
 	agregarPersona
-		IN
-		OUT
+		IN {
+			idPersona: int,
+			telefono: 'char',
+			idTipoTelefono: int,
+			idPais: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	
 	agregarCentro
-		IN
-		OUT
+		IN {
+			idCentroMedico: int,
+			telefono: 'char',
+			idTipoTelefono: int,
+			idPais: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	
 	buscarPorPersona
-		IN
-		OUT
+		IN {
+			noIdentidad: 'char',
+			pNombre: 'char',,
+			pApellido: 'char'
+		}
+		OUT [
+			{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			},{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			}
+		]
+	
 	buscarPorCentro
-		IN
-		OUT
+		IN {nombreCentro: 'char'}
+		OUT [
+			{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			},{
+			idTelefono: int,
+			telefono: 'char',
+			tipoTelefono: 'char',
+			codigoArea: 'char'
+			}
+		]
+	
 	eliminarDePersona
-		IN
-		OUT
+		IN {idPersona: int, idTelefono:int}
+		OUT {mensaje: 'char', resultado: bool}
+	
 	eliminarDeCentro
-		IN
-		OUT
+		IN {idCentroMedico: int, idTelefono:int}
+		OUT {mensaje: 'char', resultado: bool}
+	
 	agregarTipoTelefono
-		IN
-		OUT
+		IN {
+			tipoTelefono: 'char'
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	
 	listarTipoTelefono
-		IN
-		OUT
-	eliminarTipoTelefono
-		IN
-		OUT
+		IN {}
+		OUT {
+			idTelefono: int,
+			tipoTelefono: 'char'
+		}
+	
 	actualizarTipoTelefono
-		IN
-		OUT
+		IN {
+			idTelefono: int,
+			tipoTelefono: 'char'
+		}
+		OUT {mensaje: 'char', resultado: bool}

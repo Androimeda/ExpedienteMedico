@@ -11,8 +11,8 @@ Métodos:
 
 	listarTodos
 		IN: {}
-		OUT:[{idAmbulancia: int, placa:'char', idCentroMedico: int},
-				 {idAmbulancia: int, placa:'char', idCentroMedico: int}]
+		OUT:[{idCentroMedico: int, centroMedico: 'char', idAmbulancia: int, placa:'char', idCentroMedico: int},
+				 {idCentroMedico: int, centroMedico: 'char', idAmbulancia: int, placa:'char', idCentroMedico: int}]
 		
 	actualizar
 		IN {idAmbulancia: int ,placa: 'char', id_centro_medico: 1}
@@ -24,4 +24,4 @@ Métodos:
 
 	listarPorCentroMedico
 		IN {}
-		OUT [{idAmbulancia: int, placa:'char', idCentroMedico: int}]
+		OUT [{idAmbulancia: int, placa:'char', idCentroMedico: int, centroMedico: 'char'}]

@@ -5,26 +5,175 @@ Campos:
 	idMedico
 Métodos:
 	crear
-		IN
-		OUT
-	listarTodos
-		IN
-		OUT
+		IN {
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			direccion: 'char',
+			sexo: (F|M),
+			noIdentidad: 'char',
+			idPais: int,
+			idEspecialidad; 'char',
+			noColegiacion: 'char',
+			correo: 'char'
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	listarTodos /*Por Centro*/
+		IN {idCentroMedico: int}
+		OUT [
+			{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			},{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			}
+		]
 	eliminar
-		IN
-		OUT
+		IN {idMedico: int}
+		OUT {mensaje: 'char', resultado: bool}
 	actualizar
-		IN
-		OUT
+		IN {
+			direccion: 'char',
+			idEspecialidad; 'char',
+			noColegiacion: 'char',
+			correo: 'char'
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	listar
-		IN
-		OUT
+		IN {idMedico: int}
+		OUT 
+			{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			}
 	buscarPorNombre
-		IN
-		OUT
+		IN {
+			pNombre: 'char',
+			sNombre: 'char'
+		}
+		OUT [
+			{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			},{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			}
+		]
 	buscarPorApellido
-		IN
-		OUT
+		IN{
+			pApellido: 'char',
+			sApellido: 'char',
+		}
+		OUT [
+			{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			},{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			}
+		]
 	buscarPorNoIdentidad
-		IN
-		OUT
+		IN {noIdentidad: 'char'}
+		OUT [
+			{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			},{
+				idMedico: int,
+				noColegiacion: 'char',
+				idPersona: int,
+				pNombre: 'char',
+				sNombre: 'char',
+				pApellido: 'char',
+				sApellido: 'char',
+				noIdentidad: 'char',
+				pais: 'char',
+				sexo: (F|M),
+				correo: 'char',
+				especialidad: 'char'
+			}
+		]

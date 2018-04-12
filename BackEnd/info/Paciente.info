@@ -8,26 +8,269 @@ Campos:
 	idAscendencia
 Métodos
 	crear
-		IN
-		OUT
+		IN {
+			pNombre: 'char',
+			sNombre: 'char',
+			pApellido: 'char',
+			sApellido: 'char',
+			direccion: 'char',
+			noIdentidad: 'char',
+			idPais: int,
+			sexo: (F|M),
+			correo: 'char',
+			idTipoSangre: int,
+			idEscolaridad: int,
+			idOcupacion: int,
+			idEstadoCivil: int,
+			idAscendencia: int
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	listar
-		IN
-		OUT
+		IN {idPaciente: int}
+		OUT{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		}
 	listarTodos
-		IN
-		OUT
+		IN {}
+		OUT[
+			{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		},{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		}
+		]
 	actualizar
-		IN
-		OUT
+		IN {
+			idPaciente: int,
+			direccion: 'char',
+			correo: 'char',
+			idEscolaridad: int,
+			idOcupacion: int,
+			idEstadoCivil: int,
+		}
+		OUT {mensaje: 'char', resultado: bool}
 	eliminar
-		IN
-		OUT
+		IN {idPaciente: int}
+		OUT {mensaje: 'char', resultado: bool}
 	buscarPorNombre
-		IN
-		OUT
+		IN {
+			pNombre: 'char',
+			sNombre: 'char'
+		}
+		OUT [
+			{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		},{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		}
+		]
 	buscarPorApellido
-		IN
-		OUT
+		IN{
+			pApellido: 'char',
+			sApellido: 'char',
+		}
+		OUT [
+			{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		},{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		}
+		]
 	buscarPorNoIdentidad
-		IN
-		OUT
+		IN {noIdentidad: 'char'}
+		OUT [
+			{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		},{
+			idPersona: int,
+  		idPaciente: int,
+  		pNombre: 'char',
+  		sNombre: 'char',
+  		pApellido: 'char',
+  		sApellido: 'char',
+  		noIdentidad: 'char',
+  		fechaNac: 'char',
+  		idMadre: int,
+  		idPadre: int,
+  		direccion: 'char',
+  		ascendencia: 'char',
+  		nacionalidad: 'char',
+  		sexo: 'char',
+  		correo: 'char',
+  		estadoCivil: 'char',
+  		grupoSanguineo: 'char',
+  		factorRh: 'char',
+  		escolaridad: 'char',
+  		ocupacion: 'char',
+  		idExpediente: int,
+  		fechaExpedient: 'date'
+		}
+		]
