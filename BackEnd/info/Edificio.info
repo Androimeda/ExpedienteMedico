@@ -16,7 +16,7 @@ campos Edificio:
 		OUT  [{ idEdificio:int, nombre: 'char', idCentroMedico: int}]
 
 	actualizar
-		IN  {idEdificio:int}
+		IN  {idEdificio:int, nombre: 'char'}
 		OUT  {mensaje:'char', resultado: bool}
 
 	listarPiso
