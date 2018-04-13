@@ -5,7 +5,6 @@ Campos:
 	idTipoTelefono
 	idPais
 Métodos:
-	
 	listarPorPersona
 		IN {idPersona: int}
 		OUT [

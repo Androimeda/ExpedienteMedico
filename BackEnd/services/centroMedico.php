@@ -5,16 +5,16 @@
 		$conexion = new Conexion();
 		switch ($_POST['accion']) {
 			case 'crear':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarTodos':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'actualizar':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'eliminar':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			default:
 				$response['status']=false;

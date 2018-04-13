@@ -96,11 +96,11 @@ class Paciente extends Persona{
 	}
 	public function buscarPorNoIdentidad(/*Parametros*/){
 	}
-	public function getNumeroExpediente(){
+	public function getNumeroExpediente(/*Parametros*/){
 	}
-	public function setNatalidad(){
+	public function setNatalidad(/*Parametros*/){
 	}
-	public function setDefuncion(){
+	public function setDefuncion(/*Parametros*/){
 	}
 }
 ?>

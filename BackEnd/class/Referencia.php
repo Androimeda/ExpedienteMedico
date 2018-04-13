@@ -79,13 +79,13 @@ class Referencia{
 
 	public function crear(/*Parametros*/){
 	}
-	public function listar(/*Parametros*/){
-	}
-	public function listarTodos(/*Parametros*/){
-	}
 	public function eliminar(/*Parametros*/){
 	}
 	public function actualizar(/*Parametros*/){
+	}
+	public function listar(/*Parametros*/){
+	}
+	public function listarTodos(/*Parametros*/){
 	}
 	public function listarPorPaciente(/*Parametros*/){
 	}

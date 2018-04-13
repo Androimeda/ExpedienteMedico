@@ -55,8 +55,6 @@ class Telefono{
 		$this->idPais = $idPais;
 	}
 
-	public function crear(/*Parametros*/){
-	}
 	public function listarPorPersona(/*Parametros*/){
 	}
 	public function listarPorCentroMedico(/*Parametros*/){

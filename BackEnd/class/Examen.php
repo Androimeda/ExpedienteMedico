@@ -92,8 +92,6 @@ class Examen{
 	}
 	public function listarTipoExamen(/*Parametros*/){
 	}
-	public function eliminarTipoExamen(/*Parametros*/){
-	}
 	public function actualizarTipoExamen(/*Parametros*/){
 	}
 	public function crear(/*Parametros*/){

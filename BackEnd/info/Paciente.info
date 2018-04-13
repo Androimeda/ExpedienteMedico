@@ -274,3 +274,28 @@ Métodos
   		fechaExpedient: 'date'
 		}
 		]
+
+	getNumeroExpediente
+		IN {idPaciente: int, idPersona: int}
+		OUT {
+			idExpediente: int
+		}
+	
+	setNatalidad
+		IN {
+			idPaciente: int,
+			fechaHora: 'date',
+			ordenPartoMultiple: int,
+			idCentroMedico: int,
+			idPadre: int,
+			idMadre: int
+		}
+		OUT {mensaje: 'char', resultado: bool}
+	
+	setDefuncion
+		IN {
+			idPaciente: int
+			observavionCausa: 'char',
+			fechaHora: 'date'
+		}
+		OUT {mensaje: 'char', resultado: bool}

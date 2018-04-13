@@ -57,8 +57,6 @@ class HojaTrabajoSocial{
 	}
 	public function listarTodos(/*Parametros*/){
 	}
-	public function listar(/*Parametros*/){
-	}
 	public function actualizar(/*Parametros*/){
 	}
 	public function eliminar(/*Parametros*/){

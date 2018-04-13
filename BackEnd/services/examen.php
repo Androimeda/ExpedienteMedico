@@ -4,9 +4,36 @@
 	if(isset($_POST['accion'])){
 		$conexion = new Conexion();
 		switch ($_POST['accion']) {
-			// case '':
-			// 	$response['result'] = '';
-			// break;
+			case 'agregarTipoExamen':
+				$response['result'] = null;
+			break;
+			case 'listarTipoExamen':
+				$response['result'] = null;
+			break;
+			case 'actualizarTipoExamen':
+				$response['result'] = null;
+			break;
+			case 'crear':
+				$response['result'] = null;
+			break;
+			case 'listarTodos':
+				$response['result'] = null;
+			break;
+			case 'eliminar':
+				$response['result'] = null;
+			break;
+			case 'actualizar':
+				$response['result'] = null;
+			break;
+			case 'listarPorPaciente':
+				$response['result'] = null;
+			break;
+			case 'listarPorCentro':
+				$response['result'] = null;
+			break;
+			case 'listarPorTipo':
+				$response['result'] = null;
+			break;
 			default:
 				$response['status']=false;
 				$response['code']=404;

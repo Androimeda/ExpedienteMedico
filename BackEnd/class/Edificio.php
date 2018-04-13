@@ -56,8 +56,6 @@ class Edificio{
 	}
 	public function agregarPiso(/*Parametros*/){
 	}
-	public function eliminarPiso(/*Parametros*/){
-	}
 	public function actualizarPiso(/*Parametros*/){
 	}
 

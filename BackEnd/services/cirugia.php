@@ -5,34 +5,34 @@
 		$conexion = new Conexion();
 		switch ($_POST['accion']) {
 			case 'listarTipoCirugia':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'agregarTipoCirugia':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'actualizarTipoCirugia':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'agregar':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorPaciente':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorMedico':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorHoy':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorCentroMedico':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorCentroFecha':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorMedicoFecha':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			default:
 				$response['status']=false;

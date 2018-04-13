@@ -4,9 +4,27 @@
 	if(isset($_POST['accion'])){
 		$conexion = new Conexion();
 		switch ($_POST['accion']) {
-			// case '':
-			// 	$response['result'] = '';
-			// break;
+			case 'crear':
+				$response['result'] = null;
+			break;
+			case 'listarPorCentro':
+				$response['result'] = null;
+			break;
+			case 'listar':
+				$response['result'] = null;
+			break;
+			case 'actualizar':
+				$response['result'] = null;
+			break;
+			case 'listarPiso':
+				$response['result'] = null;
+			break;
+			case 'agregarPiso':
+				$response['result'] = null;
+			break;
+			case 'actualizarPiso':
+				$response['result'] = null;
+			break;
 			default:
 				$response['status']=false;
 				$response['code']=404;

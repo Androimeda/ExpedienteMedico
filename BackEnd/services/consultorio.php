@@ -5,22 +5,22 @@
 		$conexion = new Conexion();
 		switch ($_POST['accion']) {
 			case 'crear':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorPiso':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorCentro':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'listarPorMedico':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'actualizar':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			case 'vincularMedico':
-				$response['result'] = '';
+				$response['result'] = null;
 			break;
 			default:
 				$response['status']=false;
