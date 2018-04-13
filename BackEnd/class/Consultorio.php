@@ -45,8 +45,6 @@ class Consultorio{
 	}
 	public function vincularMedico(/*Parametros*/){
 	}
-	public function desvincularMedico(/*Parametros*/){
-	}
 
 }
 ?>

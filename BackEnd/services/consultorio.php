@@ -4,9 +4,24 @@
 	if(isset($_POST['accion'])){
 		$conexion = new Conexion();
 		switch ($_POST['accion']) {
-			// case '':
-			// 	$response['result'] = '';
-			// break;
+			case 'crear':
+				$response['result'] = '';
+			break;
+			case 'listarPorPiso':
+				$response['result'] = '';
+			break;
+			case 'listarPorCentro':
+				$response['result'] = '';
+			break;
+			case 'listarPorMedico':
+				$response['result'] = '';
+			break;
+			case 'actualizar':
+				$response['result'] = '';
+			break;
+			case 'vincularMedico':
+				$response['result'] = '';
+			break;
 			default:
 				$response['status']=false;
 				$response['code']=404;
