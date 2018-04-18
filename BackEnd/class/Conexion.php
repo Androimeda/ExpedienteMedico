@@ -37,7 +37,6 @@ class Conexion{
 	public function query($sql){
     if ($this->do) {
       $query = oci_parse($this->link, $sql);
-      oci_execute($query);
       return $query;
     }else{
       return null;
@@ -45,6 +44,7 @@ class Conexion{
 	}
 
   public function filas($query){
+    oci_execute($query);
     $registros = [];
     if($this->do){
       while($registro = oci_fetch_array($query, OCI_ASSOC + OCI_RETURN_NULLS)){

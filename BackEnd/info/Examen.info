@@ -72,7 +72,15 @@ Métodos:
 		OUT {mensaje: 'char', resultado: bool}
 	
 	actualizar
-		IN
+		IN {
+			idExamen: int,
+			urlDocumento: 'char',
+			idTipo: int,
+			idCentroMedico: int,
+			observacion: 'char',
+			idExpediente: int,
+			fecha: 'date'
+		}
 		OUT {mensaje: 'char', resultado: bool}
 	
 	listarPorPaciente

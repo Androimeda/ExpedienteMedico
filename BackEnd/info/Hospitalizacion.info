@@ -214,7 +214,7 @@ Método:
 		]
 	darAlta
 		IN {idIngreso: int, fechaHoraAlta: 'date'}
-		OUT
+		OUT {mensaje: 'char', resultado: bool}
 	actualizar
 		IN {
 				idIngreso int, 

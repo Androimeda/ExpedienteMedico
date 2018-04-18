@@ -50,11 +50,9 @@ Métodos:
 				especialidad: 'char'
 			}
 		]
-	eliminar
-		IN {idMedico: int}
-		OUT {mensaje: 'char', resultado: bool}
 	actualizar
 		IN {
+			idMedico: int,
 			direccion: 'char',
 			idEspecialidad; 'char',
 			noColegiacion: 'char',

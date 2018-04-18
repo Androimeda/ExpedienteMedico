@@ -4,7 +4,7 @@ campos Edificio:
 	idCentroMedico
 
 	crear
-		IN  { idEdificio:int, nombre: 'char', idCentroMedico: int}
+		IN  { nombre: 'char', idCentroMedico: int}
 		OUT  {mensaje:'char', resultado: bool}
 	
 	listarPorCentro
@@ -28,7 +28,7 @@ campos Edificio:
 		OUT  {mensaje:'char', resultado: bool}
 	
 	actualizarPiso
-		IN  {idpiso:int}
+		IN  {idpiso:int, descripcion: 'char', idEdificio: int}
 		OUT  {mensaje:'char', resultado: bool}
 
 	

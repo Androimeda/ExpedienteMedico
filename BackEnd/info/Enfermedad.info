@@ -59,7 +59,7 @@ Métodos
 		IN {
 			idEnfermedad: int,
 			enfermedad: 'char',
-			idTipoEnfermedad: int,
+			idTipoEnfermedad: int
 		}
 		OUT {mensaje: 'char', resultado: bool}
 	listarPorPaciente
@@ -92,7 +92,6 @@ Métodos
 		IN {
 			idEnfermedad: int,
 			idMedico: int,
-			estado: 1,
 			fechaDiagnostico: 'date',
 			idExpediente: int,
 			idConsulta: int

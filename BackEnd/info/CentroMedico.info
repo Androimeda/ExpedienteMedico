@@ -19,8 +19,4 @@ Métodos:
 	actualizar
 		IN {idCentroMedico: int}
 		OUT  {mensaje:'char', resultado: bool}
-	
-	eliminar
-		IN {idCentroMedico: int}
-		OUT {mensaje:'char', resultado: bool}
-	
+		

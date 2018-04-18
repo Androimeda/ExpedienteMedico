@@ -26,7 +26,7 @@ Métodos:
 			IN  { idTipoCirugia: int, tipoCirugia: 'char'}
 			OUT {mensaje:'char', resultado: bool}
 	
-	agregar
+	agregarCirugia
 		IN {
 			idIngreso: int,
 			idTipoCirugia: int,
@@ -34,6 +34,10 @@ Métodos:
 			fechaHora: 'char',
 		}
 		OUT {mensaje:'char', resultado: bool}
+
+actualizarCirugia:
+	IN
+	OUT 
 
   listarPorPaciente
 			IN  {idExpediente:int}
