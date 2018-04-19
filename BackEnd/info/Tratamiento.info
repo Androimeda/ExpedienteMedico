@@ -38,6 +38,7 @@ Métodos:
 			viaSuministro: 'char'
 		}
 		OUT {mensaje: 'char', resultado: bool}
+	
 	crear
 		IN {
 			dosis: 'char',
@@ -46,7 +47,6 @@ Métodos:
 			duracionTratamiento: 'char',
 			idTipoTratamiento: int,
 			idViaSuministro: int,
-
 		}
 		OUT
 	listarTodos

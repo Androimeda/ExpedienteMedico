@@ -26,7 +26,7 @@ Métodos:
 			correo: 'char'
 			licencia; 'char',
 		}
-		OUT
+		OUT {mensaje: 'char', resultado: bool}
 	listar
 		IN {idParamedico}
 		OUT {
