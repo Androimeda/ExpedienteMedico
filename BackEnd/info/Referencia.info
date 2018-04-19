@@ -9,6 +9,7 @@ Campos:
 Métodos:
 	crear
 		IN {
+			idReferencia: int,
 			descripcion:'char',
 			idMedico:int,
 			idExpediente:int,
@@ -22,6 +23,7 @@ Métodos:
 	actualizar
 		IN {
 			idReferencia: int,
+			idReferencia: int,
 			descripcion:'char',
 			idMedico:int,
 			idExpediente:int,
@@ -30,9 +32,10 @@ Métodos:
 		}
 		OUT {mensaje: 'char', resultado: bool}
 	listarPorPaciente
-		IN {}
+		IN {idPaciente: INTEGER}
 		OUT[
 			{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',
@@ -49,6 +52,7 @@ Métodos:
 					sexo: (F|M)
 				}
 			},{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',
@@ -70,6 +74,7 @@ Métodos:
 		IN {idCentroMedicoRemite: int}
 		OUT[
 			{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',
@@ -86,6 +91,7 @@ Métodos:
 					sexo: (F|M)
 				}
 			},{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',
@@ -107,6 +113,7 @@ Métodos:
 		IN {idCentroMedicoRecibe: int}
 		OUT[
 			{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',
@@ -123,6 +130,7 @@ Métodos:
 					sexo: (F|M)
 				}
 			},{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',
@@ -144,6 +152,7 @@ Métodos:
 		IN {idCentroMedicoRemite: int,idMedico:int}
 		OUT[
 			{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',
@@ -160,6 +169,7 @@ Métodos:
 					sexo: (F|M)
 				}
 			},{
+				idReferencia: int,
 				descripcion:'char',
 				idMedico:int,
 				centroMedicoRemite:'char',

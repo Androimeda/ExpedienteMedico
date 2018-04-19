@@ -116,7 +116,7 @@ Método:
 				}
 			}
 		]
-	listarPorMedico
+	listarPorMedico //por Centro
 		IN {idMedico: int}
 		OUT [
 			{
