@@ -1,0 +1,21 @@
+
+/**********************************************************
+	ANTES DE EJECUTAR LOS SCRIPTS POR FAVOR 
+	SIGA PASOS:
+**********************************************************/
+
+
+1. Abra la conexión SYSTEM del RDMS Oracle (Se recomienda usar SQLDeveloper)
+ y una nueva hoja de trabajo de SQL
+
+2. Ejecute el SCRIPT contenido en el archivo "01-CREATE_USER.sql"
+ usando el usuario SYSTEM
+
+3. Crear una nueva conexion con SQLDeveloper con los siguientes datos
+	Usuario: EXPEDIENTE
+	Contraseña: asd.456
+
+4. Abrir la conexión al usuario EXPEDIENTE y ejecutar en la hoja de trabajo correspondiente los scripts 02, 03 y 04
+
+
+			
