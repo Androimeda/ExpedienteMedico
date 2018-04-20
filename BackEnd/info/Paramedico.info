@@ -22,6 +22,7 @@ Métodos:
 		OUT {mensaje: 'char', resultado: bool}
 	actualizar
 		IN {
+			idParamedico: int,
 			direccion: 'char',
 			correo: 'char'
 			licencia; 'char',

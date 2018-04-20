@@ -7,6 +7,7 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarAmbulancia(
 )
 IS
 --DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -26,4 +27,36 @@ BEGIN
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
 
+  /*Verificacion de ambulancias*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM AMBULANCIA
+  WHERE ID_AMBULANCIA = idAmbulancia
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe idAmbulancia';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CENTROMEDICO
+  WHERE ID_CENTRO_MEDICO = idCentroMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe idCentroMedico';
+    RETURN;
+  END IF;
+
+  UPDATE AMBULANCIA
+  SET
+  AMBULANCIA.placa = placa,
+  ID_CENTRO_MEDICO=idCentroMedico
+  WHERE ID_AMBULANCIA=idAmbulancia;
+
+  COMMIT;
+  mensaje:='Actualizada satisfactoriamente';
+  resultado:=1;
 END;
