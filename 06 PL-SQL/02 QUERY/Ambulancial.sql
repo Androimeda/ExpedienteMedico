@@ -1,40 +1,27 @@
-------------------------- VISTA AMBULANCIA ------------------------
-CREATE OR REPLACE VIEW vistaAmbulancia
-AS
-SELECT 
- A.*, CM.NOMBRE, APH.IDATENCION, 
-FROM AMBULANCIA A 
-INNER JOIN CENTROMEDICO CM
-  ON CM.ID_CENTROMEDICO=A.ID_CENTROMEDICO
-INNER JOIN  ATENCIONPREHOSPITALARIA APH
-  ON APH.ID_AMBULANCIA= A.ID_AMBULANCIA
-INNER JOIN PARAMEDICO P
-  ON P.ID_PARAMEDICO=APH.ID_PARAMEDICO;
-
-
------------------------ CONSULTAS
+--CONSULTAS
 
 -- listarTodos /*Por centro*/
 SELECT
   *
-FROM vistaAmbulancia
+FROM vistaAmbulancia V
 WHERE
-  P.ID_PARAMEDICO = 1
-  AND A.ID_AMBULANCIA = 1
+  v.ID_CENTRO_MEDICO=1
+  --V.ID_PARAMEDICO = 1
+  --AND V.ID_AMBULANCIA = 1
 ;
 
 -- listarPorAmbulancia
 SELECT
   *
-FROM vistaAmbulancia
-WHERE P.PLACA
+FROM vistaAmbulancia v
+WHERE v.ID_AMBULANCIA=1 OR v.PLACA='DDS-1256'
 ;
 
 -- listarPorcentroMedico
 SELECT
   *
-FROM vistaAmbulancia
-WHERE CM.NOMBRE='hospital escuela'
+FROM vistaAmbulancia v
+WHERE v.NOMBRE LIKE 'Alonzo%' OR  V.ID_CENTRO_MEDICO=1
 ;
 
 --eliminar

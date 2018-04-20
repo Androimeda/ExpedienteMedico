@@ -1,25 +1,15 @@
-------------------------- VISTAS CENTRO MEDICO ------------------------
-CREATE OR REPLACE VIEW vistaCentroMedico
-AS
-SELECT 
- CM.*,
- TC.DESCRIPCION,
- T.TELEFONO
-
-FROM CENTROMEDICO CM
-INNER JOIN TIPOCENTRO TC
-  ON CM.ID_TIPO_CENTRO=TC.ID_TIPO_CENTRO
-INNER JOIN TELEFONOCENTROMEDICO TC 
-  ON T.ID_CENTRO_MEDICO= CM.ID_CENTRO_MEDICO
-INNER JOIN TELEFONO T
-  ON T.ID_TELEFONO=TC.ID_TELEFONO;
-
-
 ----------------------- CONSULTAS
 
--- listarTodos /*Por centro*/
+
+-- listarTodos
 SELECT
   *
 FROM vistaCentroMedico
 
 ;
+--listar por tipo centro
+SELECT
+  *
+  FROM vistaCentroMedico V
+  WHERE  V.DESCRIPCION='Hospital' OR V.ID_TIPO_CENTRO=1;
+
