@@ -1,0 +1,49 @@
+--listar
+SELECT
+  *
+FROM VISTAPACIENTE v
+WHERE v.ID_PACIENTE = 1;
+
+--listarTodos
+SELECT
+  *
+FROM VISTAPACIENTE;
+
+-- eliminar
+DELETE FROM PACIENTE
+WHERE ID_PACIENTE = 1;
+
+-- buscarPorNombre
+SELECT
+  *
+FROM VISTAPACIENTE v
+WHERE
+  v.P_NOMBRE = 'Toribio'
+  OR v.S_NOMBRE = 'David'
+;
+
+-- buscarPorApellido
+SELECT
+  *
+FROM VISTAPACIENTE v
+WHERE
+  v.P_APELLIDO = 'Aguilera'
+  OR v.S_APELLIDO = 'Perez'
+;
+
+-- buscarPorNoIdentidad
+SELECT
+  *
+FROM VISTAPACIENTE v
+WHERE
+  v.NO_IDENTIDAD = 131
+;
+
+-- getNumeroExpediente
+SELECT
+  v.ID_EXPEDIENTE
+FROM VISTAPACIENTE v
+WHERE
+  v.ID_PERSONA = 2
+  OR v.ID_PACIENTE = 2
+;

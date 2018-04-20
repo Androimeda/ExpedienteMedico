@@ -1,0 +1,56 @@
+------------------------- VISTA CONSULTORIO ------------------------
+CREATE OR REPLACE VIEW VistaConsultorio
+AS
+SELECT
+    C.*,
+    M.ID_MEDICO,
+    E.ID_EDIFICIO,
+    CM.ID_CENTRO_MEDICO,
+    CM.NOMBRE,
+    CM.ID_TIPO_CENTRO,
+    TC.DESCRIPCION,
+    M.ID_TURNO
+FROM CONSULTORIO C
+INNER JOIN MEDICOCONSULTORIO M 
+  ON M.id_consultorio= C.id_consultorio
+INNER JOIN PISO PI
+  ON PI.ID_PISO=C.ID_PISO
+INNER JOIN EDIFICIO E 
+  ON E.ID_EDIFICIO=PI.ID_EDIFICIO
+INNER JOIN CENTROMEDICO CM 
+  ON CM.ID_CENTRO_MEDICO= E.ID_CENTRO_MEDICO
+INNER JOIN TIPOCENTRO TC 
+  ON TC.ID_TIPO_CENTRO= CM.ID_TIPO_CENTRO
+
+
+;
+
+----------------------- CONSULTAS
+
+-- listarTodos /*Por centro*/
+SELECT
+  *
+FROM VistaConsultorio
+;
+
+--LISTAR POR PISO
+SELECT *
+  FROM VistaConsultorio V 
+  WHERE V.ID_PISO=1
+  ;
+--LISTAR POR CENTRO MEDICO
+SELECT*
+FROM VistaConsultorio V 
+WHERE V.ID_CENTRO_MEDICO=1 OR LIKE V.NOMBRE='HOSPITAL ESCUELA%';
+
+-- listarPor MEDICO
+SELECT
+  *
+FROM VistaConsultorio V
+WHERE
+  V.ID_MEDICO = 1
+;
+
+--eliminar
+--DELETE FROM VistaConsultorio
+--WHERE id_consultorio = 1;
