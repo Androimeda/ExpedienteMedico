@@ -6,7 +6,7 @@ CREATE OR REPLACE PROCEDURE PL_CrearCentroMedico(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE
+--DECLARE 	contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;

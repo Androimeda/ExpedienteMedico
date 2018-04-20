@@ -5,7 +5,7 @@ CREATE OR REPLACE PROCEDURE PL_CrearEnfermedad(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE
+--DECLARE 	contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;

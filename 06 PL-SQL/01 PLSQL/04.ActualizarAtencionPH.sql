@@ -10,6 +10,7 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarAtencionPH(
 )
 IS
 --DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -37,5 +38,50 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM ATENCIONPREHOSPITALARIA
+  WHERE ID_ATENCION = idAtencion
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe registro de AtencionPreHospitalaria';
+    RETURN;
+  END IF;
+
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM PARAMEDICO
+  WHERE ID_PARAMEDICO = idParamedico;
+  IF contador=0 THEN
+    mensaje:='No existe idParamedico';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM AMBULANCIA
+  WHERE ID_AMBULANCIA = idAmbulancia
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe idAmbulancia';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM EXPEDIENTE
+  WHERE id_expediente = idExpediente
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe idExpediente';
+    RETURN;
+  END IF;
+
+
 
 END;
