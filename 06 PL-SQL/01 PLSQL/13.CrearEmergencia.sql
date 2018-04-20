@@ -9,7 +9,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearEmergencia(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+ contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -23,9 +24,6 @@ BEGIN
   IF idExpediente = '' OR idExpediente IS NULL THEN
     mensaje:= mensaje || 'idExpediente, ';
   END IF;
-  IF idAtencion = '' OR idAtencion IS NULL THEN
-    mensaje:= mensaje || 'idAtencion, ';
-  END IF;
   IF idCentroMedico = '' OR idCentroMedico IS NULL THEN
     mensaje:= mensaje || 'idCentroMedico, ';
   END IF;
@@ -38,4 +36,56 @@ BEGIN
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
 
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM EXPEDIENTE
+  WHERE ID_EXPEDIENTE = idExpediente
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo Expediente';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM ATENCIONPREHOSPITALARIA
+  WHERE ID_ATENCION = idAtencion
+  ;
+  IF idAtencion IS NOT NULL AND contador=0 THEN
+    mensaje:='No existe codigo de Atencion Pre Hospitalaria';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CENTROMEDICO
+  WHERE ID_CENTRO_MEDICO = idCentroMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de Centro Medico ingresado';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM MEDICO
+  WHERE ID_MEDICO = idMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de Medico ingresado';
+    RETURN;
+  END IF;
+
+  INSERT INTO EMERGENCIA
+  (OBSERVACION, FECHA_HORA_ATENCION,
+   ID_EXPEDIENTE, ID_ATENCION, ID_CENTRO_MEDICO, ID_MEDICO)
+  VALUES
+  (observacion, fechaHoraAtencion, idExpediente,idAtencion, idCentroMedico, idMedico);
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 END;

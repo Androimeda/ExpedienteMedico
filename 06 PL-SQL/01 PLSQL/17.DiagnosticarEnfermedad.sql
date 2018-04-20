@@ -8,7 +8,8 @@ CREATE OR REPLACE PROCEDURE PL_DiagnosticarEnfermedad(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -33,5 +34,56 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM ENFERMEDAD
+  WHERE ID_ENFERMEDAD = idEnfermedad
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de enfermedad ingresado';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM MEDICO
+  WHERE ID_MEDICO = idMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de medico ingresado';
+    RETURN;
+  END IF;
+
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CONSULTAEXTERNA
+  WHERE ID_CONSULTA = idConsulta
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de consulta ingresada';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM EXPEDIENTE
+  WHERE id_expediente = idExpediente
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo expediente';
+    RETURN;
+  END IF;
+
+  INSERT INTO ENFERMEDADCONSULTA
+  (ID_MEDICO, ESTADO, FECHA_DIAGNOSTICO, ID_EXPEDIENTE, ID_CONSULTA) VALUES
+  (idMedico, 1, fechaDiagnostico, idExpediente, idConsulta);
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 
 END;

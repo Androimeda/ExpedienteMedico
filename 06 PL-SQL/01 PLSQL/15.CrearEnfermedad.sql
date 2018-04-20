@@ -5,7 +5,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearEnfermedad(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -21,5 +22,21 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM TIPOENFERMEDAD
+  WHERE ID_TIPO_ENFERMEDAD = idTipoEnfermedad
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de enfermedad ingresado';
+    RETURN;
+  END IF;
 
+  INSERT INTO ENFERMEDAD
+  (ENFERMEDAD, ID_TIPO_ENFERMEDAD) VALUES
+  (enfermedad, idTipoEnfermedad);
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 END;

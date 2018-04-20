@@ -6,7 +6,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearCentroMedico(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -25,5 +26,23 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM TIPOCENTRO
+  WHERE ID_TIPO_CENTRO = idTipoCentro
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe idTipoCentro';
+    RETURN;
+  END IF;
+
+  INSERT INTO CENTROMEDICO
+  (NOMBRE, DIRECCION, ID_TIPO_CENTRO) VALUES
+  (nombre, direccion, idTipoCentro);
+  COMMIT;
+
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 
 END;

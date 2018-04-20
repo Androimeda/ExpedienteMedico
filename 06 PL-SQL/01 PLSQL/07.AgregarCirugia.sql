@@ -7,7 +7,8 @@ CREATE OR REPLACE PROCEDURE PL_AgregarCirugia(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -29,5 +30,44 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM HOSPITALIZACION
+  WHERE ID_INGRESO = idIngreso
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe Paciente en Hospitalizacion';
+    RETURN;
+  END IF;
 
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM TIPOCIRUGIA
+  WHERE ID_TIPO_CIRUGIA = idTipoCirugia
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe TipoCirugia';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM MEDICO
+  WHERE ID_MEDICO = idMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe Medico para enlazar cirugia';
+    RETURN;
+  END IF;
+
+  INSERT INTO CIRUGIA
+  (ID_INGRESO, ID_TIPO_CIRUGIA, ID_MEDICO, FECHA_HORA) VALUES
+  (idIngreso, idTipoCirugia, idMedico, fechaHora);
+
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 END;

@@ -1,6 +1,6 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarAtencionPH(
   idAtencion IN INT
-  ,observacion IN VARCHAR
+  ,pobservacion IN VARCHAR
   ,fechaHoraAtencion IN TIMESTAMP
   ,idParamedico IN INT
   ,idAmbulancia IN INT
@@ -18,7 +18,7 @@ BEGIN
   IF idAtencion = '' OR idAtencion IS NULL THEN
     mensaje:= mensaje || 'idAtencion, ';
   END IF;
-  IF observacion = '' OR observacion IS NULL THEN
+  IF pobservacion = '' OR pobservacion IS NULL THEN
     mensaje:= mensaje || 'observacion, ';
   END IF;
   IF fechaHoraAtencion = '' OR fechaHoraAtencion IS NULL THEN
@@ -48,7 +48,6 @@ BEGIN
     mensaje:='No existe registro de AtencionPreHospitalaria';
     RETURN;
   END IF;
-
 
   SELECT
     COUNT(*)
@@ -82,6 +81,16 @@ BEGIN
     RETURN;
   END IF;
 
-
-
+  UPDATE ATENCIONPREHOSPITALARIA
+  SET OBSERVACION= pobservacion,
+  FECHA_HORA_ATENCION= fechaHoraAtencion,
+  ID_PARAMEDICO= idParamedico,
+  ID_AMBULANCIA= idAmbulancia,
+  ID_EXPEDIENTE= idExpediente
+  WHERE
+    ID_ATENCION = idAtencion
+  ;
+  COMMIT;
+  mensaje:='Actualizada   satisfactoriamente';
+  resultado:=1;
 END;

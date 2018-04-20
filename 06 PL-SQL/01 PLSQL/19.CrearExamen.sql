@@ -9,7 +9,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearExamen(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -37,5 +38,44 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM TIPOEXAMEN
+  WHERE ID_TIPO = idTipo
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de tipo de enfermedad';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CENTROMEDICO
+  WHERE ID_CENTRO_MEDICO = idCentroMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de centro medico';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM EXPEDIENTE
+  WHERE id_expediente = idExpediente
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de expediente';
+    RETURN;
+  END IF;
+
+  INSERT INTO EXAMEN
+  (URL_DOCUMENTO, ID_TIPO, ID_CENTRO_MEDICO, OBSERVACION, ID_EXPEDIENTE, FECHA) VALUES
+  (urlDocumento, idTipo, idCentroMedico, observacion, idExpediente, fecha);
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 
 END;

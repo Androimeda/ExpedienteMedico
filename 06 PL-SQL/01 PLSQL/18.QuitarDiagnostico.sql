@@ -6,7 +6,8 @@ CREATE OR REPLACE PROCEDURE PL_QuitarDiagnostico(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -25,5 +26,48 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM ENFERMEDAD
+  WHERE ID_ENFERMEDAD = idEnfermedad
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo Enfermedad ingresado';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM EXPEDIENTE
+  WHERE id_expediente = idExpediente
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo expediente ingresado';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CONSULTAEXTERNA
+  WHERE ID_CONSULTA = idConsulta
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo Consulta ingresado';
+    RETURN;
+  END IF;
+
+  UPDATE ENFERMEDADCONSULTA
+  SET ESTADO = 0
+  WHERE ID_ENFERMEDAD = idEnfermedad
+  AND ID_EXPEDIENTE = idExpediente
+  AND ID_CONSULTA = idConsulta;
+
+  COMMIT;
+  mensaje:='Actualizada satisfactoriamente';
+  resultado:=1;
 
 END;

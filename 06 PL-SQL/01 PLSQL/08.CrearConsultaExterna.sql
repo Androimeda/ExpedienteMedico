@@ -6,12 +6,12 @@ CREATE OR REPLACE PROCEDURE PL_CrearConsultaExterna(
   ,sintomas IN VARCHAR
   ,diagnostico IN VARCHAR
   ,observacion IN VARCHAR
-  , undefined undefined
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -37,13 +37,51 @@ BEGIN
   IF observacion = '' OR observacion IS NULL THEN
     mensaje:= mensaje || 'observacion, ';
   END IF;
-  IF  = '' OR  IS NULL THEN
-    mensaje:= mensaje || ', ';
-  END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CONSULTORIO
+  WHERE ID_CONSULTORIO = idConsultorio
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe Consultorio ingresado';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM EXPEDIENTE
+  WHERE id_expediente = idExpediente
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe expediente ingresado';
+    RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM MEDICO
+  WHERE ID_MEDICO = idMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe Medico ingresado';
+    RETURN;
+  END IF;
+
+  INSERT INTO CONSULTAEXTERNA
+  (ID_CONSULTORIO, ID_EXPEDIENTE, ID_MEDICO, FECHA_HORA, SINTOMAS, DIAGNOSTICO, OBSERVACION)
+  VALUES
+  (idConsultorio, idExpediente, idMedico, fechaHora, sintomas, diagnostico, observacion);
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
+
 
 END;

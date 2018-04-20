@@ -1,6 +1,6 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarAmbulancia(
   idAmbulancia IN INT
-  ,placa IN VARCHAR
+  ,p_placa IN VARCHAR
   ,idCentroMedico IN INT
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
@@ -15,7 +15,7 @@ BEGIN
   IF idAmbulancia = '' OR idAmbulancia IS NULL THEN
     mensaje:= mensaje || 'idAmbulancia, ';
   END IF;
-  IF placa = '' OR placa IS NULL THEN
+  IF p_placa = '' OR p_placa IS NULL THEN
     mensaje:= mensaje || 'placa, ';
   END IF;
   IF idCentroMedico = '' OR idCentroMedico IS NULL THEN
@@ -52,7 +52,7 @@ BEGIN
 
   UPDATE AMBULANCIA
   SET
-  AMBULANCIA.placa = placa,
+  AMBULANCIA.placa = p_placa,
   ID_CENTRO_MEDICO=idCentroMedico
   WHERE ID_AMBULANCIA=idAmbulancia;
 

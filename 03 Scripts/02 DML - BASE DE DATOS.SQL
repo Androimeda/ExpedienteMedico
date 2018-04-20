@@ -12,13 +12,13 @@ CREATE TABLE ambulancia (
 );
 
 COMMENT ON COLUMN ambulancia.id_ambulancia IS
-    'Tabla que almacena todo el registro Físico de una unidad de atencion.';
+    'Tabla que almacena todo el registro FÃ­sico de una unidad de atencion.';
 
 COMMENT ON COLUMN ambulancia.placa IS
     'Numero de Placa de Ambulancia';
 
 COMMENT ON COLUMN ambulancia.id_centro_medico IS
-    'Código del centro medico al que pertenece la ambulancia';
+    'CÃ³digo del centro medico al que pertenece la ambulancia';
 
 ALTER TABLE ambulancia ADD CONSTRAINT ambulancia_pk PRIMARY KEY ( id_ambulancia );
 
@@ -28,10 +28,10 @@ CREATE TABLE ascendencia (
 );
 
 COMMENT ON COLUMN ascendencia.id_ascendencia IS
-    'Código de Etnia';
+    'CÃ³digo de Etnia';
 
 COMMENT ON COLUMN ascendencia.ascendencia IS
-    'Descripción de etnia o ascendencia';
+    'DescripciÃ³n de etnia o ascendencia';
 
 ALTER TABLE ascendencia ADD CONSTRAINT raza_pk PRIMARY KEY ( id_ascendencia );
 
@@ -48,40 +48,40 @@ COMMENT ON COLUMN atencionprehospitalaria.id_atencion IS
     'Codigo Atencion';
 
 COMMENT ON COLUMN atencionprehospitalaria.observacion IS
-    'Anotaciones sobre el estado del paciente, así como los síntomas o razón de la atención';
+    'Anotaciones sobre el estado del paciente, asÃ­ como los sÃ­ntomas o razÃ³n de la atenciÃ³n';
 
 COMMENT ON COLUMN atencionprehospitalaria.fecha_hora_atencion IS
     'Fecha en que se atiende';
 
 COMMENT ON COLUMN atencionprehospitalaria.id_paramedico IS
-    'Código del paramédico que atiende';
+    'CÃ³digo del paramÃ©dico que atiende';
 
 COMMENT ON COLUMN atencionprehospitalaria.id_ambulancia IS
-    'Código de ambulancia que llega al lugar donde se encuentra el paciente';
+    'CÃ³digo de ambulancia que llega al lugar donde se encuentra el paciente';
 
 COMMENT ON COLUMN atencionprehospitalaria.id_expediente IS
-    'Código del expediente del paciente';
+    'CÃ³digo del expediente del paciente';
 
 ALTER TABLE atencionprehospitalaria ADD CONSTRAINT atencionprehospitalaria_pk PRIMARY KEY ( id_atencion );
 
 CREATE TABLE centromedico (
     id_centro_medico   INTEGER NOT NULL,
-    nombre             VARCHAR2(25) NOT NULL,
-    direccion          VARCHAR2(30) NOT NULL,
+    nombre             VARCHAR2(64) NOT NULL,
+    direccion          VARCHAR2(250) NOT NULL,
     id_tipo_centro     INTEGER NOT NULL
 );
 
 COMMENT ON COLUMN centromedico.id_centro_medico IS
-    'Entidad dedicada a la atención médica: hospitales, centro de salud…';
+    'Entidad dedicada a la atenciÃ³n mÃ©dica: hospitales, centro de saludâ€¦';
 
 COMMENT ON COLUMN centromedico.nombre IS
     'Nombre del centro medico';
 
 COMMENT ON COLUMN centromedico.direccion IS
-    'Dirección donde se ubica';
+    'DirecciÃ³n donde se ubica';
 
 COMMENT ON COLUMN centromedico.id_tipo_centro IS
-    'Código del tipo de centro';
+    'CÃ³digo del tipo de centro';
 
 ALTER TABLE centromedico ADD CONSTRAINT centromedico_pk PRIMARY KEY ( id_centro_medico );
 
@@ -97,13 +97,13 @@ COMMENT ON COLUMN cirugia.id_cirugia IS
     'Codigo Cirugia';
 
 COMMENT ON COLUMN cirugia.id_ingreso IS
-    'Código del ingreso hospitalario (Tabla Hospitalización)';
+    'CÃ³digo del ingreso hospitalario (Tabla HospitalizaciÃ³n)';
 
 COMMENT ON COLUMN cirugia.id_tipo_cirugia IS
-    'Código del tipo de cirugía';
+    'CÃ³digo del tipo de cirugÃ­a';
 
 COMMENT ON COLUMN cirugia.id_medico IS
-    'Código del medico que realiza la operación ';
+    'CÃ³digo del medico que realiza la operaciÃ³n ';
 
 ALTER TABLE cirugia ADD CONSTRAINT operacion_pk PRIMARY KEY ( id_cirugia );
 
@@ -122,22 +122,22 @@ COMMENT ON COLUMN consultaexterna.id_consulta IS
     'Codigo de consulta';
 
 COMMENT ON COLUMN consultaexterna.id_consultorio IS
-    'Código del consultorio donde se recibe la consulta';
+    'CÃ³digo del consultorio donde se recibe la consulta';
 
 COMMENT ON COLUMN consultaexterna.id_expediente IS
-    'Código del expediente del paciente';
+    'CÃ³digo del expediente del paciente';
 
 COMMENT ON COLUMN consultaexterna.id_medico IS
-    'Código del medico que atiende en consulta';
+    'CÃ³digo del medico que atiende en consulta';
 
 COMMENT ON COLUMN consultaexterna.fecha_hora IS
-    'Fecha y hora en que se atiende (atenderá)';
+    'Fecha y hora en que se atiende (atenderÃ¡)';
 
 COMMENT ON COLUMN consultaexterna.sintomas IS
-    'Síntomas con los que el paciente llega a la consulta';
+    'SÃ­ntomas con los que el paciente llega a la consulta';
 
 COMMENT ON COLUMN consultaexterna.diagnostico IS
-    'Diagnóstico del médico';
+    'DiagnÃ³stico del mÃ©dico';
 
 COMMENT ON COLUMN consultaexterna.observacion IS
     'Observaciones adicionales';
@@ -153,7 +153,7 @@ COMMENT ON COLUMN consultorio.id_consultorio IS
     'Codigo consultorio';
 
 COMMENT ON COLUMN consultorio.id_piso IS
-    'Piso ubicación del consultorio ';
+    'Piso ubicaciÃ³n del consultorio ';
 
 ALTER TABLE consultorio ADD CONSTRAINT consultorio_pk PRIMARY KEY ( id_consultorio );
 
@@ -168,13 +168,13 @@ COMMENT ON COLUMN defuncion.id_deceso IS
     'Codigo Deceso';
 
 COMMENT ON COLUMN defuncion.observacion_causa IS
-    'Observación de la causa de muerte';
+    'ObservaciÃ³n de la causa de muerte';
 
 COMMENT ON COLUMN defuncion.fecha_hora IS
     'Fecha y hora muerte';
 
 COMMENT ON COLUMN defuncion.id_expediente IS
-    'Código de expediente del paciente';
+    'CÃ³digo de expediente del paciente';
 
 ALTER TABLE defuncion ADD CONSTRAINT defuncion_pk PRIMARY KEY ( id_deceso );
 
@@ -182,7 +182,7 @@ ALTER TABLE defuncion ADD CONSTRAINT defuncion__un UNIQUE ( id_expediente );
 
 CREATE TABLE edificio (
     id_edificio        INTEGER NOT NULL,
-    nombre             VARCHAR2(10),
+    nombre             VARCHAR2(32),
     id_centro_medico   INTEGER NOT NULL
 );
 
@@ -190,7 +190,7 @@ COMMENT ON COLUMN edificio.id_edificio IS
     'Codigo edificio';
 
 COMMENT ON COLUMN edificio.nombre IS
-    'Descripción del edificio';
+    'DescripciÃ³n del edificio';
 
 COMMENT ON COLUMN edificio.id_centro_medico IS
     'Centro medico donde se ubica el edificio';
@@ -208,22 +208,22 @@ CREATE TABLE emergencia (
 );
 
 COMMENT ON COLUMN emergencia.id_ingreso IS
-    'Especifica información relacionada al tratamiento de emergencias en un hospital';
+    'Especifica informaciÃ³n relacionada al tratamiento de emergencias en un hospital';
 
 COMMENT ON COLUMN emergencia.observacion IS
-    'Observación del motivo de la emergencia';
+    'ObservaciÃ³n del motivo de la emergencia';
 
 COMMENT ON COLUMN emergencia.fecha_hora_atencion IS
     'Fecha y hora ingreso';
 
 COMMENT ON COLUMN emergencia.id_expediente IS
-    'Código del expediente del paciente en emergencia';
+    'CÃ³digo del expediente del paciente en emergencia';
 
 COMMENT ON COLUMN emergencia.id_atencion IS
-    'Código de Atención Pre Hospitalaria (Si es necesario)';
+    'CÃ³digo de AtenciÃ³n Pre Hospitalaria (Si es necesario)';
 
 COMMENT ON COLUMN emergencia.id_centro_medico IS
-    'Código del centro médico que atiende la emergencia';
+    'CÃ³digo del centro mÃ©dico que atiende la emergencia';
 
 ALTER TABLE emergencia ADD CONSTRAINT emergencia_pk PRIMARY KEY ( id_ingreso );
 
@@ -231,7 +231,7 @@ ALTER TABLE emergencia ADD CONSTRAINT emergencia__un UNIQUE ( id_atencion );
 
 CREATE TABLE enfermedad (
     id_enfermedad        INTEGER NOT NULL,
-    enfermedad           VARCHAR2(30) NOT NULL,
+    enfermedad           VARCHAR2(64) NOT NULL,
     id_tipo_enfermedad   INTEGER NOT NULL
 );
 
@@ -239,10 +239,10 @@ COMMENT ON COLUMN enfermedad.id_enfermedad IS
     'Codigo enfermedad';
 
 COMMENT ON COLUMN enfermedad.enfermedad IS
-    'Descripción / Nombre de la enfermedad';
+    'DescripciÃ³n / Nombre de la enfermedad';
 
 COMMENT ON COLUMN enfermedad.id_tipo_enfermedad IS
-    'Código tipo Enfermedad';
+    'CÃ³digo tipo Enfermedad';
 
 ALTER TABLE enfermedad ADD CONSTRAINT enfermedad_pk PRIMARY KEY ( id_enfermedad );
 
@@ -259,13 +259,13 @@ COMMENT ON COLUMN enfermedadconsulta.id_enfermedad IS
     'Codigo Enfermedad';
 
 COMMENT ON COLUMN enfermedadconsulta.id_medico IS
-    'Código Medico que diagnostica la enfermedad';
+    'CÃ³digo Medico que diagnostica la enfermedad';
 
 COMMENT ON COLUMN enfermedadconsulta.estado IS
-    'Estado (Padece ‘P’, Curado ‘C’)';
+    'Estado (Padece â€˜Pâ€™, Curado â€˜Câ€™)';
 
 COMMENT ON COLUMN enfermedadconsulta.fecha_diagnostico IS
-    'Fecha en que se emite el diagnóstico';
+    'Fecha en que se emite el diagnÃ³stico';
 
 COMMENT ON COLUMN enfermedadconsulta.id_expediente IS
     'Codigo del expediente del paciente';
@@ -282,26 +282,26 @@ COMMENT ON COLUMN escolaridad.id_escolaridad IS
     'Codigo escolaridad';
 
 COMMENT ON COLUMN escolaridad.escolaridad IS
-    'Descripción de el nivel educativo.';
+    'DescripciÃ³n de el nivel educativo.';
 
 ALTER TABLE escolaridad ADD CONSTRAINT escolaridad_pk PRIMARY KEY ( id_escolaridad );
 
 CREATE TABLE especialidad (
     id_especialidad   INTEGER NOT NULL,
-    especialidad      VARCHAR2(30)
+    especialidad      VARCHAR2(50)
 );
 
 COMMENT ON COLUMN especialidad.id_especialidad IS
-    'Código de especialidad';
+    'CÃ³digo de especialidad';
 
 COMMENT ON COLUMN especialidad.especialidad IS
-    'Descripción (Especialidad) que se acredita.';
+    'DescripciÃ³n (Especialidad) que se acredita.';
 
 ALTER TABLE especialidad ADD CONSTRAINT titulo_pkv2 PRIMARY KEY ( id_especialidad );
 
 CREATE TABLE estadocivil (
     id_estado_civil   INTEGER NOT NULL,
-    estado_civil      VARCHAR2(20)
+    estado_civil      VARCHAR2(25)
 );
 
 COMMENT ON COLUMN estadocivil.id_estado_civil IS
@@ -329,16 +329,16 @@ COMMENT ON COLUMN examen.url_documento IS
     'URL donde se almacena una copia del documento en formato digital.';
 
 COMMENT ON COLUMN examen.id_tipo IS
-    'Código del tipo de examen';
+    'CÃ³digo del tipo de examen';
 
 COMMENT ON COLUMN examen.id_centro_medico IS
-    'Código del centro médico donde se realizó el examen';
+    'CÃ³digo del centro mÃ©dico donde se realizÃ³ el examen';
 
 COMMENT ON COLUMN examen.observacion IS
     'Notas adjuntas al examen';
 
 COMMENT ON COLUMN examen.id_expediente IS
-    'Código de expediente del paciente';
+    'CÃ³digo de expediente del paciente';
 
 COMMENT ON COLUMN examen.fecha IS
     'Fecha en que se realiza el examen';
@@ -355,10 +355,10 @@ COMMENT ON COLUMN expediente.id_expediente IS
     'Codigo Expediente';
 
 COMMENT ON COLUMN expediente.fecha_creacion IS
-    'Fecha en que se creó el expediente';
+    'Fecha en que se creÃ³ el expediente';
 
 COMMENT ON COLUMN expediente.id_paciente IS
-    'Código del paciente';
+    'CÃ³digo del paciente';
 
 ALTER TABLE expediente ADD CONSTRAINT expediente_pk PRIMARY KEY ( id_expediente );
 
@@ -376,10 +376,10 @@ COMMENT ON COLUMN hojatrabajosocial.id_ts IS
     'Codigo Hoja de Trabajo Social';
 
 COMMENT ON COLUMN hojatrabajosocial.descripcion IS
-    'Motivo de atención en Trabajo Social';
+    'Motivo de atenciÃ³n en Trabajo Social';
 
 COMMENT ON COLUMN hojatrabajosocial.id_expediente IS
-    'Código de expediente del paciente';
+    'CÃ³digo de expediente del paciente';
 
 ALTER TABLE hojatrabajosocial ADD CONSTRAINT trabajosocial_pk PRIMARY KEY ( id_ts );
 
@@ -395,10 +395,10 @@ CREATE TABLE hospitalizacion (
 );
 
 COMMENT ON COLUMN hospitalizacion.id_ingreso IS
-    'Código Ingreso a Hospitalización';
+    'CÃ³digo Ingreso a HospitalizaciÃ³n';
 
 COMMENT ON COLUMN hospitalizacion.observacion IS
-    'Nota adjunta del motivo de hospitalización';
+    'Nota adjunta del motivo de hospitalizaciÃ³n';
 
 COMMENT ON COLUMN hospitalizacion.fecha_hora_ingreso IS
     'Fecha y hora en que ingresa el paciente';
@@ -410,13 +410,13 @@ COMMENT ON COLUMN hospitalizacion.id_piso IS
     'Codigo del piso/ sala donde su ubica';
 
 COMMENT ON COLUMN hospitalizacion.cama IS
-    'Número de cama del paciente';
+    'NÃºmero de cama del paciente';
 
 COMMENT ON COLUMN hospitalizacion.id_medico IS
-    'Código del médico que atiende';
+    'CÃ³digo del mÃ©dico que atiende';
 
 COMMENT ON COLUMN hospitalizacion.id_expediente IS
-    'Código de expediente del paciente.';
+    'CÃ³digo de expediente del paciente.';
 
 ALTER TABLE hospitalizacion ADD CONSTRAINT hospitalizacion_pk PRIMARY KEY ( id_ingreso );
 
@@ -428,16 +428,16 @@ CREATE TABLE medico (
 );
 
 COMMENT ON COLUMN medico.id_medico IS
-    'Código del médico';
+    'CÃ³digo del mÃ©dico';
 
 COMMENT ON COLUMN medico.no_colegiacion IS
-    'Número de colegiación';
+    'NÃºmero de colegiaciÃ³n';
 
 COMMENT ON COLUMN medico.id_persona IS
-    'Código de persona en la tabla Persona';
+    'CÃ³digo de persona en la tabla Persona';
 
 COMMENT ON COLUMN medico.id_especialidad IS
-    'Código de título (especialidad)';
+    'CÃ³digo de tÃ­tulo (especialidad)';
 
 ALTER TABLE medico ADD CONSTRAINT medico_pk PRIMARY KEY ( id_medico );
 
@@ -450,13 +450,13 @@ CREATE TABLE medicoconsultorio (
 );
 
 COMMENT ON COLUMN medicoconsultorio.id_medico IS
-    'Código del médico ';
+    'CÃ³digo del mÃ©dico ';
 
 COMMENT ON COLUMN medicoconsultorio.id_consultorio IS
-    'Código de consultorio';
+    'CÃ³digo de consultorio';
 
 COMMENT ON COLUMN medicoconsultorio.id_turno IS
-    'Código del turno en que atiende el médico';
+    'CÃ³digo del turno en que atiende el mÃ©dico';
 
 CREATE TABLE natalidad (
     id_parto               INTEGER NOT NULL,
@@ -469,25 +469,25 @@ CREATE TABLE natalidad (
 );
 
 COMMENT ON COLUMN natalidad.id_parto IS
-    'Código de parto';
+    'CÃ³digo de parto';
 
 COMMENT ON COLUMN natalidad.id_expediente IS
-    'Código de expediente del recién nacido';
+    'CÃ³digo de expediente del reciÃ©n nacido';
 
 COMMENT ON COLUMN natalidad.fecha_hora IS
     'Fecha y hora del nacimiento';
 
 COMMENT ON COLUMN natalidad.orden_parto_multiple IS
-    'En caso de ser parto múltiple, número de orden';
+    'En caso de ser parto mÃºltiple, nÃºmero de orden';
 
 COMMENT ON COLUMN natalidad.id_centro_medico IS
-    'Código del centro médico';
+    'CÃ³digo del centro mÃ©dico';
 
 COMMENT ON COLUMN natalidad.id_madre IS
-    'Código de persona de la madre';
+    'CÃ³digo de persona de la madre';
 
 COMMENT ON COLUMN natalidad.id_padre IS
-    'Código de persona del padre';
+    'CÃ³digo de persona del padre';
 
 ALTER TABLE natalidad ADD CONSTRAINT nacimiento_pk PRIMARY KEY ( id_parto );
 
@@ -495,14 +495,14 @@ ALTER TABLE natalidad ADD CONSTRAINT natalidad__un UNIQUE ( id_expediente );
 
 CREATE TABLE ocupacion (
     id_ocupacion   INTEGER NOT NULL,
-    ocupacion      VARCHAR2(50)
+    ocupacion      VARCHAR2(64)
 );
 
 COMMENT ON COLUMN ocupacion.id_ocupacion IS
-    'ódigo ocupación de paciente';
+    'Ã³digo ocupaciÃ³n de paciente';
 
 COMMENT ON COLUMN ocupacion.ocupacion IS
-    'Ocupación de paciente';
+    'OcupaciÃ³n de paciente';
 
 ALTER TABLE ocupacion ADD CONSTRAINT ocupacion_pk PRIMARY KEY ( id_ocupacion );
 
@@ -517,25 +517,25 @@ CREATE TABLE paciente (
 );
 
 COMMENT ON COLUMN paciente.id_paciente IS
-    'Código del paciente';
+    'CÃ³digo del paciente';
 
 COMMENT ON COLUMN paciente.id_persona IS
-    'Código de persona';
+    'CÃ³digo de persona';
 
 COMMENT ON COLUMN paciente.id_tipo_sangre IS
-    'Código de tipo sangre';
+    'CÃ³digo de tipo sangre';
 
 COMMENT ON COLUMN paciente.id_escolaridad IS
-    'Código de escolaridad';
+    'CÃ³digo de escolaridad';
 
 COMMENT ON COLUMN paciente.id_ocupacion IS
-    'Código de ocupación ';
+    'CÃ³digo de ocupaciÃ³n ';
 
 COMMENT ON COLUMN paciente.id_estado_civil IS
-    'Código de estado civil';
+    'CÃ³digo de estado civil';
 
 COMMENT ON COLUMN paciente.id_ascendencia IS
-    'Código de ascendencia';
+    'CÃ³digo de ascendencia';
 
 ALTER TABLE paciente ADD CONSTRAINT paciente_pk PRIMARY KEY ( id_paciente );
 
@@ -543,18 +543,18 @@ ALTER TABLE paciente ADD CONSTRAINT paciente__un UNIQUE ( id_persona );
 
 CREATE TABLE pais (
     id_pais         INTEGER NOT NULL,
-    nombre          VARCHAR2(50),
+    nombre          VARCHAR2(64),
     codigo_postal   VARCHAR2(4)
 );
 
 COMMENT ON COLUMN pais.id_pais IS
-    'Tabla catalogo de países';
+    'Tabla catalogo de paÃ­ses';
 
 COMMENT ON COLUMN pais.nombre IS
-    'Nombre del país';
+    'Nombre del paÃ­s';
 
 COMMENT ON COLUMN pais.codigo_postal IS
-    'Código postal del país';
+    'CÃ³digo postal del paÃ­s';
 
 ALTER TABLE pais ADD CONSTRAINT pais_pk PRIMARY KEY ( id_pais );
 
@@ -565,13 +565,13 @@ CREATE TABLE paramedico (
 );
 
 COMMENT ON COLUMN paramedico.id_paramedico IS
-    'Código de paramédico ';
+    'CÃ³digo de paramÃ©dico ';
 
 COMMENT ON COLUMN paramedico.licencia IS
-    'Licencia que certifica al paramédico ';
+    'Licencia que certifica al paramÃ©dico ';
 
 COMMENT ON COLUMN paramedico.id_persona IS
-    'Código de Persona';
+    'CÃ³digo de Persona';
 
 ALTER TABLE paramedico ADD CONSTRAINT paramedico_pk PRIMARY KEY ( id_paramedico );
 
@@ -591,7 +591,7 @@ CREATE TABLE persona (
 );
 
 COMMENT ON COLUMN persona.id_persona IS
-    'Código de persona';
+    'CÃ³digo de persona';
 
 COMMENT ON COLUMN persona.p_nombre IS
     'Primer nombre';
@@ -606,19 +606,19 @@ COMMENT ON COLUMN persona.s_apellido IS
     'Segundo apellido';
 
 COMMENT ON COLUMN persona.direccion IS
-    'Dirección de residencia';
+    'DirecciÃ³n de residencia';
 
 COMMENT ON COLUMN persona.no_identidad IS
-    'Número identidad RNP';
+    'NÃºmero identidad RNP';
 
 COMMENT ON COLUMN persona.id_pais IS
-    'Código del país de nacionalidad';
+    'CÃ³digo del paÃ­s de nacionalidad';
 
 COMMENT ON COLUMN persona.sexo IS
-    'Sexo (‘F’ o ‘M’)';
+    'Sexo (â€˜Fâ€™ o â€˜Mâ€™)';
 
 COMMENT ON COLUMN persona.correo IS
-    'Correo electrónico.';
+    'Correo electrÃ³nico.';
 
 ALTER TABLE persona ADD CONSTRAINT persona_pk PRIMARY KEY ( id_persona );
 
@@ -631,13 +631,13 @@ CREATE TABLE piso (
 );
 
 COMMENT ON COLUMN piso.id_piso IS
-    'Código de piso';
+    'CÃ³digo de piso';
 
 COMMENT ON COLUMN piso.descripcion IS
-    'Descripción del piso';
+    'DescripciÃ³n del piso';
 
 COMMENT ON COLUMN piso.id_edificio IS
-    'Código de edificio donde se ubica';
+    'CÃ³digo de edificio donde se ubica';
 
 ALTER TABLE piso ADD CONSTRAINT piso_pk PRIMARY KEY ( id_piso );
 
@@ -651,22 +651,22 @@ CREATE TABLE referencia (
 );
 
 COMMENT ON COLUMN referencia.id_referencia IS
-    'Código de la referencia';
+    'CÃ³digo de la referencia';
 
 COMMENT ON COLUMN referencia.descripcion IS
-    'Descripción del motivo por el cual se refiere al paciente';
+    'DescripciÃ³n del motivo por el cual se refiere al paciente';
 
 COMMENT ON COLUMN referencia.id_medico IS
-    'Código del médico que firma';
+    'CÃ³digo del mÃ©dico que firma';
 
 COMMENT ON COLUMN referencia.id_expediente IS
-    'Código del expediente del paciente';
+    'CÃ³digo del expediente del paciente';
 
 COMMENT ON COLUMN referencia.id_centro_medico_remite IS
-    'Código del centro médico de donde se remite';
+    'CÃ³digo del centro mÃ©dico de donde se remite';
 
 COMMENT ON COLUMN referencia.id_centro_medico_recibe IS
-    'Código del centro medico al que se remite el paciente.';
+    'CÃ³digo del centro medico al que se remite el paciente.';
 
 ALTER TABLE referencia ADD CONSTRAINT referencia_pk PRIMARY KEY ( id_referencia );
 
@@ -678,16 +678,16 @@ CREATE TABLE telefono (
 );
 
 COMMENT ON COLUMN telefono.id_telefono IS
-    'Código del teléfono.';
+    'CÃ³digo del telÃ©fono.';
 
 COMMENT ON COLUMN telefono.telefono IS
-    'Número telefónico.';
+    'NÃºmero telefÃ³nico.';
 
 COMMENT ON COLUMN telefono.id_tipo_telefono IS
-    'Código del tipo de teléfono';
+    'CÃ³digo del tipo de telÃ©fono';
 
 COMMENT ON COLUMN telefono.id_pais IS
-    'Código de país al cual pertenece el número de teléfono';
+    'CÃ³digo de paÃ­s al cual pertenece el nÃºmero de telÃ©fono';
 
 ALTER TABLE telefono ADD CONSTRAINT telefono_pk PRIMARY KEY ( id_telefono );
 
@@ -697,10 +697,10 @@ CREATE TABLE telefonocentromedico (
 );
 
 COMMENT ON COLUMN telefonocentromedico.id_telefono IS
-    'Código de teléfono';
+    'CÃ³digo de telÃ©fono';
 
 COMMENT ON COLUMN telefonocentromedico.id_centro_medico IS
-    'Código del centro médico';
+    'CÃ³digo del centro mÃ©dico';
 
 CREATE TABLE telefonopersona (
     id_persona    INTEGER NOT NULL,
@@ -708,10 +708,10 @@ CREATE TABLE telefonopersona (
 );
 
 COMMENT ON COLUMN telefonopersona.id_persona IS
-    'Código de persona a quien pertenece';
+    'CÃ³digo de persona a quien pertenece';
 
 COMMENT ON COLUMN telefonopersona.id_telefono IS
-    'Código de teléfono';
+    'CÃ³digo de telÃ©fono';
 
 CREATE TABLE tipocentro (
     id_tipo_centro   INTEGER NOT NULL,
@@ -720,39 +720,39 @@ CREATE TABLE tipocentro (
 );
 
 COMMENT ON COLUMN tipocentro.id_tipo_centro IS
-    'Código del tipo de centro.';
+    'CÃ³digo del tipo de centro.';
 
 COMMENT ON COLUMN tipocentro.descripcion IS
-    'Descripción del tipo de centro';
+    'DescripciÃ³n del tipo de centro';
 
 COMMENT ON COLUMN tipocentro.horario IS
-    'Horario de atención del centro médico';
+    'Horario de atenciÃ³n del centro mÃ©dico';
 
 ALTER TABLE tipocentro ADD CONSTRAINT tipocentro_pk PRIMARY KEY ( id_tipo_centro );
 
 CREATE TABLE tipocirugia (
     id_tipo_cirugia   INTEGER NOT NULL,
-    descripcion       VARCHAR2(50)
+    descripcion       VARCHAR2(64)
 );
 
 COMMENT ON COLUMN tipocirugia.id_tipo_cirugia IS
-    'Código de tipo cirugía';
+    'CÃ³digo de tipo cirugÃ­a';
 
 COMMENT ON COLUMN tipocirugia.descripcion IS
-    'Descripción del tipo de cirugía';
+    'DescripciÃ³n del tipo de cirugÃ­a';
 
 ALTER TABLE tipocirugia ADD CONSTRAINT tipooperacion_pk PRIMARY KEY ( id_tipo_cirugia );
 
 CREATE TABLE tipoenfermedad (
     id_tipo_enfermedad   INTEGER NOT NULL,
-    descripcion          VARCHAR2(50)
+    descripcion          VARCHAR2(64)
 );
 
 COMMENT ON COLUMN tipoenfermedad.id_tipo_enfermedad IS
-    'Código de enfermedad';
+    'CÃ³digo de enfermedad';
 
 COMMENT ON COLUMN tipoenfermedad.descripcion IS
-    'Descripción del tipo de enfermedad';
+    'DescripciÃ³n del tipo de enfermedad';
 
 ALTER TABLE tipoenfermedad ADD CONSTRAINT tipoenfermedad_pk PRIMARY KEY ( id_tipo_enfermedad );
 
@@ -762,10 +762,10 @@ CREATE TABLE tipoexamen (
 );
 
 COMMENT ON COLUMN tipoexamen.id_tipo IS
-    'Código del tipo de examen';
+    'CÃ³digo del tipo de examen';
 
 COMMENT ON COLUMN tipoexamen.descripcion IS
-    'Descripción del tipo de examen';
+    'DescripciÃ³n del tipo de examen';
 
 ALTER TABLE tipoexamen ADD CONSTRAINT tipoexamen_pk PRIMARY KEY ( id_tipo );
 
@@ -776,7 +776,7 @@ CREATE TABLE tiposangre (
 );
 
 COMMENT ON COLUMN tiposangre.id_tipo_sangre IS
-    'Código del tipo de sangre';
+    'CÃ³digo del tipo de sangre';
 
 COMMENT ON COLUMN tiposangre.grupo IS
     'Grupo ABO (A, B, AB, O)';
@@ -792,23 +792,23 @@ CREATE TABLE tipotelefono (
 );
 
 COMMENT ON COLUMN tipotelefono.id_tipo_telefono IS
-    'Código de teléfono';
+    'CÃ³digo de telÃ©fono';
 
 COMMENT ON COLUMN tipotelefono.tipo_telefono IS
-    'Tipo del teléfono ';
+    'Tipo del telÃ©fono ';
 
 ALTER TABLE tipotelefono ADD CONSTRAINT tipotelefono_pk PRIMARY KEY ( id_tipo_telefono );
 
 CREATE TABLE tipotratamiento (
     id_tipo            INTEGER NOT NULL,
-    tipo_tratamiento   VARCHAR2(50)
+    tipo_tratamiento   VARCHAR2(64)
 );
 
 COMMENT ON COLUMN tipotratamiento.id_tipo IS
-    'Código de tipo de tratamiento';
+    'CÃ³digo de tipo de tratamiento';
 
 COMMENT ON COLUMN tipotratamiento.tipo_tratamiento IS
-    'Tipo de tratamiento (Descripción)';
+    'Tipo de tratamiento (DescripciÃ³n)';
 
 ALTER TABLE tipotratamiento ADD CONSTRAINT tipotratamiento_pk PRIMARY KEY ( id_tipo );
 
@@ -823,10 +823,10 @@ CREATE TABLE tratamiento (
 );
 
 COMMENT ON COLUMN tratamiento.id_tratamiento IS
-    'Código de tratamiento';
+    'CÃ³digo de tratamiento';
 
 COMMENT ON COLUMN tratamiento.dosis IS
-    'Dosis en que se aplicará';
+    'Dosis en que se aplicarÃ¡';
 
 COMMENT ON COLUMN tratamiento.intervalo_tiempo IS
     'Intervalo de tiempo, cada cuanto se ha de aplicar el tratamiento';
@@ -835,13 +835,13 @@ COMMENT ON COLUMN tratamiento.fecha_inicio IS
     'Fecha en que se inicia el tratamiento';
 
 COMMENT ON COLUMN tratamiento.duracion_tratamiento IS
-    'Duración del tratamiento';
+    'DuraciÃ³n del tratamiento';
 
 COMMENT ON COLUMN tratamiento.id_tipo IS
-    'Código tipo tratamiento';
+    'CÃ³digo tipo tratamiento';
 
 COMMENT ON COLUMN tratamiento.id_via_suministro IS
-    'Código tipo de vía suministro';
+    'CÃ³digo tipo de vÃ­a suministro';
 
 ALTER TABLE tratamiento ADD CONSTRAINT tratamiento_pk PRIMARY KEY ( id_tratamiento );
 
@@ -852,13 +852,13 @@ CREATE TABLE tratamientoconsulta (
 );
 
 COMMENT ON COLUMN tratamientoconsulta.id_consulta IS
-    'Código de consulta';
+    'CÃ³digo de consulta';
 
 COMMENT ON COLUMN tratamientoconsulta.id_tratamiento IS
-    'Código del tratamiento';
+    'CÃ³digo del tratamiento';
 
 COMMENT ON COLUMN tratamientoconsulta.id_medico IS
-    'Código del medico que indica el tratamiento';
+    'CÃ³digo del medico que indica el tratamiento';
 
 CREATE TABLE turno (
     id_turno      INTEGER NOT NULL,
@@ -868,10 +868,10 @@ CREATE TABLE turno (
 );
 
 COMMENT ON COLUMN turno.id_turno IS
-    'Código del turno';
+    'CÃ³digo del turno';
 
 COMMENT ON COLUMN turno.descripcion IS
-    'Descripción del turno';
+    'DescripciÃ³n del turno';
 
 COMMENT ON COLUMN turno.hora_inicio IS
     'Hora inicio del turno';
@@ -883,14 +883,14 @@ ALTER TABLE turno ADD CONSTRAINT turno_pk PRIMARY KEY ( id_turno );
 
 CREATE TABLE viasuministro (
     id_via_suministro   INTEGER NOT NULL,
-    via_suministro      VARCHAR2(50)
+    via_suministro      VARCHAR2(64)
 );
 
 COMMENT ON COLUMN viasuministro.id_via_suministro IS
-    'Código de la vía de suministro del tratamiento';
+    'CÃ³digo de la vÃ­a de suministro del tratamiento';
 
 COMMENT ON COLUMN viasuministro.via_suministro IS
-    'Vía suministro del tratamiento';
+    'VÃ­a suministro del tratamiento';
 
 ALTER TABLE viasuministro ADD CONSTRAINT viasuministro_pk PRIMARY KEY ( id_via_suministro );
 

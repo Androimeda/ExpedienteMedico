@@ -5,7 +5,8 @@ CREATE OR REPLACE PROCEDURE PL_AgregarPiso(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+  contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -21,5 +22,23 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM EDIFICIO
+  WHERE ID_EDIFICIO = idEdificio
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe codigo de Edificio ingresado';
+    RETURN;
+  END IF;
+
+  INSERT INTO PISO
+  (DESCRIPCION, ID_EDIFICIO) VALUES
+  (descripcion, idEdificio);
+
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 
 END;

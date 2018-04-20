@@ -5,7 +5,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearEdificio(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE 	contador INTEGER;
+--DECLARE
+ contador INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -22,4 +23,22 @@ BEGIN
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
 
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CENTROMEDICO
+  WHERE ID_CENTRO_MEDICO = idCentroMedico
+  ;
+  IF contador=0 THEN
+    mensaje:='No existec codigo de centro medico ingresado';
+    RETURN;
+  END IF;
+
+  INSERT INTO EDIFICIO
+  (NOMBRE, ID_CENTRO_MEDICO) VALUES
+  (nombre, idCentroMedico);
+
+  COMMIT;
+  mensaje:='Registro insertado satisfactoriamente';
+  resultado:=1;
 END;
