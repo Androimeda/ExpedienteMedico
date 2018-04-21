@@ -14,6 +14,7 @@ CREATE OR REPLACE PROCEDURE PL_CrearParamedico(
 )
 IS
 --DECLARE
+  vnConteo NUMBER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -53,5 +54,51 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+SELECT COUNT(*) INTO vnConteo
+  FROM PERSONA
+  WHERE NO_IDENTIDAD=noIdentidad;
+IF vnConteo=0 THEN
+  mensaje:='el numero de id: '||noIdentidad||'no existe';
+  RETURN ;
+END IF;
 
+  SELECT COUNT(*) INTO vnConteo
+  FROM PAIS
+  WHERE  idPais=ID_PAIS;
+IF vnConteo=0 THEN
+    mensaje:='EL pais: '|| idPais ||'no esta registrado.';
+    RETURN ;
+END IF;
+   INSERT INTO PERSONA(
+    P_NOMBRE,
+    S_NOMBRE,
+    P_APELLIDO,
+    S_APELLIDO,
+    DIRECCION,
+    NO_IDENTIDAD,
+    ID_PAIS,
+    SEXO,
+    CORREO
+  )VALUES (
+    pNombre,
+    sNombre,
+    pApellido,
+    sApellido,
+    direccion,
+    noIdentidad,
+    idPais,
+    sexo,
+    correo
+  );
+
+
+  INSERT INTO PARAMEDICO(
+    LICENCIA,
+    ID_PERSONA
+  )VALUES (
+    licencia,
+    ?
+  ) RETURNING ID_PERSONA INTO ID_PERSONA;
+  COMMIT ;
+  resultado:=1;
 END;

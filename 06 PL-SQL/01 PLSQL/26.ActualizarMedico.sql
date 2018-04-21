@@ -9,6 +9,8 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarMedico(
 )
 IS
 --DECLARE
+  temMensaje VARCHAR(2000);
+vnConteo NUMBER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -33,5 +35,37 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+
+
+SELECT COUNT(*) INTO vnConteo
+  FROM MEDICO
+  WHERE idMedico=ID_MEDICO;
+IF vnConteo=0 THEN
+  mensaje:='El medico con registro: '|| idMedico||'no existe';
+  RETURN ;
+END IF;
+SELECT COUNT(*) INTO vnConteo
+  FROM  ESPECIALIDAD
+  WHERE  idEspecialidad=ID_ESPECIALIDAD;
+IF vnConteo=0 THEN
+  mensaje:='La especialidad: '|| idEspecialidad||'no esta registrada';
+  RETURN;
+END IF;
+  UPDATE MEDICO
+    SET
+      NO_COLEGIACION=noColegiacion,
+      ID_ESPECIALIDAD=idEspecialidad
+    WHERE
+      idMedico=ID_MEDICO;
+  UPDATE PERSONA
+      SET
+        DIRECCION=direccion,
+        CORREO=correo
+      WHERE
+        ID_PERSONA= (
+          SELECT ID_PERSONA
+            FROM MEDICO M
+            WHERE  idMedico= M.ID_MEDICO
+        ) ;
 
 END;

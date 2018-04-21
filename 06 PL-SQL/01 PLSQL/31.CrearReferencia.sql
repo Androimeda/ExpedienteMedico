@@ -10,6 +10,7 @@ CREATE OR REPLACE PROCEDURE PL_CrearReferencia(
 )
 IS
 --DECLARE
+  vnConteo NUMBER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -37,5 +38,45 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT COUNT(*) INTO vnConteo
+    FROM MEDICO
+    WHERE idMedico=ID_MEDICO;
+  IF vnConteo=0 THEN
+    mensaje:='El medico con identificador: '||idMedico||'no esta registrado';
+    RETURN ;
+  END IF;
+
+ SELECT COUNT(*) INTO vnConteo
+    FROM EXPEDIENTE
+    WHERE idExpediente=ID_EXPEDIENTE;
+  IF vnConteo=0 THEN
+    mensaje:='El expediente con identificador: '||idExpediente||'no esta registrado';
+    RETURN ;
+  END IF;
+
+  SELECT COUNT(*) INTO vnConteo
+    FROM CENTROMEDICO
+    WHERE idCentroMedicoRemite=ID_CENTRO_MEDICO AND idCentroMedicoRecibe=ID_CENTRO_MEDICO;
+  IF vnConteo=0 THEN
+    mensaje:='El CENTRO medico no esta registrado';
+    RETURN ;
+  END IF;
+
+  INSERT INTO REFERENCIA(
+    DESCRIPCION,
+    ID_MEDICO,
+    ID_EXPEDIENTE,
+    ID_CENTRO_MEDICO_REMITE,
+    ID_CENTRO_MEDICO_RECIBE
+  )VALUES (
+    descripcion,
+    idMedico,
+    idExpediente,
+    idCentroMedicoRemite,
+    idCentroMedicoRecibe
+  );
+  COMMIT ;
+  mensaje:='se ha creado la referencia con exito CAPITAN!';
+  resultado:=1;
 
 END;

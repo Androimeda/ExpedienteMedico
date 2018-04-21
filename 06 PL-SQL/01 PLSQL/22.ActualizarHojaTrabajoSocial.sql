@@ -7,7 +7,9 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarHojaTrabajoSocial(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE
+temMensaje VARCHAR(2000);
+vnConteo NUMBER;
+
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -29,5 +31,35 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+  SELECT COUNT(*) INTO vnConteo
+    FROM EXPEDIENTE
+    WHERE ID_EXPEDIENTE= idExpediente;
+  IF vnConteo=0 THEN
+    mensaje:='No existe el registro con el id: ' || idExpediente;
+  END IF;
+  SELECT  COUNT(*) INTO vnConteo
+    FROM HOJATRABAJOSOCIAL
+    WHERE ID_TS=idTS;
+  IF vnConteo=0 THEN
+    mensaje:='No existe la hoja: ' || idTS
+  END IF;
+  SELECT COUNT(*) INTO vnConteo
+    FROM  CENTROMEDICO
+    WHERE idCentroMedico= ID_centro_medico;
+  IF vnConteo=0 THEN
+    mensaje:='NO esta registrado el centro medico con id: ' || idCentroMedico;
+  END IF;
+
+    UPDATE HOJATRABAJOSOCIAL
+      SET
+        DESCRIPCION=descripcion,
+        ID_EXPEDIENTE= idExpediente,
+        ID_CENTRO_MEDICO=idCentroMedico
+      WHERE
+        idTS=ID_TS;
+        mensaje:= 'actualizacion realizada correctamente';
+      COMMIT ;
+      mensaje:='No se pudo actualizar';
+      resultado:=1;
 
 END;

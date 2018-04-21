@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE PL_ActualizarViaSuministro(
+CREATE OR REPLACE PROCEDURE PL_actualizarViaSuministro(
   idViaSuministro IN INT
   ,viaSuministro IN VARCHAR
   ,mensaje OUT VARCHAR
@@ -6,6 +6,7 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarViaSuministro(
 )
 IS
 --DECLARE
+  vnConteo NUMBER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -21,5 +22,20 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+SELECT count(*) INTO vnConteo
+  FROM VIASUMINISTRO
+  WHERE idViaSuministro=ID_VIA_SUMINISTR0;
+IF vnConteo=0 THEN
+  mensaje:='NO esta registrado el identificador: '|| idViaSuministro
+END IF;
+
+  UPDATE VIASUMINISTRO
+    SET
+      VIA_SUMINISTRO=viaSuministro
+    WHERE idViaSuministro=ID_VIA_SUMINISTRO;
+
+  COMMIT ;
+  mensaje:='Se actualizo la informacion correctamente';
+  resultado:=1;
 
 END;

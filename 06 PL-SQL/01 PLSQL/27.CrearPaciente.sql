@@ -18,6 +18,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearPaciente(
 )
 IS
 --DECLARE
+  temMensaje VARCHAR(2000);
+  vnConteo NUMBER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -69,5 +71,100 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+SELECT COUNT(*) INTO vnConteo
+  FROM PERSONA
+  WHERE ID_PAIS=idPais;
+IF vnConteo=0 THEN
+  mensaje:='EL pais con el identificador: '|| idPais||'no esta registrado';
+  RETURN ;
+END IF;
+SELECT COUNT(*) INTO vnConteo
+  FROM TIPOSANGRE
+  WHERE idTipoSangre= ID_TIPO_SANGRE;
+IF vnConteo=0 THEN
+  mensaje='EL tipo de sangre: '|| idTipoSangre||'no esta registrado';
+  RETURN ;
+END IF;
+SELECT COUNT(*) INTO vnConteo
+  FROM ESCOLARIDAD
+  WHERE idEscolaridad= ID_ESCOLARIDAD;
+IF vnConteo=0 THEN
+  mensaje:='Escolaridad: '|| idEscolaridad||'no esta registrada';
+  RETURN ;
+END IF;
 
+SELECT COUNT(*) INTO vnConteo
+  FROM OCUPACION
+  WHERE idOcupacion=ID_OCUPACION;
+IF vnConteo=0 THEN
+  mensaje:='el identificador de ocupacion: '||idOcupacion||'no esta registrado';
+  RETURN ;
+END IF;
+SELECT COUNT(*) INTO vnConteo
+  FROM ESTADOCIVIL
+  WHERE idEstadoCivil=ID_ESTADO_CIVIL;
+IF vnConteo=0 THEN
+   mensaje:='el identificador de estado civil : '||idEstadoCivil||'no esta registrado';
+  RETURN ;
+END IF;
+SELECT COUNT(*) INTO vnConteo
+  FROM ASCENDENCIA
+  WHERE idAscendencia=ID_ASCENDENCIA;
+IF vnConteo=0 THEN
+  mensaje:='el identificador de ascendencia con : '|| idAscendencia||'NO esta registrado';
+  RETURN ;
+END IF;
+
+SELECT COUNT(*) INTO vnConteo
+  FROM PERSONA
+  WHERE noIdentidad=NO_IDENTIDAD;
+IF vnConteo=0 THEN
+  mensaje:='El numero de identidad: '|| noIdentidad||'no existe';
+  RETURN ;
+END IF ;
+SELECT COUNT(*) INTO vnConteo
+  FROM PAIS
+  WHERE  idPais=ID_PAIS;
+IF vnConteo=0 THEN
+    mensaje:='EL pais: '|| idPais ||'no esta registrado.';
+  RETURN ;
+END IF;
+  INSERT INTO PERSONA(
+    P_NOMBRE,
+    S_NOMBRE,
+    P_APELLIDO,
+    S_APELLIDO,
+    DIRECCION,
+
+    NO_IDENTIDAD,
+    ID_PAIS,
+    SEXO,
+    CORREO
+  )VALUES (
+    pNombre,
+    sNombre,
+    pApellido,
+    sApellido,
+    direccion,
+    noIdentidad,
+    idPais,
+    sexo,
+    correo
+  );
+  INSERT INTO PACIENTE(
+    ID_PERSONA,
+    ID_TIPO_SANGRE,
+    ID_ESCOLARIDAD,
+    ID_OCUPACION,
+    ID_ESTADO_CIVIL,
+    ID_ASCENDENCIA
+
+  )VALUES (
+    ?,
+    idTipoSangre,
+    idEscolaridad,
+    idOcupacion,
+    idEstadoCivil,
+    idAscendencia
+  )RETURNING ID_PERSONA INTO ID_PERSONA;
 END;

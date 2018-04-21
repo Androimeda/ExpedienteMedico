@@ -1,8 +1,13 @@
-CREATE OR REPLACE PROCEDURE PL_AgregarPersona(
-  idPersona IN INT
-  ,telefono IN VARCHAR
-  ,idTipoTelefono IN INT
+CREATE OR REPLACE PROCEDURE PL_PL_AgregarPersona(
+  pNombre IN VARCHAR
+  ,sNombre IN VARCHAR
+  ,pApellido IN VARCHAR
+  ,sApellido IN VARCHAR
+  ,direccion IN VARCHAR
+  ,noIdentidad IN VARCHAR
   ,idPais IN INT
+  ,sexo IN VARCHAR
+  ,correo IN VARCHAR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -12,22 +17,68 @@ BEGIN
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF idPersona = '' OR idPersona IS NULL THEN
-    mensaje:= mensaje || 'idPersona, ';
+  IF pNombre = '' OR pNombre IS NULL THEN
+    mensaje:= mensaje || 'pNombre, ';
   END IF;
-  IF telefono = '' OR telefono IS NULL THEN
-    mensaje:= mensaje || 'telefono, ';
+  IF sNombre = '' OR sNombre IS NULL THEN
+    mensaje:= mensaje || 'sNombre, ';
   END IF;
-  IF idTipoTelefono = '' OR idTipoTelefono IS NULL THEN
-    mensaje:= mensaje || 'idTipoTelefono, ';
+  IF pApellido = '' OR pApellido IS NULL THEN
+    mensaje:= mensaje || 'pApellido, ';
+  END IF;
+  IF sApellido = '' OR sApellido IS NULL THEN
+    mensaje:= mensaje || 'sApellido, ';
+  END IF;
+  IF direccion = '' OR direccion IS NULL THEN
+    mensaje:= mensaje || 'direccion, ';
+  END IF;
+  IF noIdentidad = '' OR noIdentidad IS NULL THEN
+    mensaje:= mensaje || 'noIdentidad, ';
   END IF;
   IF idPais = '' OR idPais IS NULL THEN
     mensaje:= mensaje || 'idPais, ';
   END IF;
-  IF mensaje<>'' OR mensaje IS NOT NULL THEN
+  IF sexo = '' OR sexo IS NULL THEN
+    mensaje:= mensaje || 'sexo, ';
+  END IF;
+  IF correo = '' OR correo IS NULL THEN
+    mensaje:= mensaje || 'correo, ';
+  END IF;
+  IF mensaje<>'' THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+SELECT COUNT(*) INTO vnConteo
+  FROM PAIS
+  WHERE  idPais=ID_PAIS;
+IF vnConteo=0 THEN
+    mensaje:='EL pais: '|| idPais ||'no esta registrado.';
+    RETURN ;
+END IF;
+   INSERT INTO PERSONA(
+    P_NOMBRE,
+    S_NOMBRE,
+    P_APELLIDO,
+    S_APELLIDO,
+    DIRECCION,
+    NO_IDENTIDAD,
+    ID_PAIS,
+    SEXO,
+    CORREO
+  )VALUES (
+    pNombre,
+    sNombre,
+    pApellido,
+    sApellido,
+    direccion,
+    noIdentidad,
+    idPais,
+    sexo,
+    correo
+  );
+  COMMIT ;
+  mensaje:='Se ingreso la informacion correctamente';
+  resultado:=1;
 
 END;

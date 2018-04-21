@@ -10,7 +10,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearHospitalizacion(
   ,resultado OUT SMALLINT
 )
 IS
---DECLARE
+temMensaje VARCHAR(2000);
+vnConteo NUMBER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -41,5 +42,50 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+SELECT COUNT(*) INTO vnConteo
+  FROM PISO
+  WHERE idPiso=ID_PISO;
+  IF vnConteo=0 THEN
+    mensaje:='el id: '|| idPiso || 'no esta registrado';
+    RETURN ;
+  END IF;
 
+  SELECT COUNT(*) INTO vnConteo
+    FROM MEDICO
+    WHERE idMedico= ID_MEDICO;
+  IF vnConteo=0 THEN
+    mensaje:='el medico con el id: '|| idMedico ||'no existe';
+    RETURN ;
+  END IF;
+
+  SELECT COUNT(*) INTO vnConteo
+    FROM EXPEDIENTE
+      WHERE idExpediente= ID_EXPEDIENTE;
+  IF vnConteo=0 THEN
+    mensaje:='No existe registro con el expediente ' || idExpediente;
+    RETURN;
+  END IF;
+
+    INSERT INTO HOSPITALIZACION(
+
+      OBSERVACION,
+      FECHA_HORA_INGRESO,
+
+      ID_PISO,
+      CAMA,
+      ID_MEDICO,
+      ID_EXPEDIENTE
+    )VALUES (
+
+      observacion,
+      to_date(fechaHoraIngreso),
+
+      idPiso,
+      cama,
+      idMedico,
+      idExpediente
+    );
+    COMMIT ;
+  mensaje:='insercion realizada correctamente';
+  resultado:=1;
 END;

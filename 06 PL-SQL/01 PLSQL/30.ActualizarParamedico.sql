@@ -1,4 +1,5 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarParamedico(
+  idParamedico IN INT,
   direccion IN VARCHAR
   ,correo IN VARCHAR
   ,licencia IN VARCHAR
@@ -7,6 +8,7 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarParamedico(
 )
 IS
 --DECLARE
+  vnConteo NUMBER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -25,5 +27,25 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+SELECT COUNT(*) INTO vnConteo
+  FROM PARAMEDICO
+  WHERE ID_PARAMEDICO=idParamedico;
+IF vnConteo=0 THEN
+  mensaje:=idParamedico ||'No esta registrado como paramedico';
+  RETURN ;
+END IF;
+  UPDATE  PERSONA
+    SET
+      DIRECCION=direccion,
+      CORREO=correo
+    WHERE
+      ID_PERSONA=
+            (SELECT ID_PERSONA
+            FROM PARAMEDICO
+            WHERE ID_PARAMEDICO=idParamedico);
 
+  UPDATE PARAMEDICO
+    SET
+      LICENCIA=licencia
+    WHERE idParamedico=ID_PARAMEDICO;
 END;
