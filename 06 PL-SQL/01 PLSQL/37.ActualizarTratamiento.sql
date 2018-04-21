@@ -71,7 +71,7 @@ BEGIN
     idTratamiento ,
     dosis ,
     intervaloTiempo,
-    fechaInicio I,
+    fechaInicio,
     duracionTratamiento,
     idTipo ,
     idViaSuministro

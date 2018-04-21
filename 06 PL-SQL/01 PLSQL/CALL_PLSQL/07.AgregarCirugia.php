@@ -1,20 +1,23 @@
 <?php
 # public function ... ($conexion) {...
-# Llamada a PL_CrearCentroMedico
-include_once("./class/Conexion.php");
-$conexion=new Conexion();
+# Llamada a PL_AgregarCirugia
+
 $query=sprintf("
   BEGIN
-    PL_DarAlta(
+    PL_AgregarCirugia(
       %s
       ,%s
+      ,%s
+      ,'%s'
       ,:msg
       ,:res
     );
   END;
 ",
   $this->idIngreso
-  ,$this->fechaHoraAlta
+  ,$this->idTipoCirugia
+  ,$this->idMedico
+  ,$this->fechaHora
 );
 $resultado=$conexion->query($query);
 oci_bind_by_name($resultado, ':msg', $msg, 2000);
@@ -24,5 +27,6 @@ oci_free_statement($resultado);
 $respuesta=[];
 $respuesta['mensaje'] = $msg;
 $respuesta['resultado'] = $res == 1;
-echo json_encode($respuesta);
+return json_encode($respuesta);
+
 ?>

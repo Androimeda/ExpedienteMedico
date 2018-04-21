@@ -1,6 +1,5 @@
 CREATE OR REPLACE PROCEDURE PL_crearTratamiento(
-
-  ,dosis IN VARCHAR
+  dosis IN VARCHAR
   ,intervaloTiempo IN VARCHAR
   ,fechaInicio IN DATE
   ,duracionTratamiento IN VARCHAR
@@ -69,7 +68,7 @@ BEGIN
 
     dosis ,
     intervaloTiempo,
-    fechaInicio I,
+    fechaInicio,
     duracionTratamiento,
     idTipo ,
     idViaSuministro

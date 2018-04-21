@@ -57,5 +57,5 @@ SELECT COUNT(*) INTO vnConteo
   WHERE
     ID_TRATAMIENTO=idTratamiento;
   COMMIT ;
-  mensaje:='Se actualizo la receta correctamente'
+  mensaje:='Se actualizo la receta correctamente';
 END;

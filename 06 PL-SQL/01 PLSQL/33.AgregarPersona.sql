@@ -13,6 +13,7 @@ CREATE OR REPLACE PROCEDURE PL_PL_AgregarPersona(
 )
 IS
 --DECLARE
+  vnConteo INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;

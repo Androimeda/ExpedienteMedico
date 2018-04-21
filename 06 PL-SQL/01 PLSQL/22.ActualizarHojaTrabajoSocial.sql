@@ -41,7 +41,7 @@ BEGIN
     FROM HOJATRABAJOSOCIAL
     WHERE ID_TS=idTS;
   IF vnConteo=0 THEN
-    mensaje:='No existe la hoja: ' || idTS
+    mensaje:='No existe la hoja: ' || idTS;
   END IF;
   SELECT COUNT(*) INTO vnConteo
     FROM  CENTROMEDICO

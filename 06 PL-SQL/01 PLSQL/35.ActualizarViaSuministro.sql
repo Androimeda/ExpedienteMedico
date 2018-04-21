@@ -24,9 +24,9 @@ BEGIN
 /*---------------- CUERPO DEL PL----------------*/
 SELECT count(*) INTO vnConteo
   FROM VIASUMINISTRO
-  WHERE idViaSuministro=ID_VIA_SUMINISTR0;
+  WHERE id_via_suministro=idViaSuministro;
 IF vnConteo=0 THEN
-  mensaje:='NO esta registrado el identificador: '|| idViaSuministro
+  mensaje:='NO esta registrado el identificador: '|| idViaSuministro;
 END IF;
 
   UPDATE VIASUMINISTRO

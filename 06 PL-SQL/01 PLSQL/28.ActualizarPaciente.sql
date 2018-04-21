@@ -78,7 +78,7 @@ UPDATE PACIENTE
   UPDATE  PERSONA
     SET
       DIRECCION=direccion,
-      CORREO=correo,
+      CORREO=correo
     WHERE
       ID_PERSONA=
               (SELECT  P.ID_PERSONA

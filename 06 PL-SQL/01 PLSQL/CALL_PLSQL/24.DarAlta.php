@@ -1,8 +1,7 @@
 <?php
 # public function ... ($conexion) {...
-# Llamada a PL_CrearCentroMedico
-include_once("./class/Conexion.php");
-$conexion=new Conexion();
+# Llamada a PL_DarAlta
+
 $query=sprintf("
   BEGIN
     PL_DarAlta(
@@ -24,5 +23,6 @@ oci_free_statement($resultado);
 $respuesta=[];
 $respuesta['mensaje'] = $msg;
 $respuesta['resultado'] = $res == 1;
-echo json_encode($respuesta);
+return json_encode($respuesta);
+
 ?>
