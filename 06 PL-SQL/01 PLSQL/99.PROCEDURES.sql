@@ -1470,7 +1470,7 @@ BEGIN
 END;
 
 
-CREATE OR REPLACE PROCEDURE PL_ActualizarHojaTrabajoSocial(
+CREATE OR REPLACE PROCEDURE PL_CrearHojaTrabajoSocial(
   descripcion IN VARCHAR
   ,idExpediente IN INT
   ,idCentroMedico IN INT
@@ -1531,7 +1531,7 @@ END;
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarHojaTrabajoSocial(
   idTS IN INT
-  ,descripcion IN VARCHAR
+  ,pdescripcion IN VARCHAR
   ,idExpediente IN INT
   ,idCentroMedico IN INT
   ,mensaje OUT VARCHAR
@@ -1548,7 +1548,7 @@ BEGIN
   IF idTS = '' OR idTS IS NULL THEN
     mensaje:= mensaje || 'idTS, ';
   END IF;
-  IF descripcion = '' OR descripcion IS NULL THEN
+  IF pdescripcion = '' OR pdescripcion IS NULL THEN
     mensaje:= mensaje || 'descripcion, ';
   END IF;
   IF idExpediente = '' OR idExpediente IS NULL THEN
@@ -1583,14 +1583,14 @@ BEGIN
 
     UPDATE HOJATRABAJOSOCIAL
       SET
-        DESCRIPCION=descripcion,
+        DESCRIPCION=pdescripcion,
         ID_EXPEDIENTE= idExpediente,
         ID_CENTRO_MEDICO=idCentroMedico
       WHERE
         idTS=ID_TS;
-        mensaje:= 'actualizacion realizada correctamente';
+
       COMMIT ;
-      mensaje:='No se pudo actualizar';
+      mensaje:= 'actualizacion realizada correctamente';
       resultado:=1;
 
 END;
@@ -1619,9 +1619,6 @@ BEGIN
   END IF;
   IF fechaHoraIngreso = '' OR fechaHoraIngreso IS NULL THEN
     mensaje:= mensaje || 'fechaHoraIngreso, ';
-  END IF;
-  IF fechaHoraAlta = '' OR fechaHoraAlta IS NULL THEN
-    mensaje:= mensaje || 'fechaHoraAlta, ';
   END IF;
   IF idPiso = '' OR idPiso IS NULL THEN
     mensaje:= mensaje || 'idPiso, ';
@@ -1676,7 +1673,7 @@ SELECT COUNT(*) INTO vnConteo
     )VALUES (
 
       observacion,
-      to_date(fechaHoraIngreso),
+      fechaHoraIngreso,
 
       idPiso,
       cama,
@@ -1722,7 +1719,7 @@ BEGIN
   END IF;
   UPDATE HOSPITALIZACION
     SET
-      FECHA_HORA_ALTA=TO_DATE(fechaHoraAlta)
+      FECHA_HORA_ALTA=fechaHoraAlta
     WHERE
       idIngreso=ID_INGRESO;
   COMMIT ;
@@ -1750,27 +1747,20 @@ CREATE OR REPLACE PROCEDURE PL_CrearMedico(
 IS
 temMensaje VARCHAR(2000);
 vnConteo NUMBER;
+id_insert_persona INTEGER;
 BEGIN
+  id_insert_persona:=0;
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
   IF pNombre = '' OR pNombre IS NULL THEN
     mensaje:= mensaje || 'pNombre, ';
   END IF;
-  IF sNombre = '' OR sNombre IS NULL THEN
-    mensaje:= mensaje || 'sNombre, ';
-  END IF;
   IF pApellido = '' OR pApellido IS NULL THEN
     mensaje:= mensaje || 'pApellido, ';
   END IF;
-  IF sApellido = '' OR sApellido IS NULL THEN
-    mensaje:= mensaje || 'sApellido, ';
-  END IF;
-  IF direccion = '' OR direccion IS NULL THEN
-    mensaje:= mensaje || 'direccion, ';
-  END IF;
-  IF sexo = '' OR sexo IS NULL THEN
-    mensaje:= mensaje || 'sexo, ';
+  IF sexo = '' OR sexo IS NULL OR SEXO NOT IN ('F','M') THEN
+    mensaje:= mensaje || 'sexo (F OR M), ';
   END IF;
   IF noIdentidad = '' OR noIdentidad IS NULL THEN
     mensaje:= mensaje || 'noIdentidad, ';
@@ -1783,9 +1773,6 @@ BEGIN
   END IF;
   IF noColegiacion = '' OR noColegiacion IS NULL THEN
     mensaje:= mensaje || 'noColegiacion, ';
-  END IF;
-  IF correo = '' OR correo IS NULL THEN
-    mensaje:= mensaje || 'correo, ';
   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
@@ -1811,17 +1798,22 @@ END IF;
 SELECT COUNT(*) INTO vnConteo
   FROM PERSONA
   WHERE noIdentidad=NO_IDENTIDAD;
-IF vnConteo=0 THEN
-  mensaje:='El numero de identidad: '|| noIdentidad||'no existe';
-  RETURN ;
-END IF;
+IF vnConteo>0 THEN
+  mensaje:='El numero de identidad: '|| noIdentidad||' ya existe';
+
+  SELECT
+    ID_PERSONA
+  INTO id_insert_persona
+  FROM PERSONA
+  WHERE NO_IDENTIDAD = noIdentidad;
+
+ELSE
   INSERT INTO PERSONA(
     P_NOMBRE,
     S_NOMBRE,
     P_APELLIDO,
     S_APELLIDO,
     DIRECCION,
-
     NO_IDENTIDAD,
     ID_PAIS,
     SEXO,
@@ -1832,34 +1824,53 @@ END IF;
     pApellido,
     sApellido,
     direccion,
-
     noIdentidad,
     idPais,
     sexo,
     correo
-  );
-  INSERT INTO MEDICO(
+  ) RETURNING ID_PERSONA INTO id_insert_persona;
+
+  IF id_insert_persona=0 THEN
+    mensaje:='Ocurrio un error en la insercion de persona, no se guardó nada';
+    ROLLBACK;
+    RETURN;
+  END IF;
+END IF;
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM MEDICO
+  WHERE ID_PERSONA = id_insert_persona;
+
+  IF vnConteo!=0 THEN
+    mensaje:='Registro de Medico ya existe en la tabla, persona con el mismo noIdentidad en tabla medico';
+    RETURN;
+  ELSE
+    INSERT INTO MEDICO(
     NO_COLEGIACION,
     ID_PERSONA,
     ID_ESPECIALIDAD
   )VALUES (
     noColegiacion,
-    ?,
+    id_insert_persona,
     idEspecialidad
-  ) RETURNING ID_PERSONA INTO ID_PERSONA;
+  );
     COMMIT ;
     mensaje:='La insercion fue exitosa';
     resultado:=1;
+  END IF;
+
 
 END;
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarMedico(
   idMedico IN INT
-  ,direccion IN VARCHAR
+  ,pdireccion IN VARCHAR
   ,idEspecialidad IN VARCHAR
   ,noColegiacion IN VARCHAR
-  ,correo IN VARCHAR
+  ,pcorreo IN VARCHAR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -1874,7 +1885,7 @@ BEGIN
   IF idMedico = '' OR idMedico IS NULL THEN
     mensaje:= mensaje || 'idMedico, ';
   END IF;
-  IF direccion = '' OR direccion IS NULL THEN
+  IF pdireccion = '' OR pdireccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
   END IF;
   IF idEspecialidad = '' OR idEspecialidad IS NULL THEN
@@ -1883,7 +1894,7 @@ BEGIN
   IF noColegiacion = '' OR noColegiacion IS NULL THEN
     mensaje:= mensaje || 'noColegiacion, ';
   END IF;
-  IF correo = '' OR correo IS NULL THEN
+  IF pcorreo = '' OR pcorreo IS NULL THEN
     mensaje:= mensaje || 'correo, ';
   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
@@ -1915,14 +1926,18 @@ END IF;
       idMedico=ID_MEDICO;
   UPDATE PERSONA
       SET
-        DIRECCION=direccion,
-        CORREO=correo
+        DIRECCION=pdireccion,
+        CORREO=pcorreo
       WHERE
         ID_PERSONA= (
           SELECT ID_PERSONA
             FROM MEDICO M
             WHERE  idMedico= M.ID_MEDICO
         ) ;
+  COMMIT;
+  mensaje:='Actualizada satisfactoriamente';
+  resultado:=1;
+
 
 END;
 
@@ -1949,21 +1964,17 @@ IS
 --DECLARE
   temMensaje VARCHAR(2000);
   vnConteo NUMBER;
+  id_persona_insert INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
+  id_persona_insert:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
   IF pNombre = '' OR pNombre IS NULL THEN
     mensaje:= mensaje || 'pNombre, ';
   END IF;
-  IF sNombre = '' OR sNombre IS NULL THEN
-    mensaje:= mensaje || 'sNombre, ';
-  END IF;
   IF pApellido = '' OR pApellido IS NULL THEN
     mensaje:= mensaje || 'pApellido, ';
-  END IF;
-  IF sApellido = '' OR sApellido IS NULL THEN
-    mensaje:= mensaje || 'sApellido, ';
   END IF;
   IF direccion = '' OR direccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
@@ -1974,11 +1985,8 @@ BEGIN
   IF idPais = '' OR idPais IS NULL THEN
     mensaje:= mensaje || 'idPais, ';
   END IF;
-  IF sexo = '' OR sexo IS NULL THEN
-    mensaje:= mensaje || 'sexo, ';
-  END IF;
-  IF correo = '' OR correo IS NULL THEN
-    mensaje:= mensaje || 'correo, ';
+  IF sexo = '' OR sexo IS NULL OR SEXO NOT IN ('F','M') THEN
+    mensaje:= mensaje || 'sexo (F OR M), ';
   END IF;
   IF idTipoSangre = '' OR idTipoSangre IS NULL THEN
     mensaje:= mensaje || 'idTipoSangre, ';
@@ -2011,7 +2019,7 @@ SELECT COUNT(*) INTO vnConteo
   FROM TIPOSANGRE
   WHERE idTipoSangre= ID_TIPO_SANGRE;
 IF vnConteo=0 THEN
-  mensaje='EL tipo de sangre: '|| idTipoSangre||'no esta registrado';
+  mensaje:='EL tipo de sangre: '|| idTipoSangre||'no esta registrado';
   RETURN ;
 END IF;
 SELECT COUNT(*) INTO vnConteo
@@ -2045,64 +2053,94 @@ IF vnConteo=0 THEN
 END IF;
 
 SELECT COUNT(*) INTO vnConteo
-  FROM PERSONA
-  WHERE noIdentidad=NO_IDENTIDAD;
-IF vnConteo=0 THEN
-  mensaje:='El numero de identidad: '|| noIdentidad||'no existe';
-  RETURN ;
-END IF ;
-SELECT COUNT(*) INTO vnConteo
   FROM PAIS
   WHERE  idPais=ID_PAIS;
 IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
   RETURN ;
 END IF;
-  INSERT INTO PERSONA(
-    P_NOMBRE,
-    S_NOMBRE,
-    P_APELLIDO,
-    S_APELLIDO,
-    DIRECCION,
 
-    NO_IDENTIDAD,
-    ID_PAIS,
-    SEXO,
-    CORREO
-  )VALUES (
-    pNombre,
-    sNombre,
-    pApellido,
-    sApellido,
-    direccion,
-    noIdentidad,
-    idPais,
-    sexo,
-    correo
-  );
-  INSERT INTO PACIENTE(
-    ID_PERSONA,
-    ID_TIPO_SANGRE,
-    ID_ESCOLARIDAD,
-    ID_OCUPACION,
-    ID_ESTADO_CIVIL,
-    ID_ASCENDENCIA
 
-  )VALUES (
-    ?,
-    idTipoSangre,
-    idEscolaridad,
-    idOcupacion,
-    idEstadoCivil,
-    idAscendencia
-  )RETURNING ID_PERSONA INTO ID_PERSONA;
+  SELECT COUNT(*) INTO vnConteo
+  FROM PERSONA
+  WHERE NO_IDENTIDAD = noIdentidad;
+
+  IF vnConteo>0 THEN
+    mensaje:='El numero de identidad: '|| noIdentidad||' ya existe';
+
+    SELECT
+      ID_PERSONA
+    INTO id_persona_insert
+    FROM PERSONA
+    WHERE NO_IDENTIDAD = noIdentidad;
+
+  ELSE
+    INSERT INTO PERSONA(
+      P_NOMBRE,
+      S_NOMBRE,
+      P_APELLIDO,
+      S_APELLIDO,
+      DIRECCION,
+      NO_IDENTIDAD,
+      ID_PAIS,
+      SEXO,
+      CORREO
+    )VALUES (
+      pNombre,
+      sNombre,
+      pApellido,
+      sApellido,
+      direccion,
+      noIdentidad,
+      idPais,
+      sexo,
+      correo
+    ) RETURNING ID_PERSONA INTO id_persona_insert;
+
+     IF id_persona_insert=0 THEN
+      mensaje:='Ocurrio un error en la insercion de persona, no se guardó nada';
+      ROLLBACK;
+      RETURN;
+    END IF;
+  END IF;
+
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM PACIENTE
+  WHERE ID_PERSONA = id_persona_insert;
+
+  IF vnConteo!=0 THEN
+    mensaje:='Registro de Paciente ya existe en la tabla, persona con el mismo noIdentidad en tabla paciente';
+    RETURN;
+  ELSE
+    INSERT INTO PACIENTE(
+      ID_PERSONA,
+      ID_TIPO_SANGRE,
+      ID_ESCOLARIDAD,
+      ID_OCUPACION,
+      ID_ESTADO_CIVIL,
+      ID_ASCENDENCIA
+    )VALUES (
+      id_persona_insert,
+      idTipoSangre,
+      idEscolaridad,
+      idOcupacion,
+      idEstadoCivil,
+      idAscendencia
+    );
+    COMMIT;
+    mensaje:='La insercion fue exitosa';
+    resultado:=1;
+  END IF;
 END;
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarPaciente(
   idPaciente IN INT
-  ,direccion IN VARCHAR
-  ,correo IN VARCHAR
+  ,pdireccion IN VARCHAR
+  ,pcorreo IN VARCHAR
   ,idEscolaridad IN INT
   ,idOcupacion IN INT
   ,idEstadoCivil IN INT
@@ -2120,11 +2158,11 @@ BEGIN
     mensaje:= mensaje || 'idPaciente, ';
     RETURN ;
   END IF;
-  IF direccion = '' OR direccion IS NULL THEN
+  IF pdireccion = '' OR pdireccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
     RETURN ;
   END IF;
-  IF correo = '' OR correo IS NULL THEN
+  IF pcorreo = '' OR pcorreo IS NULL THEN
     mensaje:= mensaje || 'correo, ';
     RETURN ;
   END IF;
@@ -2178,8 +2216,8 @@ UPDATE PACIENTE
 
   UPDATE  PERSONA
     SET
-      DIRECCION=direccion,
-      CORREO=correo
+      DIRECCION=pdireccion,
+      CORREO=pcorreo
     WHERE
       ID_PERSONA=
               (SELECT  P.ID_PERSONA
@@ -2208,33 +2246,23 @@ CREATE OR REPLACE PROCEDURE PL_CrearParamedico(
 IS
 --DECLARE
   vnConteo NUMBER;
+  id_persona_insert INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
+  id_persona_insert:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
   IF pNombre = '' OR pNombre IS NULL THEN
     mensaje:= mensaje || 'pNombre, ';
   END IF;
-  IF sNombre = '' OR sNombre IS NULL THEN
-    mensaje:= mensaje || 'sNombre, ';
-  END IF;
   IF pApellido = '' OR pApellido IS NULL THEN
     mensaje:= mensaje || 'pApellido, ';
   END IF;
-  IF sApellido = '' OR sApellido IS NULL THEN
-    mensaje:= mensaje || 'sApellido, ';
-  END IF;
-  IF direccion = '' OR direccion IS NULL THEN
-    mensaje:= mensaje || 'direccion, ';
-  END IF;
-  IF sexo = '' OR sexo IS NULL THEN
-    mensaje:= mensaje || 'sexo, ';
+  IF sexo = '' OR sexo IS NULL OR SEXO NOT IN ('F','M') THEN
+    mensaje:= mensaje || 'sexo (F OR M), ';
   END IF;
   IF noIdentidad = '' OR noIdentidad IS NULL THEN
     mensaje:= mensaje || 'noIdentidad, ';
-  END IF;
-  IF correo = '' OR correo IS NULL THEN
-    mensaje:= mensaje || 'correo, ';
   END IF;
   IF idPais = '' OR idPais IS NULL THEN
     mensaje:= mensaje || 'idPais, ';
@@ -2247,13 +2275,6 @@ BEGIN
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
-SELECT COUNT(*) INTO vnConteo
-  FROM PERSONA
-  WHERE NO_IDENTIDAD=noIdentidad;
-IF vnConteo=0 THEN
-  mensaje:='el numero de id: '||noIdentidad||'no existe';
-  RETURN ;
-END IF;
 
   SELECT COUNT(*) INTO vnConteo
   FROM PAIS
@@ -2262,7 +2283,19 @@ IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
     RETURN ;
 END IF;
-   INSERT INTO PERSONA(
+
+SELECT COUNT(*) INTO vnConteo
+  FROM PERSONA
+  WHERE NO_IDENTIDAD=noIdentidad;
+IF vnConteo!=0 THEN
+  mensaje:='el numero de id: '||noIdentidad||' ya existe';
+  SELECT
+    ID_PERSONA
+  INTO id_persona_insert
+  FROM PERSONA
+  WHERE NO_IDENTIDAD = noIdentidad;
+ELSE
+     INSERT INTO PERSONA(
     P_NOMBRE,
     S_NOMBRE,
     P_APELLIDO,
@@ -2282,26 +2315,45 @@ END IF;
     idPais,
     sexo,
     correo
-  );
+  ) RETURNING ID_PERSONA INTO id_persona_insert;
 
+    IF id_persona_insert=0 THEN
+    mensaje:='Ocurrio un error en la insercion de persona, no se guardó nada';
+    ROLLBACK;
+    RETURN;
+  END IF;
+END IF;
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM PARAMEDICO
+  WHERE ID_PERSONA = id_persona_insert;
+
+  IF vnConteo!=0 THEN
+    mensaje:='Registro de Paramedico ya existe en la tabla, persona con el mismo noIdentidad en tabla paramedico';
+    RETURN;
+  ELSE
 
   INSERT INTO PARAMEDICO(
     LICENCIA,
     ID_PERSONA
   )VALUES (
     licencia,
-    ?
-  ) RETURNING ID_PERSONA INTO ID_PERSONA;
+    id_persona_insert
+  );
   COMMIT ;
+  mensaje:='Ingresado correctamente';
   resultado:=1;
+  END IF;
 END;
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarParamedico(
   idParamedico IN INT,
-  direccion IN VARCHAR
-  ,correo IN VARCHAR
-  ,licencia IN VARCHAR
+  pdireccion IN VARCHAR
+  ,pcorreo IN VARCHAR
+  ,plicencia IN VARCHAR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -2312,13 +2364,13 @@ BEGIN
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF direccion = '' OR direccion IS NULL THEN
+  IF pdireccion = '' OR pdireccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
   END IF;
-  IF correo = '' OR correo IS NULL THEN
+  IF pcorreo = '' OR pcorreo IS NULL THEN
     mensaje:= mensaje || 'correo, ';
   END IF;
-  IF licencia = '' OR licencia IS NULL THEN
+  IF plicencia = '' OR plicencia IS NULL THEN
     mensaje:= mensaje || 'licencia, ';
   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
@@ -2335,8 +2387,8 @@ IF vnConteo=0 THEN
 END IF;
   UPDATE  PERSONA
     SET
-      DIRECCION=direccion,
-      CORREO=correo
+      DIRECCION=pdireccion,
+      CORREO=pcorreo
     WHERE
       ID_PERSONA=
             (SELECT ID_PERSONA
@@ -2345,14 +2397,17 @@ END IF;
 
   UPDATE PARAMEDICO
     SET
-      LICENCIA=licencia
+      LICENCIA=plicencia
     WHERE idParamedico=ID_PARAMEDICO;
+
+  COMMIT;
+  mensaje:='Actualizada satisfactoriamente';
+  resultado:=1;
 END;
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearReferencia(
-  idReferencia IN INT
-  ,descripcion IN VARCHAR
+  descripcion IN VARCHAR
   ,idMedico IN INT
   ,idExpediente IN INT
   ,idCentroMedicoRemite IN INT
@@ -2367,12 +2422,6 @@ BEGIN
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF idReferencia = '' OR idReferencia IS NULL THEN
-    mensaje:= mensaje || 'idReferencia, ';
-  END IF;
-  IF descripcion = '' OR descripcion IS NULL THEN
-    mensaje:= mensaje || 'descripcion, ';
-  END IF;
   IF idMedico = '' OR idMedico IS NULL THEN
     mensaje:= mensaje || 'idMedico, ';
   END IF;
@@ -2408,9 +2457,17 @@ BEGIN
 
   SELECT COUNT(*) INTO vnConteo
     FROM CENTROMEDICO
-    WHERE idCentroMedicoRemite=ID_CENTRO_MEDICO AND idCentroMedicoRecibe=ID_CENTRO_MEDICO;
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRemite;
   IF vnConteo=0 THEN
-    mensaje:='El CENTRO medico no esta registrado';
+    mensaje:='El CENTRO medico REMITENTE no esta registrado';
+    RETURN ;
+  END IF;
+
+  SELECT COUNT(*) INTO vnConteo
+    FROM CENTROMEDICO
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRecibe;
+  IF vnConteo=0 THEN
+    mensaje:='El CENTRO medico RECEPTOR no esta registrado';
     RETURN ;
   END IF;
 
@@ -2428,7 +2485,7 @@ BEGIN
     idCentroMedicoRecibe
   );
   COMMIT ;
-  mensaje:='se ha creado la referencia con exito CAPITAN!';
+  mensaje:='Se ha creado la referencia con exito CAPITAN!';
   resultado:=1;
 
 END;
@@ -2436,7 +2493,6 @@ END;
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarReferencia(
   idReferencia IN INT
-  ,idReferencia IN INT
   ,descripcion IN VARCHAR
   ,idMedico IN INT
   ,idExpediente IN INT
@@ -2506,9 +2562,17 @@ BEGIN
 
   SELECT COUNT(*) INTO vnConteo
     FROM CENTROMEDICO
-    WHERE idCentroMedicoRemite=ID_CENTRO_MEDICO AND idCentroMedicoRecibe=ID_CENTRO_MEDICO;
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRemite;
   IF vnConteo=0 THEN
-    mensaje:='El CENTRO medico no esta registrado';
+    mensaje:='El CENTRO medico REMITENTE no esta registrado';
+    RETURN ;
+  END IF;
+
+  SELECT COUNT(*) INTO vnConteo
+    FROM CENTROMEDICO
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRecibe;
+  IF vnConteo=0 THEN
+    mensaje:='El CENTRO medico RECEPTOR no esta registrado';
     RETURN ;
   END IF;
 
@@ -2528,58 +2592,52 @@ BEGIN
 END;
 
 
-CREATE OR REPLACE PROCEDURE PL_PL_AgregarPersona(
-  pNombre IN VARCHAR
-  ,sNombre IN VARCHAR
-  ,pApellido IN VARCHAR
-  ,sApellido IN VARCHAR
-  ,direccion IN VARCHAR
-  ,noIdentidad IN VARCHAR
+CREATE OR REPLACE PROCEDURE PL_AgregarTelefonoPersona(
+  idPersona IN INT
+  ,telefono IN VARCHAR
+  ,idTipoTelefono IN INT
   ,idPais IN INT
-  ,sexo IN VARCHAR
-  ,correo IN VARCHAR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
 IS
 --DECLARE
   vnConteo INTEGER;
+  id_telefono_insert INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF pNombre = '' OR pNombre IS NULL THEN
-    mensaje:= mensaje || 'pNombre, ';
+  IF idPersona = '' OR idPersona IS NULL THEN
+    mensaje:= mensaje || 'idPersona, ';
   END IF;
-  IF sNombre = '' OR sNombre IS NULL THEN
-    mensaje:= mensaje || 'sNombre, ';
+  IF telefono = '' OR telefono IS NULL THEN
+    mensaje:= mensaje || 'telefono, ';
   END IF;
-  IF pApellido = '' OR pApellido IS NULL THEN
-    mensaje:= mensaje || 'pApellido, ';
-  END IF;
-  IF sApellido = '' OR sApellido IS NULL THEN
-    mensaje:= mensaje || 'sApellido, ';
-  END IF;
-  IF direccion = '' OR direccion IS NULL THEN
-    mensaje:= mensaje || 'direccion, ';
-  END IF;
-  IF noIdentidad = '' OR noIdentidad IS NULL THEN
-    mensaje:= mensaje || 'noIdentidad, ';
+  IF idTipoTelefono = '' OR idTipoTelefono IS NULL THEN
+    mensaje:= mensaje || 'idTipoTelefono, ';
   END IF;
   IF idPais = '' OR idPais IS NULL THEN
     mensaje:= mensaje || 'idPais, ';
   END IF;
-  IF sexo = '' OR sexo IS NULL THEN
-    mensaje:= mensaje || 'sexo, ';
-  END IF;
-  IF correo = '' OR correo IS NULL THEN
-    mensaje:= mensaje || 'correo, ';
-  END IF;
-  IF mensaje<>'' THEN
+  IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+
+SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM PERSONA
+  WHERE ID_PERSONA = idPersona
+  ;
+  IF vnConteo=0 THEN
+    mensaje:='No existe codigo de persona ingresado';
+    RETURN;
+  END IF;
+
+
 SELECT COUNT(*) INTO vnConteo
   FROM PAIS
   WHERE  idPais=ID_PAIS;
@@ -2587,27 +2645,27 @@ IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
     RETURN ;
 END IF;
-   INSERT INTO PERSONA(
-    P_NOMBRE,
-    S_NOMBRE,
-    P_APELLIDO,
-    S_APELLIDO,
-    DIRECCION,
-    NO_IDENTIDAD,
-    ID_PAIS,
-    SEXO,
-    CORREO
-  )VALUES (
-    pNombre,
-    sNombre,
-    pApellido,
-    sApellido,
-    direccion,
-    noIdentidad,
-    idPais,
-    sexo,
-    correo
-  );
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM TIPOTELEFONO
+  WHERE ID_TIPO_TELEFONO = idTipoTelefono
+  ;
+  IF vnConteo=0 THEN
+    mensaje:='No existe codifo de Tipo de Telefono ingresado';
+    RETURN;
+  END IF;
+
+  INSERT INTO telefono
+  (TELEFONO, ID_TIPO_TELEFONO, ID_PAIS)
+  VALUES (telefono, idTipoTelefono, idPais)
+  RETURNING ID_TELEFONO INTO id_telefono_insert
+  ;
+
+  INSERT INTO TELEFONOPERSONA
+  (ID_TELEFONO, ID_PERSONA)
+  VALUES (id_telefono_insert, idPersona);
   COMMIT ;
   mensaje:='Se ingreso la informacion correctamente';
   resultado:=1;
@@ -2615,7 +2673,7 @@ END IF;
 END;
 
 
-CREATE OR REPLACE PROCEDURE PL_AgregartelefonoxCentro(
+CREATE OR REPLACE PROCEDURE PL_AgregarTelefonoCentro(
   idCentroMedico IN INT
   ,telefono IN VARCHAR
   ,idTipoTelefono IN INT
@@ -2626,6 +2684,7 @@ CREATE OR REPLACE PROCEDURE PL_AgregartelefonoxCentro(
 IS
 --DECLARE
   vnConteo NUMBER;
+  var_id INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -2654,6 +2713,7 @@ BEGIN
     mensaje:='El CENTRO medico con identificador: '||idCentroMedico||' no esta registrado';
     RETURN ;
   END IF;
+
   SELECT COUNT(*) INTO vnConteo
     FROM TIPOTELEFONO
     WHERE idTipoTelefono=ID_TIPO_TELEFONO;
@@ -2661,13 +2721,14 @@ BEGIN
     mensaje:='El TIPO de telefono: '||idTipoTelefono||' no esta registrado';
     RETURN ;
   END IF;
+
   SELECT COUNT(*) INTO vnConteo
   FROM PAIS
   WHERE  idPais=ID_PAIS;
-IF vnConteo=0 THEN
+  IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
     RETURN ;
-END IF;
+  END IF;
 
   INSERT INTO TELEFONO (
     TELEFONO,
@@ -2677,15 +2738,14 @@ END IF;
     telefono,
     idTipoTelefono,
     idPais
+  ) RETURNING ID_TELEFONO INTO var_id;
+
+  INSERT INTO TELEFONOCENTROMEDICO
+  (ID_TELEFONO, ID_CENTRO_MEDICO)
+  VALUES(
+    idCentroMedico,
+    var_id
   );
-
-  INSERT INTO TELEFONOCENTROMEDICO (
-  )VALUES(
-    idCentroMedico=ID_CENTRO_MEDICO,
-    ?
-
-  )RETURNING ID_TELEFONO INTO ID_TELEFONO;
-
   COMMIT ;
   mensaje:='Se ingreso la informacion correctamente';
   resultado:=1;
@@ -2694,7 +2754,7 @@ END;
 
 
 
-CREATE OR REPLACE PROCEDURE PL_actualizarViaSuministro(
+CREATE OR REPLACE PROCEDURE PL_ActualizarViaSuministro(
   idViaSuministro IN INT
   ,viaSuministro IN VARCHAR
   ,mensaje OUT VARCHAR
@@ -2773,7 +2833,7 @@ BEGIN
   IF idViaSuministro = '' OR idViaSuministro IS NULL THEN
     mensaje:= mensaje || 'idViaSuministro, ';
   END IF;
-  IF mensaje<>'' THEN
+  IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
   END IF;
@@ -2820,9 +2880,9 @@ BEGIN
 END;
 
 
-CREATE OR REPLACE PROCEDURE PL_crearTratamiento(
+CREATE OR REPLACE PROCEDURE PL_ActualizarTratamiento(
   idTratamiento IN INT
-  ,dosis IN VARCHAR
+  ,pdosis IN VARCHAR
   ,intervaloTiempo IN VARCHAR
   ,fechaInicio IN DATE
   ,duracionTratamiento IN VARCHAR
@@ -2840,30 +2900,50 @@ BEGIN
 /*----------------VALIDACION DE CAMPOS----------------*/
   IF idTratamiento = '' OR idTratamiento IS NULL THEN
     mensaje:= mensaje || 'idTratamiento, ';
+    RETURN;
   END IF;
-  IF dosis = '' OR dosis IS NULL THEN
+  IF pdosis = '' OR pdosis IS NULL THEN
     mensaje:= mensaje || 'dosis, ';
+    RETURN;
   END IF;
   IF intervaloTiempo = '' OR intervaloTiempo IS NULL THEN
     mensaje:= mensaje || 'intervaloTiempo, ';
+    RETURN;
   END IF;
   IF fechaInicio = '' OR fechaInicio IS NULL THEN
     mensaje:= mensaje || 'fechaInicio, ';
+    RETURN;
   END IF;
   IF duracionTratamiento = '' OR duracionTratamiento IS NULL THEN
     mensaje:= mensaje || 'duracionTratamiento, ';
+    RETURN;
   END IF;
   IF idTipo = '' OR idTipo IS NULL THEN
     mensaje:= mensaje || 'idTipo, ';
+    RETURN;
   END IF;
   IF idViaSuministro = '' OR idViaSuministro IS NULL THEN
     mensaje:= mensaje || 'idViaSuministro, ';
+    RETURN;
   END IF;
-  IF mensaje<>'' THEN
+  IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM TRATAMIENTO
+  WHERE ID_TRATAMIENTO = idTratamiento
+  ;
+  IF vnConteo=0 THEN
+    mensaje:='No existe codigo de tratamiento ingresado';
+    RETURN;
+  END IF;
+
+
   SELECT COUNT(* ) INTO vnConteo
     FROM  TIPOTRATAMIENTO
     WHERE idTipo=ID_TIPO;
@@ -2880,24 +2960,33 @@ BEGIN
     RETURN ;
   END IF;
 
-  INSERT INTO TRATAMIENTO(
-    ID_TRATAMIENTO ,
-    DOSIS ,
-    INTERVALO_TIEMPO,
-    FECHA_INICIO,
-    DURACION_TRATAMIENTO,
-    ID_TIPO,
-    ID_VIA_SUMINISTRO
-
-  )VALUES (
-    idTratamiento ,
-    dosis ,
-    intervaloTiempo,
-    fechaInicio,
-    duracionTratamiento,
-    idTipo ,
-    idViaSuministro
-  );
+--   INSERT INTO TRATAMIENTO(
+--     ID_TRATAMIENTO ,
+--     DOSIS ,
+--     INTERVALO_TIEMPO,
+--     FECHA_INICIO,
+--     DURACION_TRATAMIENTO,
+--     ID_TIPO,
+--     ID_VIA_SUMINISTRO
+--
+--   )VALUES (
+--     idTratamiento ,
+--     dosis ,
+--     intervaloTiempo,
+--     fechaInicio,
+--     duracionTratamiento,
+--     idTipo ,
+--     idViaSuministro
+--   );
+  UPDATE TRATAMIENTO
+  SET
+    DOSIS=pdosis
+    ,INTERVALO_TIEMPO=intervaloTiempo
+    ,FECHA_INICIO = fechaInicio
+    ,DURACION_TRATAMIENTO = duracionTratamiento
+    ,ID_TIPO = idTipo
+    ,ID_VIA_SUMINISTRO = idViaSuministro
+  WHERE ID_TRATAMIENTO = idTratamiento;
   COMMIT ;
   mensaje:='Se ingreso la informacion correctamente';
   resultado:=1;
@@ -3027,7 +3116,9 @@ SELECT COUNT(*) INTO vnConteo
     ID_TRATAMIENTO=idTratamiento,
     ID_MEDICO=idMedico
   WHERE
-    ID_TRATAMIENTO=idTratamiento;
+    ID_TRATAMIENTO=idTratamiento
+    AND ID_CONSULTA = idConsulta
+  ;
   COMMIT ;
   mensaje:='Se actualizo la receta correctamente';
 END;

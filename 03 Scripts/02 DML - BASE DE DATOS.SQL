@@ -624,6 +624,8 @@ ALTER TABLE persona ADD CONSTRAINT persona_pk PRIMARY KEY ( id_persona );
 
 ALTER TABLE persona ADD CONSTRAINT persona__un UNIQUE ( no_identidad );
 
+ALTER TABLE PERSONA ADD CONSTRAINT SEXO_RESTRICT_CHECK CHECK (SEXO IN ('F', 'M'));
+
 CREATE TABLE piso (
     id_piso       INTEGER NOT NULL,
     descripcion   VARCHAR2(100) NOT NULL,
