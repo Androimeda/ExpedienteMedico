@@ -99,23 +99,23 @@ class Hospitalizacion{
 		$this->idExpediente = $idExpediente;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function listarPorCentro(/*Parametros*/){
+	public function listarPorCentro($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function listarPorMedico(/*Parametros*/){
+	public function listarPorMedico($conexion){
 	}
-	public function listarPorPiso(/*Parametros*/){
+	public function listarPorPiso($conexion){
 	}
-	public function darAlta(/*Parametros*/){
+	public function darAlta($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
-	public function listarPorFecha(/*Parametros*/){
+	public function listarPorFecha($conexion){
 	}
 
 }

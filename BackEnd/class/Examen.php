@@ -88,25 +88,25 @@ class Examen{
 		$this->fecha = $fecha;
 	}
 
-	public function agregarTipoExamen(/*Parametros*/){
+	public function agregarTipoExamen($conexion){
 	}
-	public function listarTipoExamen(/*Parametros*/){
+	public function listarTipoExamen($conexion){
 	}
-	public function actualizarTipoExamen(/*Parametros*/){
+	public function actualizarTipoExamen($conexion){
 	}
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function listarPorCentro(/*Parametros*/){
+	public function listarPorCentro($conexion){
 	}
-	public function listarPorTipo(/*Parametros*/){
+	public function listarPorTipo($conexion){
 	}
 
 }

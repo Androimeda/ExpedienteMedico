@@ -2,8 +2,8 @@ CREATE OR REPLACE PROCEDURE PL_CrearCentroMedico(
   nombre IN VARCHAR
   ,direccion IN VARCHAR
   ,idTipoCentro IN INT
-  ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
+  ,mensaje OUT VARCHAR
 )
 IS
 --DECLARE

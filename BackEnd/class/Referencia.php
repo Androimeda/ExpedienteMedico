@@ -77,23 +77,23 @@ class Referencia{
 		$this->idCentroMedicoRecibe = $idCentroMedicoRecibe;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function listar(/*Parametros*/){
+	public function listar($conexion){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function listarPorCentroRemite(/*Parametros*/){
+	public function listarPorCentroRemite($conexion){
 	}
-	public function listarRecibidas(/*Parametros*/){
+	public function listarRecibidas($conexion){
 	}
-	public function listarPorMedico(/*Parametros*/){
+	public function listarPorMedico($conexion){
 	}
 }
 ?>

@@ -55,27 +55,27 @@ class Telefono{
 		$this->idPais = $idPais;
 	}
 
-	public function listarPorPersona(/*Parametros*/){
+	public function listarPorPersona($conexion){
 	}
-	public function listarPorCentroMedico(/*Parametros*/){
+	public function listarPorCentroMedico($conexion){
 	}
-	public function agregarPersona(/*Parametros*/){
+	public function agregarPersona($conexion){
 	}
-	public function agregarCentro(/*Parametros*/){
+	public function agregarCentro($conexion){
 	}
-	public function buscarPorPersona(/*Parametros*/){
+	public function buscarPorPersona($conexion){
 	}
-	public function buscarPorCentro(/*Parametros*/){
+	public function buscarPorCentro($conexion){
 	}
-	public function eliminarDePersona(/*Parametros*/){
+	public function eliminarDePersona($conexion){
 	}
-	public function eliminarDeCentro(/*Parametros*/){
+	public function eliminarDeCentro($conexion){
 	}
-	public function agregarTipoTelefono(/*Parametros*/){
+	public function agregarTipoTelefono($conexion){
 	}
-	public function listarTipoTelefono(/*Parametros*/){
+	public function listarTipoTelefono($conexion){
 	}
-	public function actualizarTipoTelefono(/*Parametros*/){
+	public function actualizarTipoTelefono($conexion){
 	}
 
 }

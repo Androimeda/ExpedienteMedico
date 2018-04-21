@@ -53,13 +53,13 @@ class HojaTrabajoSocial{
 		$this->idCentroMedico = $idCentroMedico;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
 	public function listarPorPaciente(){
 	}

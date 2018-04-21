@@ -55,13 +55,64 @@ class CentroMedico{
 		$this->idTipoCentro = $idTipoCentro;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearCentroMedico(
+		      '%s'
+		      ,'%s'
+		      ,%s
+		      ,:res
+		      ,:msg
+		    );
+		  END;
+		",
+		  $this->nombre
+		  ,$this->direccion
+		  ,$this->idTipoCentro
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarCentroMedico(
+		      %s
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idCentroMedico
+		  ,$this->pnombre
+		  ,$this->pdireccion
+		  ,$this->idTipoCentro
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
 
 }

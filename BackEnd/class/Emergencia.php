@@ -88,23 +88,23 @@ class Emergencia{
 		$this->idMedico = $idMedico;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function listarPorCentroMedico(/*Parametros*/){
+	public function listarPorCentroMedico($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function listarPorMedico(/*Parametros*/){
+	public function listarPorMedico($conexion){
 	}
-	public function listarPorHoy(/*Parametros*/){
+	public function listarPorHoy($conexion){
 	}
-	public function listarPorCentroFecha(/*Parametros*/){
+	public function listarPorCentroFecha($conexion){
 	}
-	public function listarPorMedicoFecha(/*Parametros*/){
+	public function listarPorMedicoFecha($conexion){
 	}
 
 }

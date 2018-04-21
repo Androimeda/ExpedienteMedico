@@ -66,27 +66,53 @@ class Cirugia{
 		$this->fechaHora = $fechaHora;
 	}
 
-	public function listarTipoCirugia(/*Parametros*/){
+	public function listarTipoCirugia($conexion){
 	}
-	public function agregarTipoCirugia(/*Parametros*/){
+	public function agregarTipoCirugia($conexion){
 	}
-	public function actualizarTipoCirugia(/*Parametros*/){
+	public function actualizarTipoCirugia($conexion){
 	}
-	public function agregarCirugia(/*Parametros*/){
+	public function agregarCirugia($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_AgregarCirugia(
+		      %s
+		      ,%s
+		      ,%s
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idIngreso
+		  ,$this->idTipoCirugia
+		  ,$this->idMedico
+		  ,$this->fechaHora
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
-	public function actualizarCirugia(/*Parametros*/){
+	// public function actualizarCirugia($conexion){
+	// }
+	public function listarPorPaciente($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorMedico($conexion){
 	}
-	public function listarPorMedico(/*Parametros*/){
+	public function listarPorHoy($conexion){
 	}
-	public function listarPorHoy(/*Parametros*/){
+	public function listarPorCentroMedico($conexion){
 	}
-	public function listarPorCentroMedico(/*Parametros*/){
+	public function listarPorCentroFecha($conexion){
 	}
-	public function listarPorCentroFecha(/*Parametros*/){
-	}
-	public function listarPorMedicoFecha(/*Parametros*/){
+	public function listarPorMedicoFecha($conexion){
 	}
 
 }

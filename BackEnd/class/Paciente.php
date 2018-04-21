@@ -79,28 +79,28 @@ class Paciente extends Persona{
 		$this->idAscendencia = $idAscendencia;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 		//SE DEBE CREAR EXPEDIENTE
 	}
-	public function listar(/*Parametros*/){
+	public function listar($conexion){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
-	public function buscarPorNombre(/*Parametros*/){
+	public function buscarPorNombre($conexion){
 	}
-	public function buscarPorApellido(/*Parametros*/){
+	public function buscarPorApellido($conexion){
 	}
-	public function buscarPorNoIdentidad(/*Parametros*/){
+	public function buscarPorNoIdentidad($conexion){
 	}
-	public function getNumeroExpediente(/*Parametros*/){
+	public function getNumeroExpediente($conexion){
 	}
-	public function setNatalidad(/*Parametros*/){
+	public function setNatalidad($conexion){
 	}
-	public function setDefuncion(/*Parametros*/){
+	public function setDefuncion($conexion){
 	}
 }
 ?>

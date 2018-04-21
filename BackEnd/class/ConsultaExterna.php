@@ -99,21 +99,89 @@ class ConsultaExterna{
 		$this->observacion = $observacion;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearConsultaExterna(
+		      %s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idConsultorio
+		  ,$this->idExpediente
+		  ,$this->idMedico
+		  ,$this->fechaHora
+		  ,$this->sintomas
+		  ,$this->diagnostico
+		  ,$this->observacion
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarConsultaExterna(
+		      %s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idConsulta
+		  ,$this->idExpediente
+		  ,$this->idConsultorio
+		  ,$this->idMedico
+		  ,$this->fechaHora
+		  ,$this->sintomas
+		  ,$this->diagnostico
+		  ,$this->observacion
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function listarPorHoy(/*Parametros*/){
+	public function listarPorHoy($conexion){
 	}
-	public function listarPorCentroMedico(/*Parametros*/){
+	public function listarPorCentroMedico($conexion){
 	}
-	public function listarPorMedico(/*Parametros*/){
+	public function listarPorMedico($conexion){
 	}
-	public function listarPorConsultorio(/*Parametros*/){
+	public function listarPorConsultorio($conexion){
 	}
 
 }

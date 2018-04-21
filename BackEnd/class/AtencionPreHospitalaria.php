@@ -66,17 +66,75 @@ class AtencionPreHospitalaria{
 		$this->idExpediente = $idExpediente;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearAtencionPH(
+		      '%s'
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->observacion
+		  ,$this->idParamedico
+		  ,$this->idAmbulancia
+		  ,$this->idExpediente
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function listarPorCentroMedico(/*Parametros*/){
+	public function listarPorCentroMedico($conexion){
 	}
-	public function listarPorParamedico(/*Parametros*/){
+	public function listarPorParamedico($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarAtencionPH(
+		      %s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idAtencion
+		  ,$this->observacion
+		  ,$this->fechaHoraAtencion
+		  ,$this->idParamedico
+		  ,$this->idAmbulancia
+		  ,$this->idExpediente
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
 
 }

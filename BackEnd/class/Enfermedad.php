@@ -44,25 +44,25 @@ class Enfermedad{
 		$this->idTipoEnfermedad = $idTipoEnfermedad;
 	}
 
-	public function agregarTipoEnfermedad(/*Parametros*/){
+	public function agregarTipoEnfermedad($conexion){
 	}
-	public function listarTipoEnfermedad(/*Parametros*/){
+	public function listarTipoEnfermedad($conexion){
 	}
-	public function actualizarTipoEnfermedad(/*Parametros*/){
+	public function actualizarTipoEnfermedad($conexion){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function listarPorTipo(/*Parametros*/){
+	public function listarPorTipo($conexion){
 	}
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function diagnosticarEnfermedad(/*Parametros*/){
+	public function diagnosticarEnfermedad($conexion){
 	}
-	public function quitarDiagnostico(/*Parametros*/){
+	public function quitarDiagnostico($conexion){
 	}
 
 }

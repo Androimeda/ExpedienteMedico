@@ -88,29 +88,29 @@ class Tratamiento{
 		$this->IdViaSuministro = $IdViaSuministro;
 	}
 
-	public function agregarTipoTratamiento(/*Parametros*/){
+	public function agregarTipoTratamiento($conexion){
 	}
-	public function actualizarTipoTratamiento(/*Parametros*/){
+	public function actualizarTipoTratamiento($conexion){
 	}
-	public function listarTipoTratamiento(/*Parametros*/){
+	public function listarTipoTratamiento($conexion){
 	}
-	public function listarViaSuministro(/*Parametros*/){
+	public function listarViaSuministro($conexion){
 	}
-	public function agregarViaSuministro(/*Parametros*/){
+	public function agregarViaSuministro($conexion){
 	}
-	public function actualizarViaSuministro(/*Parametros*/){
+	public function actualizarViaSuministro($conexion){
 	}
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function listarPorPaciente(/*Parametros*/){
+	public function listarPorPaciente($conexion){
 	}
-	public function recetar(/*Parametros*/){
+	public function recetar($conexion){
 	}
-	public function borrarReceta(/*Parametros*/){
+	public function borrarReceta($conexion){
 	}
 
 }

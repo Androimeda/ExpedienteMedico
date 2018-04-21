@@ -33,17 +33,37 @@ class Consultorio{
 		$this->idPiso = $idPiso;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_PL_CrearConsultorio(
+		      %s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idPiso
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
-	public function listarPorPiso(/*Parametros*/){
+	public function listarPorPiso($conexion){
 	}
-	public function listarPorCentro(/*Parametros*/){
+	public function listarPorCentro($conexion){
 	}
-	public function listarPorMedico(/*Parametros*/){
+	public function listarPorMedico($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function vincularMedico(/*Parametros*/){
+	public function vincularMedico($conexion){
 	}
 
 }

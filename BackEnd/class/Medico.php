@@ -46,21 +46,21 @@ class Medico extends Persona{
 		$this->idMedico = $idMedico;
 	}
 
-	public function crear(/*Parametros*/){
+	public function crear($conexion){
 	}
-	public function listarTodos(/*Parametros*/){
+	public function listarTodos($conexion){
 	}
-	public function eliminar(/*Parametros*/){
+	public function eliminar($conexion){
 	}
-	public function actualizar(/*Parametros*/){
+	public function actualizar($conexion){
 	}
-	public function listar(/*Parametros*/){
+	public function listar($conexion){
 	}
-	public function buscarPorNombre(/*Parametros*/){
+	public function buscarPorNombre($conexion){
 	}
-	public function buscarPorApellido(/*Parametros*/){
+	public function buscarPorApellido($conexion){
 	}
-	public function buscarPorNoIdentidad(/*Parametros*/){
+	public function buscarPorNoIdentidad($conexion){
 	}
 }
 ?>
