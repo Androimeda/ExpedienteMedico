@@ -2,16 +2,16 @@
 include_once('Persona.php');
 class Medico extends Persona{
 	private $noColegiacion;
-	private $idTitulo;
+	private $idEspecialidad;
 	private $idMedico;
 
 	public function __construct(
 		$noColegiacion = null,
-		$idTitulo = null,
+		$idEspecialidad = null,
 		$idMedico = null
 	){
 		$this->noColegiacion = $noColegiacion;
-		$this->idTitulo = $idTitulo;
+		$this->idEspecialidad = $idEspecialidad;
 		$this->idMedico = $idMedico;
 	}
 
@@ -19,7 +19,7 @@ class Medico extends Persona{
 		$var = parent::__toString();
 		$var .= "<br>"."Medico{"
 		."noColegiacion: ".$this->noColegiacion." , "
-		."idTitulo: ".$this->idTitulo." , "
+		."idEspecialidad: ".$this->idEspecialidad." , "
 		."idMedico: ".$this->idMedico;
 		return $var."}";
 	}
@@ -31,12 +31,12 @@ class Medico extends Persona{
 	public function setNoColegiacion($noColegiacion){
 		$this->noColegiacion = $noColegiacion;
 	}
-	public function getIdTitulo(){
-		return $this->idTitulo;
+	public function getidEspecialidad(){
+		return $this->idEspecialidad;
 	}
 
-	public function setIdTitulo($idTitulo){
-		$this->idTitulo = $idTitulo;
+	public function setidEspecialidad($idEspecialidad){
+		$this->idEspecialidad = $idEspecialidad;
 	}
 	public function getIdMedico(){
 		return $this->idMedico;
@@ -47,12 +47,69 @@ class Medico extends Persona{
 	}
 
 	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearMedico(
+		      '%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->pNombre
+		  ,$this->sNombre
+		  ,$this->pApellido
+		  ,$this->sApellido
+		  ,$this->direccion
+		  ,$this->sexo
+		  ,$this->noIdentidad
+		  ,$this->idPais
+		  ,$this->idEspecialidad
+		  ,$this->noColegiacion
+		  ,$this->correo
+		);
 	}
 	public function listarTodos($conexion){
 	}
-	public function eliminar($conexion){
-	}
 	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarMedico(
+		      %s
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idMedico
+		  ,$this->direccion
+		  ,$this->idEspecialidad
+		  ,$this->noColegiacion
+		  ,$this->correo
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function listar($conexion){
 	}

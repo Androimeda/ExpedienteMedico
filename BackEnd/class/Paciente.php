@@ -80,13 +80,89 @@ class Paciente extends Persona{
 	}
 
 	public function crear($conexion){
-		//SE DEBE CREAR EXPEDIENTE
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearPaciente(
+		      '%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->pNombre
+		  ,$this->sNombre
+		  ,$this->pApellido
+		  ,$this->sApellido
+		  ,$this->direccion
+		  ,$this->noIdentidad
+		  ,$this->idPais
+		  ,$this->sexo
+		  ,$this->correo
+		  ,$this->idTipoSangre
+		  ,$this->idEscolaridad
+		  ,$this->idOcupacion
+		  ,$this->idEstadoCivil
+		  ,$this->idAscendencia
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
 	public function listar($conexion){
 	}
 	public function listarTodos($conexion){
 	}
 	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarPaciente(
+		      %s
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idPaciente
+		  ,$this->pdireccion
+		  ,$this->pcorreo
+		  ,$this->idEscolaridad
+		  ,$this->idOcupacion
+		  ,$this->idEstadoCivil
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function eliminar($conexion){
 	}

@@ -95,12 +95,74 @@ class Examen{
 	public function actualizarTipoExamen($conexion){
 	}
 	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearExamen(
+		      '%s'
+		      ,%s
+		      ,%s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->urlDocumento
+		  ,$this->idTipo
+		  ,$this->idCentroMedico
+		  ,$this->observacion
+		  ,$this->idExpediente
+		  ,$this->fecha
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function listarTodos($conexion){
 	}
 	public function eliminar($conexion){
 	}
 	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarExamen(
+		      %s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idExamen
+		  ,$this->urlDocumento
+		  ,$this->idTipo
+		  ,$this->idCentroMedico
+		  ,$this->observacion
+		  ,$this->idExpediente
+		  ,$this->fecha
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function listarPorPaciente($conexion){
 	}

@@ -18,6 +18,7 @@ $query=sprintf("
   ,1
   ,1
 );
+echo $query."<br>";
 $resultado=$conexion->query($query);
 oci_bind_by_name($resultado, ':msg', $msg, 2000);
 oci_bind_by_name($resultado, ':res', $res);

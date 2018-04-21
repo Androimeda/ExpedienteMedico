@@ -7,6 +7,9 @@ class Tratamiento{
 	private $duracionTratamiento;
 	private $idTipoTratamiento;
 	private $idViaSuministro;
+	private $viaSuministro;
+	private $idMedico;
+	private $idConsulta;
 
 	public function __construct(
 		$idTratamiento = null,
@@ -88,6 +91,28 @@ class Tratamiento{
 		$this->IdViaSuministro = $IdViaSuministro;
 	}
 
+	public function getViaSuministro(){
+		return $this->viaSuministro;
+	}
+
+	public function setViaSuministro($viaSuministro){
+		$this->viaSuministro = $viaSuministro;
+	}
+	public function getIdMedico(){
+		return $this->idMedico;
+	}
+
+	public function setIdMedico($idMedico){
+		$this->idMedico = $idMedico;
+	}
+	public function getIdConsulta(){
+		return $this->idConsulta;
+	}
+
+	public function setIdConsulta($idConsulta){
+		$this->idConsulta = $idConsulta;
+	}
+
 	public function agregarTipoTratamiento($conexion){
 	}
 	public function actualizarTipoTratamiento($conexion){
@@ -99,18 +124,152 @@ class Tratamiento{
 	public function agregarViaSuministro($conexion){
 	}
 	public function actualizarViaSuministro($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarViaSuministro(
+		      %s
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idViaSuministro
+		  ,$this->viaSuministro
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
 	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_crearTratamiento(
+		      '%s'
+		      ,'%s'
+		      ,%s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->dosis
+		  ,$this->intervaloTiempo
+		  ,$this->fechaInicio
+		  ,$this->duracionTratamiento
+		  ,$this->idTipoTratamiento
+		  ,$this->idViaSuministro
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+
 	}
 	public function listarTodos($conexion){
 	}
 	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarTratamiento(
+		      %s
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idTratamiento
+		  ,$this->dosis
+		  ,$this->intervaloTiempo
+		  ,$this->fechaInicio
+		  ,$this->duracionTratamiento
+		  ,$this->idTipoTratamiento
+		  ,$this->idViaSuministro
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function listarPorPaciente($conexion){
 	}
 	public function recetar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_Recetar(
+		      %s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idTratamiento
+		  ,$this->idConsulta
+		  ,$this->idMedico
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
-	public function borrarReceta($conexion){
+	public function actualizarReceta($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarReceta(
+		      %s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idTratamiento
+		  ,$this->idConsulta
+		  ,$this->idMedico
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 
 }

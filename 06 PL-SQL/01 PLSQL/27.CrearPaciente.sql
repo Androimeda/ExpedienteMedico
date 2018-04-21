@@ -185,7 +185,13 @@ END IF;
       idOcupacion,
       idEstadoCivil,
       idAscendencia
-    );
+    ) RETURNING ID_PACIENTE INTO id_persona_insert;
+
+
+    INSERT INTO EXPEDIENTE
+    (FECHA_CREACION, ID_PACIENTE)
+    VALUES (SYSDATE, id_persona_insert);
+
     COMMIT;
     mensaje:='La insercion fue exitosa';
     resultado:=1;

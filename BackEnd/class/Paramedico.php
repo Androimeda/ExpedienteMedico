@@ -36,10 +36,74 @@ class Paramedico extends Persona{
 	}
 
 	public function crear($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearParamedico(
+		      '%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->pNombre
+		  ,$this->sNombre
+		  ,$this->pApellido
+		  ,$this->sApellido
+		  ,$this->direccion
+		  ,$this->sexo
+		  ,$this->noIdentidad
+		  ,$this->correo
+		  ,$this->idPais
+		  ,$this->licencia
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function eliminar($conexion){
 	}
 	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarParamedico(
+		      '%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idParamedico
+		  ,$this->direccion
+		  ,$this->correo
+		  ,$this->licencia
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function listar($conexion){
 	}

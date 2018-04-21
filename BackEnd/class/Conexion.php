@@ -18,6 +18,7 @@ class Conexion{
 		$this->db = $db;
 		$this->usuario = $usuario;
 		$this->pass = $pass;
+    
     // Conexion con Oracle a tráves de OCI8
     $this->link = oci_connect(
       $this->usuario,

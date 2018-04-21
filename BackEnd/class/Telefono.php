@@ -4,6 +4,8 @@ class Telefono{
 	private $telefono;
 	private $idTipoTelefono;
 	private $idPais;
+	private $idPersona;
+	private $idCentroMedico;
 
 	public function __construct(
 		$idTelefono = null,
@@ -55,13 +57,80 @@ class Telefono{
 		$this->idPais = $idPais;
 	}
 
+	public function getIdPersona(){
+		return $this->idPersona;
+	}
+
+	public function setIdPersona($idPersona){
+		$this->idPersona = $idPersona;
+	}
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
+
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+
 	public function listarPorPersona($conexion){
 	}
 	public function listarPorCentroMedico($conexion){
 	}
-	public function agregarPersona($conexion){
+	public function agregarTelefonoPersona($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_AgregarTelefonoPersona(
+		      %s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idPersona
+		  ,$this->telefono
+		  ,$this->idTipoTelefono
+		  ,$this->idPais
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
-	public function agregarCentro($conexion){
+	public function agregarTelefonoCentro($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_AgregarTelefonoCentro(
+		      %s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idCentroMedico
+		  ,$this->telefono
+		  ,$this->idTipoTelefono
+		  ,$this->idPais
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function buscarPorPersona($conexion){
 	}
