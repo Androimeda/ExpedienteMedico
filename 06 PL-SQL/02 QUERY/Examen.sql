@@ -1,5 +1,3 @@
-
-
 ----------------------- CONSULTAS
 
 -- listarTodos /*Por centro*/

@@ -3,6 +3,7 @@ class Ambulancia{
 	private $idAmbulancia;
 	private $placa;
 	private $idCentroMedico;
+	private $nombreCentro;
 
 	public function __construct(
 		$idAmbulancia = null,
@@ -44,6 +45,14 @@ class Ambulancia{
 		$this->idCentroMedico = $idCentroMedico;
 	}
 
+	public function getNombreCentro(){
+		return $this->nombreCentro;
+	}
+
+	public function setNombreCentro($nombreCentro){
+		$this->nombreCentro = $nombreCentro;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -69,6 +78,16 @@ class Ambulancia{
 		return json_encode($respuesta);
 	}
 	public function listarTodos($conexion){
+		$query=sprintf("
+		  SELECT  * 
+		  FROM vistaAmbulancia V 
+		  WHERE  v.ID_CENTRO_MEDICO=%s 
+		"
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function actualizar($conexion){
 		$query=sprintf("
@@ -96,9 +115,19 @@ class Ambulancia{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
-	public function eliminar($conexion){
-	}
+
 	public function listarPorCentroMedico($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM vistaAmbulancia v 
+		   WHERE v.NOMBRE LIKE '%s' OR V.ID_CENTRO_MEDICO=%s 
+		"
+		  ,$this->nombreCentro
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 
 }

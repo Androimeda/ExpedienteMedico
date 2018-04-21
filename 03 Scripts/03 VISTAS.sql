@@ -1,5 +1,5 @@
--- Vista 1::
--- Todos los pacientes
+/*** Vista 1:: *****/
+/*** Todos los pacientes *****/
 
 CREATE OR REPLACE VIEW VistaPaciente
 AS
@@ -47,8 +47,8 @@ INNER JOIN ESTADOCIVIL est
   ON est.ID_ESTADO_CIVIL = pa.ID_ESTADO_CIVIL
 ;
 
--- Vista 2 ::
--- Todos los medicos
+/*** Vista 2 :: *****/
+/*** Todos los medicos *****/
 CREATE OR REPLACE VIEW VistaMedico
 AS
 SELECT
@@ -73,8 +73,8 @@ INNER JOIN PAIS pa
   ON pa.ID_PAIS = p.ID_PAIS
 ;
 
--- Vista 3::
---  Telefonos por pacientes
+/*** Vista 3:: *****/
+ /*** Telefonos por pacientes *****/
 
 CREATE OR REPLACE VIEW VistaTelefonoPaciente
 AS
@@ -97,8 +97,8 @@ INNER JOIN pais pa
 ORDER BY id_persona
 ;
 
--- Vista 4:
--- Telefono Doctor
+/*** Vista 4: *****/
+/*** Telefono Doctor *****/
 CREATE OR REPLACE VIEW VistaTelefonoDoctor(
   id,
   codigo_area,
@@ -123,8 +123,8 @@ INNER JOIN pais pa
 ORDER BY id_persona
 ;
 
--- Vista 5
--- Consultas por persona, doctor y centro medico
+/*** Vista 5 *****/
+/*** Consultas por persona, doctor y centro medico *****/
 CREATE OR REPLACE VIEW VistaConsultas
 AS
 SELECT
@@ -166,8 +166,8 @@ INNER JOIN CENTROMEDICO cem
 ;
 
 
---Vista 6
--- Consultas al dia de hoy
+/*** Vista 6 *****/
+/*** Consultas al dia de hoy *****/
 
 CREATE OR REPLACE VIEW VistaConsultasDiarias
 AS
@@ -181,8 +181,8 @@ WHERE
 ORDER BY vc.centro_medico, vc.medico, vc.fecha
 ;
 
--- Vista 7
--- Personas Hospitalizadas
+/*** Vista 7 *****/
+/*** Personas Hospitalizadas *****/
 CREATE OR REPLACE VIEW VistaHospitalizaciones
 AS
 SELECT
@@ -225,9 +225,8 @@ ORDER BY cem.ID_CENTRO_MEDICO, vm.id_medico
 ;
 
 
--- Vista 8
--- Consultorios por centro medico y medico
-DROP IF EXISTS VIEW VistaConsultorios;
+/*** Vista 8 *****/
+/*** Consultorios por centro medico y medico *****/
 CREATE OR REPLACE VIEW VistaConsultorioTurno
 AS
 SELECT
@@ -263,8 +262,8 @@ INNER JOIN TIPOCENTRO tc
 ORDER BY cem.ID_CENTRO_MEDICO, vm.id_medico
 ;
 
--- Vista 9
--- Enfermedades diagnosticadas
+/*** Vista 9 *****/
+/*** Enfermedades diagnosticadas *****/
 CREATE OR REPLACE VIEW VistaEnfermedadesConsultas
 AS
 SELECT
@@ -299,8 +298,8 @@ INNER JOIN CONSULTAEXTERNA ce
 
 
 
--- Vista 10:
---  Tratamiento por Consulta
+/*** Vista 10: *****/
+ /*** Tratamiento por Consulta *****/
 CREATE OR REPLACE VIEW  VistaTratamientoConsultas
 AS
 SELECT
@@ -323,7 +322,7 @@ INNER JOIN VIASUMINISTRO vs
   ON vs.ID_VIA_SUMINISTRO = t.ID_VIA_SUMINISTRO
 ;
 
-------------------------- VISTA AMBULANCIA ------------------------
+/*** ------------------- VISTA AMBULANCIA ------------------------ *****/
 CREATE OR REPLACE VIEW vistaAmbulancia
 AS
 SELECT 
@@ -336,7 +335,7 @@ INNER JOIN  ATENCIONPREHOSPITALARIA APH
 INNER JOIN PARAMEDICO P
   ON P.ID_PARAMEDICO=APH.ID_PARAMEDICO;
 
-------------------------- VISTAS ATENCION PRE HOSPITALARIA ------------------------
+/*** ------------------- VISTAS ATENCION PRE HOSPITALARIA ------------------------ *****/
 CREATE OR REPLACE VIEW vistaAPH
 AS
 SELECT
@@ -368,7 +367,7 @@ INNER JOIN PERSONA P
   ON P.ID_PERSONA= PA.ID_PARAMEDICO
 ;
 
-------------------------- VISTAS CENTRO MEDICO ------------------------
+/*** ------------------- VISTAS CENTRO MEDICO ------------------------ *****/
 CREATE OR REPLACE VIEW vistaCentroMedico
 AS
 SELECT 
@@ -384,7 +383,7 @@ INNER JOIN TELEFONO T
   ON T.ID_TELEFONO=TC.ID_TELEFONO;
 
 
-------------------------- VISTA CIRUGIA ------------------------
+/*** ------------------- VISTA CIRUGIA ------------------------ *****/
 CREATE OR REPLACE VIEW VistaCirugia
 AS
 SELECT
@@ -427,7 +426,7 @@ INNER JOIN PERSONA PE
 ;
 
 
-------------------------- VISTA CONSULTA EXTERNA ------------------------
+/*** ------------------- VISTA CONSULTA EXTERNA ------------------------ *****/
 CREATE OR REPLACE VIEW VistaConsultaExterna
 AS
 SELECT
@@ -472,7 +471,7 @@ INNER JOIN PERSONA PE
 
 
 
-------------------------- VISTA CONSULTORIO ------------------------
+/*** ------------------- VISTA CONSULTORIO ------------------------ *****/
 CREATE OR REPLACE VIEW VistaConsultorio
 AS
 SELECT
@@ -498,7 +497,7 @@ INNER JOIN TIPOCENTRO TC
 ;
 
 
-------------------------- VISTA EFICIO ------------------------
+/*** ------------------- VISTA EFICIO ------------------------ *****/
 CREATE OR REPLACE VIEW VistaEdificio
 AS
 SELECT
@@ -517,7 +516,7 @@ INNER JOIN TIPOCENTRO TC
 ;
 
 
-------------------------- VISTA EFICIO ------------------------
+/*** ------------------- VISTA EFICIO ------------------------ *****/
 CREATE OR REPLACE VIEW VistaEdificio
 AS
 SELECT
@@ -548,7 +547,7 @@ INNER JOIN CENTROMEDICO c
   ON e.ID_CENTRO_MEDICO = c.ID_CENTRO_MEDICO
 ;
 
-------------------------- VISTA Examen ------------------------
+/*** ------------------- VISTA Examen ------------------------ *****/
 CREATE OR REPLACE VIEW VistaExamen
 AS
 SELECT
@@ -585,7 +584,7 @@ INNER JOIN TIPOCENTRO TC
 
 
 
-------------------------- VISTA ENFERMEDAD ------------------------
+/*** ------------------- VISTA ENFERMEDAD ------------------------ *****/
 CREATE OR REPLACE VIEW VistaEnfermedad
 AS
 SELECT
@@ -599,7 +598,7 @@ INNER JOIN TIPOENFERMEDAD t
   ON e.ID_TIPO_ENFERMEDAD = t.ID_TIPO_ENFERMEDAD
 ;
 
-------------------------- VISTA ENFERMEDAD PACIENTE ------------------------
+/*** ------------------- VISTA ENFERMEDAD PACIENTE ------------------------ *****/
 CREATE OR REPLACE VIEW VistaEnfermedadPaciente
 AS
 SELECT
@@ -647,3 +646,166 @@ INNER JOIN PACIENTE PA
 INNER JOIN PERSONA PE
   ON PE.ID_PERSONA= PA.ID_PERSONA
 ;
+
+/*** ------------------- VISTA HOJAS DE TRABAJO SOCIAL ------------------------ *****/
+CREATE OR REPLACE VIEW VistaHojaTrabajoSocial
+AS
+SELECT
+h.ID_TS
+,h.DESCRIPCION
+,c.ID_CENTRO_MEDICO
+,c.NOMBRE as centro_medico
+,t.DESCRIPCION as tipo_centro_medico
+,h.FECHA
+,e.ID_EXPEDIENTE
+,p.P_NOMBRE
+,p.S_NOMBRE
+,p.P_APELLIDO
+,p.S_APELLIDO
+,p.NO_IDENTIDAD
+,p.SEXO
+FROM HOJATRABAJOSOCIAL h
+INNER JOIN CENTROMEDICO c
+  ON h.ID_CENTRO_MEDICO = c.ID_CENTRO_MEDICO
+INNER JOIN TIPOCENTRO t
+  ON t.ID_TIPO_CENTRO = c.ID_TIPO_CENTRO
+INNER JOIN EXPEDIENTE e
+  ON e.ID_EXPEDIENTE = h.ID_EXPEDIENTE
+INNER JOIN PACIENTE pa
+  ON pa.ID_PACIENTE = e.ID_PACIENTE
+INNER JOIN PERSONA p
+  ON p.ID_PERSONA = pa.ID_PERSONA
+;
+
+/*** -------------------- VISTATRATAMIENTO -------------------------- *****/
+CREATE VIEW VIstaTratamiento
+AS
+SELECT
+t.*
+,tp.TIPO_TRATAMIENTO
+,v.VIA_SUMINISTRO
+FROM TRATAMIENTO t
+INNER JOIN TIPOTRATAMIENTO tp
+ON t.ID_TIPO = tp.ID_TIPO
+INNER JOIN VIASUMINISTRO v
+ON t.ID_VIA_SUMINISTRO = v.ID_VIA_SUMINISTRO
+;
+
+
+/*** - --- --- --- --- --- --- --- ---  VISTA --- --- --- --- --- --- --- *****/
+CREATE OR REPLACE VIEW VistaParamedico
+AS
+SELECT
+  par.ID_PARAMEDICO
+  ,par.LICENCIA
+  ,p.ID_PERSONA
+  ,p.P_NOMBRE
+  ,p.S_NOMBRE
+  ,p.P_APELLIDO
+  ,p.S_APELLIDO
+  ,p.NO_IDENTIDAD
+  ,pa.NOMBRE as pais
+  ,p.SEXO
+  ,p.CORREO
+FROM PARAMEDICO par
+INNER JOIN PERSONA p
+  ON par.ID_PERSONA = p.ID_PERSONA
+INNER JOIN PAIS pa
+  ON p.ID_PAIS = pa.ID_PAIS
+;
+
+/*** ------------------------------ VISTA ------------------------------------ *****/
+CREATE OR REPLACE VIEW VistaReferencias
+AS
+WITH GET_CENTRO
+AS(
+  SELECT
+    c.ID_CENTRO_MEDICO,
+    p.DESCRIPCION as tipo_centro_medico
+  FROM CENTROMEDICO c
+  INNER JOIN TIPOCENTRO p
+    ON c.ID_TIPO_CENTRO = p.ID_TIPO_CENTRO
+),
+GET_MEDICO
+AS(
+  SELECT
+    m.ID_MEDICO
+    ,p.p_nombre || ' '  || p.s_nombre || ' '  || p.p_apellido || ' '  || p.s_apellido as medico
+    ,m.ID_ESPECIALIDAD
+    ,e.ESPECIALIDAD
+  FROM MEDICO m
+  INNER JOIN PERSONA p
+    ON m.ID_PERSONA = p.ID_PERSONA
+  INNER JOIN ESPECIALIDAD e
+    ON m.ID_ESPECIALIDAD = e.ID_ESPECIALIDAD
+)
+SELECT
+  r.ID_REFERENCIA
+,r.DESCRIPCION
+,r.ID_MEDICO
+,(SELECT m.medico FROM GET_MEDICO m WHERE m.ID_MEDICO = r.ID_MEDICO) as medico
+,(SELECT ID_CENTRO_MEDICO FROM CENTROMEDICO c WHERE c.ID_CENTRO_MEDICO = r.ID_CENTRO_MEDICO_REMITE) as id_centro_medico_remite
+,(SELECT c.tipo_centro_medico FROM GET_CENTRO c WHERE c.ID_CENTRO_MEDICO = r.ID_CENTRO_MEDICO_REMITE) as tipo_centro_medico_remite
+,(SELECT NOMBRE FROM CENTROMEDICO c WHERE c.ID_CENTRO_MEDICO = r.ID_CENTRO_MEDICO_REMITE) as centro_medico_remite
+,(SELECT ID_CENTRO_MEDICO FROM CENTROMEDICO c WHERE c.ID_CENTRO_MEDICO = r.ID_CENTRO_MEDICO_RECIBE) as id_centro_medico_recibe
+,(SELECT c.tipo_centro_medico FROM GET_CENTRO c WHERE c.ID_CENTRO_MEDICO = r.ID_CENTRO_MEDICO_RECIBE) as tipo_centro_medico_recibe
+,(SELECT NOMBRE FROM CENTROMEDICO c WHERE c.ID_CENTRO_MEDICO = r.ID_CENTRO_MEDICO_RECIBE) as centro_medico_recibe
+,e.ID_EXPEDIENTE
+,e.ID_PACIENTE
+,per.P_NOMBRE
+,per.S_NOMBRE
+,per.P_APELLIDO
+,per.S_APELLIDO
+,per.NO_IDENTIDAD
+,per.SEXO
+FROM REFERENCIA r
+INNER JOIN EXPEDIENTE e
+  ON r.ID_EXPEDIENTE = e.ID_EXPEDIENTE
+INNER JOIN PACIENTE pa
+  ON e.ID_PACIENTE = pa.ID_PACIENTE
+INNER JOIN PERSONA per
+  ON pa.ID_PERSONA = per.ID_PERSONA
+;
+
+/*** ------------------------- VISTA ------------------------------- *****/
+
+CREATE OR REPLACE VIEW VistaTelefonoPersona
+AS
+SELECT
+  p.id_persona
+  ,t.ID_TELEFONO
+  ,tipo.TIPO_TELEFONO
+  ,pa.CODIGO_POSTAL as codigo_area
+  ,t.TELEFONO
+FROM TELEFONOPERSONA tp
+INNER JOIN TELEFONO t
+  ON tp.ID_TELEFONO = t.ID_TELEFONO
+INNER JOIN PERSONA p
+  ON tp.ID_PERSONA = p.ID_PERSONA
+INNER JOIN TIPOTELEFONO tipo
+  On t.ID_TIPO_TELEFONO = tipo.ID_TIPO_TELEFONO
+INNER JOIN pais pa
+  ON pa.ID_PAIS = t.ID_PAIS
+ORDER BY id_persona
+;
+
+CREATE OR REPLACE VIEW VistaTelefonoCentroMedico
+AS
+SELECT
+  c.ID_CENTRO_MEDICO
+  ,t.ID_TELEFONO
+  ,tipo.TIPO_TELEFONO
+  ,pa.CODIGO_POSTAL as codigo_area
+  ,t.TELEFONO
+FROM TELEFONOCENTROMEDICO tc
+INNER JOIN TELEFONO t
+  ON tc.ID_TELEFONO = t.ID_TELEFONO
+INNER JOIN CENTROMEDICO c
+  ON tc.ID_CENTRO_MEDICO = c.ID_CENTRO_MEDICO
+INNER JOIN TIPOTELEFONO tipo
+  On t.ID_TIPO_TELEFONO = tipo.ID_TIPO_TELEFONO
+INNER JOIN pais pa
+  ON pa.ID_PAIS = t.ID_PAIS
+ORDER BY ID_CENTRO_MEDICO
+;
+

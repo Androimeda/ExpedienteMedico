@@ -17,7 +17,7 @@ $query=sprintf("
   END;
 ",
   $this->idReferencia
-  ,$this->descripcion
+  ,$this->pdescripcion
   ,$this->idMedico
   ,$this->idExpediente
   ,$this->idCentroMedicoRemite

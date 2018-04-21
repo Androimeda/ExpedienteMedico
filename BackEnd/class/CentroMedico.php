@@ -4,6 +4,7 @@ class CentroMedico{
 	private $nombre;
 	private $direccion;
 	private $idTipoCentro;
+	private $descripcion;
 
 	public function __construct(
 		$idCentroMedico = null,
@@ -55,6 +56,14 @@ class CentroMedico{
 		$this->idTipoCentro = $idTipoCentro;
 	}
 
+	public function getDescripcion(){
+		return $this->descripcion;
+	}
+
+	public function setDescripcion($descripcion){
+		$this->descripcion = $descripcion;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -83,7 +92,41 @@ class CentroMedico{
 
 	}
 	public function listarTodos($conexion){
+		$query=sprintf("
+		  SELECT  * 
+		  FROM vistaCentroMedico 
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
+	public function listarTipos($conexion){
+		$query=sprintf("
+		  SELECT  * 
+		  FROM TIPOCENTRO
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
+	public function listarPorTipo($conexion){
+		$query=sprintf("
+		   SELECT  *  
+		   FROM vistaCentroMedico V  
+		   WHERE V.DESCRIPCION='%s' OR V.ID_TIPO_CENTRO=%s
+		"
+		  ,$this->descripcion
+		  ,$this->idTipoCentro
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
 	public function actualizar($conexion){
 		$query=sprintf("
 		  BEGIN

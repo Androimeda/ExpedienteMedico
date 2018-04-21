@@ -5,6 +5,8 @@ class AtencionPreHospitalaria{
 	private $idParamedico;
 	private $idAmbulancia;
 	private $idExpediente;
+	private $nombreCentro;
+	private $idCentroMedico;
 
 	public function __construct(
 		$idAtencion = null,
@@ -66,6 +68,22 @@ class AtencionPreHospitalaria{
 		$this->idExpediente = $idExpediente;
 	}
 
+	public function getNombreCentro(){
+		return $this->nombreCentro;
+	}
+
+	public function setNombreCentro($nombreCentro){
+		$this->nombreCentro = $nombreCentro;
+	}
+
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
+
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -96,8 +114,29 @@ class AtencionPreHospitalaria{
 
 	}
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM vistaAPH v 
+		   WHERE v.ID_EXPEDIENTE =%s
+		"
+		  ,$this->idExpediente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorCentroMedico($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM vistaAPH V 
+		   WHERE   V.NOMBRE='%s' OR V.ID_CENTRO_MEDICO=%s 
+		"
+		  ,$this->nombreCentro
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorParamedico($conexion){
 	}
@@ -134,8 +173,5 @@ class AtencionPreHospitalaria{
 		return json_encode($respuesta);
 
 	}
-	public function eliminar($conexion){
-	}
-
 }
 ?>

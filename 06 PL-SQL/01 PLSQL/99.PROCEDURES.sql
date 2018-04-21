@@ -2129,7 +2129,13 @@ END IF;
       idOcupacion,
       idEstadoCivil,
       idAscendencia
-    );
+    ) RETURNING ID_PACIENTE INTO id_persona_insert;
+
+
+    INSERT INTO EXPEDIENTE
+    (FECHA_CREACION, ID_PACIENTE)
+    VALUES (SYSDATE, id_persona_insert);
+
     COMMIT;
     mensaje:='La insercion fue exitosa';
     resultado:=1;
@@ -2493,7 +2499,7 @@ END;
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarReferencia(
   idReferencia IN INT
-  ,descripcion IN VARCHAR
+  ,pdescripcion IN VARCHAR
   ,idMedico IN INT
   ,idExpediente IN INT
   ,idCentroMedicoRemite IN INT
@@ -2514,7 +2520,7 @@ BEGIN
   IF idReferencia = '' OR idReferencia IS NULL THEN
     mensaje:= mensaje || 'idReferencia, ';
   END IF;
-  IF descripcion = '' OR descripcion IS NULL THEN
+  IF pdescripcion = '' OR pdescripcion IS NULL THEN
     mensaje:= mensaje || 'descripcion, ';
   END IF;
   IF idMedico = '' OR idMedico IS NULL THEN
@@ -2578,7 +2584,7 @@ BEGIN
 
   UPDATE REFERENCIA
   SET
-    DESCRIPCION=descripcion,
+    DESCRIPCION=pdescripcion,
     ID_MEDICO=idMedico,
     ID_EXPEDIENTE=idExpediente,
     ID_CENTRO_MEDICO_REMITE=idCentroMedicoRemite,
