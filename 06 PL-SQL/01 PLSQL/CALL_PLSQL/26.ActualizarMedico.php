@@ -16,10 +16,10 @@ $query=sprintf("
   END;
 ",
   $this->idMedico
-  ,$this->direccion
+  ,$this->pdireccion
   ,$this->idEspecialidad
   ,$this->noColegiacion
-  ,$this->correo
+  ,$this->pcorreo
 );
 $resultado=$conexion->query($query);
 oci_bind_by_name($resultado, ':msg', $msg, 2000);

@@ -1,10 +1,10 @@
 <?php
 # public function ... ($conexion) {...
-# Llamada a PL_actualizarViaSuministro
+# Llamada a PL_ActualizarViaSuministro
 
 $query=sprintf("
   BEGIN
-    PL_actualizarViaSuministro(
+    PL_ActualizarViaSuministro(
       %s
       ,'%s'
       ,:msg

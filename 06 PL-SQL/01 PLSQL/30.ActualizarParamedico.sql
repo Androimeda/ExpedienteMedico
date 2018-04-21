@@ -1,8 +1,8 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarParamedico(
   idParamedico IN INT,
-  direccion IN VARCHAR
-  ,correo IN VARCHAR
-  ,licencia IN VARCHAR
+  pdireccion IN VARCHAR
+  ,pcorreo IN VARCHAR
+  ,plicencia IN VARCHAR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -13,13 +13,13 @@ BEGIN
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF direccion = '' OR direccion IS NULL THEN
+  IF pdireccion = '' OR pdireccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
   END IF;
-  IF correo = '' OR correo IS NULL THEN
+  IF pcorreo = '' OR pcorreo IS NULL THEN
     mensaje:= mensaje || 'correo, ';
   END IF;
-  IF licencia = '' OR licencia IS NULL THEN
+  IF plicencia = '' OR plicencia IS NULL THEN
     mensaje:= mensaje || 'licencia, ';
   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
@@ -36,8 +36,8 @@ IF vnConteo=0 THEN
 END IF;
   UPDATE  PERSONA
     SET
-      DIRECCION=direccion,
-      CORREO=correo
+      DIRECCION=pdireccion,
+      CORREO=pcorreo
     WHERE
       ID_PERSONA=
             (SELECT ID_PERSONA
@@ -46,6 +46,10 @@ END IF;
 
   UPDATE PARAMEDICO
     SET
-      LICENCIA=licencia
+      LICENCIA=plicencia
     WHERE idParamedico=ID_PARAMEDICO;
+
+  COMMIT;
+  mensaje:='Actualizada satisfactoriamente';
+  resultado:=1;
 END;

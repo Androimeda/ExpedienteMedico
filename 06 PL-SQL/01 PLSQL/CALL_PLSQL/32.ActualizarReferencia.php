@@ -6,7 +6,6 @@ $query=sprintf("
   BEGIN
     PL_ActualizarReferencia(
       %s
-      ,%s
       ,'%s'
       ,%s
       ,%s
@@ -18,7 +17,6 @@ $query=sprintf("
   END;
 ",
   $this->idReferencia
-  ,$this->idReferencia
   ,$this->descripcion
   ,$this->idMedico
   ,$this->idExpediente

@@ -1,14 +1,14 @@
 <?php
 # public function ... ($conexion) {...
-# Llamada a PL_crearTratamiento
+# Llamada a PL_ActualizarTratamiento
 
 $query=sprintf("
   BEGIN
-    PL_crearTratamiento(
+    PL_ActualizarTratamiento(
       %s
       ,'%s'
       ,'%s'
-      ,'%s'
+      ,%s
       ,'%s'
       ,%s
       ,%s
@@ -18,7 +18,7 @@ $query=sprintf("
   END;
 ",
   $this->idTratamiento
-  ,$this->dosis
+  ,$this->pdosis
   ,$this->intervaloTiempo
   ,$this->fechaInicio
   ,$this->duracionTratamiento

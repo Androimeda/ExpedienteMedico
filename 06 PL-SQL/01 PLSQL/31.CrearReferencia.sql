@@ -1,6 +1,5 @@
 CREATE OR REPLACE PROCEDURE PL_CrearReferencia(
-  idReferencia IN INT
-  ,descripcion IN VARCHAR
+  descripcion IN VARCHAR
   ,idMedico IN INT
   ,idExpediente IN INT
   ,idCentroMedicoRemite IN INT
@@ -15,12 +14,6 @@ BEGIN
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF idReferencia = '' OR idReferencia IS NULL THEN
-    mensaje:= mensaje || 'idReferencia, ';
-  END IF;
-  IF descripcion = '' OR descripcion IS NULL THEN
-    mensaje:= mensaje || 'descripcion, ';
-  END IF;
   IF idMedico = '' OR idMedico IS NULL THEN
     mensaje:= mensaje || 'idMedico, ';
   END IF;
@@ -56,9 +49,17 @@ BEGIN
 
   SELECT COUNT(*) INTO vnConteo
     FROM CENTROMEDICO
-    WHERE idCentroMedicoRemite=ID_CENTRO_MEDICO AND idCentroMedicoRecibe=ID_CENTRO_MEDICO;
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRemite;
   IF vnConteo=0 THEN
-    mensaje:='El CENTRO medico no esta registrado';
+    mensaje:='El CENTRO medico REMITENTE no esta registrado';
+    RETURN ;
+  END IF;
+
+  SELECT COUNT(*) INTO vnConteo
+    FROM CENTROMEDICO
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRecibe;
+  IF vnConteo=0 THEN
+    mensaje:='El CENTRO medico RECEPTOR no esta registrado';
     RETURN ;
   END IF;
 
@@ -76,7 +77,7 @@ BEGIN
     idCentroMedicoRecibe
   );
   COMMIT ;
-  mensaje:='se ha creado la referencia con exito CAPITAN!';
+  mensaje:='Se ha creado la referencia con exito CAPITAN!';
   resultado:=1;
 
 END;

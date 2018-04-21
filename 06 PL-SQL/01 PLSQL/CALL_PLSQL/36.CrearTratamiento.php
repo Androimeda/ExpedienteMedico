@@ -7,7 +7,7 @@ $query=sprintf("
     PL_crearTratamiento(
       '%s'
       ,'%s'
-      ,'%s'
+      ,%s
       ,'%s'
       ,%s
       ,%s

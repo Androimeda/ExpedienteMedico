@@ -20,21 +20,17 @@ IS
 --DECLARE
   temMensaje VARCHAR(2000);
   vnConteo NUMBER;
+  id_persona_insert INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
+  id_persona_insert:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
   IF pNombre = '' OR pNombre IS NULL THEN
     mensaje:= mensaje || 'pNombre, ';
   END IF;
-  IF sNombre = '' OR sNombre IS NULL THEN
-    mensaje:= mensaje || 'sNombre, ';
-  END IF;
   IF pApellido = '' OR pApellido IS NULL THEN
     mensaje:= mensaje || 'pApellido, ';
-  END IF;
-  IF sApellido = '' OR sApellido IS NULL THEN
-    mensaje:= mensaje || 'sApellido, ';
   END IF;
   IF direccion = '' OR direccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
@@ -45,11 +41,8 @@ BEGIN
   IF idPais = '' OR idPais IS NULL THEN
     mensaje:= mensaje || 'idPais, ';
   END IF;
-  IF sexo = '' OR sexo IS NULL THEN
-    mensaje:= mensaje || 'sexo, ';
-  END IF;
-  IF correo = '' OR correo IS NULL THEN
-    mensaje:= mensaje || 'correo, ';
+  IF sexo = '' OR sexo IS NULL OR SEXO NOT IN ('F','M') THEN
+    mensaje:= mensaje || 'sexo (F OR M), ';
   END IF;
   IF idTipoSangre = '' OR idTipoSangre IS NULL THEN
     mensaje:= mensaje || 'idTipoSangre, ';
@@ -82,7 +75,7 @@ SELECT COUNT(*) INTO vnConteo
   FROM TIPOSANGRE
   WHERE idTipoSangre= ID_TIPO_SANGRE;
 IF vnConteo=0 THEN
-  mensaje='EL tipo de sangre: '|| idTipoSangre||'no esta registrado';
+  mensaje:='EL tipo de sangre: '|| idTipoSangre||'no esta registrado';
   RETURN ;
 END IF;
 SELECT COUNT(*) INTO vnConteo
@@ -116,55 +109,85 @@ IF vnConteo=0 THEN
 END IF;
 
 SELECT COUNT(*) INTO vnConteo
-  FROM PERSONA
-  WHERE noIdentidad=NO_IDENTIDAD;
-IF vnConteo=0 THEN
-  mensaje:='El numero de identidad: '|| noIdentidad||'no existe';
-  RETURN ;
-END IF ;
-SELECT COUNT(*) INTO vnConteo
   FROM PAIS
   WHERE  idPais=ID_PAIS;
 IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
   RETURN ;
 END IF;
-  INSERT INTO PERSONA(
-    P_NOMBRE,
-    S_NOMBRE,
-    P_APELLIDO,
-    S_APELLIDO,
-    DIRECCION,
 
-    NO_IDENTIDAD,
-    ID_PAIS,
-    SEXO,
-    CORREO
-  )VALUES (
-    pNombre,
-    sNombre,
-    pApellido,
-    sApellido,
-    direccion,
-    noIdentidad,
-    idPais,
-    sexo,
-    correo
-  );
-  INSERT INTO PACIENTE(
-    ID_PERSONA,
-    ID_TIPO_SANGRE,
-    ID_ESCOLARIDAD,
-    ID_OCUPACION,
-    ID_ESTADO_CIVIL,
-    ID_ASCENDENCIA
 
-  )VALUES (
-    ?,
-    idTipoSangre,
-    idEscolaridad,
-    idOcupacion,
-    idEstadoCivil,
-    idAscendencia
-  )RETURNING ID_PERSONA INTO ID_PERSONA;
+  SELECT COUNT(*) INTO vnConteo
+  FROM PERSONA
+  WHERE NO_IDENTIDAD = noIdentidad;
+
+  IF vnConteo>0 THEN
+    mensaje:='El numero de identidad: '|| noIdentidad||' ya existe';
+
+    SELECT
+      ID_PERSONA
+    INTO id_persona_insert
+    FROM PERSONA
+    WHERE NO_IDENTIDAD = noIdentidad;
+
+  ELSE
+    INSERT INTO PERSONA(
+      P_NOMBRE,
+      S_NOMBRE,
+      P_APELLIDO,
+      S_APELLIDO,
+      DIRECCION,
+      NO_IDENTIDAD,
+      ID_PAIS,
+      SEXO,
+      CORREO
+    )VALUES (
+      pNombre,
+      sNombre,
+      pApellido,
+      sApellido,
+      direccion,
+      noIdentidad,
+      idPais,
+      sexo,
+      correo
+    ) RETURNING ID_PERSONA INTO id_persona_insert;
+
+     IF id_persona_insert=0 THEN
+      mensaje:='Ocurrio un error en la insercion de persona, no se guardó nada';
+      ROLLBACK;
+      RETURN;
+    END IF;
+  END IF;
+
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM PACIENTE
+  WHERE ID_PERSONA = id_persona_insert;
+
+  IF vnConteo!=0 THEN
+    mensaje:='Registro de Paciente ya existe en la tabla, persona con el mismo noIdentidad en tabla paciente';
+    RETURN;
+  ELSE
+    INSERT INTO PACIENTE(
+      ID_PERSONA,
+      ID_TIPO_SANGRE,
+      ID_ESCOLARIDAD,
+      ID_OCUPACION,
+      ID_ESTADO_CIVIL,
+      ID_ASCENDENCIA
+    )VALUES (
+      id_persona_insert,
+      idTipoSangre,
+      idEscolaridad,
+      idOcupacion,
+      idEstadoCivil,
+      idAscendencia
+    );
+    COMMIT;
+    mensaje:='La insercion fue exitosa';
+    resultado:=1;
+  END IF;
 END;

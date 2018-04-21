@@ -387,7 +387,7 @@ CREATE TABLE hospitalizacion (
     id_ingreso           INTEGER NOT NULL,
     observacion          VARCHAR2(250),
     fecha_hora_ingreso   TIMESTAMP NOT NULL,
-    fecha_hora_alta      TIMESTAMP NOT NULL,
+    fecha_hora_alta      TIMESTAMP NULL,
     id_piso              INTEGER NOT NULL,
     cama                 VARCHAR2(5) NOT NULL,
     id_medico            INTEGER NOT NULL,

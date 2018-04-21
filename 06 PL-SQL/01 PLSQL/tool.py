@@ -55,7 +55,7 @@ def get_buffer(filename):
 		elif i[0]==",mensaje":
 			buffer+=":msg"+"\n"
 			continue
-		if i[1].lower() in ["integer", "int", "smallint", "timestamp"]:
+		if i[1].lower() in ["integer", "int", "smallint", "timestamp", "date"]:
 			buffer+="%s"+"\n"
 		else:
 			buffer+="\'%s\'"+"\n"

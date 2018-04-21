@@ -1,33 +1,23 @@
 <?php
 # public function ... ($conexion) {...
-# Llamada a PL_PL_AgregarPersona
+# Llamada a PL_AgregarTelefonoCentro
 
 $query=sprintf("
   BEGIN
-    PL_PL_AgregarPersona(
-      '%s'
-      ,'%s'
-      ,'%s'
-      ,'%s'
-      ,'%s'
+    PL_AgregarTelefonoCentro(
+      %s
       ,'%s'
       ,%s
-      ,'%s'
-      ,'%s'
+      ,%s
       ,:msg
       ,:res
     );
   END;
 ",
-  $this->pNombre
-  ,$this->sNombre
-  ,$this->pApellido
-  ,$this->sApellido
-  ,$this->direccion
-  ,$this->noIdentidad
+  $this->idCentroMedico
+  ,$this->telefono
+  ,$this->idTipoTelefono
   ,$this->idPais
-  ,$this->sexo
-  ,$this->correo
 );
 $resultado=$conexion->query($query);
 oci_bind_by_name($resultado, ':msg', $msg, 2000);

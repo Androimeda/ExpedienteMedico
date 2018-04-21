@@ -1,9 +1,9 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarMedico(
   idMedico IN INT
-  ,direccion IN VARCHAR
+  ,pdireccion IN VARCHAR
   ,idEspecialidad IN VARCHAR
   ,noColegiacion IN VARCHAR
-  ,correo IN VARCHAR
+  ,pcorreo IN VARCHAR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -18,7 +18,7 @@ BEGIN
   IF idMedico = '' OR idMedico IS NULL THEN
     mensaje:= mensaje || 'idMedico, ';
   END IF;
-  IF direccion = '' OR direccion IS NULL THEN
+  IF pdireccion = '' OR pdireccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
   END IF;
   IF idEspecialidad = '' OR idEspecialidad IS NULL THEN
@@ -27,7 +27,7 @@ BEGIN
   IF noColegiacion = '' OR noColegiacion IS NULL THEN
     mensaje:= mensaje || 'noColegiacion, ';
   END IF;
-  IF correo = '' OR correo IS NULL THEN
+  IF pcorreo = '' OR pcorreo IS NULL THEN
     mensaje:= mensaje || 'correo, ';
   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
@@ -59,13 +59,17 @@ END IF;
       idMedico=ID_MEDICO;
   UPDATE PERSONA
       SET
-        DIRECCION=direccion,
-        CORREO=correo
+        DIRECCION=pdireccion,
+        CORREO=pcorreo
       WHERE
         ID_PERSONA= (
           SELECT ID_PERSONA
             FROM MEDICO M
             WHERE  idMedico= M.ID_MEDICO
         ) ;
+  COMMIT;
+  mensaje:='Actualizada satisfactoriamente';
+  resultado:=1;
+
 
 END;

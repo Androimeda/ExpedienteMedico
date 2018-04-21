@@ -22,9 +22,6 @@ BEGIN
   IF fechaHoraIngreso = '' OR fechaHoraIngreso IS NULL THEN
     mensaje:= mensaje || 'fechaHoraIngreso, ';
   END IF;
-  IF fechaHoraAlta = '' OR fechaHoraAlta IS NULL THEN
-    mensaje:= mensaje || 'fechaHoraAlta, ';
-  END IF;
   IF idPiso = '' OR idPiso IS NULL THEN
     mensaje:= mensaje || 'idPiso, ';
   END IF;
@@ -78,7 +75,7 @@ SELECT COUNT(*) INTO vnConteo
     )VALUES (
 
       observacion,
-      to_date(fechaHoraIngreso),
+      fechaHoraIngreso,
 
       idPiso,
       cama,

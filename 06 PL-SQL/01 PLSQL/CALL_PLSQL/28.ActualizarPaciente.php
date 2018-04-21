@@ -17,8 +17,8 @@ $query=sprintf("
   END;
 ",
   $this->idPaciente
-  ,$this->direccion
-  ,$this->correo
+  ,$this->pdireccion
+  ,$this->pcorreo
   ,$this->idEscolaridad
   ,$this->idOcupacion
   ,$this->idEstadoCivil

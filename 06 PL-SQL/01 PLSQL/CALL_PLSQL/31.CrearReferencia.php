@@ -5,8 +5,7 @@
 $query=sprintf("
   BEGIN
     PL_CrearReferencia(
-      %s
-      ,'%s'
+      '%s'
       ,%s
       ,%s
       ,%s
@@ -16,8 +15,7 @@ $query=sprintf("
     );
   END;
 ",
-  $this->idReferencia
-  ,$this->descripcion
+  $this->descripcion
   ,$this->idMedico
   ,$this->idExpediente
   ,$this->idCentroMedicoRemite

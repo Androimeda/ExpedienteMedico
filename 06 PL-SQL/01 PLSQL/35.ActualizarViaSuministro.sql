@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE PL_actualizarViaSuministro(
+CREATE OR REPLACE PROCEDURE PL_ActualizarViaSuministro(
   idViaSuministro IN INT
   ,viaSuministro IN VARCHAR
   ,mensaje OUT VARCHAR

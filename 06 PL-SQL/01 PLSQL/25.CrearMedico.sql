@@ -16,27 +16,20 @@ CREATE OR REPLACE PROCEDURE PL_CrearMedico(
 IS
 temMensaje VARCHAR(2000);
 vnConteo NUMBER;
+id_insert_persona INTEGER;
 BEGIN
+  id_insert_persona:=0;
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
   IF pNombre = '' OR pNombre IS NULL THEN
     mensaje:= mensaje || 'pNombre, ';
   END IF;
-  IF sNombre = '' OR sNombre IS NULL THEN
-    mensaje:= mensaje || 'sNombre, ';
-  END IF;
   IF pApellido = '' OR pApellido IS NULL THEN
     mensaje:= mensaje || 'pApellido, ';
   END IF;
-  IF sApellido = '' OR sApellido IS NULL THEN
-    mensaje:= mensaje || 'sApellido, ';
-  END IF;
-  IF direccion = '' OR direccion IS NULL THEN
-    mensaje:= mensaje || 'direccion, ';
-  END IF;
-  IF sexo = '' OR sexo IS NULL THEN
-    mensaje:= mensaje || 'sexo, ';
+  IF sexo = '' OR sexo IS NULL OR SEXO NOT IN ('F','M') THEN
+    mensaje:= mensaje || 'sexo (F OR M), ';
   END IF;
   IF noIdentidad = '' OR noIdentidad IS NULL THEN
     mensaje:= mensaje || 'noIdentidad, ';
@@ -49,9 +42,6 @@ BEGIN
   END IF;
   IF noColegiacion = '' OR noColegiacion IS NULL THEN
     mensaje:= mensaje || 'noColegiacion, ';
-  END IF;
-  IF correo = '' OR correo IS NULL THEN
-    mensaje:= mensaje || 'correo, ';
   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
@@ -77,17 +67,22 @@ END IF;
 SELECT COUNT(*) INTO vnConteo
   FROM PERSONA
   WHERE noIdentidad=NO_IDENTIDAD;
-IF vnConteo=0 THEN
-  mensaje:='El numero de identidad: '|| noIdentidad||'no existe';
-  RETURN ;
-END IF;
+IF vnConteo>0 THEN
+  mensaje:='El numero de identidad: '|| noIdentidad||' ya existe';
+
+  SELECT
+    ID_PERSONA
+  INTO id_insert_persona
+  FROM PERSONA
+  WHERE NO_IDENTIDAD = noIdentidad;
+
+ELSE
   INSERT INTO PERSONA(
     P_NOMBRE,
     S_NOMBRE,
     P_APELLIDO,
     S_APELLIDO,
     DIRECCION,
-
     NO_IDENTIDAD,
     ID_PAIS,
     SEXO,
@@ -98,23 +93,42 @@ END IF;
     pApellido,
     sApellido,
     direccion,
-
     noIdentidad,
     idPais,
     sexo,
     correo
-  );
-  INSERT INTO MEDICO(
+  ) RETURNING ID_PERSONA INTO id_insert_persona;
+
+  IF id_insert_persona=0 THEN
+    mensaje:='Ocurrio un error en la insercion de persona, no se guardó nada';
+    ROLLBACK;
+    RETURN;
+  END IF;
+END IF;
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM MEDICO
+  WHERE ID_PERSONA = id_insert_persona;
+
+  IF vnConteo!=0 THEN
+    mensaje:='Registro de Medico ya existe en la tabla, persona con el mismo noIdentidad en tabla medico';
+    RETURN;
+  ELSE
+    INSERT INTO MEDICO(
     NO_COLEGIACION,
     ID_PERSONA,
     ID_ESPECIALIDAD
   )VALUES (
     noColegiacion,
-    ?,
+    id_insert_persona,
     idEspecialidad
-  ) RETURNING ID_PERSONA INTO ID_PERSONA;
+  );
     COMMIT ;
     mensaje:='La insercion fue exitosa';
     resultado:=1;
+  END IF;
+
 
 END;

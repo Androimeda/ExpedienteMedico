@@ -1,10 +1,10 @@
 <?php
 # public function ... ($conexion) {...
-# Llamada a PL_AgregartelefonoxCentro
+# Llamada a PL_AgregarTelefonoPersona
 
 $query=sprintf("
   BEGIN
-    PL_AgregartelefonoxCentro(
+    PL_AgregarTelefonoPersona(
       %s
       ,'%s'
       ,%s
@@ -14,7 +14,7 @@ $query=sprintf("
     );
   END;
 ",
-  $this->idCentroMedico
+  $this->idPersona
   ,$this->telefono
   ,$this->idTipoTelefono
   ,$this->idPais

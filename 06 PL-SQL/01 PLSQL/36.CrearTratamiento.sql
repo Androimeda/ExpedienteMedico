@@ -34,7 +34,7 @@ BEGIN
   IF idViaSuministro = '' OR idViaSuministro IS NULL THEN
     mensaje:= mensaje || 'idViaSuministro, ';
   END IF;
-  IF mensaje<>'' THEN
+  IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
   END IF;

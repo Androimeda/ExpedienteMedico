@@ -1,7 +1,7 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarPaciente(
   idPaciente IN INT
-  ,direccion IN VARCHAR
-  ,correo IN VARCHAR
+  ,pdireccion IN VARCHAR
+  ,pcorreo IN VARCHAR
   ,idEscolaridad IN INT
   ,idOcupacion IN INT
   ,idEstadoCivil IN INT
@@ -19,11 +19,11 @@ BEGIN
     mensaje:= mensaje || 'idPaciente, ';
     RETURN ;
   END IF;
-  IF direccion = '' OR direccion IS NULL THEN
+  IF pdireccion = '' OR pdireccion IS NULL THEN
     mensaje:= mensaje || 'direccion, ';
     RETURN ;
   END IF;
-  IF correo = '' OR correo IS NULL THEN
+  IF pcorreo = '' OR pcorreo IS NULL THEN
     mensaje:= mensaje || 'correo, ';
     RETURN ;
   END IF;
@@ -77,8 +77,8 @@ UPDATE PACIENTE
 
   UPDATE  PERSONA
     SET
-      DIRECCION=direccion,
-      CORREO=correo
+      DIRECCION=pdireccion,
+      CORREO=pcorreo
     WHERE
       ID_PERSONA=
               (SELECT  P.ID_PERSONA

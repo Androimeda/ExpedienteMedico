@@ -1,10 +1,10 @@
 <?php
 # public function ... ($conexion) {...
-# Llamada a PL_ActualizarHojaTrabajoSocial
+# Llamada a PL_CrearHojaTrabajoSocial
 
 $query=sprintf("
   BEGIN
-    PL_ActualizarHojaTrabajoSocial(
+    PL_CrearHojaTrabajoSocial(
       '%s'
       ,%s
       ,%s

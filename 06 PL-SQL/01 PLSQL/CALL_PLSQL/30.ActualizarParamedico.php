@@ -15,9 +15,9 @@ $query=sprintf("
   END;
 ",
   $this->idParamedico
-  ,$this->direccion
-  ,$this->correo
-  ,$this->licencia
+  ,$this->pdireccion
+  ,$this->pcorreo
+  ,$this->plicencia
 );
 $resultado=$conexion->query($query);
 oci_bind_by_name($resultado, ':msg', $msg, 2000);

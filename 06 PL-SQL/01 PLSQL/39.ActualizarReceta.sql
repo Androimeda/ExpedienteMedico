@@ -55,7 +55,9 @@ SELECT COUNT(*) INTO vnConteo
     ID_TRATAMIENTO=idTratamiento,
     ID_MEDICO=idMedico
   WHERE
-    ID_TRATAMIENTO=idTratamiento;
+    ID_TRATAMIENTO=idTratamiento
+    AND ID_CONSULTA = idConsulta
+  ;
   COMMIT ;
   mensaje:='Se actualizo la receta correctamente';
 END;

@@ -1,6 +1,6 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarHojaTrabajoSocial(
   idTS IN INT
-  ,descripcion IN VARCHAR
+  ,pdescripcion IN VARCHAR
   ,idExpediente IN INT
   ,idCentroMedico IN INT
   ,mensaje OUT VARCHAR
@@ -17,7 +17,7 @@ BEGIN
   IF idTS = '' OR idTS IS NULL THEN
     mensaje:= mensaje || 'idTS, ';
   END IF;
-  IF descripcion = '' OR descripcion IS NULL THEN
+  IF pdescripcion = '' OR pdescripcion IS NULL THEN
     mensaje:= mensaje || 'descripcion, ';
   END IF;
   IF idExpediente = '' OR idExpediente IS NULL THEN
@@ -52,14 +52,14 @@ BEGIN
 
     UPDATE HOJATRABAJOSOCIAL
       SET
-        DESCRIPCION=descripcion,
+        DESCRIPCION=pdescripcion,
         ID_EXPEDIENTE= idExpediente,
         ID_CENTRO_MEDICO=idCentroMedico
       WHERE
         idTS=ID_TS;
-        mensaje:= 'actualizacion realizada correctamente';
+
       COMMIT ;
-      mensaje:='No se pudo actualizar';
+      mensaje:= 'actualizacion realizada correctamente';
       resultado:=1;
 
 END;

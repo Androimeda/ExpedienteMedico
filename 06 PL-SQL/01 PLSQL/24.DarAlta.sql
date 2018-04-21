@@ -31,7 +31,7 @@ BEGIN
   END IF;
   UPDATE HOSPITALIZACION
     SET
-      FECHA_HORA_ALTA=TO_DATE(fechaHoraAlta)
+      FECHA_HORA_ALTA=fechaHoraAlta
     WHERE
       idIngreso=ID_INGRESO;
   COMMIT ;

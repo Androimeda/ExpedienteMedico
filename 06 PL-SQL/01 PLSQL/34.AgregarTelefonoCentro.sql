@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE PL_AgregartelefonoxCentro(
+CREATE OR REPLACE PROCEDURE PL_AgregarTelefonoCentro(
   idCentroMedico IN INT
   ,telefono IN VARCHAR
   ,idTipoTelefono IN INT
@@ -9,6 +9,7 @@ CREATE OR REPLACE PROCEDURE PL_AgregartelefonoxCentro(
 IS
 --DECLARE
   vnConteo NUMBER;
+  var_id INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -37,6 +38,7 @@ BEGIN
     mensaje:='El CENTRO medico con identificador: '||idCentroMedico||' no esta registrado';
     RETURN ;
   END IF;
+
   SELECT COUNT(*) INTO vnConteo
     FROM TIPOTELEFONO
     WHERE idTipoTelefono=ID_TIPO_TELEFONO;
@@ -44,13 +46,14 @@ BEGIN
     mensaje:='El TIPO de telefono: '||idTipoTelefono||' no esta registrado';
     RETURN ;
   END IF;
+
   SELECT COUNT(*) INTO vnConteo
   FROM PAIS
   WHERE  idPais=ID_PAIS;
-IF vnConteo=0 THEN
+  IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
     RETURN ;
-END IF;
+  END IF;
 
   INSERT INTO TELEFONO (
     TELEFONO,
@@ -60,15 +63,14 @@ END IF;
     telefono,
     idTipoTelefono,
     idPais
+  ) RETURNING ID_TELEFONO INTO var_id;
+
+  INSERT INTO TELEFONOCENTROMEDICO
+  (ID_TELEFONO, ID_CENTRO_MEDICO)
+  VALUES(
+    idCentroMedico,
+    var_id
   );
-
-  INSERT INTO TELEFONOCENTROMEDICO (
-  )VALUES(
-    idCentroMedico=ID_CENTRO_MEDICO,
-    ?
-
-  )RETURNING ID_TELEFONO INTO ID_TELEFONO;
-
   COMMIT ;
   mensaje:='Se ingreso la informacion correctamente';
   resultado:=1;

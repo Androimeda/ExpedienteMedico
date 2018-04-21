@@ -1,6 +1,5 @@
 CREATE OR REPLACE PROCEDURE PL_ActualizarReferencia(
   idReferencia IN INT
-  ,idReferencia IN INT
   ,descripcion IN VARCHAR
   ,idMedico IN INT
   ,idExpediente IN INT
@@ -70,9 +69,17 @@ BEGIN
 
   SELECT COUNT(*) INTO vnConteo
     FROM CENTROMEDICO
-    WHERE idCentroMedicoRemite=ID_CENTRO_MEDICO AND idCentroMedicoRecibe=ID_CENTRO_MEDICO;
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRemite;
   IF vnConteo=0 THEN
-    mensaje:='El CENTRO medico no esta registrado';
+    mensaje:='El CENTRO medico REMITENTE no esta registrado';
+    RETURN ;
+  END IF;
+
+  SELECT COUNT(*) INTO vnConteo
+    FROM CENTROMEDICO
+    WHERE ID_CENTRO_MEDICO = idCentroMedicoRecibe;
+  IF vnConteo=0 THEN
+    mensaje:='El CENTRO medico RECEPTOR no esta registrado';
     RETURN ;
   END IF;
 

@@ -1,4 +1,4 @@
-CREATE OR REPLACE PROCEDURE PL_ActualizarHojaTrabajoSocial(
+CREATE OR REPLACE PROCEDURE PL_CrearHojaTrabajoSocial(
   descripcion IN VARCHAR
   ,idExpediente IN INT
   ,idCentroMedico IN INT
