@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="css/estilostabla.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 contenido" style="text-align: center">
+            <span class="glyphicon glyphicon-heart-empty icono" aria-hidden="true"></span><br>
+              <div class="cuadro-transparente">
+                <form action="POST">
+                <table class="table">
+                  <tr>
+                    <H1><b> Datos del administrador </b></H1>
+                    <td >Nombre:</td>
+                    <td colspan="2" ><input type="text" name="txt-pnombre" id="txt-pnombre" size="15" required=""  placeholder="Primer Nombre">&nbsp;&nbsp; &nbsp;
+                    <input type="text" name="txt-snombre" id="txt-snombre" size="15" required="" placeholder="Segundo Nombre"></td>
+                  </tr>
+                  <tr>
+                    <td >Apellido:</td>
+                    <td colspan="2"><input type="text" name="txt-papellido" id="txt-papellido" size="15" placeholder="Primer Apellido"> &nbsp; &nbsp;
+                    <input type="text" name="txt-sapellido" id="txt-sapellido" size="15" placeholder="Segundo Apellido"></td>
+                  </tr>
+                  <tr>
+                    <td >Identidad:</td>
+                    <td ><input type="text" name="txt-identidad" id="txt-identidad" size="38" placeholder="Numero de Identidad">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Género:</td>
+                    <td> 
+                      <label>Femenino &nbsp;&nbsp; <input type="radio" name="rbt-genero" id="rbt-femenino"></label>
+                      <label>Masculino &nbsp;&nbsp;<input type="radio" name="rbt-genero" id="rbt-masculino"></label>
+                    </td>
+                  </tr>
+                  <tr class="alinear">
+                    <td>Pais:</td>
+                    <td>
+                      <select name="slc-pais" id="slc-pais" >
+                        <option>---Seleccione un país---</option>
+                        <option value="3">Argentina</option>
+                        <option value="3">Africa</option>
+                        <option value="3">Australia</option>
+                        <option value="3">Belice</option>
+                        <option value="3">Bolivia</option>
+                        <option value="3">Canada</option>
+                        <option value="3">China</option>
+                        <option value="4">Costarica</option>
+                        <option value="3">Cuba</option>
+                        <option value="2">Guatemala</option>
+                        <option value="1">Honduras</option>
+                        <option value="3">Italia</option>
+                        <option value="3">Jamaica</option>
+                        <option value="3">Noruega</option>
+                        <option value="3">Panama</option>
+                        <option value="3">Republica Checa</option>
+                        <option value="3">Siria</option>
+                        <option value="3">Suiza</option>
+                        <option value="3">Trinidad y Tobago</option>
+                        <option value="3">Venezuela</option>
+
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Estado Civil:</td>
+                    <td>
+                      <select name="slc-pais" id="slc-pais">
+                        <option>---Estado Civil---</option>
+                        <option value="3">Soltero</option>
+                        <option value="3">Casado</option>
+                        <option value="3">Viudo</option>
+                        <option value="3">Separado</option>
+                        <option value="3">U-L</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ascendencia:</td>
+                    <td>
+                      <select name="slc-pais" id="slc-pais">
+                        <option>---Ascendencia---</option>
+                        <option value="3">Tolupan</option>
+                        <option value="3">Lenca</option>
+                        <option value="3">Chortí</option>
+                        <option value="3">Garifuna</option>
+                        <option value="3">Tawahka</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                  <tr>
+                    <td >E-mail:</td>
+                    <td ><input type="text" name="txt-Correo" id="txt-Correo" size="38" placeholder="taquito@gmail.com" required="required">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="txt-password" id="txt-password" placeholder="Introducir Contraseña" size="38"></td>
+                  </tr>
+                  <td>Password:</td>
+                    <td><input type="password" name="txt-password" size="38" id="txt-password" placeholder="Confirmar Contraseña"></td>
+                  </tr>
+                  <tr>
+
+                    <td colspan="3">
+                      <input  class="btn btn-primary" type="submit" value="Completar Registro" name="btn-guardar" id="btn-guardar" size="38"></span>
+                      </button>
+                      <spanclass="glyphicon glyphicon-floppy-disk icono" aria-hidden="true"></span>
+                    </td>
+                  </tr>
+                </table>
+                </form>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center contenido">
+            <div class="cuadro-transparente">
+              <table class="table" >
+                <tr>
+                  <td>Centro Medico:</td>
+                  <td><input type="text" name="txt-codigo" id="txt-codigo" size="10" disabled="disabled" value="Hospital Escuela Universitario" ></td>
+                </tr>
+                <tr>
+                  <td>Tipo de Centro Medico:</td>
+                  <td><input type="text" name="txt-codigo" id="txt-codigo" size="10" disabled="disabled" value="Hospital"></td>
+                </tr>
+                <tr>
+                  <td>Dirección:</td>
+                  <td><textarea name="txta-direccion" id="txta-direccion"  disabled="disabled" value="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod."></textarea></td>
+                </tr>
+              </table>
+            </div>
+            <div class="cuadro-transparente">
+              <table class="table" >
+                <tr>
+                  <td>Centro Medico:</td>
+                  <td>
+            
+                          <table class=" table-fixed">
+                            <thead>
+                              <tr>
+                                <h3>Telefonos</h3><br/>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="col-xs-2">depto</td>
+                                <td class="col-xs-2">campo 1.2</td>
+                                <td class="col-xs-2">campo 1.3</td>
+                                <td class="col-xs-2">extension</td>
+                                <td class="col-xs-2">campo 1.5</td>
+                                <td class="col-xs-2">campo 1.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">depto</td>
+                                <td class="col-xs-2">campo 2.2</td>
+                                <td class="col-xs-2">campo 2.3</td>
+                                <td class="col-xs-2">extension</td>
+                                <td class="col-xs-2">campo 2.5</td>
+                                <td class="col-xs-2">campo 2.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">depto</td>
+                                <td class="col-xs-2">campo 3.2</td>
+                                <td class="col-xs-2">campo 3.3</td>
+                                <td class="col-xs-2">extension</td>
+                                <td class="col-xs-2">campo 3.5</td>
+                                <td class="col-xs-2">campo 3.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">depto</td>
+                                <td class="col-xs-2">campo 4.2</td>
+                                <td class="col-xs-2">campo 4.3</td>
+                                <td class="col-xs-2">extension</td>
+                                <td class="col-xs-2">campo 4.5</td>
+                                <td class="col-xs-2">campo 4.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">depto</td>
+                                <td class="col-xs-2">campo 5.2</td>
+                                <td class="col-xs-2">campo 5.3</td>
+                                <td class="col-xs-2">extension</td>
+                                <td class="col-xs-2">campo 5.5</td>
+                                <td class="col-xs-2">campo 5.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">depto</td>
+                                <td class="col-xs-2">campo 6.2</td>
+                                <td class="col-xs-2">campo 6.3</td>
+                                <td class="col-xs-2">Extension</td>
+                                <td class="col-xs-2">campo 6.5</td>
+                                <td class="col-xs-2">campo 6.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 7.1</td>
+                                <td class="col-xs-2">campo 7.2</td>
+                                <td class="col-xs-2">campo 7.3</td>
+                                <td class="col-xs-2">campo 7.4</td>
+                                <td class="col-xs-2">campo 7.5</td>
+                                <td class="col-xs-2">campo 7.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 8.1</td>
+                                <td class="col-xs-2">campo 8.2</td>
+                                <td class="col-xs-2">campo 8.3</td>
+                                <td class="col-xs-2">campo 8.4</td>
+                                <td class="col-xs-2">campo 8.5</td>
+                                <td class="col-xs-2">campo 8.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 9.1</td>
+                                <td class="col-xs-2">campo 9.2</td>
+                                <td class="col-xs-2">campo 9.3</td>
+                                <td class="col-xs-2">campo 9.4</td>
+                                <td class="col-xs-2">campo 9.5</td>
+                                <td class="col-xs-2">campo 9.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 9.1</td>
+                                <td class="col-xs-2">campo 9.2</td>
+                                <td class="col-xs-2">campo 9.3</td>
+                                <td class="col-xs-2">campo 9.4</td>
+                                <td class="col-xs-2">campo 9.5</td>
+                                <td class="col-xs-2">campo 9.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 9.1</td>
+                                <td class="col-xs-2">campo 9.2</td>
+                                <td class="col-xs-2">campo 9.3</td>
+                                <td class="col-xs-2">campo 9.4</td>
+                                <td class="col-xs-2">campo 9.5</td>
+                                <td class="col-xs-2">campo 9.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 9.1</td>
+                                <td class="col-xs-2">campo 9.2</td>
+                                <td class="col-xs-2">campo 9.3</td>
+                                <td class="col-xs-2">campo 9.4</td>
+                                <td class="col-xs-2">campo 9.5</td>
+                                <td class="col-xs-2">campo 9.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 9.1</td>
+                                <td class="col-xs-2">campo 9.2</td>
+                                <td class="col-xs-2">campo 9.3</td>
+                                <td class="col-xs-2">campo 9.4</td>
+                                <td class="col-xs-2">campo 9.5</td>
+                                <td class="col-xs-2">campo 9.6</td>
+                              </tr>
+                              <tr>
+                                <td class="col-xs-2">campo 9.1</td>
+                               
+                              </tr>
+                              
+                            </tbody>
+                            
+                          </table>
+                       
+
+                  </td>
+                </tr>
+                
+                
+              </table>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

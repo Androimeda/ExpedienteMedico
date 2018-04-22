@@ -1,0 +1,42 @@
+body {
+				background-image: url(../img/fondo5.jpg);
+				background-size: cover;
+				background-attachment: fixed;
+
+			}
+.table >tr >td{
+	font-size: 18;
+}
+
+
+.cuadro-transparente{
+	background-color: rgba(39, 59, 91,0.3); 
+	border:1px; border-color:#ffffff;
+	border-style: solid;
+	padding:50px;
+	margin:50px;
+	
+}
+
+.contenido{
+	
+margin: 10px;
+padding: 10px;
+
+}
+
+.alinear{
+	padding: 8px;
+line-height: 1.42857143;
+vertical-align: top;
+border-top: 1px solid #ddd;
+text-align: none;
+}
+
+#slc-pais{
+
+line-height: 1.42857143;
+vertical-align: right;
+
+}
+background-color: rgba(58, 229, 232,0.5);
