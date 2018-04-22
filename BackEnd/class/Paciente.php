@@ -101,15 +101,15 @@ class Paciente extends Persona{
 		    );
 		  END;
 		",
-		  $this->pNombre
-		  ,$this->sNombre
-		  ,$this->pApellido
-		  ,$this->sApellido
-		  ,$this->direccion
-		  ,$this->noIdentidad
-		  ,$this->idPais
-		  ,$this->sexo
-		  ,$this->correo
+		  $this->getPNombre()
+		  ,$this->getSNombre()
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
+		  ,$this->getDireccion()
+		  ,$this->getNoIdentidad()
+		  ,$this->getIdPais()
+		  ,$this->getSexo()
+		  ,$this->getCorreo()
 		  ,$this->idTipoSangre
 		  ,$this->idEscolaridad
 		  ,$this->idOcupacion
@@ -187,8 +187,8 @@ class Paciente extends Persona{
 		    FROM VISTAPACIENTE v 
 		    WHERE  v.P_NOMBRE = '%s'  OR v.S_NOMBRE = '%s' 
 		"
-		  ,$this->pNombre
-		  ,$this->sNombre
+		  ,$this->getPNombre()
+		  ,$this->getSNombre()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
@@ -200,8 +200,8 @@ class Paciente extends Persona{
 		    FROM VISTAPACIENTE v 
 		    WHERE  v.P_APELLIDO = '%s'  OR v.S_APELLIDO = '%s' 
 		"
-		  ,$this->pApellido
-		  ,$this->sApellido
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
@@ -214,7 +214,7 @@ class Paciente extends Persona{
 		    FROM VISTAPACIENTE v 
 		    WHERE  v.NO_IDENTIDAD =%s 
 		"
-		  ,$this->noIdentidad
+		  ,$this->getNoIdentidad()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);

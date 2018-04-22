@@ -2,6 +2,7 @@
 # public function ... ($conexion) {...
 # Llamada a PL_CrearCentroMedico
 include_once("./class/Conexion.php");
+include_once('./class/Persona.php');
 include_once('./class/Ambulancia.php');
 include_once('./class/AtencionPreHospitalaria.php');
 include_once('./class/CentroMedico.php');
@@ -17,7 +18,6 @@ include_once('./class/Hospitalizacion.php');
 include_once('./class/Medico.php');
 include_once('./class/Paciente.php');
 include_once('./class/Paramedico.php');
-include_once('./class/Persona.php');
 include_once('./class/Referencia.php');
 include_once('./class/Telefono.php');
 include_once('./class/Tratamiento.php');

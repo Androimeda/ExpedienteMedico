@@ -74,18 +74,27 @@ class Medico extends Persona{
 		    );
 		  END;
 		",
-		  $this->pNombre
-		  ,$this->sNombre
-		  ,$this->pApellido
-		  ,$this->sApellido
-		  ,$this->direccion
-		  ,$this->sexo
-		  ,$this->noIdentidad
-		  ,$this->idPais
+		  $this->getPNombre()
+		  ,$this->getSNombre()
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
+		  ,$this->getDireccion()
+		  ,$this->getSexo()
+		  ,$this->getNoIdentidad()
+		  ,$this->getIdPais()
 		  ,$this->idEspecialidad
 		  ,$this->noColegiacion
-		  ,$this->correo
+		  ,$this->getCorreo()
 		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	public function listarTodos($conexion){
 		$query=sprintf("
@@ -114,10 +123,10 @@ class Medico extends Persona{
 		  END;
 		",
 		  $this->idMedico
-		  ,$this->direccion
+		  ,$this->getDireccion()
 		  ,$this->idEspecialidad
 		  ,$this->noColegiacion
-		  ,$this->correo
+		  ,$this->getCorreo()
 		);
 		$resultado=$conexion->query($query);
 		oci_bind_by_name($resultado, ':msg', $msg, 2000);
@@ -149,8 +158,8 @@ class Medico extends Persona{
 		    FROM VISTAMEDICO v 
 		    WHERE  v.P_NOMBRE = '%s'  OR v.S_NOMBRE = '%s' 
 		"
-		  ,$this->pNombre
-		  ,$this->sNombre
+		  ,$this->getPNombre()
+		  ,$this->getSNombre()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
@@ -162,8 +171,8 @@ class Medico extends Persona{
 		    FROM VISTAMEDICO v 
 		    WHERE  v.P_APELLIDO = '%s'  OR v.S_APELLIDO = '%s' 
 		"
-		  ,$this->pApellido
-		  ,$this->sApellido
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
@@ -175,7 +184,7 @@ class Medico extends Persona{
 		    FROM VISTAMEDICO v 
 		    WHERE  v.NO_IDENTIDAD = '%s' 
 		"
-		  ,$this->noIdentidad
+		  ,$this->getNoIdentidad()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);

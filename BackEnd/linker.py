@@ -26,6 +26,8 @@ def get_data(filename):
 			li = li.replace("\t","")
 			li = li.replace(" ","")
 			li = li.replace("$this->","")
+			if "get" in li:
+				li=li[3:4].lower()+li[4:-2]
 			data[c].append(li)
 			
 	return data
@@ -89,6 +91,8 @@ def get_file(filename):
 	k=''
 	k+="<?php"+"\n"
 	k+="include_once('../class/Conexion.php');"+"\n"
+	if filename in ('Medico.php', 'Paciente.php', 'Paramedico.php'):
+		k+="include_once('../class/Persona.php');"+"\n"
 	k+="include_once('../class/"+filename+"');"+"\n"
 	k+="if(isset($_POST['accion'])){"+"\n"
 	k+="$conexion = new Conexion();"+"\n"

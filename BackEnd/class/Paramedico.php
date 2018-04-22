@@ -62,15 +62,15 @@ class Paramedico extends Persona{
 		    );
 		  END;
 		",
-		  $this->pNombre
-		  ,$this->sNombre
-		  ,$this->pApellido
-		  ,$this->sApellido
-		  ,$this->direccion
-		  ,$this->sexo
-		  ,$this->noIdentidad
-		  ,$this->correo
-		  ,$this->idPais
+		  $this->getPNombre()
+		  ,$this->getSNombre()
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
+		  ,$this->getDireccion()
+		  ,$this->getSexo()
+		  ,$this->getNoIdentidad()
+		  ,$this->getCorreo()
+		  ,$this->getIdPais()
 		  ,$this->licencia
 		);
 		$resultado=$conexion->query($query);
@@ -97,8 +97,8 @@ class Paramedico extends Persona{
 		  END;
 		",
 		  $this->idParamedico
-		  ,$this->direccion
-		  ,$this->correo
+		  ,$this->getDireccion()
+		  ,$this->getCorreo()
 		  ,$this->licencia
 		);
 		$resultado=$conexion->query($query);
@@ -144,8 +144,8 @@ class Paramedico extends Persona{
 		    FROM VistaParamedico v 
 		    WHERE  v.P_NOMBRE = '%s'  OR v.S_NOMBRE = '%s' 
 		"
-		  ,$this->pNombre
-		  ,$this->sNombre
+		  ,$this->getPNombre()
+		  ,$this->getSNombre()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
@@ -158,8 +158,8 @@ class Paramedico extends Persona{
 		    FROM VistaParamedico v 
 		    WHERE  v.P_APELLIDO = '%s'  OR v.S_APELLIDO = '%s' 
 		"
-		  ,$this->pApellido
-		  ,$this->sApellido
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
@@ -172,7 +172,7 @@ class Paramedico extends Persona{
 		    FROM VistaParamedico v 
 		    WHERE  v.NO_IDENTIDAD = '%s' 
 		"
-		  ,$this->noIdentidad
+		  ,$this->getNoIdentidad()
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);

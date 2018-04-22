@@ -1,5 +1,6 @@
 <?php
 include_once('../class/Conexion.php');
+include_once('../class/Persona.php');
 include_once('../class/Paciente.php');
 if(isset($_POST['accion'])){
 $conexion = new Conexion();
