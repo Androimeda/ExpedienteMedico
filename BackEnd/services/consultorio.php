@@ -88,6 +88,7 @@ default:
     $res['mensaje']='Accion no reconocida';
     $res['resultado']=false;
     echo json_encode($res);
+break;
 
 }
 $conexion->close();

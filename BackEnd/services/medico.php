@@ -1,5 +1,6 @@
 <?php
 include_once('../class/Conexion.php');
+include_once('../class/Persona.php');
 include_once('../class/Medico.php');
 if(isset($_POST['accion'])){
 $conexion = new Conexion();
@@ -296,6 +297,7 @@ default:
     $res['mensaje']='Accion no reconocida';
     $res['resultado']=false;
     echo json_encode($res);
+break;
 
 }
 $conexion->close();

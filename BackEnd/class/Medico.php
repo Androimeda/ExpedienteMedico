@@ -1,5 +1,4 @@
 <?php
-include_once('Persona.php');
 class Medico extends Persona{
 	private $noColegiacion;
 	private $idEspecialidad;

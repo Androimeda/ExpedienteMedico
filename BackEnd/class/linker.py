@@ -81,7 +81,7 @@ def get_bufer(filename):
 	bufer+="$res['resultado']=false;"+"\n"
 	bufer+=tab*2
 	bufer+="echo json_encode($res);"+"\n"
-	# bufer+="break;"+"\n"
+	bufer+="break;"+"\n"
 	return bufer
 
 filename = 'Cirugia.php'
@@ -109,12 +109,9 @@ def get_file(filename):
 
 files = os.listdir('.');
 for filename in files:
-	if ".php" in filename and not ("Conexion" in filename):
+	if ".php" in filename and not ("Conexion" in filename or "Persona" in filename):
 		print filename
-		# c = filename[0].lower()+filename[1:-4]
-		# f = open("../services/"+filename, "w+")
-		# f.writelines(get_file(filename))
-		# f.close()
-		print get_data(filename)
-		print
-		print
+		c = filename[0].lower()+filename[1:-4]
+		f = open("../services/"+filename, "w+")
+		f.writelines(get_file(filename))
+		f.close()

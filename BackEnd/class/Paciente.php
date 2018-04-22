@@ -1,5 +1,4 @@
 <?php
-include_once('Persona.php');
 class Paciente extends Persona{
 	private $idPaciente;
 	private $idTipoSangre;

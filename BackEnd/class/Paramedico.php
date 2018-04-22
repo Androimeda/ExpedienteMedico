@@ -1,5 +1,4 @@
 <?php
-include_once('Persona.php');
 class Paramedico extends Persona{
 	private $idParamedico;
 	private $licencia;
