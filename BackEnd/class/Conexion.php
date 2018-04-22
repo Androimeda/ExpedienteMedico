@@ -58,6 +58,15 @@ class Conexion{
     }
   }
 
+  public function run($resultado){
+    $r = oci_execute($resultado);
+    if(!$r){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
   public function close(){
     oci_close($this->link);
   }

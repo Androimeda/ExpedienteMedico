@@ -1,38 +1,127 @@
 <?php
-  include '../class/Conexion.php';
-  include '../class/Ambulancia.php';
-	$response = array();
-	if(isset($_POST['accion'])){
-		$conexion = new Conexion();
-		switch ($_POST['accion']) {
-			case 'crear':
-				$response['result'] = null;
-			break;
-			case 'listarTodos':
-				$response['result'] = null;
-			break;
-			case 'actualizar':
-				$response['result'] = null;
-			break;
-			case 'eliminar':
-				$response['result'] = null;
-			break;
-			case 'listarPorCentroMedico':
-				$response['result'] = null;
-			break;
-			default:
-				$response['status']=false;
-				$response['code']=404;
-				$response['message']='Petición no reconocida [404]';
-			break;
-		}
-		$conexion->close();
-		$response['status']=true;
-		$response['message']='OK [200]';
-		$response['code']=200;
-	}else{
-		$response['status']=false;
-		$response['message']='No se especificó petición [400]';
-		$response['code']=400;
-	}
+include_once('../class/Conexion.php');
+include_once('../class/Ambulancia.php');
+if(isset($_POST['accion'])){
+$conexion = new Conexion();
+switch ($_POST['accion']) {
+case 'crear':
+
+  if(isset($_POST['placa'])){
+    $placa= $_POST['placa'];
+  }else{
+    $placa=null;
+    $res['mensaje']='Se necesita campo: placa';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $ambulancia=new Ambulancia();
+  $ambulancia->setPlaca($placa);
+  $ambulancia->setIdCentroMedico($idCentroMedico);
+  echo $ambulancia->crear($conexion);
+break;
+
+case 'listarTodos':
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $ambulancia=new Ambulancia();
+  $ambulancia->setIdCentroMedico($idCentroMedico);
+  echo $ambulancia->listarTodos($conexion);
+break;
+
+case 'actualizar':
+
+  if(isset($_POST['idAmbulancia']) && $_POST['idAmbulancia']!=''){
+    $idAmbulancia= $_POST['idAmbulancia'];
+  }else{
+    $idAmbulancia='null';
+    $res['mensaje']='Se necesita campo: idAmbulancia';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['placa'])){
+    $placa= $_POST['placa'];
+  }else{
+    $placa=null;
+    $res['mensaje']='Se necesita campo: placa';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $ambulancia=new Ambulancia();
+  $ambulancia->setIdAmbulancia($idAmbulancia);
+  $ambulancia->setPlaca($placa);
+  $ambulancia->setIdCentroMedico($idCentroMedico);
+  echo $ambulancia->actualizar($conexion);
+break;
+
+case 'listarPorCentroMedico':
+
+  if(isset($_POST['nombreCentro'])){
+    $nombreCentro= $_POST['nombreCentro'];
+  }else{
+    $nombreCentro=null;
+    $res['mensaje']='Se necesita campo: nombreCentro';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $ambulancia=new Ambulancia();
+  $ambulancia->setNombreCentro($nombreCentro);
+  $ambulancia->setIdCentroMedico($idCentroMedico);
+  echo $ambulancia->listarPorCentroMedico($conexion);
+break;
+
+default:
+    $res['mensaje']='Accion no reconocida';
+    $res['resultado']=false;
+    echo json_encode($res);
+
+}
+$conexion->close();
+}else{
+  $res['mensaje']='Accion no especificada';
+  $res['resultado']=false;
+  echo json_encode($res);
+}
 ?>

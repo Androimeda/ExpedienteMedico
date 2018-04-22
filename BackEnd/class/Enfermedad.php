@@ -3,6 +3,8 @@ class Enfermedad{
 	private $idEnfermedad;
 	private $enfermedad;
 	private $idTipoEnfermedad;
+	private $descripcion;
+	private $idExpediente;
 
 	public function __construct(
 		$idEnfermedad = null,
@@ -44,16 +46,94 @@ class Enfermedad{
 		$this->idTipoEnfermedad = $idTipoEnfermedad;
 	}
 
+	public function getDescripcion(){
+		return $this->descripcion;
+	}
+
+	public function setDescripcion($descripcion){
+		$this->descripcion = $descripcion;
+	}
+
+	public function getIdExpediente(){
+		return $this->idExpediente;
+	}
+
+	public function setIdExpediente($idExpediente){
+		$this->idExpediente = $idExpediente;
+	}
+
 	public function agregarTipoEnfermedad($conexion){
+		$query=sprintf("
+			INSERT INTO TIPOENFERMEDAD
+			(descripcion) VALUES('%s')
+		",$this->descripcion
+		);
+		$resultado = $conexion->query($query);
+		$res = $conexion->run($resultado);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Agregada exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo agregar tipo';
+		}
+		return json_encode($respuesta);
 	}
+
 	public function listarTipoEnfermedad($conexion){
+		$query=sprintf("
+			SELECT * FROM TIPOENFERMEDAD
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function actualizarTipoEnfermedad($conexion){
+		$query=sprintf("
+			UPDATE TIPOENFERMEDAD SET
+				descripcion = '%s'
+			WHERE id_tipo_enfermedad = %s
+		",$this->descripcion
+		 ,$this->idTipoEnfermedad
+		);
+		$resultado = $conexion->query($query);
+		$res = $conexion->run($resultado);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Agregada exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo agregar tipo';
+		}
+		return json_encode($respuesta);
 	}
+
 	public function listarTodos($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM VistaEnfermedad ORDER BY tipo_enfermedad, enfermedad 
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function listarPorTipo($conexion){
+		$query=sprintf("
+		   SELECT * 
+		   FROM ENFERMEDAD e
+		   INNER JOIN TIPOENFERMEDAD t
+		   ON e.id_tipo_enfermedad = t.id_tipo_enfermedad
+		   WHERE e.ID_TIPO_ENFERMEDAD=%s
+		"
+		  ,$this->idTipoEnfermedad
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -78,6 +158,7 @@ class Enfermedad{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+
 	public function actualizar($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -104,8 +185,20 @@ class Enfermedad{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaEnfermedadPaciente V 
+		    WHERE  V.ID_EXPEDIENTE=%s 
+		"
+		  ,$this->idExpediente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function diagnosticarEnfermedad($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -136,6 +229,7 @@ class Enfermedad{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+
 	public function quitarDiagnostico($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -161,7 +255,6 @@ class Enfermedad{
 		$respuesta['mensaje'] = $msg;
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
-
 	}
 
 }

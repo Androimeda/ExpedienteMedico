@@ -6,6 +6,11 @@ class Telefono{
 	private $idPais;
 	private $idPersona;
 	private $idCentroMedico;
+	private $nombreCentro;
+	private $pNombre;
+	private $pApellido;
+	private $noIdentidad;
+	private $tipoTelefono;
 
 	public function __construct(
 		$idTelefono = null,
@@ -72,6 +77,44 @@ class Telefono{
 		$this->idCentroMedico = $idCentroMedico;
 	}
 
+	public function getNombreCentro(){
+		return $this->nombreCentro;
+	}
+
+	public function setNombreCentro($nombreCentro){
+		$this->nombreCentro = $nombreCentro;
+	}
+
+	public function getPNombre(){
+		return $this->pNombre;
+	}
+
+	public function setPNombre($pNombre){
+		$this->pNombre = $pNombre;
+	}
+	public function getPApellido(){
+		return $this->pApellido;
+	}
+
+	public function setPApellido($pApellido){
+		$this->pApellido = $pApellido;
+	}
+	public function getNoIdentidad(){
+		return $this->noIdentidad;
+	}
+
+	public function setNoIdentidad($noIdentidad){
+		$this->noIdentidad = $noIdentidad;
+	}
+
+	public function getTipoTelefono(){
+		return $this->tipoTelefono;
+	}
+
+	public function setTipoTelefono($tipoTelefono){
+		$this->tipoTelefono = $tipoTelefono;
+	}
+
 	public function listarPorPersona($conexion){
 	}
 	public function listarPorCentroMedico($conexion){
@@ -133,17 +176,96 @@ class Telefono{
 		return json_encode($respuesta);
 	}
 	public function buscarPorPersona($conexion){
+		$query=sprintf("
+		     SELECT p.NO_IDENTIDAD ,p.p_nombre || ' ' || p.s_nombre || ' ' || p.p_apellido || ' ' || p.s_apellido as nombre ,v.* 
+		     FROM VistaTelefonoPersona v INNER JOIN PERSONA p  ON v.ID_PERSONA = p.ID_PERSONA 
+		     WHERE  p.NO_IDENTIDAD = '%s'  OR LOWER(p.P_NOMBRE) LIKE '%s'  OR LOWER(p.P_APELLIDO) LIKE '%s' 
+		"
+		  ,$this->noIdentidad
+		  ,$this->pNombre
+		  ,$this->pApellido
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function buscarPorCentro($conexion){
+		$query=sprintf("
+		     SELECT t.DESCRIPCION as tipo_centro_medico ,c.NOMBRE as centro_medico ,v.* 
+		     FROM VistaTelefonoCentroMedico v INNER JOIN CENTROMEDICO c  ON v.ID_CENTRO_MEDICO = c.ID_CENTRO_MEDICO INNER JOIN TIPOCENTRO t  ON c.ID_TIPO_CENTRO = t.ID_TIPO_CENTRO 
+		     WHERE  LOWER(c.NOMBRE) LIKE '%s' 
+		"
+		  ,$this->nombreCentro
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function eliminarDePersona($conexion){
+		$query=sprintf("
+			DELETE FROM TELEFONOPERSONA
+			WHERE ID_PERSONA =%s AND ID_TELEFONO =%s
+		"
+			,$this->idPersona
+			,$this->idTelefono
+		);
+		$resultado = $conexion->query($query);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Actualizado exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo actualizar tipo';
+		}
+		return json_encode($respuesta);
 	}
 	public function eliminarDeCentro($conexion){
+		$query=sprintf("
+			DELETE FROM TELEFONOCENTROMEDICO
+			WHERE ID_CENTRO_MEDICO =%s AND ID_TELEFONO =%s;
+		"
+			,$this->idCentroMedico
+			,$this->idTelefono
+		);
+		$resultado = $conexion->query($query);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Actualizado exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo actualizar tipo';
+		}
+		return json_encode($respuesta);
 	}
 	public function agregarTipoTelefono($conexion){
+		$query=sprintf("
+			INSERT INTO TIPOTELEFONO
+			(tipo_telefono) VALUES('%s')
+		",$this->tipoTelefono
+		);
+		$resultado = $conexion->query($query);
+		$res = $conexion->run($resultado);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Agregada exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo agregar tipo';
+		}
+		return json_encode($respuesta);
 	}
+	
 	public function listarTipoTelefono($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM TIPOTELEFONO
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function actualizarTipoTelefono($conexion){
 	}
 

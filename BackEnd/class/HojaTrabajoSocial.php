@@ -80,6 +80,16 @@ class HojaTrabajoSocial{
 		return json_encode($respuesta);
 	}
 	public function listarTodos($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM VistaHojaTrabajoSocial h 
+		   WHERE h.id_centro_medico =%s 
+		"
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function actualizar($conexion){
 		$query=sprintf("
@@ -109,9 +119,18 @@ class HojaTrabajoSocial{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
-	public function eliminar($conexion){
-	}
-	public function listarPorPaciente(){
+	
+	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaHojaTrabajoSocial h 
+		    WHERE  h.id_expediente =%s 
+		"
+		  ,$this->idExpediente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 }
 ?>

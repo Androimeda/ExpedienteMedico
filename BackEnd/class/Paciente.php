@@ -129,8 +129,26 @@ class Paciente extends Persona{
 
 	}
 	public function listar($conexion){
+		$query=sprintf("
+		  SELECT  * 
+		  FROM VISTAPACIENTE v 
+		  WHERE v.ID_PACIENTE =%s
+		"
+		  ,$this->idPaciente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarTodos($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAPACIENTE
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function actualizar($conexion){
 		$query=sprintf("
@@ -164,16 +182,60 @@ class Paciente extends Persona{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
-	public function eliminar($conexion){
-	}
 	public function buscarPorNombre($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAPACIENTE v 
+		    WHERE  v.P_NOMBRE = '%s'  OR v.S_NOMBRE = '%s' 
+		"
+		  ,$this->pNombre
+		  ,$this->sNombre
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function buscarPorApellido($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAPACIENTE v 
+		    WHERE  v.P_APELLIDO = '%s'  OR v.S_APELLIDO = '%s' 
+		"
+		  ,$this->pApellido
+		  ,$this->sApellido
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function buscarPorNoIdentidad($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAPACIENTE v 
+		    WHERE  v.NO_IDENTIDAD =%s 
+		"
+		  ,$this->noIdentidad
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function getNumeroExpediente($conexion){
+		$query=sprintf("
+		    SELECT  v.ID_EXPEDIENTE 
+		    FROM VISTAPACIENTE v 
+		    WHERE  v.ID_PERSONA =%s  OR v.ID_PACIENTE =%s 
+		"
+		  ,$this->idPersona
+		  ,$this->idPaciente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+	
 	public function setNatalidad($conexion){
 	}
 	public function setDefuncion($conexion){

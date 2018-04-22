@@ -8,6 +8,7 @@ class Hospitalizacion{
 	private $cama;
 	private $idMedico;
 	private $idExpediente;
+	private $idCentroMedico;
 
 	public function __construct(
 		$idIngreso = null,
@@ -99,6 +100,14 @@ class Hospitalizacion{
 		$this->idExpediente = $idExpediente;
 	}
 
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
+
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -133,14 +142,60 @@ class Hospitalizacion{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+	
 	public function listarPorCentro($conexion){
+		$query=sprintf("
+		  SELECT  * 
+		  FROM VISTAHOSPITALIZACIONES v 
+		  WHERE v.ID_CENTRO_MEDICO =%s
+		"
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAHOSPITALIZACIONES v 
+		    WHERE v.ID_EXPEDIENTE =%s
+		"
+		  ,$this->idExpediente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+	
 	public function listarPorMedico($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAHOSPITALIZACIONES v 
+		    WHERE  v.ID_CENTRO_MEDICO =%s  AND v.ID_MEDICO =%s 
+		"
+		  ,$this->idCentroMedico
+		  ,$this->idMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+	
 	public function listarPorPiso($conexion){
+		$query=sprintf("
+		     SELECT  * 
+		     FROM VISTAHOSPITALIZACIONES v 
+		     WHERE v.ID_PISO =%s
+		"
+		  ,$this->idPiso
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+	
 	public function darAlta($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -167,9 +222,19 @@ class Hospitalizacion{
 	}
 	public function actualizar($conexion){
 	}
-	public function eliminar($conexion){
-	}
+	
 	public function listarPorFecha($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAHOSPITALIZACIONES v 
+		    WHERE  fecha_hora_ingreso = %s
+		    AND v.ID_CENTRO_MEDICO =%s 
+		"
+		  ,$this->fechaHoraIngreso
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 
 }

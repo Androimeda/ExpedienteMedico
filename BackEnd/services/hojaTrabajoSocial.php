@@ -1,34 +1,138 @@
 <?php
-  include '../class/Conexion.php';
-	$response = array();
-	if(isset($_POST['accion'])){
-		$conexion = new Conexion();
-		switch ($_POST['accion']) {
-			case 'crear':
-				$response['result'] = null;
-			break;
-			case 'listarTodos':
-				$response['result'] = null;
-			break;
-			case 'actualizar':
-				$response['result'] = null;
-			break;
-			case 'eliminar':
-				$response['result'] = null;
-			break;
-			default:
-				$response['status']=false;
-				$response['code']=404;
-				$response['message']='Petición no reconocida [404]';
-			break;
-		}
-		$conexion->close();
-		$response['status']=true;
-		$response['message']='OK [200]';
-		$response['code']=200;
-	}else{
-		$response['status']=false;
-		$response['message']='No se especificó petición [400]';
-		$response['code']=400;
-	}
+include_once('../class/Conexion.php');
+include_once('../class/HojaTrabajoSocial.php');
+if(isset($_POST['accion'])){
+$conexion = new Conexion();
+switch ($_POST['accion']) {
+case 'crear':
+
+  if(isset($_POST['descripcion'])){
+    $descripcion= $_POST['descripcion'];
+  }else{
+    $descripcion=null;
+    $res['mensaje']='Se necesita campo: descripcion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $hojatrabajosocial=new HojaTrabajoSocial();
+  $hojatrabajosocial->setDescripcion($descripcion);
+  $hojatrabajosocial->setIdExpediente($idExpediente);
+  $hojatrabajosocial->setIdCentroMedico($idCentroMedico);
+  echo $hojatrabajosocial->crear($conexion);
+break;
+
+case 'listarPorPaciente':
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $hojatrabajosocial=new HojaTrabajoSocial();
+  $hojatrabajosocial->setIdExpediente($idExpediente);
+  echo $hojatrabajosocial->listarPorPaciente($conexion);
+break;
+
+case 'listarTodos':
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $hojatrabajosocial=new HojaTrabajoSocial();
+  $hojatrabajosocial->setIdCentroMedico($idCentroMedico);
+  echo $hojatrabajosocial->listarTodos($conexion);
+break;
+
+case 'actualizar':
+
+  if(isset($_POST['idTS']) && $_POST['idTS']!=''){
+    $idTS= $_POST['idTS'];
+  }else{
+    $idTS='null';
+    $res['mensaje']='Se necesita campo: idTS';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['descripcion'])){
+    $descripcion= $_POST['descripcion'];
+  }else{
+    $descripcion=null;
+    $res['mensaje']='Se necesita campo: descripcion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $hojatrabajosocial=new HojaTrabajoSocial();
+  $hojatrabajosocial->setIdTS($idTS);
+  $hojatrabajosocial->setDescripcion($descripcion);
+  $hojatrabajosocial->setIdExpediente($idExpediente);
+  $hojatrabajosocial->setIdCentroMedico($idCentroMedico);
+  echo $hojatrabajosocial->actualizar($conexion);
+break;
+
+default:
+    $res['mensaje']='Accion no reconocida';
+    $res['resultado']=false;
+    echo json_encode($res);
+
+}
+$conexion->close();
+}else{
+  $res['mensaje']='Accion no especificada';
+  $res['resultado']=false;
+  echo json_encode($res);
+}
 ?>

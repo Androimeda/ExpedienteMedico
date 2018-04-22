@@ -10,6 +10,9 @@ class Tratamiento{
 	private $viaSuministro;
 	private $idMedico;
 	private $idConsulta;
+	private $tipoTratamiento;
+	private $idPaciente;
+
 
 	public function __construct(
 		$idTratamiento = null,
@@ -113,15 +116,96 @@ class Tratamiento{
 		$this->idConsulta = $idConsulta;
 	}
 
+	public function getTipoTratamiento(){
+		return $this->tipoTratamiento;
+	}
+
+	public function setTipoTratamiento($tipoTratamiento){
+		$this->tipoTratamiento = $tipoTratamiento;
+	}
+
+	public function getIdPaciente(){
+		return $this->idPaciente;
+	}
+
+	public function setIdPaciente($idPaciente){
+		$this->idPaciente = $idPaciente;
+	}
+
 	public function agregarTipoTratamiento($conexion){
+		$query=sprintf("
+		  INSERT 
+		  INTO TIPOTRATAMIENTO (TIPO_TRATAMIENTO) 
+		  VALUES ('%s')
+		  
+		"
+		  ,$this->tipoTratamiento
+		);
+		$resultado = $conexion->query($query);
+		$resultado = $conexion->query($query);
+		$res = $conexion->run($resultado);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Agregada exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo agregar tipo';
+		}
+		return json_encode($respuesta);
 	}
+
 	public function actualizarTipoTratamiento($conexion){
+		$query=sprintf("
+		  UPDATE TIPOTRATAMIENTO SET
+		  TIPO_TRATAMIENTO = '%s'
+		  WHERE id_tipo_tratamiento = '%s'
+		"
+		  ,$this->tipoTratamiento
+		  ,$this->idTipoTratamiento
+		);
+		$resultado = $conexion->query($query);
+		$resultado = $conexion->query($query);
+		$res = $conexion->run($resultado);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Actualizada exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo actualizar tipo';
+		}
+		return json_encode($respuesta);
 	}
+
 	public function listarTipoTratamiento($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM TIPOTRATAMIENTO
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarViaSuministro($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VIASUMINISTRO
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function agregarViaSuministro($conexion){
+		$query=sprintf("
+		    INSERT 
+		    INTO VIASUMINISTRO (VIA_SUMINISTRO) 
+		    VALUES ('%s')
+
+		"
+		  ,$this->viaSuministro
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function actualizarViaSuministro($conexion){
 		$query=sprintf("
@@ -181,8 +265,6 @@ class Tratamiento{
 		return json_encode($respuesta);
 
 	}
-	public function listarTodos($conexion){
-	}
 	public function actualizar($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -218,6 +300,16 @@ class Tratamiento{
 		return json_encode($respuesta);
 	}
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		    SELECT e.ID_PACIENTE ,c.ID_CONSULTA ,v.* 
+		    FROM TRATAMIENTOCONSULTA tc INNER JOIN CONSULTAEXTERNA c  ON tc.ID_CONSULTA = c.ID_CONSULTA INNER JOIN EXPEDIENTE e  ON c.ID_EXPEDIENTE = e.ID_EXPEDIENTE INNER JOIN VIstaTratamiento v  ON v.ID_TRATAMIENTO = tc.ID_TRATAMIENTO 
+		    WHERE e.ID_PACIENTE =%s
+		"
+		  ,$this->idPaciente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function recetar($conexion){
 		$query=sprintf("

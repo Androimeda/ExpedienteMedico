@@ -1,52 +1,267 @@
 <?php
-  include '../class/Conexion.php';
-	$response = array();
-	if(isset($_POST['accion'])){
-		$conexion = new Conexion();
-		switch ($_POST['accion']) {
-			case 'agregarTipoEnfermedad':
-				$response['result'] = null;
-			break;
-			case 'listarTipoEnfermedad':
-				$response['result'] = null;
-			break;
-			case 'actualizarTipoEnfermedad':
-				$response['result'] = null;
-			break;
-			case 'listarTodos':
-				$response['result'] = null;
-			break;
-			case 'listarPorTipo':
-				$response['result'] = null;
-			break;
-			case 'crear':
-				$response['result'] = null;
-			break;
-			case 'actualizar':
-				$response['result'] = null;
-			break;
-			case 'listarPorPaciente':
-				$response['result'] = null;
-			break;
-			case 'diagnosticarEnfermedad':
-				$response['result'] = null;
-			break;
-			case 'quitarDiagnostico':
-				$response['result'] = null;
-			break;
-			default:
-				$response['status']=false;
-				$response['code']=404;
-				$response['message']='Petición no reconocida [404]';
-			break;
-		}
-		$conexion->close();
-		$response['status']=true;
-		$response['message']='OK [200]';
-		$response['code']=200;
-	}else{
-		$response['status']=false;
-		$response['message']='No se especificó petición [400]';
-		$response['code']=400;
-	}
+include_once('../class/Conexion.php');
+include_once('../class/Enfermedad.php');
+if(isset($_POST['accion'])){
+$conexion = new Conexion();
+switch ($_POST['accion']) {
+case 'crear':
+
+  if(isset($_POST['enfermedad'])){
+    $enfermedad= $_POST['enfermedad'];
+  }else{
+    $enfermedad=null;
+    $res['mensaje']='Se necesita campo: enfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idTipoEnfermedad']) && $_POST['idTipoEnfermedad']!=''){
+    $idTipoEnfermedad= $_POST['idTipoEnfermedad'];
+  }else{
+    $idTipoEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idTipoEnfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setEnfermedad($enfermedad);
+  $enfermedad->setIdTipoEnfermedad($idTipoEnfermedad);
+  echo $enfermedad->crear($conexion);
+break;
+
+case 'agregarTipoEnfermedad':
+
+  if(isset($_POST['descripcion'])){
+    $descripcion= $_POST['descripcion'];
+  }else{
+    $descripcion=null;
+    $res['mensaje']='Se necesita campo: descripcion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setDescripcion($descripcion);
+  echo $enfermedad->agregarTipoEnfermedad($conexion);
+break;
+
+case 'listarPorPaciente':
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setIdExpediente($idExpediente);
+  echo $enfermedad->listarPorPaciente($conexion);
+break;
+
+case 'listarPorTipo':
+
+  if(isset($_POST['idTipoEnfermedad']) && $_POST['idTipoEnfermedad']!=''){
+    $idTipoEnfermedad= $_POST['idTipoEnfermedad'];
+  }else{
+    $idTipoEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idTipoEnfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setIdTipoEnfermedad($idTipoEnfermedad);
+  echo $enfermedad->listarPorTipo($conexion);
+break;
+
+case 'quitarDiagnostico':
+
+  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
+    $idEnfermedad= $_POST['idEnfermedad'];
+  }else{
+    $idEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idEnfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
+    $idConsulta= $_POST['idConsulta'];
+  }else{
+    $idConsulta='null';
+    $res['mensaje']='Se necesita campo: idConsulta';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setIdEnfermedad($idEnfermedad);
+  $enfermedad->setIdExpediente($idExpediente);
+  $enfermedad->setIdConsulta($idConsulta);
+  echo $enfermedad->quitarDiagnostico($conexion);
+break;
+
+case 'actualizarTipoEnfermedad':
+
+  if(isset($_POST['descripcion'])){
+    $descripcion= $_POST['descripcion'];
+  }else{
+    $descripcion=null;
+    $res['mensaje']='Se necesita campo: descripcion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idTipoEnfermedad']) && $_POST['idTipoEnfermedad']!=''){
+    $idTipoEnfermedad= $_POST['idTipoEnfermedad'];
+  }else{
+    $idTipoEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idTipoEnfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setDescripcion($descripcion);
+  $enfermedad->setIdTipoEnfermedad($idTipoEnfermedad);
+  echo $enfermedad->actualizarTipoEnfermedad($conexion);
+break;
+
+case 'listarTodos':
+  $enfermedad=new Enfermedad();
+  echo $enfermedad->listarTodos($conexion);
+break;
+
+case 'actualizar':
+
+  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
+    $idEnfermedad= $_POST['idEnfermedad'];
+  }else{
+    $idEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idEnfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['penfermedad'])){
+    $penfermedad= $_POST['penfermedad'];
+  }else{
+    $penfermedad=null;
+    $res['mensaje']='Se necesita campo: penfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idTipoEnfermedad']) && $_POST['idTipoEnfermedad']!=''){
+    $idTipoEnfermedad= $_POST['idTipoEnfermedad'];
+  }else{
+    $idTipoEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idTipoEnfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setIdEnfermedad($idEnfermedad);
+  $enfermedad->setPenfermedad($penfermedad);
+  $enfermedad->setIdTipoEnfermedad($idTipoEnfermedad);
+  echo $enfermedad->actualizar($conexion);
+break;
+
+case 'listarTipoEnfermedad':
+  $enfermedad=new Enfermedad();
+  echo $enfermedad->listarTipoEnfermedad($conexion);
+break;
+
+case 'diagnosticarEnfermedad':
+
+  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
+    $idEnfermedad= $_POST['idEnfermedad'];
+  }else{
+    $idEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idEnfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
+  }else{
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['fechaDiagnostico'])){
+    $fechaDiagnostico= $_POST['fechaDiagnostico'];
+  }else{
+    $fechaDiagnostico=null;
+    $res['mensaje']='Se necesita campo: fechaDiagnostico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
+    $idConsulta= $_POST['idConsulta'];
+  }else{
+    $idConsulta='null';
+    $res['mensaje']='Se necesita campo: idConsulta';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $enfermedad=new Enfermedad();
+  $enfermedad->setIdEnfermedad($idEnfermedad);
+  $enfermedad->setIdMedico($idMedico);
+  $enfermedad->setFechaDiagnostico($fechaDiagnostico);
+  $enfermedad->setIdExpediente($idExpediente);
+  $enfermedad->setIdConsulta($idConsulta);
+  echo $enfermedad->diagnosticarEnfermedad($conexion);
+break;
+
+default:
+    $res['mensaje']='Accion no reconocida';
+    $res['resultado']=false;
+    echo json_encode($res);
+
+}
+$conexion->close();
+}else{
+  $res['mensaje']='Accion no especificada';
+  $res['resultado']=false;
+  echo json_encode($res);
+}
 ?>

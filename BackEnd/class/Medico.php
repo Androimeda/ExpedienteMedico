@@ -4,6 +4,7 @@ class Medico extends Persona{
 	private $noColegiacion;
 	private $idEspecialidad;
 	private $idMedico;
+	private $idCentroMedico;
 
 	public function __construct(
 		$noColegiacion = null,
@@ -46,6 +47,14 @@ class Medico extends Persona{
 		$this->idMedico = $idMedico;
 	}
 
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
+
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -80,6 +89,16 @@ class Medico extends Persona{
 		);
 	}
 	public function listarTodos($conexion){
+		$query=sprintf("
+		  SELECT DISTINCT  e.ID_CENTRO_MEDICO,  v.* 
+		  FROM VISTAMEDICO v INNER JOIN MEDICOCONSULTORIO mc  ON mc.ID_MEDICO = v.ID_MEDICO INNER JOIN CONSULTORIO c  ON c.ID_CONSULTORIO = mc.ID_CONSULTORIO INNER JOIN PISO p  ON p.ID_PISO = c.ID_PISO INNER JOIN EDIFICIO e  ON e.ID_EDIFICIO = p.ID_PISO 
+		  WHERE  e.ID_CENTRO_MEDICO =%s ORDER BY v.ESPECIALIDAD 
+		"
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function actualizar($conexion){
 		$query=sprintf("
@@ -111,13 +130,57 @@ class Medico extends Persona{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+	
 	public function listar($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAMEDICO v 
+		    WHERE v.ID_MEDICO =%s
+		"
+		  ,$this->idMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function buscarPorNombre($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAMEDICO v 
+		    WHERE  v.P_NOMBRE = '%s'  OR v.S_NOMBRE = '%s' 
+		"
+		  ,$this->pNombre
+		  ,$this->sNombre
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function buscarPorApellido($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAMEDICO v 
+		    WHERE  v.P_APELLIDO = '%s'  OR v.S_APELLIDO = '%s' 
+		"
+		  ,$this->pApellido
+		  ,$this->sApellido
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function buscarPorNoIdentidad($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAMEDICO v 
+		    WHERE  v.NO_IDENTIDAD = '%s' 
+		"
+		  ,$this->noIdentidad
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 }
 ?>

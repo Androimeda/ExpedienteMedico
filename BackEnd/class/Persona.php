@@ -1,4 +1,6 @@
 <?php
+/*NOOOOOOO BORRRRRARRRRRRRRRRR*/
+/*JUST DONT*/
 class Persona{
 	private $idPersona;
 	private $pNombre;
@@ -9,6 +11,7 @@ class Persona{
 	private $noIdentidad;
 	private $sexo;
 	private $correo;
+	private $idPais;
 
 	public function __construct(
 		$idPersona = null,
@@ -108,6 +111,14 @@ class Persona{
 
 	public function setCorreo($correo){
 		$this->correo = $correo;
+	}
+
+	public function getIdPais(){
+		return $this->idPais;
+	}
+
+	public function setIdPais($idPais){
+		$this->idPais = $idPais;
 	}
 
 }

@@ -126,10 +126,19 @@ class Examen{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+	
 	public function listarTodos($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM VistaExamen 
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
-	public function eliminar($conexion){
-	}
+
+	
 	public function actualizar($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -165,10 +174,41 @@ class Examen{
 		return json_encode($respuesta);
 	}
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaExamen V 
+		    WHERE  V.ID_EXPEDIENTE=%s 
+		"
+		  ,$this->idExpediente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function listarPorCentro($conexion){
+		$query=sprintf("
+		    SELECT * 
+		    FROM VistaExamen V 
+		    WHERE V.ID_CENTRO_MEDICO=%s 
+		"
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorTipo($conexion){
+		$query=sprintf("
+		   SELECT * 
+		   FROM VistaExamen V 
+		   WHERE V.ID_TIPO=%s
+		"
+		  ,$this->idTipo
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 
 }

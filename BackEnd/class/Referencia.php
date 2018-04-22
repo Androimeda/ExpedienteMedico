@@ -6,6 +6,7 @@ class Referencia{
 	private $idExpediente;
 	private $idCentroMedicoRemite;
 	private $idCentroMedicoRecibe;
+	private $idPaciente;
 
 	public function __construct(
 		$idReferencia = null,
@@ -77,6 +78,14 @@ class Referencia{
 		$this->idCentroMedicoRecibe = $idCentroMedicoRecibe;
 	}
 
+	public function getIdPaciente(){
+		return $this->idPaciente;
+	}
+
+	public function setIdPaciente($idPaciente){
+		$this->idPaciente = $idPaciente;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -141,17 +150,62 @@ class Referencia{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+	
 	public function listar($conexion){
 	}
 	public function listarTodos($conexion){
 	}
+
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaReferencias v 
+		    WHERE v.ID_PACIENTE=%s
+		"
+		  ,$this->idPaciente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+
 	}
 	public function listarPorCentroRemite($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaReferencias v 
+		    WHERE v.id_centro_medico_remite=%s
+		"
+		  ,$this->idCentroMedicoRemite
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+
 	}
 	public function listarRecibidas($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaReferencias v 
+		    WHERE v.id_centro_medico_recibe=%s
+		"
+		  ,$this->idCentroMedicoRecibe
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorMedico($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaReferencias v 
+		    WHERE v.ID_MEDICO =%s AND v.id_centro_medico_remite=%s
+		"
+		  ,$this->idMedico
+		  ,$this->idCentroMedicoRemite
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 }
 ?>

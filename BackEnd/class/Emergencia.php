@@ -5,6 +5,7 @@ class Emergencia{
 	private $fechaHoraAtencion;
 	private $idExpediente;
 	private $idAtencion;
+	private $nombreCentro;
 	private $idCentroMedico;
 	private $idMedico;
 
@@ -88,6 +89,14 @@ class Emergencia{
 		$this->idMedico = $idMedico;
 	}
 
+	public function getNombreCentro(){
+		return $this->nombreCentro;
+	}
+
+	public function setNombreCentro($nombreCentro){
+		$this->nombreCentro = $nombreCentro;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -157,16 +166,88 @@ class Emergencia{
 		return json_encode($respuesta);
 	}
 	public function listarPorCentroMedico($conexion){
+		$query=sprintf("
+		     SELECT* 
+		     FROM VistaEmergencia V 
+		     WHERE V.ID_CENTRO_MEDICO=%s OR V.centro_medico LIKE '%s'
+		"
+		  ,$this->idCentroMedico
+		  ,$this->nombreCentro
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		     SELECT  * 
+		     FROM VistaEmergencia V 
+		     WHERE  V.ID_EXPEDIENTE=%s 
+		"
+		  ,$this->idExpediente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
 	public function listarPorMedico($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaEmergencia V 
+		    WHERE  V.ID_MEDICO =%s 
+		"
+		  ,$this->idMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+	
 	public function listarPorHoy($conexion){
+		$query=sprintf("
+		    SELECT * 
+		    FROM VistaEmergencia V 
+		    WHERE 
+		    EXTRACT(DAY FROM V.FECHA_HORA_ATENCION) = EXTRACT(DAY FROM SYSDATE)
+		    AND EXTRACT(MONTH FROM V.FECHA_HORA_ATENCION) = EXTRACT(MONTH FROM SYSDATE)
+		    AND EXTRACT(YEAR FROM V.FECHA_HORA_ATENCION) = EXTRACT(YEAR FROM SYSDATE)
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+	
 	public function listarPorCentroFecha($conexion){
+		$query=sprintf("
+		     SELECT* 
+		     FROM VistaEmergencia V 
+		     WHERE v.ID_CENTRO_MEDICO=%s 
+		     AND v.FECHA_HORA_ATENCION =  %s 
+		"
+		  ,$this->idCentroMedico
+		  ,$this->fechaHoraAtencion
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+	
 	public function listarPorMedicoFecha($conexion){
+		$query=sprintf("
+		     SELECT* 
+		     FROM VistaEmergencia V 
+		     WHERE v.ID_MEDICO=%s 
+		     AND v.FECHA_HORA_ATENCION= %s 
+		"
+		  ,$this->idMedico
+		  ,$this->fechaHoraAtencion
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 
 }

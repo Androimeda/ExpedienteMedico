@@ -3,7 +3,9 @@ class Edificio{
 	private $idEdificio;
 	private $nombre;
 	private $idCentroMedico;
+	private $nombreCentro;
 	private $descripcion;
+	private $idPiso;
 
 	public function __construct(
 		$idEdificio = null,
@@ -53,6 +55,22 @@ class Edificio{
 		$this->descripcion = $descripcion;
 	}
 
+	public function getNombreCentro(){
+		return $this->nombreCentro;
+	}
+
+	public function setNombreCentro($nombreCentro){
+		$this->nombreCentro = $nombreCentro;
+	}
+
+	public function getIdPiso(){
+		return $this->idPiso;
+	}
+
+	public function setIdPiso($idPiso){
+		$this->idPiso = $idPiso;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -78,12 +96,42 @@ class Edificio{
 		return json_encode($respuesta);
 	}
 	public function listarPorCentro($conexion){
+		$query=sprintf("
+		    SELECT* 
+		    FROM VistaEdificio V 
+		    WHERE V.ID_CENTRO_MEDICO=%s OR V.NOMBRE='%s' 
+		"
+		  ,$this->idCentroMedico
+		  ,$this->nombreCentro
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listar($conexion){
-	}
-	public function actualizar($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM VistaEdificio
+			WHERE id_edificio = %s
+		"
+			,$this->idEdificio
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPiso($conexion){
+		$query=sprintf("
+		    SELECT * 
+		    FROM VistaPiso v 
+		    WHERE V.ID_PISO=%s 
+		"
+		  ,$this->idPiso
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function agregarPiso($conexion){
 		$query=sprintf("
@@ -110,7 +158,22 @@ class Edificio{
 		return json_encode($respuesta);
 	}
 	public function actualizarPiso($conexion){
+		$query=sprintf("
+			UPDATE PISO SET
+				descripcion = '%s'
+			WHERE id_piso = %s
+		",$this->descripcion
+		 ,$this->idPiso
+		);
+		$resultado = $conexion->query($query);
+		$res = $conexion->run($resultado);
+		$respuesta["resultado"]= $res;
+		if($res==true){
+			$respuesta["mensaje"]='Agregada exitosamente';
+		}else{
+			$respuesta["mensaje"]='No se pudo agregar tipo';
+		}
+		return json_encode($respuesta);
 	}
-
 }
 ?>

@@ -155,8 +155,6 @@ class CentroMedico{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
-	public function eliminar($conexion){
-	}
 
 }
 ?>

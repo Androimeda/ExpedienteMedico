@@ -8,6 +8,8 @@ class ConsultaExterna{
 	private $sintomas;
 	private $diagnostico;
 	private $observacion;
+	private $nombreCentro;
+	private $idCentroMedico;
 
 	public function __construct(
 		$idConsulta = null,
@@ -99,6 +101,22 @@ class ConsultaExterna{
 		$this->observacion = $observacion;
 	}
 
+	public function getNombreCentro(){
+		return $this->nombreCentro;
+	}
+
+	public function setNombreCentro($nombreCentro){
+		$this->nombreCentro = $nombreCentro;
+	}
+
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
+
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -171,18 +189,83 @@ class ConsultaExterna{
 		return json_encode($respuesta);
 
 	}
-	public function eliminar($conexion){
-	}
 	public function listarPorPaciente($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaConsultaExterna V 
+		    WHERE  V.ID_EXPEDIENTE=%s 
+		"
+		  ,$this->idExpediente
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorHoy($conexion){
+		$query=sprintf("
+		    SELECT * 
+		    FROM VistaConsultaExterna V 
+		    WHERE 
+		    EXTRACT(DAY FROM V.FECHA_HORA) = EXTRACT(DAY FROM SYSDATE)
+		    AND EXTRACT(MONTH FROM V.FECHA_HORA) = EXTRACT(MONTH FROM SYSDATE)
+		    AND EXTRACT(YEAR FROM V.FECHA_HORA) = EXTRACT(YEAR FROM SYSDATE)
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorCentroMedico($conexion){
+		$query=sprintf("
+		     SELECT* 
+		     FROM VistaConsultaExterna V 
+		     WHERE V.ID_CENTRO_MEDICO=%s OR V.NOMBRE LIKE '%s'
+		"
+		  ,$this->idCentroMedico
+		  ,$this->nombreCentro
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorMedico($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaConsultaExterna V 
+		    WHERE  V.ID_MEDICO =%s 
+		"
+		  ,$this->idMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorConsultorio($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM VistaConsultaExterna V  
+		   WHERE  V.ID_CONSULTORIO=%s 
+		"
+		  ,$this->idConsultorio
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
+
+	public function listarPorCentroMedicoFecha($conexion){
+		$query=sprintf("
+		    SELECT* 
+		    FROM VistaConsultaExterna V 
+		    WHERE v.ID_CENTRO_MEDICO=%s AND v.FECHA_HORA=%s
+		"
+		  ,$this->idCentroMedico
+		  ,$this->fechaHora
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}	
 
 }
 ?>
