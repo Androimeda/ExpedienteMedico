@@ -32,37 +32,43 @@ def get_data(filename):
 			
 	return data
 
-# filename = "Paramedico.php"
 def get_buffer(filename):
 	data = get_data(filename)
-	v=''
-	v+="import requests"+"\n"
-	v+="def postear(data, url):"+"\n"
-	v+="    return requests.post('http://127.0.0.1/syme/BackEnd/services/\'+url+\'.php', data=data).content"+"\n"
+	v=""
 	for i in data:
-		v+="\n"
-		v+="url='"+filename[:-4]+"'"+"\n"
-		v+="data={"+"\n"
 		met = i
-		v+=tab
+		par = data[i]
+		v+="$.ajax({"+"\n"
+		v+=tab+"url:SITIO_URL+'/services/"+filename+"',"+"\n"
+		v+=tab+"method:'POST',"+"\n"
+		v+=tab+"dataType:'JSON',"+"\n"
+		v+=tab+"data:{"+"\n"
+		v+=tab*2
 		v+="'accion':'"+met+"',"+"\n"
 		par = data[i]
 		for p in par:
-			v+=tab
-			v+="'"+p+"': None,\n"
-		v+="}"+"\n"
-		v+="print postear(data,url)"+"\n"
-		v+="print"+"\n"
+			v+=tab*2
+			v+="'"+p+"': null,\n"
+		v+=tab+"},"+"\n"
+		v+=tab+"success:function(respuesta){"+"\n"
+		v+=tab*2+"console.log(respuesta);"+"\n"
+		v+=tab+"},"+"\n"
+		v+=tab+"error: function(error){"+"\n"
+		v+=tab*2+"console.log(error);"+"\n"
+		v+=tab+"},"+"\n"
+		v+=tab+"complete: function(){"+"\n"
+		v+=tab*2+"//TO-DO"+"\n"
+		v+=tab+"}"+"\n"
+		v+="});"+"\n"
+		v+="\n"*2
 	return v
-
-# print get_buffer(filename)
 
 files = os.listdir('.');
 for filename in files:
 	if ".php" in filename and not ("Conexion" in filename or "Persona" in filename):
 		print filename
 		c = filename[0].lower()+filename[1:-4]
-		f = open("../postman/"+filename[:-4]+".py", "w+")
+		f = open("../ajax/"+filename[:-4]+".js", "w+")
 		a=get_buffer(filename)
 		f.writelines(a)
 		f.close()
