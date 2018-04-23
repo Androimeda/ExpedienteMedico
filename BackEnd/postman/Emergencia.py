@@ -5,12 +5,12 @@ def postear(data, url):
 url='Emergencia'
 data={
   'accion':'crear',
-  'observacion': None,
-  'fechaHoraAtencion': None,
-  'idExpediente': None,
-  'idAtencion': None,
   'idCentroMedico': None,
   'idMedico': None,
+  'idAtencion': None,
+  'idExpediente': None,
+  'observacion': None,
+  'fechaHoraAtencion': None,
 }
 print postear(data,url)
 print
@@ -50,13 +50,13 @@ print
 url='Emergencia'
 data={
   'accion':'actualizar',
+  'idCentroMedico': None,
   'idIngreso': None,
+  'idMedico': None,
+  'idAtencion': None,
+  'idExpediente': None,
   'observacion': None,
   'fechaHoraAtencion': None,
-  'idExpediente': None,
-  'idAtencion': None,
-  'idCentroMedico': None,
-  'idMedico': None,
 }
 print postear(data,url)
 print
@@ -73,8 +73,8 @@ print
 url='Emergencia'
 data={
   'accion':'listarPorMedicoFecha',
-  'idMedico': None,
   'fechaHoraAtencion': None,
+  'idMedico': None,
 }
 print postear(data,url)
 print

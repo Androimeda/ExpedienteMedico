@@ -1,5 +1,5 @@
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -19,15 +19,15 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'agregarCirugia',
-    'idIngreso': null,
-    'idTipoCirugia': null,
-    'idMedico': null,
     'fechaHora': null,
+    'idTipoCirugia': null,
+    'idIngreso': null,
+    'idMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -42,7 +42,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -61,7 +61,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -80,7 +80,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -101,7 +101,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -122,7 +122,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -142,13 +142,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'listarPorMedicoFecha',
-    'idMedico': null,
     'fechaHora': null,
+    'idMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -163,7 +163,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -183,7 +183,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Cirugia.php',
+  url:CONST_SITIO_URL+'/services/Cirugia.php',
   method:'POST',
   dataType:'JSON',
   data:{

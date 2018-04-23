@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Consultorio.php');
 if(isset($_POST['accion'])){
@@ -80,7 +81,40 @@ case 'listarPorMedico':
 break;
 
 case 'vincularMedico':
+
+  if(isset($_POST['idTurno']) && $_POST['idTurno']!=''){
+    $idTurno= $_POST['idTurno'];
+  }else{
+    $idTurno='null';
+    $res['mensaje']='Se necesita campo: idTurno';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
+  }else{
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idConsultorio']) && $_POST['idConsultorio']!=''){
+    $idConsultorio= $_POST['idConsultorio'];
+  }else{
+    $idConsultorio='null';
+    $res['mensaje']='Se necesita campo: idConsultorio';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $consultorio=new Consultorio();
+  $consultorio->setIdTurno($idTurno);
+  $consultorio->setIdMedico($idMedico);
+  $consultorio->setIdConsultorio($idConsultorio);
   echo $consultorio->vincularMedico($conexion);
 break;
 

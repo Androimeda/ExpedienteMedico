@@ -5,13 +5,13 @@ def postear(data, url):
 url='ConsultaExterna'
 data={
   'accion':'crear',
-  'idConsultorio': None,
-  'idExpediente': None,
   'idMedico': None,
-  'fechaHora': None,
-  'sintomas': None,
+  'idConsultorio': None,
   'diagnostico': None,
+  'sintomas': None,
+  'idExpediente': None,
   'observacion': None,
+  'fechaHora': None,
 }
 print postear(data,url)
 print
@@ -50,14 +50,14 @@ print
 url='ConsultaExterna'
 data={
   'accion':'actualizar',
-  'idConsulta': None,
-  'idExpediente': None,
-  'idConsultorio': None,
   'idMedico': None,
-  'fechaHora': None,
-  'sintomas': None,
+  'idConsultorio': None,
   'diagnostico': None,
+  'idConsulta': None,
+  'sintomas': None,
+  'idExpediente': None,
   'observ': None,
+  'fechaHora': None,
 }
 print postear(data,url)
 print

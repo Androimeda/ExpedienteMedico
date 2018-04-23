@@ -1,20 +1,11 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Enfermedad.php');
 if(isset($_POST['accion'])){
 $conexion = new Conexion();
 switch ($_POST['accion']) {
 case 'crear':
-
-  if(isset($_POST['enfermedad'])){
-    $enfermedad= $_POST['enfermedad'];
-  }else{
-    $enfermedad=null;
-    $res['mensaje']='Se necesita campo: enfermedad';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
 
   if(isset($_POST['idTipoEnfermedad']) && $_POST['idTipoEnfermedad']!=''){
     $idTipoEnfermedad= $_POST['idTipoEnfermedad'];
@@ -25,9 +16,19 @@ case 'crear':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['enfermedad'])){
+    $enfermedad= $_POST['enfermedad'];
+  }else{
+    $enfermedad=null;
+    $res['mensaje']='Se necesita campo: enfermedad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $enfermedad=new Enfermedad();
-  $enfermedad->setEnfermedad($enfermedad);
   $enfermedad->setIdTipoEnfermedad($idTipoEnfermedad);
+  $enfermedad->setEnfermedad($enfermedad);
   echo $enfermedad->crear($conexion);
 break;
 
@@ -81,11 +82,11 @@ break;
 
 case 'quitarDiagnostico':
 
-  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
-    $idEnfermedad= $_POST['idEnfermedad'];
+  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
+    $idConsulta= $_POST['idConsulta'];
   }else{
-    $idEnfermedad='null';
-    $res['mensaje']='Se necesita campo: idEnfermedad';
+    $idConsulta='null';
+    $res['mensaje']='Se necesita campo: idConsulta';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -101,19 +102,19 @@ case 'quitarDiagnostico':
     break;
   }
 
-  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
-    $idConsulta= $_POST['idConsulta'];
+  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
+    $idEnfermedad= $_POST['idEnfermedad'];
   }else{
-    $idConsulta='null';
-    $res['mensaje']='Se necesita campo: idConsulta';
+    $idEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idEnfermedad';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $enfermedad=new Enfermedad();
-  $enfermedad->setIdEnfermedad($idEnfermedad);
-  $enfermedad->setIdExpediente($idExpediente);
   $enfermedad->setIdConsulta($idConsulta);
+  $enfermedad->setIdExpediente($idExpediente);
+  $enfermedad->setIdEnfermedad($idEnfermedad);
   echo $enfermedad->quitarDiagnostico($conexion);
 break;
 
@@ -151,11 +152,11 @@ break;
 
 case 'actualizar':
 
-  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
-    $idEnfermedad= $_POST['idEnfermedad'];
+  if(isset($_POST['idTipoEnfermedad']) && $_POST['idTipoEnfermedad']!=''){
+    $idTipoEnfermedad= $_POST['idTipoEnfermedad'];
   }else{
-    $idEnfermedad='null';
-    $res['mensaje']='Se necesita campo: idEnfermedad';
+    $idTipoEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idTipoEnfermedad';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -171,19 +172,19 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['idTipoEnfermedad']) && $_POST['idTipoEnfermedad']!=''){
-    $idTipoEnfermedad= $_POST['idTipoEnfermedad'];
+  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
+    $idEnfermedad= $_POST['idEnfermedad'];
   }else{
-    $idTipoEnfermedad='null';
-    $res['mensaje']='Se necesita campo: idTipoEnfermedad';
+    $idEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idEnfermedad';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $enfermedad=new Enfermedad();
-  $enfermedad->setIdEnfermedad($idEnfermedad);
-  $enfermedad->setPenfermedad($penfermedad);
   $enfermedad->setIdTipoEnfermedad($idTipoEnfermedad);
+  $enfermedad->setPenfermedad($penfermedad);
+  $enfermedad->setIdEnfermedad($idEnfermedad);
   echo $enfermedad->actualizar($conexion);
 break;
 
@@ -194,21 +195,11 @@ break;
 
 case 'diagnosticarEnfermedad':
 
-  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
-    $idEnfermedad= $_POST['idEnfermedad'];
+  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
+    $idConsulta= $_POST['idConsulta'];
   }else{
-    $idEnfermedad='null';
-    $res['mensaje']='Se necesita campo: idEnfermedad';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
-    $idMedico= $_POST['idMedico'];
-  }else{
-    $idMedico='null';
-    $res['mensaje']='Se necesita campo: idMedico';
+    $idConsulta='null';
+    $res['mensaje']='Se necesita campo: idConsulta';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -234,21 +225,31 @@ case 'diagnosticarEnfermedad':
     break;
   }
 
-  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
-    $idConsulta= $_POST['idConsulta'];
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
   }else{
-    $idConsulta='null';
-    $res['mensaje']='Se necesita campo: idConsulta';
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idEnfermedad']) && $_POST['idEnfermedad']!=''){
+    $idEnfermedad= $_POST['idEnfermedad'];
+  }else{
+    $idEnfermedad='null';
+    $res['mensaje']='Se necesita campo: idEnfermedad';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $enfermedad=new Enfermedad();
-  $enfermedad->setIdEnfermedad($idEnfermedad);
-  $enfermedad->setIdMedico($idMedico);
+  $enfermedad->setIdConsulta($idConsulta);
   $enfermedad->setFechaDiagnostico($fechaDiagnostico);
   $enfermedad->setIdExpediente($idExpediente);
-  $enfermedad->setIdConsulta($idConsulta);
+  $enfermedad->setIdMedico($idMedico);
+  $enfermedad->setIdEnfermedad($idEnfermedad);
   echo $enfermedad->diagnosticarEnfermedad($conexion);
 break;
 

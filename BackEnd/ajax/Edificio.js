@@ -1,5 +1,5 @@
 $.ajax({
-  url:SITIO_URL+'/services/Edificio.php',
+  url:CONST_SITIO_URL+'/services/Edificio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -20,7 +20,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Edificio.php',
+  url:CONST_SITIO_URL+'/services/Edificio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -41,13 +41,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Edificio.php',
+  url:CONST_SITIO_URL+'/services/Edificio.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'agregarPiso',
-    'idEdificio': null,
     'descripcion': null,
+    'idEdificio': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -62,7 +62,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Edificio.php',
+  url:CONST_SITIO_URL+'/services/Edificio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -82,7 +82,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Edificio.php',
+  url:CONST_SITIO_URL+'/services/Edificio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -103,7 +103,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Edificio.php',
+  url:CONST_SITIO_URL+'/services/Edificio.php',
   method:'POST',
   dataType:'JSON',
   data:{

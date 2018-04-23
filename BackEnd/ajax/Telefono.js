@@ -1,13 +1,13 @@
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'agregarTelefonoPersona',
     'idPersona': null,
+    'idPais': null,
     'telefono': null,
     'idTipoTelefono': null,
-    'idPais': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -22,7 +22,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -41,13 +41,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'buscarPorPersona',
-    'noIdentidad': null,
     'pNombre': null,
+    'noIdentidad': null,
     'pApellido': null,
   },
   success:function(respuesta){
@@ -63,7 +63,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -82,7 +82,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -101,7 +101,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -120,7 +120,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -140,15 +140,15 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'agregarTelefonoCentro',
+    'idPais': null,
     'idCentroMedico': null,
     'telefono': null,
     'idTipoTelefono': null,
-    'idPais': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -163,7 +163,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -184,13 +184,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'eliminarDeCentro',
-    'idCentroMedico': null,
     'idTelefono': null,
+    'idCentroMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -205,7 +205,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Telefono.php',
+  url:CONST_SITIO_URL+'/services/Telefono.php',
   method:'POST',
   dataType:'JSON',
   data:{

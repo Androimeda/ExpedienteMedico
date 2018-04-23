@@ -5,15 +5,15 @@ def postear(data, url):
 url='Paramedico'
 data={
   'accion':'crear',
+  'idPais': None,
+  'noIdentidad': None,
   'pNombre': None,
   'sNombre': None,
-  'pApellido': None,
   'sApellido': None,
   'direccion': None,
-  'sexo': None,
-  'noIdentidad': None,
   'correo': None,
-  'idPais': None,
+  'pApellido': None,
+  'sexo': None,
   'licencia': None,
 }
 print postear(data,url)
@@ -22,8 +22,8 @@ print
 url='Paramedico'
 data={
   'accion':'buscarPorApellido',
-  'pApellido': None,
   'sApellido': None,
+  'pApellido': None,
 }
 print postear(data,url)
 print
@@ -47,10 +47,10 @@ print
 url='Paramedico'
 data={
   'accion':'actualizar',
-  'idParamedico': None,
-  'direccion': None,
   'correo': None,
+  'idParamedico': None,
   'licencia': None,
+  'direccion': None,
 }
 print postear(data,url)
 print

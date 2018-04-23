@@ -1,15 +1,15 @@
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
-    'urlDocumento': null,
-    'idTipo': null,
     'idCentroMedico': null,
-    'observacion': null,
-    'idExpediente': null,
     'fecha': null,
+    'urlDocumento': null,
+    'idExpediente': null,
+    'observacion': null,
+    'idTipo': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -24,7 +24,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -44,7 +44,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -64,7 +64,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -84,7 +84,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -103,7 +103,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -122,18 +122,18 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idExamen': null,
-    'urlDocumento': null,
     'idTipo': null,
     'idCentroMedico': null,
-    'observacion': null,
-    'idExpediente': null,
     'fecha': null,
+    'urlDocumento': null,
+    'idExpediente': null,
+    'observacion': null,
+    'idExamen': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -148,7 +148,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -167,7 +167,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Examen.php',
+  url:CONST_SITIO_URL+'/services/Examen.php',
   method:'POST',
   dataType:'JSON',
   data:{

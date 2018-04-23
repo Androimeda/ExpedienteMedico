@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Referencia.php');
 if(isset($_POST['accion'])){
@@ -16,11 +17,11 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
-    $idMedico= $_POST['idMedico'];
+  if(isset($_POST['idCentroMedicoRecibe']) && $_POST['idCentroMedicoRecibe']!=''){
+    $idCentroMedicoRecibe= $_POST['idCentroMedicoRecibe'];
   }else{
-    $idMedico='null';
-    $res['mensaje']='Se necesita campo: idMedico';
+    $idCentroMedicoRecibe='null';
+    $res['mensaje']='Se necesita campo: idCentroMedicoRecibe';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -46,21 +47,21 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['idCentroMedicoRecibe']) && $_POST['idCentroMedicoRecibe']!=''){
-    $idCentroMedicoRecibe= $_POST['idCentroMedicoRecibe'];
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
   }else{
-    $idCentroMedicoRecibe='null';
-    $res['mensaje']='Se necesita campo: idCentroMedicoRecibe';
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $referencia=new Referencia();
   $referencia->setDescripcion($descripcion);
-  $referencia->setIdMedico($idMedico);
+  $referencia->setIdCentroMedicoRecibe($idCentroMedicoRecibe);
   $referencia->setIdExpediente($idExpediente);
   $referencia->setIdCentroMedicoRemite($idCentroMedicoRemite);
-  $referencia->setIdCentroMedicoRecibe($idCentroMedicoRecibe);
+  $referencia->setIdMedico($idMedico);
   echo $referencia->crear($conexion);
 break;
 
@@ -114,16 +115,6 @@ break;
 
 case 'listarPorMedico':
 
-  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
-    $idMedico= $_POST['idMedico'];
-  }else{
-    $idMedico='null';
-    $res['mensaje']='Se necesita campo: idMedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['idCentroMedicoRemite']) && $_POST['idCentroMedicoRemite']!=''){
     $idCentroMedicoRemite= $_POST['idCentroMedicoRemite'];
   }else{
@@ -133,9 +124,19 @@ case 'listarPorMedico':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
+  }else{
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $referencia=new Referencia();
-  $referencia->setIdMedico($idMedico);
   $referencia->setIdCentroMedicoRemite($idCentroMedicoRemite);
+  $referencia->setIdMedico($idMedico);
   echo $referencia->listarPorMedico($conexion);
 break;
 
@@ -146,21 +147,11 @@ break;
 
 case 'actualizar':
 
-  if(isset($_POST['idReferencia']) && $_POST['idReferencia']!=''){
-    $idReferencia= $_POST['idReferencia'];
+  if(isset($_POST['idCentroMedicoRecibe']) && $_POST['idCentroMedicoRecibe']!=''){
+    $idCentroMedicoRecibe= $_POST['idCentroMedicoRecibe'];
   }else{
-    $idReferencia='null';
-    $res['mensaje']='Se necesita campo: idReferencia';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['descripcion'])){
-    $descripcion= $_POST['descripcion'];
-  }else{
-    $descripcion=null;
-    $res['mensaje']='Se necesita campo: descripcion';
+    $idCentroMedicoRecibe='null';
+    $res['mensaje']='Se necesita campo: idCentroMedicoRecibe';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -171,6 +162,16 @@ case 'actualizar':
   }else{
     $idMedico='null';
     $res['mensaje']='Se necesita campo: idMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idReferencia']) && $_POST['idReferencia']!=''){
+    $idReferencia= $_POST['idReferencia'];
+  }else{
+    $idReferencia='null';
+    $res['mensaje']='Se necesita campo: idReferencia';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -196,22 +197,22 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['idCentroMedicoRecibe']) && $_POST['idCentroMedicoRecibe']!=''){
-    $idCentroMedicoRecibe= $_POST['idCentroMedicoRecibe'];
+  if(isset($_POST['descripcion'])){
+    $descripcion= $_POST['descripcion'];
   }else{
-    $idCentroMedicoRecibe='null';
-    $res['mensaje']='Se necesita campo: idCentroMedicoRecibe';
+    $descripcion=null;
+    $res['mensaje']='Se necesita campo: descripcion';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $referencia=new Referencia();
-  $referencia->setIdReferencia($idReferencia);
-  $referencia->setDescripcion($descripcion);
+  $referencia->setIdCentroMedicoRecibe($idCentroMedicoRecibe);
   $referencia->setIdMedico($idMedico);
+  $referencia->setIdReferencia($idReferencia);
   $referencia->setIdExpediente($idExpediente);
   $referencia->setIdCentroMedicoRemite($idCentroMedicoRemite);
-  $referencia->setIdCentroMedicoRecibe($idCentroMedicoRecibe);
+  $referencia->setDescripcion($descripcion);
   echo $referencia->actualizar($conexion);
 break;
 

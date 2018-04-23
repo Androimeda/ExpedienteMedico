@@ -5,6 +5,15 @@ class Consultorio{
 	private $nombreCentro;
 	private $idCentroMedico;
 	private $idMedico;
+	private $idTurno;
+
+	public function getIdTurno(){
+		return $this->idTurno;
+	}
+
+	public function setIdTurno($idTurno){
+		$this->idTurno = $idTurno;
+	}
 
 	public function __construct(
 		$idConsultorio = null,
@@ -120,7 +129,30 @@ class Consultorio{
 		return json_encode($respuesta);
 	}
 	public function vincularMedico($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_VincularMedico(
+		      %s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idMedico
+		  ,$this->idConsultorio
+		  ,$this->idTurno
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
-
 }
 ?>

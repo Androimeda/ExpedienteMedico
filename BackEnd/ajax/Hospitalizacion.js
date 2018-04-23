@@ -1,16 +1,16 @@
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
-    'observacion': null,
-    'fechaHoraIngreso': null,
-    'fechaHoraAlta': null,
     'idPiso': null,
-    'cama': null,
     'idMedico': null,
+    'fechaHoraAlta': null,
+    'fechaHoraIngreso': null,
+    'observacion': null,
     'idExpediente': null,
+    'cama': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -25,7 +25,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -45,7 +45,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -65,7 +65,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -86,11 +86,17 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
+    'idPiso': null,
+    'idIngreso': null,
+    'idMedico': null,
+    'fechaHoraIngreso': null,
+    'observacion': null,
+    'cama': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -105,11 +111,12 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'listarPorFecha',
+    'idCentroMedico': null,
     'fechaHoraIngreso': null,
   },
   success:function(respuesta){
@@ -125,13 +132,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'darAlta',
-    'idIngreso': null,
     'fechaHoraAlta': null,
+    'idIngreso': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -146,7 +153,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Hospitalizacion.php',
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
   method:'POST',
   dataType:'JSON',
   data:{

@@ -1,12 +1,12 @@
 $.ajax({
-  url:SITIO_URL+'/services/HojaTrabajoSocial.php',
+  url:CONST_SITIO_URL+'/services/HojaTrabajoSocial.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
     'descripcion': null,
-    'idExpediente': null,
     'idCentroMedico': null,
+    'idExpediente': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -21,7 +21,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/HojaTrabajoSocial.php',
+  url:CONST_SITIO_URL+'/services/HojaTrabajoSocial.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -41,7 +41,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/HojaTrabajoSocial.php',
+  url:CONST_SITIO_URL+'/services/HojaTrabajoSocial.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -61,15 +61,15 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/HojaTrabajoSocial.php',
+  url:CONST_SITIO_URL+'/services/HojaTrabajoSocial.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idTS': null,
     'descripcion': null,
     'idExpediente': null,
     'idCentroMedico': null,
+    'idTS': null,
   },
   success:function(respuesta){
     console.log(respuesta);

@@ -121,5 +121,72 @@ class Persona{
 		$this->idPais = $idPais;
 	}
 
+	public function listarPais($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM PAIS
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+	public function listarEstadoCivil($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM ESTADOCIVIL
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+	public function listarEscolaridad($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM ESCOLARIDAD
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+	public function listarAscendencia($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM ASCENDENCIA
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+	public function listarTipoSangre($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM TIPOSANGRE
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+	public function listarOcupacion($conexion){
+		$query=sprintf("
+			SELECT
+			  *
+			FROM OCUPACION
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
 }
 ?>

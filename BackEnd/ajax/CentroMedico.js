@@ -1,12 +1,12 @@
 $.ajax({
-  url:SITIO_URL+'/services/CentroMedico.php',
+  url:CONST_SITIO_URL+'/services/CentroMedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
     'nombre': null,
-    'direccion': null,
     'idTipoCentro': null,
+    'direccion': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -21,7 +21,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/CentroMedico.php',
+  url:CONST_SITIO_URL+'/services/CentroMedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -40,7 +40,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/CentroMedico.php',
+  url:CONST_SITIO_URL+'/services/CentroMedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -59,15 +59,15 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/CentroMedico.php',
+  url:CONST_SITIO_URL+'/services/CentroMedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idCentroMedico': null,
     'pnombre': null,
-    'pdireccion': null,
     'idTipoCentro': null,
+    'idCentroMedico': null,
+    'pdireccion': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -82,7 +82,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/CentroMedico.php',
+  url:CONST_SITIO_URL+'/services/CentroMedico.php',
   method:'POST',
   dataType:'JSON',
   data:{

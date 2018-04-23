@@ -13,10 +13,10 @@ print
 url='Cirugia'
 data={
   'accion':'agregarCirugia',
-  'idIngreso': 1,
-  'idTipoCirugia': 1,
-  'idMedico': 1,
-  'fechaHora': '27/02/1992 18:00:00',
+  'fechaHora': None,
+  'idTipoCirugia': None,
+  'idIngreso': None,
+  'idMedico': None,
 }
 print postear(data,url)
 print
@@ -64,8 +64,8 @@ print
 url='Cirugia'
 data={
   'accion':'listarPorMedicoFecha',
-  'idMedico': None,
   'fechaHora': None,
+  'idMedico': None,
 }
 print postear(data,url)
 print

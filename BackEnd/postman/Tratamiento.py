@@ -6,11 +6,11 @@ url='Tratamiento'
 data={
   'accion':'crear',
   'dosis': None,
+  'idTipoTratamiento': None,
   'intervaloTiempo': None,
   'fechaInicio': None,
-  'duracionTratamiento': None,
-  'idTipoTratamiento': None,
   'idViaSuministro': None,
+  'duracionTratamiento': None,
 }
 print postear(data,url)
 print
@@ -76,8 +76,8 @@ print
 url='Tratamiento'
 data={
   'accion':'actualizarViaSuministro',
-  'idViaSuministro': None,
   'viaSuministro': None,
+  'idViaSuministro': None,
 }
 print postear(data,url)
 print
@@ -85,8 +85,8 @@ print
 url='Tratamiento'
 data={
   'accion':'actualizarTipoTratamiento',
-  'tipoTratamiento': None,
   'idTipoTratamiento': None,
+  'tipoTratamiento': None,
 }
 print postear(data,url)
 print
@@ -94,13 +94,13 @@ print
 url='Tratamiento'
 data={
   'accion':'actualizar',
-  'idTratamiento': None,
   'dosis': None,
+  'idTipoTratamiento': None,
   'intervaloTiempo': None,
   'fechaInicio': None,
-  'duracionTratamiento': None,
-  'idTipoTratamiento': None,
   'idViaSuministro': None,
+  'idTratamiento': None,
+  'duracionTratamiento': None,
 }
 print postear(data,url)
 print

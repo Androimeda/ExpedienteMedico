@@ -1,14 +1,14 @@
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
     'descripcion': null,
-    'idMedico': null,
+    'idCentroMedicoRecibe': null,
     'idExpediente': null,
     'idCentroMedicoRemite': null,
-    'idCentroMedicoRecibe': null,
+    'idMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -23,7 +23,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -43,7 +43,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -63,7 +63,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -83,13 +83,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'listarPorMedico',
-    'idMedico': null,
     'idCentroMedicoRemite': null,
+    'idMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -104,7 +104,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -123,17 +123,17 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idReferencia': null,
-    'descripcion': null,
+    'idCentroMedicoRecibe': null,
     'idMedico': null,
+    'idReferencia': null,
     'idExpediente': null,
     'idCentroMedicoRemite': null,
-    'idCentroMedicoRecibe': null,
+    'descripcion': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -148,7 +148,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -167,7 +167,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Referencia.php',
+  url:CONST_SITIO_URL+'/services/Referencia.php',
   method:'POST',
   dataType:'JSON',
   data:{

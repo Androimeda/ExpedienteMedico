@@ -1,30 +1,11 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/ConsultaExterna.php');
 if(isset($_POST['accion'])){
 $conexion = new Conexion();
 switch ($_POST['accion']) {
 case 'crear':
-
-  if(isset($_POST['idConsultorio']) && $_POST['idConsultorio']!=''){
-    $idConsultorio= $_POST['idConsultorio'];
-  }else{
-    $idConsultorio='null';
-    $res['mensaje']='Se necesita campo: idConsultorio';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
-    $idExpediente= $_POST['idExpediente'];
-  }else{
-    $idExpediente='null';
-    $res['mensaje']='Se necesita campo: idExpediente';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
 
   if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
     $idMedico= $_POST['idMedico'];
@@ -36,21 +17,11 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['fechaHora'])){
-    $fechaHora= $_POST['fechaHora'];
+  if(isset($_POST['idConsultorio']) && $_POST['idConsultorio']!=''){
+    $idConsultorio= $_POST['idConsultorio'];
   }else{
-    $fechaHora=null;
-    $res['mensaje']='Se necesita campo: fechaHora';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['sintomas'])){
-    $sintomas= $_POST['sintomas'];
-  }else{
-    $sintomas=null;
-    $res['mensaje']='Se necesita campo: sintomas';
+    $idConsultorio='null';
+    $res['mensaje']='Se necesita campo: idConsultorio';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -66,6 +37,26 @@ case 'crear':
     break;
   }
 
+  if(isset($_POST['sintomas'])){
+    $sintomas= $_POST['sintomas'];
+  }else{
+    $sintomas=null;
+    $res['mensaje']='Se necesita campo: sintomas';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
   if(isset($_POST['observacion'])){
     $observacion= $_POST['observacion'];
   }else{
@@ -75,14 +66,24 @@ case 'crear':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['fechaHora'])){
+    $fechaHora= $_POST['fechaHora'];
+  }else{
+    $fechaHora=null;
+    $res['mensaje']='Se necesita campo: fechaHora';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $consultaexterna=new ConsultaExterna();
-  $consultaexterna->setIdConsultorio($idConsultorio);
-  $consultaexterna->setIdExpediente($idExpediente);
   $consultaexterna->setIdMedico($idMedico);
-  $consultaexterna->setFechaHora($fechaHora);
-  $consultaexterna->setSintomas($sintomas);
+  $consultaexterna->setIdConsultorio($idConsultorio);
   $consultaexterna->setDiagnostico($diagnostico);
+  $consultaexterna->setSintomas($sintomas);
+  $consultaexterna->setIdExpediente($idExpediente);
   $consultaexterna->setObservacion($observacion);
+  $consultaexterna->setFechaHora($fechaHora);
   echo $consultaexterna->crear($conexion);
 break;
 
@@ -141,21 +142,11 @@ break;
 
 case 'actualizar':
 
-  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
-    $idConsulta= $_POST['idConsulta'];
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
   }else{
-    $idConsulta='null';
-    $res['mensaje']='Se necesita campo: idConsulta';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
-    $idExpediente= $_POST['idExpediente'];
-  }else{
-    $idExpediente='null';
-    $res['mensaje']='Se necesita campo: idExpediente';
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -171,21 +162,21 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
-    $idMedico= $_POST['idMedico'];
+  if(isset($_POST['diagnostico'])){
+    $diagnostico= $_POST['diagnostico'];
   }else{
-    $idMedico='null';
-    $res['mensaje']='Se necesita campo: idMedico';
+    $diagnostico=null;
+    $res['mensaje']='Se necesita campo: diagnostico';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
 
-  if(isset($_POST['fechaHora'])){
-    $fechaHora= $_POST['fechaHora'];
+  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
+    $idConsulta= $_POST['idConsulta'];
   }else{
-    $fechaHora=null;
-    $res['mensaje']='Se necesita campo: fechaHora';
+    $idConsulta='null';
+    $res['mensaje']='Se necesita campo: idConsulta';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -201,11 +192,11 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['diagnostico'])){
-    $diagnostico= $_POST['diagnostico'];
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
   }else{
-    $diagnostico=null;
-    $res['mensaje']='Se necesita campo: diagnostico';
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -220,15 +211,25 @@ case 'actualizar':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['fechaHora'])){
+    $fechaHora= $_POST['fechaHora'];
+  }else{
+    $fechaHora=null;
+    $res['mensaje']='Se necesita campo: fechaHora';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $consultaexterna=new ConsultaExterna();
-  $consultaexterna->setIdConsulta($idConsulta);
-  $consultaexterna->setIdExpediente($idExpediente);
-  $consultaexterna->setIdConsultorio($idConsultorio);
   $consultaexterna->setIdMedico($idMedico);
-  $consultaexterna->setFechaHora($fechaHora);
-  $consultaexterna->setSintomas($sintomas);
+  $consultaexterna->setIdConsultorio($idConsultorio);
   $consultaexterna->setDiagnostico($diagnostico);
+  $consultaexterna->setIdConsulta($idConsulta);
+  $consultaexterna->setSintomas($sintomas);
+  $consultaexterna->setIdExpediente($idExpediente);
   $consultaexterna->setObserv($observ);
+  $consultaexterna->setFechaHora($fechaHora);
   echo $consultaexterna->actualizar($conexion);
 break;
 

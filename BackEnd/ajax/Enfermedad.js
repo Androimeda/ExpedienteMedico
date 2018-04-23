@@ -1,11 +1,11 @@
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
-    'enfermedad': null,
     'idTipoEnfermedad': null,
+    'enfermedad': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -20,7 +20,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -40,7 +40,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -60,7 +60,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -80,14 +80,14 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'quitarDiagnostico',
-    'idEnfermedad': null,
-    'idExpediente': null,
     'idConsulta': null,
+    'idExpediente': null,
+    'idEnfermedad': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -102,7 +102,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -123,7 +123,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -142,14 +142,14 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idEnfermedad': null,
-    'penfermedad': null,
     'idTipoEnfermedad': null,
+    'penfermedad': null,
+    'idEnfermedad': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -164,7 +164,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -183,16 +183,16 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Enfermedad.php',
+  url:CONST_SITIO_URL+'/services/Enfermedad.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'diagnosticarEnfermedad',
-    'idEnfermedad': null,
-    'idMedico': null,
+    'idConsulta': null,
     'fechaDiagnostico': null,
     'idExpediente': null,
-    'idConsulta': null,
+    'idMedico': null,
+    'idEnfermedad': null,
   },
   success:function(respuesta){
     console.log(respuesta);

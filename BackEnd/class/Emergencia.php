@@ -58,7 +58,7 @@ class Emergencia{
 	}
 
 	public function setFechaHoraAtencion($fechaHoraAtencion){
-		$this->fechaHoraAtencion = $fechaHoraAtencion;
+		$this->fechaHoraAtencion = to_timestamp($fechaHoraAtencion);
 	}
 	public function getIdExpediente(){
 		return $this->idExpediente;

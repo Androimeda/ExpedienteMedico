@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Persona.php');
 include_once('../class/Paramedico.php');
@@ -6,6 +7,26 @@ if(isset($_POST['accion'])){
 $conexion = new Conexion();
 switch ($_POST['accion']) {
 case 'crear':
+
+  if(isset($_POST['idPais']) && $_POST['idPais']!=''){
+    $idPais= $_POST['idPais'];
+  }else{
+    $idPais='null';
+    $res['mensaje']='Se necesita campo: idPais';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
+    $noIdentidad= $_POST['noIdentidad'];
+  }else{
+    $noIdentidad='null';
+    $res['mensaje']='Se necesita campo: noIdentidad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
 
   if(isset($_POST['pNombre'])){
     $pNombre= $_POST['pNombre'];
@@ -22,16 +43,6 @@ case 'crear':
   }else{
     $sNombre=null;
     $res['mensaje']='Se necesita campo: sNombre';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['pApellido']) && $_POST['pApellido']!=''){
-    $pApellido= $_POST['pApellido'];
-  }else{
-    $pApellido='null';
-    $res['mensaje']='Se necesita campo: pApellido';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -57,26 +68,6 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['sexo'])){
-    $sexo= $_POST['sexo'];
-  }else{
-    $sexo=null;
-    $res['mensaje']='Se necesita campo: sexo';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
-    $noIdentidad= $_POST['noIdentidad'];
-  }else{
-    $noIdentidad='null';
-    $res['mensaje']='Se necesita campo: noIdentidad';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['correo'])){
     $correo= $_POST['correo'];
   }else{
@@ -87,11 +78,21 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['idPais']) && $_POST['idPais']!=''){
-    $idPais= $_POST['idPais'];
+  if(isset($_POST['pApellido']) && $_POST['pApellido']!=''){
+    $pApellido= $_POST['pApellido'];
   }else{
-    $idPais='null';
-    $res['mensaje']='Se necesita campo: idPais';
+    $pApellido='null';
+    $res['mensaje']='Se necesita campo: pApellido';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['sexo'])){
+    $sexo= $_POST['sexo'];
+  }else{
+    $sexo=null;
+    $res['mensaje']='Se necesita campo: sexo';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -107,30 +108,20 @@ case 'crear':
     break;
   }
   $paramedico=new Paramedico();
+  $paramedico->setIdPais($idPais);
+  $paramedico->setNoIdentidad($noIdentidad);
   $paramedico->setPNombre($pNombre);
   $paramedico->setSNombre($sNombre);
-  $paramedico->setPApellido($pApellido);
   $paramedico->setSApellido($sApellido);
   $paramedico->setDireccion($direccion);
-  $paramedico->setSexo($sexo);
-  $paramedico->setNoIdentidad($noIdentidad);
   $paramedico->setCorreo($correo);
-  $paramedico->setIdPais($idPais);
+  $paramedico->setPApellido($pApellido);
+  $paramedico->setSexo($sexo);
   $paramedico->setLicencia($licencia);
   echo $paramedico->crear($conexion);
 break;
 
 case 'buscarPorApellido':
-
-  if(isset($_POST['pApellido']) && $_POST['pApellido']!=''){
-    $pApellido= $_POST['pApellido'];
-  }else{
-    $pApellido='null';
-    $res['mensaje']='Se necesita campo: pApellido';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
 
   if(isset($_POST['sApellido']) && $_POST['sApellido']!=''){
     $sApellido= $_POST['sApellido'];
@@ -141,9 +132,19 @@ case 'buscarPorApellido':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['pApellido']) && $_POST['pApellido']!=''){
+    $pApellido= $_POST['pApellido'];
+  }else{
+    $pApellido='null';
+    $res['mensaje']='Se necesita campo: pApellido';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $paramedico=new Paramedico();
-  $paramedico->setPApellido($pApellido);
   $paramedico->setSApellido($sApellido);
+  $paramedico->setPApellido($pApellido);
   echo $paramedico->buscarPorApellido($conexion);
 break;
 
@@ -181,31 +182,21 @@ break;
 
 case 'actualizar':
 
-  if(isset($_POST['idParamedico']) && $_POST['idParamedico']!=''){
-    $idParamedico= $_POST['idParamedico'];
-  }else{
-    $idParamedico='null';
-    $res['mensaje']='Se necesita campo: idParamedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['direccion'])){
-    $direccion= $_POST['direccion'];
-  }else{
-    $direccion=null;
-    $res['mensaje']='Se necesita campo: direccion';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['correo'])){
     $correo= $_POST['correo'];
   }else{
     $correo=null;
     $res['mensaje']='Se necesita campo: correo';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idParamedico']) && $_POST['idParamedico']!=''){
+    $idParamedico= $_POST['idParamedico'];
+  }else{
+    $idParamedico='null';
+    $res['mensaje']='Se necesita campo: idParamedico';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -220,11 +211,21 @@ case 'actualizar':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['direccion'])){
+    $direccion= $_POST['direccion'];
+  }else{
+    $direccion=null;
+    $res['mensaje']='Se necesita campo: direccion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $paramedico=new Paramedico();
-  $paramedico->setIdParamedico($idParamedico);
-  $paramedico->setDireccion($direccion);
   $paramedico->setCorreo($correo);
+  $paramedico->setIdParamedico($idParamedico);
   $paramedico->setLicencia($licencia);
+  $paramedico->setDireccion($direccion);
   echo $paramedico->actualizar($conexion);
 break;
 

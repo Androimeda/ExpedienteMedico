@@ -67,7 +67,7 @@ class Cirugia{
 	}
 
 	public function setFechaHora($fechaHora){
-		$this->fechaHora = $fechaHora;
+		$this->fechaHora = to_timestamp($fechaHora);
 	}
 
 	public function getDescripcion(){
@@ -224,11 +224,16 @@ class Cirugia{
 	}
 	public function listarPorCentroFecha($conexion){
 		$query=sprintf("
-		   SELECT* 
+		   SELECT * 
 		   FROM Vistacirugia V 
-		   WHERE V.ID_CENTRO_MEDICO=%s AND V.FECHA_HORA= %s
+			 WHERE V.ID_CENTRO_MEDICO=%s 
+			 AND EXTRACT(DAY FROM V.FECHA_HORA) = EXTRACT(DAY FROM %s)
+			 AND EXTRACT(MONTH FROM V.FECHA_HORA) = EXTRACT(MONTH FROM %s)
+			 AND EXTRACT(YEAR FROM V.FECHA_HORA) = EXTRACT(YEAR FROM %s)
 		"
 		  ,$this->idCentroMedico
+		  ,$this->fechaHora
+		  ,$this->fechaHora
 		  ,$this->fechaHora
 		);
 		$resultado = $conexion->query($query);
@@ -239,9 +244,14 @@ class Cirugia{
 		$query=sprintf("
 		   SELECT  * 
 		   FROM Vistacirugia V 
-		   WHERE  V.ID_MEDICO =%s AND V.FECHA_HORA= %s 
+			 WHERE  V.ID_MEDICO =%s 
+			 AND EXTRACT(DAY FROM V.FECHA_HORA) = EXTRACT(DAY FROM %s)
+			 AND EXTRACT(MONTH FROM V.FECHA_HORA) = EXTRACT(MONTH FROM %s)
+			 AND EXTRACT(YEAR FROM V.FECHA_HORA) = EXTRACT(YEAR FROM %s)
 		"
 		  ,$this->idMedico
+		  ,$this->fechaHora
+		  ,$this->fechaHora
 		  ,$this->fechaHora
 		);
 		$resultado = $conexion->query($query);

@@ -6,8 +6,8 @@ url='AtencionPreHospitalaria'
 data={
   'accion':'crear',
   'observacion': None,
-  'idParamedico': None,
   'idAmbulancia': None,
+  'idParamedico': None,
   'idExpediente': None,
 }
 print postear(data,url)
@@ -31,12 +31,12 @@ print
 url='AtencionPreHospitalaria'
 data={
   'accion':'actualizar',
-  'idAtencion': None,
+  'idAmbulancia': None,
   'observacion': None,
+  'idExpediente': None,
+  'idAtencion': None,
   'fechaHoraAtencion': None,
   'idParamedico': None,
-  'idAmbulancia': None,
-  'idExpediente': None,
 }
 print postear(data,url)
 print
@@ -44,8 +44,8 @@ print
 url='AtencionPreHospitalaria'
 data={
   'accion':'listarPorCentroMedico',
-  'nombreCentro': None,
   'idCentroMedico': None,
+  'nombreCentro': None,
 }
 print postear(data,url)
 print

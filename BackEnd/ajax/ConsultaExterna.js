@@ -1,16 +1,16 @@
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
-    'idConsultorio': null,
-    'idExpediente': null,
     'idMedico': null,
-    'fechaHora': null,
-    'sintomas': null,
+    'idConsultorio': null,
     'diagnostico': null,
+    'sintomas': null,
+    'idExpediente': null,
     'observacion': null,
+    'fechaHora': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -25,7 +25,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -45,7 +45,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -64,7 +64,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -84,7 +84,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -104,19 +104,19 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idConsulta': null,
-    'idExpediente': null,
-    'idConsultorio': null,
     'idMedico': null,
-    'fechaHora': null,
-    'sintomas': null,
+    'idConsultorio': null,
     'diagnostico': null,
+    'idConsulta': null,
+    'sintomas': null,
+    'idExpediente': null,
     'observ': null,
+    'fechaHora': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -131,7 +131,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -152,7 +152,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/ConsultaExterna.php',
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
   method:'POST',
   dataType:'JSON',
   data:{

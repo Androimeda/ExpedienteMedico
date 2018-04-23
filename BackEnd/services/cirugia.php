@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Cirugia.php');
 if(isset($_POST['accion'])){
@@ -22,11 +23,11 @@ break;
 
 case 'agregarCirugia':
 
-  if(isset($_POST['idIngreso']) && $_POST['idIngreso']!=''){
-    $idIngreso= $_POST['idIngreso'];
+  if(isset($_POST['fechaHora'])){
+    $fechaHora= $_POST['fechaHora'];
   }else{
-    $idIngreso='null';
-    $res['mensaje']='Se necesita campo: idIngreso';
+    $fechaHora=null;
+    $res['mensaje']='Se necesita campo: fechaHora';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -42,6 +43,16 @@ case 'agregarCirugia':
     break;
   }
 
+  if(isset($_POST['idIngreso']) && $_POST['idIngreso']!=''){
+    $idIngreso= $_POST['idIngreso'];
+  }else{
+    $idIngreso='null';
+    $res['mensaje']='Se necesita campo: idIngreso';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
   if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
     $idMedico= $_POST['idMedico'];
   }else{
@@ -51,21 +62,11 @@ case 'agregarCirugia':
     echo json_encode($res);
     break;
   }
-
-  if(isset($_POST['fechaHora'])){
-    $fechaHora= $_POST['fechaHora'];
-  }else{
-    $fechaHora=null;
-    $res['mensaje']='Se necesita campo: fechaHora';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
   $cirugia=new Cirugia();
-  $cirugia->setIdIngreso($idIngreso);
-  $cirugia->setIdTipoCirugia($idTipoCirugia);
-  $cirugia->setIdMedico($idMedico);
   $cirugia->setFechaHora($fechaHora);
+  $cirugia->setIdTipoCirugia($idTipoCirugia);
+  $cirugia->setIdIngreso($idIngreso);
+  $cirugia->setIdMedico($idMedico);
   echo $cirugia->agregarCirugia($conexion);
 break;
 
@@ -151,16 +152,6 @@ break;
 
 case 'listarPorMedicoFecha':
 
-  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
-    $idMedico= $_POST['idMedico'];
-  }else{
-    $idMedico='null';
-    $res['mensaje']='Se necesita campo: idMedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['fechaHora'])){
     $fechaHora= $_POST['fechaHora'];
   }else{
@@ -170,9 +161,19 @@ case 'listarPorMedicoFecha':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
+  }else{
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $cirugia=new Cirugia();
-  $cirugia->setIdMedico($idMedico);
   $cirugia->setFechaHora($fechaHora);
+  $cirugia->setIdMedico($idMedico);
   echo $cirugia->listarPorMedicoFecha($conexion);
 break;
 

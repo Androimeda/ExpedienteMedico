@@ -1,20 +1,20 @@
 $.ajax({
-  url:SITIO_URL+'/services/Medico.php',
+  url:CONST_SITIO_URL+'/services/Medico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
+    'noColegiacion': null,
+    'idPais': null,
+    'noIdentidad': null,
+    'idEspecialidad': null,
     'pNombre': null,
     'sNombre': null,
-    'pApellido': null,
     'sApellido': null,
     'direccion': null,
-    'sexo': null,
-    'noIdentidad': null,
-    'idPais': null,
-    'idEspecialidad': null,
-    'noColegiacion': null,
     'correo': null,
+    'pApellido': null,
+    'sexo': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -29,13 +29,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Medico.php',
+  url:CONST_SITIO_URL+'/services/Medico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'buscarPorApellido',
-    'pApellido': null,
     'sApellido': null,
+    'pApellido': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -50,7 +50,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Medico.php',
+  url:CONST_SITIO_URL+'/services/Medico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -70,7 +70,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Medico.php',
+  url:CONST_SITIO_URL+'/services/Medico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -90,16 +90,16 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Medico.php',
+  url:CONST_SITIO_URL+'/services/Medico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
+    'correo': null,
+    'noColegiacion': null,
+    'idEspecialidad': null,
     'idMedico': null,
     'direccion': null,
-    'idEspecialidad': null,
-    'noColegiacion': null,
-    'correo': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -114,7 +114,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Medico.php',
+  url:CONST_SITIO_URL+'/services/Medico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -135,7 +135,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Medico.php',
+  url:CONST_SITIO_URL+'/services/Medico.php',
   method:'POST',
   dataType:'JSON',
   data:{

@@ -5,12 +5,12 @@ def postear(data, url):
 url='Examen'
 data={
   'accion':'crear',
-  'urlDocumento': None,
-  'idTipo': None,
   'idCentroMedico': None,
-  'observacion': None,
-  'idExpediente': None,
   'fecha': None,
+  'urlDocumento': None,
+  'idExpediente': None,
+  'observacion': None,
+  'idTipo': None,
 }
 print postear(data,url)
 print
@@ -56,13 +56,13 @@ print
 url='Examen'
 data={
   'accion':'actualizar',
-  'idExamen': None,
-  'urlDocumento': None,
   'idTipo': None,
   'idCentroMedico': None,
-  'observacion': None,
-  'idExpediente': None,
   'fecha': None,
+  'urlDocumento': None,
+  'idExpediente': None,
+  'observacion': None,
+  'idExamen': None,
 }
 print postear(data,url)
 print

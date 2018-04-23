@@ -6,10 +6,10 @@ url='Referencia'
 data={
   'accion':'crear',
   'descripcion': None,
-  'idMedico': None,
+  'idCentroMedicoRecibe': None,
   'idExpediente': None,
   'idCentroMedicoRemite': None,
-  'idCentroMedicoRecibe': None,
+  'idMedico': None,
 }
 print postear(data,url)
 print
@@ -41,8 +41,8 @@ print
 url='Referencia'
 data={
   'accion':'listarPorMedico',
-  'idMedico': None,
   'idCentroMedicoRemite': None,
+  'idMedico': None,
 }
 print postear(data,url)
 print
@@ -57,12 +57,12 @@ print
 url='Referencia'
 data={
   'accion':'actualizar',
-  'idReferencia': None,
-  'descripcion': None,
+  'idCentroMedicoRecibe': None,
   'idMedico': None,
+  'idReferencia': None,
   'idExpediente': None,
   'idCentroMedicoRemite': None,
-  'idCentroMedicoRecibe': None,
+  'descripcion': None,
 }
 print postear(data,url)
 print

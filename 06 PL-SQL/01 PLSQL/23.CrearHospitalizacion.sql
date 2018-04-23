@@ -16,9 +16,9 @@ BEGIN
   mensaje:='';
   resultado:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF observacion = '' OR observacion IS NULL THEN
-    mensaje:= mensaje || 'observacion, ';
-  END IF;
+--  IF observacion = '' OR observacion IS NULL THEN
+--    mensaje:= mensaje || 'observacion, ';
+--  END IF;
   IF fechaHoraIngreso = '' OR fechaHoraIngreso IS NULL THEN
     mensaje:= mensaje || 'fechaHoraIngreso, ';
   END IF;

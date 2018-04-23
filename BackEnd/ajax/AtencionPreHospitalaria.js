@@ -1,12 +1,12 @@
 $.ajax({
-  url:SITIO_URL+'/services/AtencionPreHospitalaria.php',
+  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
     'observacion': null,
-    'idParamedico': null,
     'idAmbulancia': null,
+    'idParamedico': null,
     'idExpediente': null,
   },
   success:function(respuesta){
@@ -22,7 +22,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/AtencionPreHospitalaria.php',
+  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -41,7 +41,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/AtencionPreHospitalaria.php',
+  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -61,17 +61,17 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/AtencionPreHospitalaria.php',
+  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idAtencion': null,
+    'idAmbulancia': null,
     'observacion': null,
+    'idExpediente': null,
+    'idAtencion': null,
     'fechaHoraAtencion': null,
     'idParamedico': null,
-    'idAmbulancia': null,
-    'idExpediente': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -86,13 +86,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/AtencionPreHospitalaria.php',
+  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'listarPorCentroMedico',
-    'nombreCentro': null,
     'idCentroMedico': null,
+    'nombreCentro': null,
   },
   success:function(respuesta){
     console.log(respuesta);

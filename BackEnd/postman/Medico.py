@@ -5,17 +5,17 @@ def postear(data, url):
 url='Medico'
 data={
   'accion':'crear',
+  'noColegiacion': None,
+  'idPais': None,
+  'noIdentidad': None,
+  'idEspecialidad': None,
   'pNombre': None,
   'sNombre': None,
-  'pApellido': None,
   'sApellido': None,
   'direccion': None,
-  'sexo': None,
-  'noIdentidad': None,
-  'idPais': None,
-  'idEspecialidad': None,
-  'noColegiacion': None,
   'correo': None,
+  'pApellido': None,
+  'sexo': None,
 }
 print postear(data,url)
 print
@@ -23,8 +23,8 @@ print
 url='Medico'
 data={
   'accion':'buscarPorApellido',
-  'pApellido': None,
   'sApellido': None,
+  'pApellido': None,
 }
 print postear(data,url)
 print
@@ -48,11 +48,11 @@ print
 url='Medico'
 data={
   'accion':'actualizar',
+  'correo': None,
+  'noColegiacion': None,
+  'idEspecialidad': None,
   'idMedico': None,
   'direccion': None,
-  'idEspecialidad': None,
-  'noColegiacion': None,
-  'correo': None,
 }
 print postear(data,url)
 print

@@ -1,23 +1,23 @@
 $.ajax({
-  url:SITIO_URL+'/services/Paciente.php',
+  url:CONST_SITIO_URL+'/services/Paciente.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
-    'pNombre': null,
-    'sNombre': null,
-    'pApellido': null,
-    'sApellido': null,
-    'direccion': null,
-    'noIdentidad': null,
-    'idPais': null,
-    'sexo': null,
-    'correo': null,
     'idTipoSangre': null,
-    'idEscolaridad': null,
-    'idOcupacion': null,
-    'idEstadoCivil': null,
+    'idPais': null,
+    'noIdentidad': null,
+    'pNombre': null,
     'idAscendencia': null,
+    'sNombre': null,
+    'sApellido': null,
+    'idEstadoCivil': null,
+    'direccion': null,
+    'correo': null,
+    'idOcupacion': null,
+    'idEscolaridad': null,
+    'pApellido': null,
+    'sexo': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -32,13 +32,38 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paciente.php',
+  url:CONST_SITIO_URL+'/services/Paciente.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
+    'accion':'agregarNatalidad',
+    'idMadre': null,
+    'ordenPartoMultiple': null,
+    'idPadre': null,
+    'idExpediente': null,
+    'idCentroMedico': null,
+    'fechaHora': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Paciente.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'buscarPorApellido',
-    'pApellido': null,
     'sApellido': null,
+    'pApellido': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -53,14 +78,36 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paciente.php',
+  url:CONST_SITIO_URL+'/services/Paciente.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
+    'accion':'agregarDefuncion',
+    'observacionCausa': null,
+    'idExpediente': null,
+    'fechaHora': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Paciente.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'buscarPorNoIdentidad',
-    'noIdentidad': null,
     'idPersona': null,
     'idPaciente': null,
+    'noIdentidad': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -75,7 +122,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paciente.php',
+  url:CONST_SITIO_URL+'/services/Paciente.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -94,17 +141,17 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paciente.php',
+  url:CONST_SITIO_URL+'/services/Paciente.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idPaciente': null,
-    'pdireccion': null,
-    'pcorreo': null,
-    'idEscolaridad': null,
+    'direccion': null,
     'idOcupacion': null,
+    'idPaciente': null,
     'idEstadoCivil': null,
+    'correo': null,
+    'idEscolaridad': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -119,7 +166,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paciente.php',
+  url:CONST_SITIO_URL+'/services/Paciente.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -140,7 +187,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paciente.php',
+  url:CONST_SITIO_URL+'/services/Paciente.php',
   method:'POST',
   dataType:'JSON',
   data:{

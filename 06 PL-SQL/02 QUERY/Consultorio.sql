@@ -27,3 +27,8 @@ WHERE
 --eliminar
 --DELETE FROM VistaConsultorio
 --WHERE id_consultorio = 1;
+
+-- Turno de consultorios
+SELECT
+  *
+FROM TURNO;

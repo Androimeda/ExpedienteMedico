@@ -62,14 +62,14 @@ class Hospitalizacion{
 	}
 
 	public function setFechaHoraIngreso($fechaHoraIngreso){
-		$this->fechaHoraIngreso = $fechaHoraIngreso;
+		$this->fechaHoraIngreso = to_timestamp($fechaHoraIngreso);
 	}
 	public function getFechaHoraAlta(){
 		return $this->fechaHoraAlta;
 	}
 
 	public function setFechaHoraAlta($fechaHoraAlta){
-		$this->fechaHoraAlta = $fechaHoraAlta;
+		$this->fechaHoraAlta = to_timestamp($fechaHoraAlta);
 	}
 	public function getIdPiso(){
 		return $this->idPiso;
@@ -221,15 +221,50 @@ class Hospitalizacion{
 		return json_encode($respuesta);
 	}
 	public function actualizar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_ActualizarHospitalizacion(
+		      %s
+		      ,'%s'
+		      ,%s
+		      ,%s
+		      ,'%s'
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idIngreso
+		  ,$this->observacion
+		  ,$this->fechaHoraIngreso
+		  ,$this->idPiso
+		  ,$this->cama
+		  ,$this->idMedico
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 	
 	public function listarPorFecha($conexion){
 		$query=sprintf("
 		    SELECT  * 
 		    FROM VISTAHOSPITALIZACIONES v 
-		    WHERE  fecha_hora_ingreso = %s
-		    AND v.ID_CENTRO_MEDICO =%s 
+		    WHERE v.ID_CENTRO_MEDICO =%s 
+		    	AND EXTRACT(DAY FROM V.FECHA_HORA) = EXTRACT(DAY FROM %s)
+			 		AND EXTRACT(MONTH FROM V.FECHA_HORA) = EXTRACT(MONTH FROM %s)
+			 		AND EXTRACT(YEAR FROM V.FECHA_HORA) = EXTRACT(YEAR FROM %s)
 		"
+		  ,$this->idCentroMedico
+		  ,$this->fechaHoraIngreso
+		  ,$this->fechaHoraIngreso
 		  ,$this->fechaHoraIngreso
 		);
 		$resultado = $conexion->query($query);

@@ -23,8 +23,8 @@ print
 url='Edificio'
 data={
   'accion':'agregarPiso',
-  'idEdificio': None,
   'descripcion': None,
+  'idEdificio': None,
 }
 print postear(data,url)
 print

@@ -1,30 +1,11 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Examen.php');
 if(isset($_POST['accion'])){
 $conexion = new Conexion();
 switch ($_POST['accion']) {
 case 'crear':
-
-  if(isset($_POST['urlDocumento'])){
-    $urlDocumento= $_POST['urlDocumento'];
-  }else{
-    $urlDocumento=null;
-    $res['mensaje']='Se necesita campo: urlDocumento';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idTipo']) && $_POST['idTipo']!=''){
-    $idTipo= $_POST['idTipo'];
-  }else{
-    $idTipo='null';
-    $res['mensaje']='Se necesita campo: idTipo';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
 
   if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
     $idCentroMedico= $_POST['idCentroMedico'];
@@ -36,11 +17,21 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['observacion'])){
-    $observacion= $_POST['observacion'];
+  if(isset($_POST['fecha'])){
+    $fecha= $_POST['fecha'];
   }else{
-    $observacion=null;
-    $res['mensaje']='Se necesita campo: observacion';
+    $fecha=null;
+    $res['mensaje']='Se necesita campo: fecha';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['urlDocumento'])){
+    $urlDocumento= $_POST['urlDocumento'];
+  }else{
+    $urlDocumento=null;
+    $res['mensaje']='Se necesita campo: urlDocumento';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -56,22 +47,32 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['fecha'])){
-    $fecha= $_POST['fecha'];
+  if(isset($_POST['observacion'])){
+    $observacion= $_POST['observacion'];
   }else{
-    $fecha=null;
-    $res['mensaje']='Se necesita campo: fecha';
+    $observacion=null;
+    $res['mensaje']='Se necesita campo: observacion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idTipo']) && $_POST['idTipo']!=''){
+    $idTipo= $_POST['idTipo'];
+  }else{
+    $idTipo='null';
+    $res['mensaje']='Se necesita campo: idTipo';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $examen=new Examen();
-  $examen->setUrlDocumento($urlDocumento);
-  $examen->setIdTipo($idTipo);
   $examen->setIdCentroMedico($idCentroMedico);
-  $examen->setObservacion($observacion);
-  $examen->setIdExpediente($idExpediente);
   $examen->setFecha($fecha);
+  $examen->setUrlDocumento($urlDocumento);
+  $examen->setIdExpediente($idExpediente);
+  $examen->setObservacion($observacion);
+  $examen->setIdTipo($idTipo);
   echo $examen->crear($conexion);
 break;
 
@@ -135,26 +136,6 @@ break;
 
 case 'actualizar':
 
-  if(isset($_POST['idExamen']) && $_POST['idExamen']!=''){
-    $idExamen= $_POST['idExamen'];
-  }else{
-    $idExamen='null';
-    $res['mensaje']='Se necesita campo: idExamen';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['urlDocumento'])){
-    $urlDocumento= $_POST['urlDocumento'];
-  }else{
-    $urlDocumento=null;
-    $res['mensaje']='Se necesita campo: urlDocumento';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['idTipo']) && $_POST['idTipo']!=''){
     $idTipo= $_POST['idTipo'];
   }else{
@@ -175,11 +156,21 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['observacion'])){
-    $observacion= $_POST['observacion'];
+  if(isset($_POST['fecha'])){
+    $fecha= $_POST['fecha'];
   }else{
-    $observacion=null;
-    $res['mensaje']='Se necesita campo: observacion';
+    $fecha=null;
+    $res['mensaje']='Se necesita campo: fecha';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['urlDocumento'])){
+    $urlDocumento= $_POST['urlDocumento'];
+  }else{
+    $urlDocumento=null;
+    $res['mensaje']='Se necesita campo: urlDocumento';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -195,23 +186,33 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['fecha'])){
-    $fecha= $_POST['fecha'];
+  if(isset($_POST['observacion'])){
+    $observacion= $_POST['observacion'];
   }else{
-    $fecha=null;
-    $res['mensaje']='Se necesita campo: fecha';
+    $observacion=null;
+    $res['mensaje']='Se necesita campo: observacion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idExamen']) && $_POST['idExamen']!=''){
+    $idExamen= $_POST['idExamen'];
+  }else{
+    $idExamen='null';
+    $res['mensaje']='Se necesita campo: idExamen';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $examen=new Examen();
-  $examen->setIdExamen($idExamen);
-  $examen->setUrlDocumento($urlDocumento);
   $examen->setIdTipo($idTipo);
   $examen->setIdCentroMedico($idCentroMedico);
-  $examen->setObservacion($observacion);
-  $examen->setIdExpediente($idExpediente);
   $examen->setFecha($fecha);
+  $examen->setUrlDocumento($urlDocumento);
+  $examen->setIdExpediente($idExpediente);
+  $examen->setObservacion($observacion);
+  $examen->setIdExamen($idExamen);
   echo $examen->actualizar($conexion);
 break;
 

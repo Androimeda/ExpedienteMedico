@@ -6,8 +6,8 @@ url='CentroMedico'
 data={
   'accion':'crear',
   'nombre': None,
-  'direccion': None,
   'idTipoCentro': None,
+  'direccion': None,
 }
 print postear(data,url)
 print
@@ -29,10 +29,10 @@ print
 url='CentroMedico'
 data={
   'accion':'actualizar',
-  'idCentroMedico': None,
   'pnombre': None,
-  'pdireccion': None,
   'idTipoCentro': None,
+  'idCentroMedico': None,
+  'pdireccion': None,
 }
 print postear(data,url)
 print

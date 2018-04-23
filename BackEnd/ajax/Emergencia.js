@@ -1,15 +1,15 @@
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
-    'observacion': null,
-    'fechaHoraAtencion': null,
-    'idExpediente': null,
-    'idAtencion': null,
     'idCentroMedico': null,
     'idMedico': null,
+    'idAtencion': null,
+    'idExpediente': null,
+    'observacion': null,
+    'fechaHoraAtencion': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -24,7 +24,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -44,7 +44,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -63,7 +63,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -84,7 +84,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -104,18 +104,18 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
+    'idCentroMedico': null,
     'idIngreso': null,
+    'idMedico': null,
+    'idAtencion': null,
+    'idExpediente': null,
     'observacion': null,
     'fechaHoraAtencion': null,
-    'idExpediente': null,
-    'idAtencion': null,
-    'idCentroMedico': null,
-    'idMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -130,7 +130,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -151,13 +151,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'listarPorMedicoFecha',
-    'idMedico': null,
     'fechaHoraAtencion': null,
+    'idMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -172,7 +172,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Emergencia.php',
+  url:CONST_SITIO_URL+'/services/Emergencia.php',
   method:'POST',
   dataType:'JSON',
   data:{

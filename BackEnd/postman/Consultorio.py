@@ -38,6 +38,9 @@ print
 url='Consultorio'
 data={
   'accion':'vincularMedico',
+  'idTurno': None,
+  'idMedico': None,
+  'idConsultorio': None,
 }
 print postear(data,url)
 print

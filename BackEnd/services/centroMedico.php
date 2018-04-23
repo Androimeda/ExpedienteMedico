@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/CentroMedico.php');
 if(isset($_POST['accion'])){
@@ -16,16 +17,6 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['direccion'])){
-    $direccion= $_POST['direccion'];
-  }else{
-    $direccion=null;
-    $res['mensaje']='Se necesita campo: direccion';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['idTipoCentro']) && $_POST['idTipoCentro']!=''){
     $idTipoCentro= $_POST['idTipoCentro'];
   }else{
@@ -35,10 +26,20 @@ case 'crear':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['direccion'])){
+    $direccion= $_POST['direccion'];
+  }else{
+    $direccion=null;
+    $res['mensaje']='Se necesita campo: direccion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $centromedico=new CentroMedico();
   $centromedico->setNombre($nombre);
-  $centromedico->setDireccion($direccion);
   $centromedico->setIdTipoCentro($idTipoCentro);
+  $centromedico->setDireccion($direccion);
   echo $centromedico->crear($conexion);
 break;
 
@@ -54,31 +55,11 @@ break;
 
 case 'actualizar':
 
-  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
-    $idCentroMedico= $_POST['idCentroMedico'];
-  }else{
-    $idCentroMedico='null';
-    $res['mensaje']='Se necesita campo: idCentroMedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['pnombre'])){
     $pnombre= $_POST['pnombre'];
   }else{
     $pnombre=null;
     $res['mensaje']='Se necesita campo: pnombre';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['pdireccion'])){
-    $pdireccion= $_POST['pdireccion'];
-  }else{
-    $pdireccion=null;
-    $res['mensaje']='Se necesita campo: pdireccion';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -93,11 +74,31 @@ case 'actualizar':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['pdireccion'])){
+    $pdireccion= $_POST['pdireccion'];
+  }else{
+    $pdireccion=null;
+    $res['mensaje']='Se necesita campo: pdireccion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $centromedico=new CentroMedico();
-  $centromedico->setIdCentroMedico($idCentroMedico);
   $centromedico->setPnombre($pnombre);
-  $centromedico->setPdireccion($pdireccion);
   $centromedico->setIdTipoCentro($idTipoCentro);
+  $centromedico->setIdCentroMedico($idCentroMedico);
+  $centromedico->setPdireccion($pdireccion);
   echo $centromedico->actualizar($conexion);
 break;
 

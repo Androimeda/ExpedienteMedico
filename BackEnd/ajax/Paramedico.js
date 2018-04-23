@@ -1,18 +1,18 @@
 $.ajax({
-  url:SITIO_URL+'/services/Paramedico.php',
+  url:CONST_SITIO_URL+'/services/Paramedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'crear',
+    'idPais': null,
+    'noIdentidad': null,
     'pNombre': null,
     'sNombre': null,
-    'pApellido': null,
     'sApellido': null,
     'direccion': null,
-    'sexo': null,
-    'noIdentidad': null,
     'correo': null,
-    'idPais': null,
+    'pApellido': null,
+    'sexo': null,
     'licencia': null,
   },
   success:function(respuesta){
@@ -28,13 +28,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paramedico.php',
+  url:CONST_SITIO_URL+'/services/Paramedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'buscarPorApellido',
-    'pApellido': null,
     'sApellido': null,
+    'pApellido': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -49,7 +49,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paramedico.php',
+  url:CONST_SITIO_URL+'/services/Paramedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -69,7 +69,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paramedico.php',
+  url:CONST_SITIO_URL+'/services/Paramedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -89,15 +89,15 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paramedico.php',
+  url:CONST_SITIO_URL+'/services/Paramedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idParamedico': null,
-    'direccion': null,
     'correo': null,
+    'idParamedico': null,
     'licencia': null,
+    'direccion': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -112,7 +112,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paramedico.php',
+  url:CONST_SITIO_URL+'/services/Paramedico.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -133,7 +133,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Paramedico.php',
+  url:CONST_SITIO_URL+'/services/Paramedico.php',
   method:'POST',
   dataType:'JSON',
   data:{

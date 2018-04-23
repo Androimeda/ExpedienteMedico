@@ -5,8 +5,8 @@ def postear(data, url):
 url='Enfermedad'
 data={
   'accion':'crear',
-  'enfermedad': None,
   'idTipoEnfermedad': None,
+  'enfermedad': None,
 }
 print postear(data,url)
 print
@@ -38,9 +38,9 @@ print
 url='Enfermedad'
 data={
   'accion':'quitarDiagnostico',
-  'idEnfermedad': None,
-  'idExpediente': None,
   'idConsulta': None,
+  'idExpediente': None,
+  'idEnfermedad': None,
 }
 print postear(data,url)
 print
@@ -64,9 +64,9 @@ print
 url='Enfermedad'
 data={
   'accion':'actualizar',
-  'idEnfermedad': None,
-  'penfermedad': None,
   'idTipoEnfermedad': None,
+  'penfermedad': None,
+  'idEnfermedad': None,
 }
 print postear(data,url)
 print
@@ -81,11 +81,11 @@ print
 url='Enfermedad'
 data={
   'accion':'diagnosticarEnfermedad',
-  'idEnfermedad': None,
-  'idMedico': None,
+  'idConsulta': None,
   'fechaDiagnostico': None,
   'idExpediente': None,
-  'idConsulta': None,
+  'idMedico': None,
+  'idEnfermedad': None,
 }
 print postear(data,url)
 print

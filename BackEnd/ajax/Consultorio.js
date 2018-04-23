@@ -1,5 +1,5 @@
 $.ajax({
-  url:SITIO_URL+'/services/Consultorio.php',
+  url:CONST_SITIO_URL+'/services/Consultorio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -19,7 +19,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Consultorio.php',
+  url:CONST_SITIO_URL+'/services/Consultorio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -39,7 +39,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Consultorio.php',
+  url:CONST_SITIO_URL+'/services/Consultorio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -60,7 +60,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Consultorio.php',
+  url:CONST_SITIO_URL+'/services/Consultorio.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -80,11 +80,14 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Consultorio.php',
+  url:CONST_SITIO_URL+'/services/Consultorio.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'vincularMedico',
+    'idTurno': null,
+    'idMedico': null,
+    'idConsultorio': null,
   },
   success:function(respuesta){
     console.log(respuesta);

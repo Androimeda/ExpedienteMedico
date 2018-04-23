@@ -6,9 +6,9 @@ url='Telefono'
 data={
   'accion':'agregarTelefonoPersona',
   'idPersona': None,
+  'idPais': None,
   'telefono': None,
   'idTipoTelefono': None,
-  'idPais': None,
 }
 print postear(data,url)
 print
@@ -23,8 +23,8 @@ print
 url='Telefono'
 data={
   'accion':'buscarPorPersona',
-  'noIdentidad': None,
   'pNombre': None,
+  'noIdentidad': None,
   'pApellido': None,
 }
 print postear(data,url)
@@ -62,10 +62,10 @@ print
 url='Telefono'
 data={
   'accion':'agregarTelefonoCentro',
+  'idPais': None,
   'idCentroMedico': None,
   'telefono': None,
   'idTipoTelefono': None,
-  'idPais': None,
 }
 print postear(data,url)
 print
@@ -82,8 +82,8 @@ print
 url='Telefono'
 data={
   'accion':'eliminarDeCentro',
-  'idCentroMedico': None,
   'idTelefono': None,
+  'idCentroMedico': None,
 }
 print postear(data,url)
 print

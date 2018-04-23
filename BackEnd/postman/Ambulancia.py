@@ -5,8 +5,8 @@ def postear(data, url):
 url='Ambulancia'
 data={
   'accion':'crear',
-  'placa': 'Null',
-  'idCentroMedico': 1,
+  'placa': None,
+  'idCentroMedico': None,
 }
 print postear(data,url)
 print
@@ -14,7 +14,7 @@ print
 url='Ambulancia'
 data={
   'accion':'listarTodos',
-  'idCentroMedico': 1,
+  'idCentroMedico': None,
 }
 print postear(data,url)
 print
@@ -22,9 +22,9 @@ print
 url='Ambulancia'
 data={
   'accion':'actualizar',
-  'idAmbulancia': 4,
-  'placa': 'AAS 4219',
-  'idCentroMedico': 5,
+  'placa': None,
+  'idCentroMedico': None,
+  'idAmbulancia': None,
 }
 print postear(data,url)
 print
@@ -32,8 +32,8 @@ print
 url='Ambulancia'
 data={
   'accion':'listarPorCentroMedico',
+  'idCentroMedico': None,
   'nombreCentro': None,
-  'idCentroMedico': 1,
 }
 print postear(data,url)
 print

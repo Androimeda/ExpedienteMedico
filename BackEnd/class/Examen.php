@@ -85,7 +85,7 @@ class Examen{
 	}
 
 	public function setFecha($fecha){
-		$this->fecha = $fecha;
+		$this->fecha = to_timestamp($fecha);
 	}
 
 	public function agregarTipoExamen($conexion){

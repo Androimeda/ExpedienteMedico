@@ -5,20 +5,33 @@ def postear(data, url):
 url='Paciente'
 data={
   'accion':'crear',
-  'pNombre': None,
-  'sNombre': None,
-  'pApellido': None,
-  'sApellido': None,
-  'direccion': None,
-  'noIdentidad': None,
-  'idPais': None,
-  'sexo': None,
-  'correo': None,
   'idTipoSangre': None,
-  'idEscolaridad': None,
-  'idOcupacion': None,
-  'idEstadoCivil': None,
+  'idPais': None,
+  'noIdentidad': None,
+  'pNombre': None,
   'idAscendencia': None,
+  'sNombre': None,
+  'sApellido': None,
+  'idEstadoCivil': None,
+  'direccion': None,
+  'correo': None,
+  'idOcupacion': None,
+  'idEscolaridad': None,
+  'pApellido': None,
+  'sexo': None,
+}
+print postear(data,url)
+print
+
+url='Paciente'
+data={
+  'accion':'agregarNatalidad',
+  'idMadre': None,
+  'ordenPartoMultiple': None,
+  'idPadre': None,
+  'idExpediente': None,
+  'idCentroMedico': None,
+  'fechaHora': None,
 }
 print postear(data,url)
 print
@@ -26,8 +39,18 @@ print
 url='Paciente'
 data={
   'accion':'buscarPorApellido',
-  'pApellido': None,
   'sApellido': None,
+  'pApellido': None,
+}
+print postear(data,url)
+print
+
+url='Paciente'
+data={
+  'accion':'agregarDefuncion',
+  'observacionCausa': None,
+  'idExpediente': None,
+  'fechaHora': None,
 }
 print postear(data,url)
 print
@@ -35,9 +58,9 @@ print
 url='Paciente'
 data={
   'accion':'buscarPorNoIdentidad',
-  'noIdentidad': None,
   'idPersona': None,
   'idPaciente': None,
+  'noIdentidad': None,
 }
 print postear(data,url)
 print
@@ -52,12 +75,12 @@ print
 url='Paciente'
 data={
   'accion':'actualizar',
-  'idPaciente': None,
-  'pdireccion': None,
-  'pcorreo': None,
-  'idEscolaridad': None,
+  'direccion': None,
   'idOcupacion': None,
+  'idPaciente': None,
   'idEstadoCivil': None,
+  'correo': None,
+  'idEscolaridad': None,
 }
 print postear(data,url)
 print

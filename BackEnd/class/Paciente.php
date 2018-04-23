@@ -6,6 +6,13 @@ class Paciente extends Persona{
 	private $idOcupacion;
 	private $idEstadoCivil;
 	private $idAscendencia;
+	private $idExpediente;
+	private $fechaHora;
+	private $ordenPartoMultiple;
+	private $idCentroMedico;
+	private $idMadre;
+	private $idPadre;
+	private $observacionCausa;
 
 	public function __construct(
 		$idPaciente = null,
@@ -76,6 +83,57 @@ class Paciente extends Persona{
 
 	public function setIdAscendencia($idAscendencia){
 		$this->idAscendencia = $idAscendencia;
+	}
+
+	public function getIdExpediente(){
+		return $this->idExpediente;
+	}
+
+	public function setIdExpediente($idExpediente){
+		$this->idExpediente = $idExpediente;
+	}
+	public function getFechaHora(){
+		return $this->fechaHora;
+	}
+
+	public function setFechaHora($fechaHora){
+		$this->fechaHora = to_timestamp($fechaHora);
+	}
+	public function getOrdenPartoMultiple(){
+		return $this->ordenPartoMultiple;
+	}
+
+	public function setOrdenPartoMultiple($ordenPartoMultiple){
+		$this->ordenPartoMultiple = $ordenPartoMultiple;
+	}
+	public function getIdCentroMedico(){
+		return $this->idCentroMedico;
+	}
+
+	public function setIdCentroMedico($idCentroMedico){
+		$this->idCentroMedico = $idCentroMedico;
+	}
+	public function getIdMadre(){
+		return $this->idMadre;
+	}
+
+	public function setIdMadre($idMadre){
+		$this->idMadre = $idMadre;
+	}
+	public function getIdPadre(){
+		return $this->idPadre;
+	}
+
+	public function setIdPadre($idPadre){
+		$this->idPadre = $idPadre;
+	}
+
+	public function getObservacionCausa(){
+		return $this->observacionCausa;
+	}
+
+	public function setObservacionCausa($observacionCausa){
+		$this->observacionCausa = $observacionCausa;
 	}
 
 	public function crear($conexion){
@@ -165,8 +223,8 @@ class Paciente extends Persona{
 		  END;
 		",
 		  $this->idPaciente
-		  ,$this->pdireccion
-		  ,$this->pcorreo
+		  ,$this->getDireccion()
+		  ,$this->getCorreo()
 		  ,$this->idEscolaridad
 		  ,$this->idOcupacion
 		  ,$this->idEstadoCivil
@@ -235,9 +293,63 @@ class Paciente extends Persona{
 		return json_encode($respuesta);
 	}
 	
-	public function setNatalidad($conexion){
+	public function agregarNatalidad($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_AgregarNatalidad(
+		      %s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->idExpediente
+		  ,$this->fechaHora
+		  ,$this->ordenPartoMultiple
+		  ,$this->idCentroMedico
+		  ,$this->idMadre
+		  ,$this->idPadre
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
-	public function setDefuncion($conexion){
+	public function agregarDefuncion($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_AgregarDefuncion(
+		      '%s'
+		      ,%s
+		      ,%s
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  $this->observacionCausa
+		  ,$this->fechaHora
+		  ,$this->idExpediente
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
 	}
 }
 ?>

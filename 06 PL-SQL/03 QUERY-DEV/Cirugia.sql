@@ -1,0 +1,45 @@
+----------------------- CONSULTAS
+-- listarTodos /*Por centro*/
+SELECT
+  *
+FROM VistaCirugia
+;
+-- listarPorPaciente
+SELECT
+  *
+FROM VistaCirugia V
+WHERE
+  V.ID_EXPEDIENTE=%s
+;
+-- listarPor MEDICO
+SELECT
+  *
+FROM Vistacirugia V
+WHERE
+  V.ID_MEDICO =%s
+;
+-- listar Por MEDICO FECHA
+SELECT
+  *
+FROM Vistacirugia V
+WHERE
+  V.ID_MEDICO =%s AND V.FECHA_HORA= TO_DATE('27/02/18')
+;
+--LISTAR POR HOY
+SELECT *
+FROM Vistacirugia V
+WHERE V.FECHA_HORA= SYSDATE;
+
+--LISTAR POR CENTRO MEDICO
+SELECT*
+FROM Vistacirugia V
+WHERE V.ID_CENTRO_MEDICO=%s;
+
+--LISTAR POR CENTRO MEDICO FECHA
+SELECT*
+FROM Vistacirugia V
+WHERE V.ID_CENTRO_MEDICO=%s AND V.FECHA_HORA= TO_DATE ('27/02/18')
+;
+--eliminar
+DELETE FROM CIRUGIA
+WHERE ID_CIRUGIA =%s;

@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Edificio.php');
 if(isset($_POST['accion'])){
@@ -60,16 +61,6 @@ break;
 
 case 'agregarPiso':
 
-  if(isset($_POST['idEdificio']) && $_POST['idEdificio']!=''){
-    $idEdificio= $_POST['idEdificio'];
-  }else{
-    $idEdificio='null';
-    $res['mensaje']='Se necesita campo: idEdificio';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['descripcion'])){
     $descripcion= $_POST['descripcion'];
   }else{
@@ -79,9 +70,19 @@ case 'agregarPiso':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idEdificio']) && $_POST['idEdificio']!=''){
+    $idEdificio= $_POST['idEdificio'];
+  }else{
+    $idEdificio='null';
+    $res['mensaje']='Se necesita campo: idEdificio';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $edificio=new Edificio();
-  $edificio->setIdEdificio($idEdificio);
   $edificio->setDescripcion($descripcion);
+  $edificio->setIdEdificio($idEdificio);
   echo $edificio->agregarPiso($conexion);
 break;
 

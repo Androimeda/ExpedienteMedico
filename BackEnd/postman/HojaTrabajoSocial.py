@@ -6,8 +6,8 @@ url='HojaTrabajoSocial'
 data={
   'accion':'crear',
   'descripcion': None,
-  'idExpediente': None,
   'idCentroMedico': None,
+  'idExpediente': None,
 }
 print postear(data,url)
 print
@@ -31,10 +31,10 @@ print
 url='HojaTrabajoSocial'
 data={
   'accion':'actualizar',
-  'idTS': None,
   'descripcion': None,
   'idExpediente': None,
   'idCentroMedico': None,
+  'idTS': None,
 }
 print postear(data,url)
 print

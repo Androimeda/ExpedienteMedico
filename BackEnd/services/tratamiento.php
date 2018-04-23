@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Tratamiento.php');
 if(isset($_POST['accion'])){
@@ -11,6 +12,16 @@ case 'crear':
   }else{
     $dosis=null;
     $res['mensaje']='Se necesita campo: dosis';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idTipoTratamiento']) && $_POST['idTipoTratamiento']!=''){
+    $idTipoTratamiento= $_POST['idTipoTratamiento'];
+  }else{
+    $idTipoTratamiento='null';
+    $res['mensaje']='Se necesita campo: idTipoTratamiento';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -36,26 +47,6 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['duracionTratamiento'])){
-    $duracionTratamiento= $_POST['duracionTratamiento'];
-  }else{
-    $duracionTratamiento=null;
-    $res['mensaje']='Se necesita campo: duracionTratamiento';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idTipoTratamiento']) && $_POST['idTipoTratamiento']!=''){
-    $idTipoTratamiento= $_POST['idTipoTratamiento'];
-  }else{
-    $idTipoTratamiento='null';
-    $res['mensaje']='Se necesita campo: idTipoTratamiento';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['idViaSuministro']) && $_POST['idViaSuministro']!=''){
     $idViaSuministro= $_POST['idViaSuministro'];
   }else{
@@ -65,13 +56,23 @@ case 'crear':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['duracionTratamiento'])){
+    $duracionTratamiento= $_POST['duracionTratamiento'];
+  }else{
+    $duracionTratamiento=null;
+    $res['mensaje']='Se necesita campo: duracionTratamiento';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $tratamiento=new Tratamiento();
   $tratamiento->setDosis($dosis);
+  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
   $tratamiento->setIntervaloTiempo($intervaloTiempo);
   $tratamiento->setFechaInicio($fechaInicio);
-  $tratamiento->setDuracionTratamiento($duracionTratamiento);
-  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
   $tratamiento->setIdViaSuministro($idViaSuministro);
+  $tratamiento->setDuracionTratamiento($duracionTratamiento);
   echo $tratamiento->crear($conexion);
 break;
 
@@ -211,16 +212,6 @@ break;
 
 case 'actualizarViaSuministro':
 
-  if(isset($_POST['idViaSuministro']) && $_POST['idViaSuministro']!=''){
-    $idViaSuministro= $_POST['idViaSuministro'];
-  }else{
-    $idViaSuministro='null';
-    $res['mensaje']='Se necesita campo: idViaSuministro';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['viaSuministro'])){
     $viaSuministro= $_POST['viaSuministro'];
   }else{
@@ -230,23 +221,23 @@ case 'actualizarViaSuministro':
     echo json_encode($res);
     break;
   }
-  $tratamiento=new Tratamiento();
-  $tratamiento->setIdViaSuministro($idViaSuministro);
-  $tratamiento->setViaSuministro($viaSuministro);
-  echo $tratamiento->actualizarViaSuministro($conexion);
-break;
 
-case 'actualizarTipoTratamiento':
-
-  if(isset($_POST['tipoTratamiento'])){
-    $tipoTratamiento= $_POST['tipoTratamiento'];
+  if(isset($_POST['idViaSuministro']) && $_POST['idViaSuministro']!=''){
+    $idViaSuministro= $_POST['idViaSuministro'];
   }else{
-    $tipoTratamiento=null;
-    $res['mensaje']='Se necesita campo: tipoTratamiento';
+    $idViaSuministro='null';
+    $res['mensaje']='Se necesita campo: idViaSuministro';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
+  $tratamiento=new Tratamiento();
+  $tratamiento->setViaSuministro($viaSuministro);
+  $tratamiento->setIdViaSuministro($idViaSuministro);
+  echo $tratamiento->actualizarViaSuministro($conexion);
+break;
+
+case 'actualizarTipoTratamiento':
 
   if(isset($_POST['idTipoTratamiento']) && $_POST['idTipoTratamiento']!=''){
     $idTipoTratamiento= $_POST['idTipoTratamiento'];
@@ -257,29 +248,39 @@ case 'actualizarTipoTratamiento':
     echo json_encode($res);
     break;
   }
-  $tratamiento=new Tratamiento();
-  $tratamiento->setTipoTratamiento($tipoTratamiento);
-  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
-  echo $tratamiento->actualizarTipoTratamiento($conexion);
-break;
 
-case 'actualizar':
-
-  if(isset($_POST['idTratamiento']) && $_POST['idTratamiento']!=''){
-    $idTratamiento= $_POST['idTratamiento'];
+  if(isset($_POST['tipoTratamiento'])){
+    $tipoTratamiento= $_POST['tipoTratamiento'];
   }else{
-    $idTratamiento='null';
-    $res['mensaje']='Se necesita campo: idTratamiento';
+    $tipoTratamiento=null;
+    $res['mensaje']='Se necesita campo: tipoTratamiento';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
+  $tratamiento=new Tratamiento();
+  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
+  $tratamiento->setTipoTratamiento($tipoTratamiento);
+  echo $tratamiento->actualizarTipoTratamiento($conexion);
+break;
+
+case 'actualizar':
 
   if(isset($_POST['dosis'])){
     $dosis= $_POST['dosis'];
   }else{
     $dosis=null;
     $res['mensaje']='Se necesita campo: dosis';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idTipoTratamiento']) && $_POST['idTipoTratamiento']!=''){
+    $idTipoTratamiento= $_POST['idTipoTratamiento'];
+  }else{
+    $idTipoTratamiento='null';
+    $res['mensaje']='Se necesita campo: idTipoTratamiento';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -305,26 +306,6 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['duracionTratamiento'])){
-    $duracionTratamiento= $_POST['duracionTratamiento'];
-  }else{
-    $duracionTratamiento=null;
-    $res['mensaje']='Se necesita campo: duracionTratamiento';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idTipoTratamiento']) && $_POST['idTipoTratamiento']!=''){
-    $idTipoTratamiento= $_POST['idTipoTratamiento'];
-  }else{
-    $idTipoTratamiento='null';
-    $res['mensaje']='Se necesita campo: idTipoTratamiento';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['idViaSuministro']) && $_POST['idViaSuministro']!=''){
     $idViaSuministro= $_POST['idViaSuministro'];
   }else{
@@ -334,14 +315,34 @@ case 'actualizar':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idTratamiento']) && $_POST['idTratamiento']!=''){
+    $idTratamiento= $_POST['idTratamiento'];
+  }else{
+    $idTratamiento='null';
+    $res['mensaje']='Se necesita campo: idTratamiento';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['duracionTratamiento'])){
+    $duracionTratamiento= $_POST['duracionTratamiento'];
+  }else{
+    $duracionTratamiento=null;
+    $res['mensaje']='Se necesita campo: duracionTratamiento';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $tratamiento=new Tratamiento();
-  $tratamiento->setIdTratamiento($idTratamiento);
   $tratamiento->setDosis($dosis);
+  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
   $tratamiento->setIntervaloTiempo($intervaloTiempo);
   $tratamiento->setFechaInicio($fechaInicio);
-  $tratamiento->setDuracionTratamiento($duracionTratamiento);
-  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
   $tratamiento->setIdViaSuministro($idViaSuministro);
+  $tratamiento->setIdTratamiento($idTratamiento);
+  $tratamiento->setDuracionTratamiento($duracionTratamiento);
   echo $tratamiento->actualizar($conexion);
 break;
 

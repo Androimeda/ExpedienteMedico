@@ -1,5 +1,5 @@
 $.ajax({
-  url:SITIO_URL+'/services/Ambulancia.php',
+  url:CONST_SITIO_URL+'/services/Ambulancia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -20,7 +20,7 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Ambulancia.php',
+  url:CONST_SITIO_URL+'/services/Ambulancia.php',
   method:'POST',
   dataType:'JSON',
   data:{
@@ -40,14 +40,14 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Ambulancia.php',
+  url:CONST_SITIO_URL+'/services/Ambulancia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'actualizar',
-    'idAmbulancia': null,
     'placa': null,
     'idCentroMedico': null,
+    'idAmbulancia': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -62,13 +62,13 @@ $.ajax({
 
 
 $.ajax({
-  url:SITIO_URL+'/services/Ambulancia.php',
+  url:CONST_SITIO_URL+'/services/Ambulancia.php',
   method:'POST',
   dataType:'JSON',
   data:{
     'accion':'listarPorCentroMedico',
-    'nombreCentro': null,
     'idCentroMedico': null,
+    'nombreCentro': null,
   },
   success:function(respuesta){
     console.log(respuesta);

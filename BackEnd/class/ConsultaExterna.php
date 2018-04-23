@@ -77,7 +77,7 @@ class ConsultaExterna{
 	}
 
 	public function setFechaHora($fechaHora){
-		$this->fechaHora = $fechaHora;
+		$this->fechaHora = to_timestamp($fechaHora);
 	}
 	public function getSintomas(){
 		return $this->sintomas;
@@ -257,9 +257,14 @@ class ConsultaExterna{
 		$query=sprintf("
 		    SELECT* 
 		    FROM VistaConsultaExterna V 
-		    WHERE v.ID_CENTRO_MEDICO=%s AND v.FECHA_HORA=%s
+				WHERE v.ID_CENTRO_MEDICO=%s 
+				AND EXTRACT(DAY FROM V.FECHA_HORA) = EXTRACT(DAY FROM %s)
+			 	AND EXTRACT(MONTH FROM V.FECHA_HORA) = EXTRACT(MONTH FROM %s)
+			 	AND EXTRACT(YEAR FROM V.FECHA_HORA) = EXTRACT(YEAR FROM %s)
 		"
 		  ,$this->idCentroMedico
+		  ,$this->fechaHora
+		  ,$this->fechaHora
 		  ,$this->fechaHora
 		);
 		$resultado = $conexion->query($query);

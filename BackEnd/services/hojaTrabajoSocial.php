@@ -1,4 +1,5 @@
 <?php
+include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/HojaTrabajoSocial.php');
 if(isset($_POST['accion'])){
@@ -16,16 +17,6 @@ case 'crear':
     break;
   }
 
-  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
-    $idExpediente= $_POST['idExpediente'];
-  }else{
-    $idExpediente='null';
-    $res['mensaje']='Se necesita campo: idExpediente';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
     $idCentroMedico= $_POST['idCentroMedico'];
   }else{
@@ -35,10 +26,20 @@ case 'crear':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $hojatrabajosocial=new HojaTrabajoSocial();
   $hojatrabajosocial->setDescripcion($descripcion);
-  $hojatrabajosocial->setIdExpediente($idExpediente);
   $hojatrabajosocial->setIdCentroMedico($idCentroMedico);
+  $hojatrabajosocial->setIdExpediente($idExpediente);
   echo $hojatrabajosocial->crear($conexion);
 break;
 
@@ -76,16 +77,6 @@ break;
 
 case 'actualizar':
 
-  if(isset($_POST['idTS']) && $_POST['idTS']!=''){
-    $idTS= $_POST['idTS'];
-  }else{
-    $idTS='null';
-    $res['mensaje']='Se necesita campo: idTS';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['descripcion'])){
     $descripcion= $_POST['descripcion'];
   }else{
@@ -115,11 +106,21 @@ case 'actualizar':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idTS']) && $_POST['idTS']!=''){
+    $idTS= $_POST['idTS'];
+  }else{
+    $idTS='null';
+    $res['mensaje']='Se necesita campo: idTS';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $hojatrabajosocial=new HojaTrabajoSocial();
-  $hojatrabajosocial->setIdTS($idTS);
   $hojatrabajosocial->setDescripcion($descripcion);
   $hojatrabajosocial->setIdExpediente($idExpediente);
   $hojatrabajosocial->setIdCentroMedico($idCentroMedico);
+  $hojatrabajosocial->setIdTS($idTS);
   echo $hojatrabajosocial->actualizar($conexion);
 break;
 
