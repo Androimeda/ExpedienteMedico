@@ -2,3 +2,4 @@
 *.ini
 project.*
 .idea
+*.cmd
