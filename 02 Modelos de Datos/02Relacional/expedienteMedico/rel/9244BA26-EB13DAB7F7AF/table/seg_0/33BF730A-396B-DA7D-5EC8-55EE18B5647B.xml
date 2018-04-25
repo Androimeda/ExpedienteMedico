@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="33BF730A-396B-DA7D-5EC8-55EE18B5647B" name="Cirugia">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:46:08 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_39</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_cirugia" id="BF08DF61-7DF9-674B-144B-474C9EF5D4DE">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:46:45 UTC</createdTime>
+<comment>Almacena el récord que posee un paciente de intervenciones quirúrgicas.</comment>
+<commentInRDBMS>Codigo Cirugia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_ingreso" id="9C857DBD-CF35-C3F5-9522-CE530764D2C3">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:55:29 UTC</createdTime>
+<comment>Código del ingreso hospitalario (Tabla Hospitalización)</comment>
+<commentInRDBMS>Código del ingreso hospitalario (Tabla Hospitalización)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1E516CD3-AF09-43F0-A8D2-EC9438516C0F" referredColumn="7EB89203-158B-BF91-277F-248D26DDB642"/>
+</associations>
+</Column>
+<Column name="id_tipo_cirugia" id="91849519-3EE8-6D27-7D98-E151C66F528C">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 16:06:25 UTC</createdTime>
+<comment>Código del tipo de cirugía</comment>
+<commentInRDBMS>Código del tipo de cirugía</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="27FEFAAC-2F11-3FBC-5AA3-AC2ACF24D0A5" referredColumn="700A8FDA-3EC3-98BB-722D-51A3FED287EF"/>
+</associations>
+</Column>
+<Column name="id_medico" id="A5CE3196-0233-9694-C2B9-4479AB3C9BCA">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:12:52 UTC</createdTime>
+<comment>Código del medico que realiza la operación </comment>
+<commentInRDBMS>Código del medico que realiza la operación </commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="719EF73A-E928-4621-166A-71CB3C8BB451" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</associations>
+</Column>
+<Column name="fecha_hora" id="5A570E7F-DB89-5845-DF7E-ECF43BD688D9">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-11 00:31:31 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5BA65384-E664-1D82-2DF1-3AA098A28BDB" name="Operacion_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:46:45 UTC</createdTime>
+<comment>Almacena el récord que posee un paciente de intervenciones quirúrgicas.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF08DF61-7DF9-674B-144B-474C9EF5D4DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2182D92F-4575-F26F-2285-48DFA49A250D" name="Operacion_Hospitalizacion_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:55:29 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9C857DBD-CF35-C3F5-9522-CE530764D2C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D4D7E650-50B5-9B62-AD5A-ABEB2E48510F" name="Operacion_TipoOperacion_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 16:06:25 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="91849519-3EE8-6D27-7D98-E151C66F528C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="56BC1D4B-57FD-5319-3DBC-4545E1AED084" name="Operacion_Medico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:12:52 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5CE3196-0233-9694-C2B9-4479AB3C9BCA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

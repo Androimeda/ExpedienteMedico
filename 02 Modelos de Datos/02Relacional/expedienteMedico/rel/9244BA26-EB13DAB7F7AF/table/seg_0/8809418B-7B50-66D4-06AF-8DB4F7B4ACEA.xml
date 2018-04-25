@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8809418B-7B50-66D4-06AF-8DB4F7B4ACEA" name="TipoSangre">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:40:25 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_41</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tipo_sangre" id="DC0E70E4-AD70-A4C3-30E8-07D1C5F3B701">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:41:13 UTC</createdTime>
+<comment>Tabla de catalogo que almacena los tipos de Sangre.</comment>
+<commentInRDBMS>Código del tipo de sangre</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="grupo" id="4573FE18-1F11-2991-5130-099823377926">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:41:13 UTC</createdTime>
+<commentInRDBMS>Grupo ABO (A, B, AB, O)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RH" id="4E29F0AB-4F8D-9288-CD75-52360066D0B6">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:41:48 UTC</createdTime>
+<commentInRDBMS>Factor RH (+/-)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F00CDE25-844B-4BDE-78E5-6E5DA8E0DAB5" name="TipoSangre_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:41:13 UTC</createdTime>
+<comment>Tabla de catalogo que almacena los tipos de Sangre.</comment>
+<notes>Tabla de catalogo que almacena los tipos de Sangre.</notes>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DC0E70E4-AD70-A4C3-30E8-07D1C5F3B701"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

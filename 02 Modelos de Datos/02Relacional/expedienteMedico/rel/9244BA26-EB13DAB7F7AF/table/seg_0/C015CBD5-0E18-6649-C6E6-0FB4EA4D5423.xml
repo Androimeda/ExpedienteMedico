@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C015CBD5-0E18-6649-C6E6-0FB4EA4D5423" name="Examen">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:34:19 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_19</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_examen" id="7C4BF408-1A47-9136-E9BB-332CEAD32DDF">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:36:14 UTC</createdTime>
+<comment>Almacena información de estudios clínicos realizados a los pacientes.</comment>
+<commentInRDBMS>Codigo Examen</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="url_documento" id="43363573-FD9D-C7F0-B8F4-B0F3CA2285F9">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:36:14 UTC</createdTime>
+<comment>URL donde se almacena una copia del documento en formato digital.</comment>
+<commentInRDBMS>URL donde se almacena una copia del documento en formato digital.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_tipo" id="326ABF9F-44FF-6491-1CE2-11DA13D785A5">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:43:27 UTC</createdTime>
+<comment>Código del tipo de examen</comment>
+<commentInRDBMS>Código del tipo de examen</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="77BD1605-7CDD-E408-38BF-6639CA12B1BA" referredColumn="940DC19A-2E61-BD14-48DB-D9C150A21A53"/>
+</associations>
+</Column>
+<Column name="id_centro_medico" id="8F89343E-6EF9-6CBA-7D2F-4F665C2F21D5">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:51:05 UTC</createdTime>
+<comment>Código del centro médico donde se realizó el examen</comment>
+<commentInRDBMS>Código del centro médico donde se realizó el examen</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="12924781-340F-F3F5-5B27-4AD16AA06E02" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+<Column name="observacion" id="291D2304-07EA-964E-3C0F-E7605CFF7B30">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-11 15:18:31 UTC</createdTime>
+<comment>Notas adjuntas al examen</comment>
+<commentInRDBMS>Notas adjuntas al examen</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_expediente" id="32297314-41D1-3F57-508E-3427588003C5">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-30 02:17:02 UTC</createdTime>
+<comment>Código de expediente del paciente</comment>
+<commentInRDBMS>Código de expediente del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E34275BE-A8E0-6DAC-30DF-CC4C10B78B55" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+<Column name="fecha" id="9F09F9F1-4C8E-D710-3514-C03BE9F3639E">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-30 03:47:34 UTC</createdTime>
+<comment>Fecha en que se realiza el examen</comment>
+<commentInRDBMS>Fecha en que se realiza el examen</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C51A4B97-2CE8-04AA-3D83-5FA0A1C62EDC" name="EXAMEN_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:36:14 UTC</createdTime>
+<comment>Almacena información de estudios clínicos realizados a los pacientes.</comment>
+<notes>Almacena información de estudios clínicos realizados a los pacientes.</notes>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C4BF408-1A47-9136-E9BB-332CEAD32DDF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="674B3FE2-0478-9FCD-D5A8-8E094E1173F6" name="EXAMEN_TIPOEXAMEN_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:43:27 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="326ABF9F-44FF-6491-1CE2-11DA13D785A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FB6FA874-EAC8-8462-66ED-C935203C826B" name="EXAMEN_CENTROMEDICO_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:51:05 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F89343E-6EF9-6CBA-7D2F-4F665C2F21D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2B6E3A34-2AB1-9E46-69D5-FA663D271D31" name="Examen_Expediente_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-30 02:17:02 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="32297314-41D1-3F57-508E-3427588003C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

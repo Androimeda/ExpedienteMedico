@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3FCAE0BB-5E04-E4B8-A07C-54ECC370FC93" name="Expediente">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:09:36 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_expediente" id="58B51955-C3D1-4540-6CAD-60C1E90E02C7">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:10:46 UTC</createdTime>
+<comment>Tabla que almacena la relación entre paciente y los registros clínicos</comment>
+<commentInRDBMS>Codigo Expediente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_creacion" id="6F69213F-8AF3-C51E-64C1-4ED116DDCAC0">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:10:46 UTC</createdTime>
+<comment>Fecha en que se creó el expediente</comment>
+<commentInRDBMS>Fecha en que se creó el expediente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_paciente" id="3626A48C-650B-7564-D960-3DBDC6A98567">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:37:31 UTC</createdTime>
+<comment>Código del paciente</comment>
+<commentInRDBMS>Código del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="59FC077A-AF43-CF51-B663-AD34233195DE" referredColumn="475CD8AA-8EC9-374A-C60C-98B56BFCB319"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D0D1687E-3687-58B2-1521-7A5AC81714AB" name="expediente_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:14:18 UTC</createdTime>
+<comment>Tabla que almacena la relación entre paciente y los registros clínicos</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="65912AE7-C040-85C7-339F-CC537FD7555B" name="EXPEDIENTE__UN">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:38:13 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3626A48C-650B-7564-D960-3DBDC6A98567"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C7ED091D-33F5-8DE5-1FA8-D7424684DB1F" name="EXPEDIENTE_PACIENTE_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:37:31 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3626A48C-650B-7564-D960-3DBDC6A98567"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

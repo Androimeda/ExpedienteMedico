@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="35992C68-3E68-8193-6252-9B26C3F9726E" name="ViaSuministro">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 18:15:43 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_43</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_via_suministro" id="017D387B-8B30-1649-811E-9FB41291B926">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 18:16:23 UTC</createdTime>
+<comment>Tabla de catalogo que almacena la forma en que se va a aplicar el tratamiento.</comment>
+<commentInRDBMS>Código de la vía de suministro del tratamiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="via_suministro" id="0A202698-41F6-E733-AED6-EE21C224D9D7">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 18:16:23 UTC</createdTime>
+<commentInRDBMS>Vía suministro del tratamiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="16BB205C-552B-60D5-5C6F-BBFA7DF73B74" name="ViaSuministro_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 18:16:30 UTC</createdTime>
+<comment>Tabla de catalogo que almacena la forma en que se va a aplicar el tratamiento.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="017D387B-8B30-1649-811E-9FB41291B926"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

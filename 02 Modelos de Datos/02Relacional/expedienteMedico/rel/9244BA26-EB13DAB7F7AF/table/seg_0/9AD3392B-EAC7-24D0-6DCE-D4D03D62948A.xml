@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9AD3392B-EAC7-24D0-6DCE-D4D03D62948A" name="Defuncion">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:00:05 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_37</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_deceso" id="1F296252-A8EC-F054-307C-3D1317A624C7">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:01:16 UTC</createdTime>
+<comment>Guarda información de la muerte de personas.</comment>
+<commentInRDBMS>Codigo Deceso</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observacion_causa" id="CB923834-2439-BDD1-0F31-2E0844F650A7">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:01:16 UTC</createdTime>
+<comment>Observación de la causa de muerte</comment>
+<commentInRDBMS>Observación de la causa de muerte</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_hora" id="A6B257E2-F513-A52B-A1DB-F522A51F8282">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:01:16 UTC</createdTime>
+<comment>Fecha y hora muerte</comment>
+<commentInRDBMS>Fecha y hora muerte</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_expediente" id="51BD7EF3-A1E7-D9E7-45F5-89165928E589">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:01:30 UTC</createdTime>
+<comment>Código de expediente del paciente</comment>
+<commentInRDBMS>Código de expediente del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7F3BBE0A-EB14-0AAE-B3D6-DD263BAC1BAB" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="224790A9-A041-5A78-41B2-A06FA8A7F613" name="Defuncion_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:01:25 UTC</createdTime>
+<comment>Guarda información de la muerte de personas.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F296252-A8EC-F054-307C-3D1317A624C7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="158E857F-E376-8EF9-9C4C-6980AF135E54" name="Defuncion__UN">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:09:53 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="51BD7EF3-A1E7-D9E7-45F5-89165928E589"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B677EE29-11A7-3C6E-6A16-299CC2E16484" name="defuncion_expediente_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:01:30 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="51BD7EF3-A1E7-D9E7-45F5-89165928E589"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

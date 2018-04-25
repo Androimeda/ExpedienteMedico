@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E9806E9A-0AC2-FBE9-2A7D-BD16A8C63F93" name="CentroMedico">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:15:10 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_centro_medico" id="9A84137E-57EB-0557-0E92-09ADCF212427">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:17:16 UTC</createdTime>
+<comment>Entidad dedicada a la atención médica: hospitales, centro de salud…</comment>
+<commentInRDBMS>Entidad dedicada a la atención médica: hospitales, centro de salud…</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="AE9A4128-86CB-6B2A-F8A4-9FE48904FC1B">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:17:16 UTC</createdTime>
+<comment>Nombre del centro medico</comment>
+<commentInRDBMS>Nombre del centro medico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="EF7BD524-1732-3DE4-3AC0-36ED0A6DEA06">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:17:16 UTC</createdTime>
+<comment>Dirección donde se ubica</comment>
+<commentInRDBMS>Dirección donde se ubica</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_tipo_centro" id="600C5DBA-D10B-4118-B882-76A73099B4C1">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:25:49 UTC</createdTime>
+<comment>Código del tipo de centro</comment>
+<commentInRDBMS>Código del tipo de centro</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2045C5C-9356-8149-E5BA-557BFF0E6180" referredColumn="38A8B979-D067-989F-CE06-1386A2A31B80"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="570D38F9-3AC1-61F2-6C5D-AF1BFCC3369A" name="centroMedico_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:17:16 UTC</createdTime>
+<comment>Entidad dedicada a la atención médica: hospitales, centro de salud…</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6CA68FA0-29F2-9A2D-843D-2B8505ED8A98" name="centroMedico_tipoCentro_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:25:49 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="600C5DBA-D10B-4118-B882-76A73099B4C1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EDF421EA-928F-3E72-B1C6-BFA9A050C101" name="ConsultaExterna">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:49:21 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_31</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_consulta" id="1B7235AD-881B-4536-3230-7DF2D32E3FD1">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:50:49 UTC</createdTime>
+<comment>Tabla que consta de datos relacionados con las consultas de pacientes</comment>
+<commentInRDBMS>Codigo de consulta</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_consultorio" id="B244B09F-67B8-82F2-43F6-79E25084EB3A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:34:57 UTC</createdTime>
+<comment>Código del consultorio donde se recibe la consulta</comment>
+<commentInRDBMS>Código del consultorio donde se recibe la consulta</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E6E87A51-7662-1DAC-73F9-9B10C39F2AB8" referredColumn="7ACE5B68-6D53-561E-D702-382B67DE3190"/>
+</associations>
+</Column>
+<Column name="id_expediente" id="CD35E5DB-7B81-37B5-56AC-F026D2FD63F4">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 13:47:33 UTC</createdTime>
+<comment>Código del expediente del paciente</comment>
+<commentInRDBMS>Código del expediente del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="752BD21B-16E8-B7F6-54F9-2B76066D41EA" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+<Column name="id_medico" id="520ED57F-7236-5C20-073A-181B09BC2AF4">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 13:50:06 UTC</createdTime>
+<comment>Código del medico que atiende en consulta</comment>
+<commentInRDBMS>Código del medico que atiende en consulta</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6ECA46C8-7432-557F-A141-A033F4F91825" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</associations>
+</Column>
+<Column name="fecha_hora" id="9D6A5BD4-6314-36AB-A09C-FBA12E95BEEA">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:50:49 UTC</createdTime>
+<comment>Fecha y hora en que se atiende (atenderá)</comment>
+<commentInRDBMS>Fecha y hora en que se atiende (atenderá)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sintomas" id="8736CD98-97DF-C8AF-4E8C-6CF5CFEA0875">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 13:52:17 UTC</createdTime>
+<comment>Síntomas con los que el paciente llega a la consulta</comment>
+<commentInRDBMS>Síntomas con los que el paciente llega a la consulta</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="diagnostico" id="001B7564-8EDF-F517-E49B-8437F4015AB9">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 13:45:11 UTC</createdTime>
+<comment>Diagnóstico del médico</comment>
+<commentInRDBMS>Diagnóstico del médico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observacion" id="DE609EC4-6E88-9559-BB58-573FBC142368">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:50:49 UTC</createdTime>
+<comment>Observaciones adicionales</comment>
+<commentInRDBMS>Observaciones adicionales</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B26E0651-E03C-AC01-B58B-020E746FFBD8" name="CONSULTAEXTERNA_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:50:49 UTC</createdTime>
+<comment>Tabla que consta de datos relacionados con las consultas de pacientes</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B7235AD-881B-4536-3230-7DF2D32E3FD1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="92FC0E80-F33F-DC63-7F4A-6B01D80BFC66" name="consulta_consultorio_fk">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:34:57 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B244B09F-67B8-82F2-43F6-79E25084EB3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="556A0C63-360F-629A-C1D5-6D3C085F824B" name="Consulta_Expediente_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 13:47:32 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD35E5DB-7B81-37B5-56AC-F026D2FD63F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C658044C-FFD0-4C00-28E8-DFA3739C20EE" name="Consulta_Medico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 13:50:06 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="520ED57F-7236-5C20-073A-181B09BC2AF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

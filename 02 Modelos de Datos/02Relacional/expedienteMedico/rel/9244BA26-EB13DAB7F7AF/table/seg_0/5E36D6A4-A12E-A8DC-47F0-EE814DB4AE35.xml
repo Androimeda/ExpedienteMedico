@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5E36D6A4-A12E-A8DC-47F0-EE814DB4AE35" name="HojaTrabajoSocial">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:24:21 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_25</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_TS" id="CFCA5D9E-B109-45F7-0B4D-086B92ED1F1A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:25:48 UTC</createdTime>
+<comment>Específica las hojas entregadas por trabajadores sociales.</comment>
+<commentInRDBMS>Codigo Hoja de Trabajo Social</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="C2EDAA60-4A84-8647-DDE7-CD402D526548">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:25:48 UTC</createdTime>
+<comment>Motivo de atención en Trabajo Social</comment>
+<commentInRDBMS>Motivo de atención en Trabajo Social</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_expediente" id="7282B190-4B2A-262D-DF11-44FBC0F4BB52">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:25:57 UTC</createdTime>
+<comment>Código de expediente del paciente</comment>
+<commentInRDBMS>Código de expediente del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F7BE0BB2-8CD2-DF04-45DE-7EE312B3E3E3" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+<Column name="id_centro_medico" id="8469F3D8-FB71-44C4-E8F2-3D097735CC57">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-11 13:32:04 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="64575404-59F0-3269-3D59-88E70BC0B21B" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+<Column name="fecha" id="C302286A-4927-8F61-C7F7-0E842EA4F117">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-19 04:00:12 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6692275F-E6B9-613A-B4CC-657A599586E5" name="TRABAJOSOCIAL_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:25:48 UTC</createdTime>
+<comment>Específica las hojas entregadas por trabajadores sociales.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CFCA5D9E-B109-45F7-0B4D-086B92ED1F1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="58B53708-408F-D1AD-52AB-BD71F45267CB" name="hoja_expediente_fk">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:25:57 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7282B190-4B2A-262D-DF11-44FBC0F4BB52"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="45B7D625-9061-9165-6316-05E3D9B0C098" name="HJT_CM_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-11 13:32:04 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8469F3D8-FB71-44C4-E8F2-3D097735CC57"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

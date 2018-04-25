@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="23A88349-A391-80E4-4F89-904A4F8EDA98" name="EnfermedadConsulta">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:57:50 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_38</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_enfermedad" id="67043D2B-BA91-8963-1962-F25B776BD18B">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:58:14 UTC</createdTime>
+<comment>Lista las enfermedades diagnosticadas en consulta.</comment>
+<commentInRDBMS>Codigo Enfermedad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="888D1CD9-6C9B-FA0E-CA30-9AFBFC6233DE" referredColumn="479AD53B-8793-7DE4-0FBA-1179EA07F463"/>
+</associations>
+</Column>
+<Column name="id_medico" id="E7E34C12-5378-62AE-36A4-A5D62CD2058D">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 23:22:43 UTC</createdTime>
+<comment>Código Medico que diagnostica la enfermedad</comment>
+<commentInRDBMS>Código Medico que diagnostica la enfermedad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B22F0569-47C9-55E1-C0ED-FB8CDE954CDB" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</associations>
+</Column>
+<Column name="estado" id="5A9F2426-9638-EB9B-F15D-76862C8DA0E0">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-12 03:41:46 UTC</createdTime>
+<comment>Estado (Padece ‘P’, Curado ‘C’)</comment>
+<commentInRDBMS>Estado (Padece ‘P’, Curado ‘C’)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT034</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_diagnostico" id="B06D1D9A-81C9-A472-50B9-8D5387B7DEA7">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-12 03:41:46 UTC</createdTime>
+<comment>Fecha en que se emite el diagnóstico</comment>
+<commentInRDBMS>Fecha en que se emite el diagnóstico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_expediente" id="721F892A-3D17-A02E-C332-1DA495BD094F">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 17:53:11 UTC</createdTime>
+<comment>Codigo del expediente del paciente</comment>
+<commentInRDBMS>Codigo del expediente del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CCD0FFE6-D2F2-6F62-066C-A32D3B83FD9D" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+<Column name="id_consulta" id="EFF08A5C-9E70-EB3C-FF4D-A6CDCFC0FE49">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 21:58:53 UTC</createdTime>
+<comment>Codigo de la consulta en que se emite el diagnostico</comment>
+<commentInRDBMS>Codigo de la consulta en que se emite el diagnostico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C2C41532-FE3F-6FA2-FDB4-DA71B8E616DB" referredColumn="1B7235AD-881B-4536-3230-7DF2D32E3FD1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3CA1F3A-F8E5-FAC3-B745-1B8CF7F4DB16" name="EnfermedadConsulta_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:58:14 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67043D2B-BA91-8963-1962-F25B776BD18B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="44814329-014A-EAC7-A7E3-54681BAD634B" name="EnfermedadMedico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 23:22:43 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E7E34C12-5378-62AE-36A4-A5D62CD2058D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC7D6C90-3F78-9E4A-E646-2CBC5F7EA6CE" name="ECons_Exp_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 17:53:11 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="721F892A-3D17-A02E-C332-1DA495BD094F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A5E140EA-63DB-3FF7-94F3-C0874306F229" name="EnfermedadConsulta_Co_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 21:58:53 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFF08A5C-9E70-EB3C-FF4D-A6CDCFC0FE49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

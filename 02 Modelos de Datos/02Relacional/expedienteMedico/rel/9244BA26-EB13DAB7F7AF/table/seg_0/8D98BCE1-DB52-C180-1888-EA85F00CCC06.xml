@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8D98BCE1-DB52-C180-1888-EA85F00CCC06" name="TipoCentro">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:23:56 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_16</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tipo_centro" id="38A8B979-D067-989F-CE06-1386A2A31B80">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:25:23 UTC</createdTime>
+<comment>Tipo de centro médico: hospitales, centro de salud, laboratorio.</comment>
+<commentInRDBMS>Código del tipo de centro.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="CA6AEFA4-CA8B-B5F6-7CE9-5187D16A71DE">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:25:23 UTC</createdTime>
+<commentInRDBMS>Descripción del tipo de centro</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="horario" id="E8B79E9B-F55B-9E9E-5C17-CED183746B9A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:25:23 UTC</createdTime>
+<commentInRDBMS>Horario de atención del centro médico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="648AD26C-567E-782F-5881-2ABB63E3255A" name="tipoCentro_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:25:23 UTC</createdTime>
+<comment>Tipo de centro médico: hospitales, centro de salud, laboratorio.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38A8B979-D067-989F-CE06-1386A2A31B80"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

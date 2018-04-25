@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E5D58520-40B6-C8E4-BD04-57B0FD505D12" name="TipoTelefono">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:07:24 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_40</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tipo_telefono" id="5EE1AEE2-4D63-0E44-3C18-0ADB4B76C122">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:10:34 UTC</createdTime>
+<comment>Tabla de catalogo para el tipo de numero de teléfono.</comment>
+<commentInRDBMS>Código de teléfono</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_telefono" id="999E0409-903E-D05D-501A-A7060C2D321E">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:10:34 UTC</createdTime>
+<commentInRDBMS>Tipo del teléfono </commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CCA5D91E-21B8-3026-2A64-580DD04E9CFF" name="TipoTelefono_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:10:43 UTC</createdTime>
+<notes>Tabla de catalogo para el tipo de numero de teléfono.</notes>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5EE1AEE2-4D63-0E44-3C18-0ADB4B76C122"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

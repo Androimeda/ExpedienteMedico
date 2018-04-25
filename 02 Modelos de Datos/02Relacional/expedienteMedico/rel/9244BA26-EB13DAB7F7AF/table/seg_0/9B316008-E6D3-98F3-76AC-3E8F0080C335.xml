@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9B316008-E6D3-98F3-76AC-3E8F0080C335" name="TipoEnfermedad">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:44:23 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_44</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tipo_enfermedad" id="F8F61E72-35BB-6E41-865B-6850FEA08F9D">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:46:17 UTC</createdTime>
+<comment>Tabla de catalogo que almacena el tipo de enfermedad que padece un paciente: motriz, mental, respiratoria, genética…</comment>
+<commentInRDBMS>Código de enfermedad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="E1FA1E42-9EE7-FFCE-ED19-910B8B2FB7DE">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:46:17 UTC</createdTime>
+<commentInRDBMS>Descripción del tipo de enfermedad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D4E776C-E884-CCAC-984A-C44CC95FDC00" name="TipoEnfermedad_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:46:17 UTC</createdTime>
+<comment>Tabla de catalogo que almacena el tipo de enfermedad &lt;br/&gt;que padece un paciente: motriz, mental, respiratoria, genética…</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8F61E72-35BB-6E41-865B-6850FEA08F9D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

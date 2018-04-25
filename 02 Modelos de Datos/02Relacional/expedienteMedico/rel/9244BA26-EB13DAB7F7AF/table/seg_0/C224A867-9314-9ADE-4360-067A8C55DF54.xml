@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C224A867-9314-9ADE-4360-067A8C55DF54" name="Ambulancia">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:01:43 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_37</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_ambulancia" id="715893AD-DEED-5CF3-7A69-17D90F59E988">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:05:32 UTC</createdTime>
+<comment>Tabla que almacena todo el registro Físico de una unidad de atencion.</comment>
+<commentInRDBMS>Tabla que almacena todo el registro Físico de una unidad de atencion.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="placa" id="0256C6B8-669D-657C-ECB6-6B968BEB52B5">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:05:32 UTC</createdTime>
+<comment>Numero de Placa de Ambulancia</comment>
+<commentInRDBMS>Numero de Placa de Ambulancia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_centro_medico" id="D06928C9-E1B9-9371-DC29-F0C42E5D264C">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-01 20:59:32 UTC</createdTime>
+<comment>Código del centro medico al que pertenece la ambulancia</comment>
+<commentInRDBMS>Código del centro medico al que pertenece la ambulancia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E90F6DB9-0767-8697-5102-9A5DF580F154" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="500E85AD-F535-79EE-A02B-862C2792630E" name="Ambulancia_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:05:32 UTC</createdTime>
+<comment>Tabla que almacena todo el registro Físico de una unidad de atencion.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="715893AD-DEED-5CF3-7A69-17D90F59E988"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D519FBD-8399-A6EB-B9C0-C854928B6B36" name="Ambulancia_CentroMedico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-01 20:59:32 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D06928C9-E1B9-9371-DC29-F0C42E5D264C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

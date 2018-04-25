@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6CA3949B-E022-D5EB-2FB9-523A648D837A" name="Turno">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:13:17 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_35</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_turno" id="56724903-5882-3FE7-C86E-EFEA3229C9D4">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:13:27 UTC</createdTime>
+<comment>Tabla de Catalogo que almacena las distintas jornadas de trabajo de un médico.</comment>
+<commentInRDBMS>Código del turno</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="31616D86-B4DB-7910-9ABC-5E20BE63B66F">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:14:20 UTC</createdTime>
+<commentInRDBMS>Descripción del turno</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hora_inicio" id="7440CBAD-745A-F983-6850-E6283988629B">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:14:20 UTC</createdTime>
+<commentInRDBMS>Hora inicio del turno</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hora_fin" id="985AE924-3367-41FE-E28F-04D9DDF3236B">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:14:35 UTC</createdTime>
+<commentInRDBMS>Hora fin del turno</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="60F15357-2E0A-F150-4C45-03132202D36F" name="Turno_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:14:20 UTC</createdTime>
+<comment>Tabla de Catalogo que almacena las distintas jornadas de trabajo de un médico.</comment>
+<notes>Tabla de Catalogo que almacena las distintas jornadas de trabajo de un médico.</notes>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56724903-5882-3FE7-C86E-EFEA3229C9D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

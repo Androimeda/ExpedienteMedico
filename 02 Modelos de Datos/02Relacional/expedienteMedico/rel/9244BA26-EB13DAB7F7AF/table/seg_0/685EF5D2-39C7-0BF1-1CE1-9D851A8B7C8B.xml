@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="685EF5D2-39C7-0BF1-1CE1-9D851A8B7C8B" name="Ascendencia">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:07:10 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_ascendencia" id="0C39D111-BEC3-727A-8AD7-EA6502039007">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:08:18 UTC</createdTime>
+<comment>Tabla de catálogo para características raciales.</comment>
+<commentInRDBMS>Código de Etnia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ascendencia" id="BCC09457-5AC4-6244-46BD-14C2930E819A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:08:18 UTC</createdTime>
+<comment>Descripción de etnia o ascendencia</comment>
+<commentInRDBMS>Descripción de etnia o ascendencia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9144649A-3B42-289C-4D53-C2F0686467C7" name="raza_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:08:54 UTC</createdTime>
+<comment>Tabla de catálogo para características raciales.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0C39D111-BEC3-727A-8AD7-EA6502039007"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

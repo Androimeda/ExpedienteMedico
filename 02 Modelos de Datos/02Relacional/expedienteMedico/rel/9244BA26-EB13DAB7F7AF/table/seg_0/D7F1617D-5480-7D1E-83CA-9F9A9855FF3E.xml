@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D7F1617D-5480-7D1E-83CA-9F9A9855FF3E" name="TipoExamen">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:42:06 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_21</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tipo" id="940DC19A-2E61-BD14-48DB-D9C150A21A53">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:42:57 UTC</createdTime>
+<comment>Especifica el tipo de examen que se realiza.</comment>
+<commentInRDBMS>Código del tipo de examen</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="2A0F6A81-593D-4B2F-E8A2-D9464AB01F5F">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:42:57 UTC</createdTime>
+<commentInRDBMS>Descripción del tipo de examen</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="631FCC2E-7D16-EAF0-334A-5387B1004A53" name="TIPOEXAMEN_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:42:57 UTC</createdTime>
+<comment>Especifica el tipo de examen que se realiza.</comment>
+<notes>Especifica el tipo de examen que se realiza.</notes>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="940DC19A-2E61-BD14-48DB-D9C150A21A53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

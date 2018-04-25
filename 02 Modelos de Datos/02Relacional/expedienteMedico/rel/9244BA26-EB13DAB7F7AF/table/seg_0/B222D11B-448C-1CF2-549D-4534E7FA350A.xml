@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B222D11B-448C-1CF2-549D-4534E7FA350A" name="Piso">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:41:44 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_42</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_piso" id="91B0A629-3FCF-0494-F910-1BD8A006C637">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:42:17 UTC</createdTime>
+<comment>Información de los pisos en un edificio.</comment>
+<commentInRDBMS>Código de piso</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="3AD220FD-4E4E-0500-C9A4-F0D0826D9FE0">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:42:17 UTC</createdTime>
+<comment>Descripción del piso</comment>
+<commentInRDBMS>Descripción del piso</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_edificio" id="50277C67-4284-87AB-4DA6-CBB6201610BB">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:42:38 UTC</createdTime>
+<comment>Código de edificio donde se ubica</comment>
+<commentInRDBMS>Código de edificio donde se ubica</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C7F22218-0994-ECF9-3FF0-2EBEA53FCD83" referredColumn="58D242C1-E1D9-CFA6-9511-E5CD27476300"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D6E193E9-C45A-2967-54D3-3CAEE8051F01" name="PISO_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:42:17 UTC</createdTime>
+<comment>Información de los pisos en un edificio.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="91B0A629-3FCF-0494-F910-1BD8A006C637"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="15F22512-2F69-81BD-65A4-EEB9D9548A0A" name="PISO_EDIFICIO_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:42:38 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50277C67-4284-87AB-4DA6-CBB6201610BB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

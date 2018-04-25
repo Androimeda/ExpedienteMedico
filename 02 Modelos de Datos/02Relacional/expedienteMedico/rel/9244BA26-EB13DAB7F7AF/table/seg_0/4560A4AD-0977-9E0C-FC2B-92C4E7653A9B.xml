@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4560A4AD-0977-9E0C-FC2B-92C4E7653A9B" name="Especialidad">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:59:06 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_especialidad" id="B3B86342-AEA0-FE93-E762-64AFA517038A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:59:47 UTC</createdTime>
+<comment>Especifica los títulos que acreditan a un médico para ejercer. </comment>
+<commentInRDBMS>Código de especialidad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="especialidad" id="0A91AC33-4D2C-EC55-AD28-AC46D5E5217A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:00:09 UTC</createdTime>
+<commentInRDBMS>Descripción (Especialidad) que se acredita.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="47CCE7C8-CCC6-CAD6-A71A-5E78E0970B6A" name="titulo_PKv2">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:00:57 UTC</createdTime>
+<comment>Especifica los títulos que acreditan a un médico para ejercer. </comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B3B86342-AEA0-FE93-E762-64AFA517038A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

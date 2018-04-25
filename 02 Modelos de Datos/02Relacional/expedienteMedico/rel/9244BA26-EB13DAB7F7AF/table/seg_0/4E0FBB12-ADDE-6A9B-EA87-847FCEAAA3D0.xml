@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4E0FBB12-ADDE-6A9B-EA87-847FCEAAA3D0" name="Medico">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:34:46 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_medico" id="A1BB91D1-2314-CFB9-A0F6-735631672385">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:36:08 UTC</createdTime>
+<comment>Guarda los datos de un médico que atenderá pacientes.</comment>
+<commentInRDBMS>Código del médico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="no_colegiacion" id="7EEE239A-77A9-9F3D-9EB9-62C10F2EFBC6">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:36:08 UTC</createdTime>
+<comment>Número de colegiación</comment>
+<commentInRDBMS>Número de colegiación</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_persona" id="127460DB-6D6E-76A4-EADE-503FD0C34D38">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:44:15 UTC</createdTime>
+<comment>Código de persona en la tabla Persona</comment>
+<commentInRDBMS>Código de persona en la tabla Persona</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="80E5DE58-77A1-E71A-6264-EDD593772F7E" referredColumn="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</associations>
+</Column>
+<Column name="id_especialidad" id="56B77EB3-98A6-32FF-C61F-638D778153DD">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:17:08 UTC</createdTime>
+<comment>Código de título (especialidad)</comment>
+<commentInRDBMS>Código de título (especialidad)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="49B7657B-15AE-6274-7073-54C5AE0E145C" referredColumn="B3B86342-AEA0-FE93-E762-64AFA517038A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AADC5613-881B-E9A5-E522-540FD77C0EE3" name="medico_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:42:58 UTC</createdTime>
+<comment>Guarda los datos de un médico que atenderá pacientes</comment>
+<notes>Guarda los datos de un médico que atenderá pacientes.</notes>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DF5AC029-1116-4FD7-B4AE-2701B977C6BB" name="MEDICO__UN">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:04:15 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="127460DB-6D6E-76A4-EADE-503FD0C34D38"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC0CB0C9-DB04-76DB-5926-03698CF73681" name="medico_persona_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:44:15 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="127460DB-6D6E-76A4-EADE-503FD0C34D38"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F9B1E07C-19EF-2865-3B5F-987ECC1F4FE8" name="Medico_Especialidad_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:17:08 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56B77EB3-98A6-32FF-C61F-638D778153DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

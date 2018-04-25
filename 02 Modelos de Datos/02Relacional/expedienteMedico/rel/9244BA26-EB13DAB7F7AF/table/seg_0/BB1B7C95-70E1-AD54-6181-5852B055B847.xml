@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BB1B7C95-70E1-AD54-6181-5852B055B847" name="Referencia">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:37:28 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_20</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_referencia" id="CABC5E63-E165-F4C4-32A4-EDCA1D8059B1">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:38:26 UTC</createdTime>
+<comment>Relaciona la petición de cita de un centro médico a otro.</comment>
+<commentInRDBMS>Código de la referencia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="35F9442E-A9A9-5FAD-B8AD-08BFFB082B0D">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:38:26 UTC</createdTime>
+<commentInRDBMS>Descripción del motivo por el cual se refiere al paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_medico" id="75B1DF3D-93CE-3C9E-63A5-300CC74F178A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:40:18 UTC</createdTime>
+<commentInRDBMS>Código del médico que firma</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E6DCEE65-F8CA-A135-3A4D-B33DF97A15F6" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</associations>
+</Column>
+<Column name="id_expediente" id="F15B6EB2-49DB-30C2-198C-FD27D61A932F">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:05:22 UTC</createdTime>
+<commentInRDBMS>Código del expediente del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61219898-7EF2-4162-9856-44AE9DDDEF3F" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+<Column name="id_centro_medico_remite" id="312D7B3D-22CD-C021-8406-04F47C49806A">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:08:18 UTC</createdTime>
+<commentInRDBMS>Código del centro médico de donde se remite</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="78645902-E441-6D3B-6E22-90791A7AC5F9" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+<Column name="id_centro_medico_recibe" id="637DFC2F-BB9A-AE3C-CEC8-2EE08CFB5479">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:08:21 UTC</createdTime>
+<commentInRDBMS>Código del centro medico al que se remite el paciente.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A799863A-7844-6AD9-19CC-59E1ADA6EA1B" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4DA96DAA-A482-0EE8-8D58-BB58AB5754F5" name="referencia_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:38:26 UTC</createdTime>
+<comment>Relaciona la petición de cita de un centro médico a otro.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CABC5E63-E165-F4C4-32A4-EDCA1D8059B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8FD915B6-DE4F-ACA4-F75A-CC60ACD54788" name="referencia_medico_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:40:18 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75B1DF3D-93CE-3C9E-63A5-300CC74F178A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="00B3D0E4-1E02-81D7-3A8D-5BA51CB839A4" name="Referencia_Expediente_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:05:22 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F15B6EB2-49DB-30C2-198C-FD27D61A932F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="050EC182-F9AD-5EB0-0A4C-88DAC9A29205" name="Referencia_Centr_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:08:18 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="312D7B3D-22CD-C021-8406-04F47C49806A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="41805BE4-6B48-FF4E-606C-1CC95BD62108" name="Referencia_Centro_FKv2">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:08:21 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="637DFC2F-BB9A-AE3C-CEC8-2EE08CFB5479"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

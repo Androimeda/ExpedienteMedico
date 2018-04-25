@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="26A6AFCD-D424-D32C-B5EE-C9138E647789" name="TelefonoCentroMedico">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:03:11 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_22</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_telefono" id="604AED46-EB1E-A998-0285-C1CC74442BCE">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:03:41 UTC</createdTime>
+<comment>Relaciona centros médicos con teléfonos</comment>
+<commentInRDBMS>Código de teléfono</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4EDA37BF-CF5E-4410-0612-E2B25E3A75F8" referredColumn="9C2ED019-23F3-32ED-F73F-F39726CFD70C"/>
+</associations>
+</Column>
+<Column name="id_centro_medico" id="71A891EF-AF15-9DAA-2FFF-84043DC94C6D">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:04:34 UTC</createdTime>
+<commentInRDBMS>Código del centro médico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CBF01D1F-23E4-F9E1-8521-63C199995639" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B7DC3FD9-5CD6-82EE-402E-E725B8B9EDF9" name="telefono_centro_tel">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:03:41 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="604AED46-EB1E-A998-0285-C1CC74442BCE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1AFE2FF6-D420-B6E2-EF46-03B7ECCD9CFF" name="telefono_centro">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:04:34 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71A891EF-AF15-9DAA-2FFF-84043DC94C6D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

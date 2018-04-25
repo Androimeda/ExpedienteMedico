@@ -1,0 +1,179 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EB8337DC-4081-26E7-FFFD-8268DADD49C6" name="Natalidad">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 21:48:25 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_34</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_parto" id="13D86962-8CE9-2B24-C646-D05652116384">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 21:54:21 UTC</createdTime>
+<comment>Guarda información del nacimiento de personas.</comment>
+<commentInRDBMS>Código de parto</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_expediente" id="864CE0D4-6318-4008-5600-B1A904E95439">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 21:55:28 UTC</createdTime>
+<comment>Código de expediente del recién nacido</comment>
+<commentInRDBMS>Código de expediente del recién nacido</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A0C349EC-3877-1CA6-11C5-3039AE6D672B" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+<Column name="fecha_hora" id="457F9F9C-AFF6-A60A-53FB-9DBCDAA0AAD1">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 21:54:21 UTC</createdTime>
+<comment>Fecha y hora del nacimiento</comment>
+<commentInRDBMS>Fecha y hora del nacimiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="orden_parto_multiple" id="F2BF530C-24E2-16CA-CBF7-518DD801A090">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 21:58:28 UTC</createdTime>
+<comment>En caso de ser parto múltiple, número de orden</comment>
+<commentInRDBMS>En caso de ser parto múltiple, número de orden</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_centro_medico" id="3221109D-0625-4783-BCF4-321823493C3E">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 23:44:58 UTC</createdTime>
+<comment>Código del centro médico</comment>
+<commentInRDBMS>Código del centro médico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="108B8555-C6D8-ECF8-CEEC-4FAB06C2031C" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+<Column name="id_madre" id="AA56E388-4CA6-1337-169F-6A7468C801D9">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-12 00:12:35 UTC</createdTime>
+<comment>Código de persona de la madre</comment>
+<commentInRDBMS>Código de persona de la madre</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ACD855F8-4210-8BB4-AE65-DBC102B4DD0C" referredColumn="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</associations>
+</Column>
+<Column name="id_padre" id="BB674CDE-A016-23D7-2F6A-D5AC2F4B24C2">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-12 00:12:43 UTC</createdTime>
+<comment>Código de persona del padre</comment>
+<commentInRDBMS>Código de persona del padre</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9083FA7B-F91C-A66E-848C-31E3FFDB0037" referredColumn="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3FD9CCC2-B233-F009-8F5D-563CDEB623C0" name="Nacimiento_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 21:54:30 UTC</createdTime>
+<comment>Guarda información del nacimiento de personas.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="13D86962-8CE9-2B24-C646-D05652116384"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7E2EC26E-204E-0E78-1DAA-A44E0620762E" name="Natalidad__UN">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:10:00 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="864CE0D4-6318-4008-5600-B1A904E95439"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="00C36757-C0B4-5D07-2D41-EE5E920F2584" name="nac_expediente_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 21:55:28 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="864CE0D4-6318-4008-5600-B1A904E95439"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A59F59B8-6EBF-14E1-0307-358F6C9759B7" name="nac_centro_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 23:44:58 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3221109D-0625-4783-BCF4-321823493C3E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="71EEE353-D98C-31D8-9D41-A9DF5A521AD1" name="nac_madre_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-12 00:12:35 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA56E388-4CA6-1337-169F-6A7468C801D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="89B9A0B9-24D2-B4C3-3036-9106056E4F31" name="nac_padre_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-12 00:12:43 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB674CDE-A016-23D7-2F6A-D5AC2F4B24C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

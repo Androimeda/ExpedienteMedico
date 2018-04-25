@@ -1,0 +1,206 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="927813D4-F7BD-2A23-084E-5F9F363289BE" name="Paciente">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:36:13 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_paciente" id="475CD8AA-8EC9-374A-C60C-98B56BFCB319">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:37:39 UTC</createdTime>
+<comment>Información de paciente.</comment>
+<commentInRDBMS>Código del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_persona" id="F928D747-A23A-A2EB-FA76-ECDE8E8BA30E">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:47:17 UTC</createdTime>
+<comment>Código de persona</comment>
+<commentInRDBMS>Código de persona</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E9CBCA21-D856-0894-0308-D68EA527B5EB" referredColumn="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</associations>
+</Column>
+<Column name="id_tipo_sangre" id="EC3EA604-FF27-9B74-64D2-91A28B0D37B1">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:42:07 UTC</createdTime>
+<comment>Código de tipo sangre</comment>
+<commentInRDBMS>Código de tipo sangre</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F3D75AA-EFD8-E1B5-FDFF-26ADB6D271E0" referredColumn="DC0E70E4-AD70-A4C3-30E8-07D1C5F3B701"/>
+</associations>
+</Column>
+<Column name="id_escolaridad" id="8B07F8D3-EBE7-1178-192B-37939387F917">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:24:38 UTC</createdTime>
+<comment>Código de escolaridad</comment>
+<commentInRDBMS>Código de escolaridad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4287DD71-6541-5A35-5613-B15C058F32EC" referredColumn="FA62591E-56EA-E9FC-BD6B-150E5792CFFC"/>
+</associations>
+</Column>
+<Column name="id_ocupacion" id="AAE1987C-05F0-14D4-1D89-9F77D3095854">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 20:51:06 UTC</createdTime>
+<comment>Código de ocupación </comment>
+<commentInRDBMS>Código de ocupación </commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20C78E6E-D7D0-6605-F98C-4CC961921B79" referredColumn="17A8D8B7-91D0-7B47-53F0-3E33E6A25C87"/>
+</associations>
+</Column>
+<Column name="id_estado_civil" id="4EBF66DA-0986-FCFE-4767-09EF489DEFFD">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-03 03:02:02 UTC</createdTime>
+<comment>Código de estado civil</comment>
+<commentInRDBMS>Código de estado civil</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EE12C0C0-7855-B12F-A166-6BEAA0F252ED" referredColumn="E3788E75-6F49-964E-270F-548976EF35AD"/>
+</associations>
+</Column>
+<Column name="id_ascendencia" id="8240D467-FB61-CF0D-758A-89F9F48F09BD">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-03 03:02:06 UTC</createdTime>
+<comment>Código de ascendencia</comment>
+<commentInRDBMS>Código de ascendencia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A429F54E-559E-B137-F5F2-B4DE3F961052" referredColumn="0C39D111-BEC3-727A-8AD7-EA6502039007"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A1D6B5C5-D9DA-C1BE-0985-2F8E31A82849" name="paciente_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:14:30 UTC</createdTime>
+<comment>Información de paciente.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="475CD8AA-8EC9-374A-C60C-98B56BFCB319"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A9C10E33-9001-DBA8-292D-F68BA3EB1F81" name="Paciente__UN">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:02:31 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F928D747-A23A-A2EB-FA76-ECDE8E8BA30E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4DF94627-BD83-022E-1C4C-ECEDEC631F64" name="paciente_persona_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:47:17 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F928D747-A23A-A2EB-FA76-ECDE8E8BA30E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="94BDB6F0-3A04-0D48-57EB-F548E4FFA61C" name="Paciente_TipoSangre_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-27 21:42:07 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC3EA604-FF27-9B74-64D2-91A28B0D37B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="263A2861-3D07-039E-642A-494EB838E4D9" name="Paciente_Escolaridad_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:24:38 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B07F8D3-EBE7-1178-192B-37939387F917"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E501744C-1396-108B-C72A-4884358BC70C" name="Paciente_Ocupacion_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 20:51:06 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AAE1987C-05F0-14D4-1D89-9F77D3095854"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="205C063D-4178-B1EF-B6D0-DB143E066F45" name="Paciente_EstadoCivil_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-03 03:02:02 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4EBF66DA-0986-FCFE-4767-09EF489DEFFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C13B0435-CA41-6555-ACF2-4B994E7822EF" name="Paciente_Ascendencia_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-03 03:02:06 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8240D467-FB61-CF0D-758A-89F9F48F09BD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,169 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="015EF4C1-8AE4-DE5E-65CD-853A461D7513" name="Hospitalizacion">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:45:28 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_30</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_ingreso" id="7EB89203-158B-BF91-277F-248D26DDB642">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:46:04 UTC</createdTime>
+<comment>Almacena información del espacio de atención de un médico</comment>
+<commentInRDBMS>Código Ingreso a Hospitalización</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observacion" id="A3259955-FD36-84C3-48F8-CD5A03036672">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:46:04 UTC</createdTime>
+<comment>Nota adjunta del motivo de hospitalización</comment>
+<commentInRDBMS>Nota adjunta del motivo de hospitalización</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_hora_ingreso" id="418A6266-FC29-7AD3-B6EC-A49BA74D8903">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:47:13 UTC</createdTime>
+<comment>Fecha y hora en que ingresa el paciente</comment>
+<commentInRDBMS>Fecha y hora en que ingresa el paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_hora_alta" id="335FB5A0-D9CD-9ED9-53C7-058D846B93AC">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:47:13 UTC</createdTime>
+<comment>Fecha y hora en que sale el paciente</comment>
+<commentInRDBMS>Fecha y hora en que sale el paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_piso" id="6E712F07-7E2D-B32E-294B-BEF1FAD5CAF5">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:17:46 UTC</createdTime>
+<comment>Codigo del piso/ sala donde su ubica</comment>
+<commentInRDBMS>Codigo del piso/ sala donde su ubica</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F4064498-3118-748A-1C69-504150E345AB" referredColumn="91B0A629-3FCF-0494-F910-1BD8A006C637"/>
+</associations>
+</Column>
+<Column name="cama" id="D9561D11-2474-6E13-B2B8-BED5D66D9F4C">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:18:34 UTC</createdTime>
+<comment>Número de cama del paciente</comment>
+<commentInRDBMS>Número de cama del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_medico" id="D85B9634-2704-41F6-F108-8CFAE55967E6">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:06:35 UTC</createdTime>
+<comment>Código del médico que atiende</comment>
+<commentInRDBMS>Código del médico que atiende</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7EE0BF50-C3C6-8465-76E6-DE7A03C763A0" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</associations>
+</Column>
+<Column name="id_expediente" id="010452A5-CB13-087F-40F3-41ABC48305D5">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:45:22 UTC</createdTime>
+<comment>Código de expediente del paciente.</comment>
+<commentInRDBMS>Código de expediente del paciente.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7C4BAC9F-3E17-3CA5-AD48-2D11A7A20B15" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="375B8393-643C-3D55-8299-A4D07122A7D8" name="HOSPITALIZACION_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:46:04 UTC</createdTime>
+<comment>Almacena información del espacio de atención de un médico</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7EB89203-158B-BF91-277F-248D26DDB642"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8B8F1588-7A34-A118-1F31-F08BBD120CF8" name="Hospitalizacion_Piso_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:17:46 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E712F07-7E2D-B32E-294B-BEF1FAD5CAF5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FAD5A8D4-E9D4-016B-4B00-A9B57F7AB938" name="Hospitalizacion_Medico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:06:35 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D85B9634-2704-41F6-F108-8CFAE55967E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2BEB3E96-D470-0B6C-8AF6-C0A80B5F21FF" name="Hospitalizacion_Expte_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:45:22 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="010452A5-CB13-087F-40F3-41ABC48305D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,178 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA920FD5-AA8B-5A2C-2B28-24B8D31919B7" name="Emergencia">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:51:36 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_32</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_ingreso" id="0CE65B61-B70E-838C-C65D-01A08882E995">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:58:16 UTC</createdTime>
+<comment>Especifica información relacionada al tratamiento de emergencias en un hospital</comment>
+<commentInRDBMS>Especifica información relacionada al tratamiento de emergencias en un hospital</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observacion" id="B887A3DA-122E-C504-DD98-E290789AE41C">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:58:16 UTC</createdTime>
+<comment>Observación del motivo de la emergencia</comment>
+<commentInRDBMS>Observación del motivo de la emergencia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_hora_atencion" id="F8C03066-0870-0D55-80A4-FD5FBA96303B">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:58:16 UTC</createdTime>
+<comment>Fecha y hora ingreso</comment>
+<commentInRDBMS>Fecha y hora ingreso</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_expediente" id="A01826AD-95B7-3FE8-9778-8FA93C73C942">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 14:00:50 UTC</createdTime>
+<comment>Código del expediente del paciente en emergencia</comment>
+<commentInRDBMS>Código del expediente del paciente en emergencia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB5E6552-B1E5-224F-45F4-50462F70DE79" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+<Column name="id_atencion" id="E8C8A1A6-1F93-8E9C-4722-39E4BD6FD6CB">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:34:28 UTC</createdTime>
+<comment>Código de Atención Pre Hospitalaria (Si es necesario)</comment>
+<commentInRDBMS>Código de Atención Pre Hospitalaria (Si es necesario)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E4430FE6-F885-EBE9-95AE-03A14DB393C7" referredColumn="5925772A-97FB-FE44-BAAE-F2FF4437CC4E"/>
+</associations>
+</Column>
+<Column name="id_centro_medico" id="9D797D60-FF02-90EF-6F8F-D14A31CDB5A7">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-01 20:56:28 UTC</createdTime>
+<comment>Código del centro médico que atiende la emergencia</comment>
+<commentInRDBMS>Código del centro médico que atiende la emergencia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02AFC04C-80C3-B7BB-1514-DC7CAD721E01" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+<Column name="id_medico" id="CDE2E936-0393-3105-BEAE-B537C641B1E7">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-11 00:32:26 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0C0DE456-94FD-FA9F-28EC-41BBBEF66C62" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B581AF99-2AB5-1F78-248A-A8C21E621C64" name="EMERGENCIA_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:58:16 UTC</createdTime>
+<comment>Especifica información relacionada al tratamiento de emergencias en un hospital</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0CE65B61-B70E-838C-C65D-01A08882E995"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DCAEA789-B3DC-813A-1584-1CEAAB076FBB" name="Emergencia__UN">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:33:47 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8C8A1A6-1F93-8E9C-4722-39E4BD6FD6CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F94DD61D-DE03-0163-0D38-329DBE386210" name="expediente_emergencia_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-24 14:00:50 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A01826AD-95B7-3FE8-9778-8FA93C73C942"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="959B0D2D-C761-9401-8145-AC1C39D28B5C" name="atencion_emergencia_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:34:28 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E8C8A1A6-1F93-8E9C-4722-39E4BD6FD6CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="44B11055-A6E2-A928-273F-D7CB7B354EAA" name="Emergencia_CentroMedico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-01 20:56:28 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D797D60-FF02-90EF-6F8F-D14A31CDB5A7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A9665B00-A32E-4AE4-27BB-3EC4F0F0A45E" name="Emergencia_Medico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-11 00:32:26 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CDE2E936-0393-3105-BEAE-B537C641B1E7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

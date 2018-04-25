@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C44F7677-F278-2655-670D-1307D09C7CBD" name="MedicoConsultorio">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:31:50 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_18</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_medico" id="0F73D3A7-F5D3-2A41-DF1F-54CF9EDE7FFA">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:33:02 UTC</createdTime>
+<comment>Relación consultorios con médicos y el turno de atención</comment>
+<commentInRDBMS>Código del médico </commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3245362A-E420-416D-00CA-A7937B89CA5F" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+</associations>
+</Column>
+<Column name="id_consultorio" id="5C3FD2EA-7728-138E-2911-5A360D0ED2F9">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:33:08 UTC</createdTime>
+<comment>Código de consultorio</comment>
+<commentInRDBMS>Código de consultorio</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B46ED84E-F97B-7A57-E5ED-54CAD32B4807" referredColumn="7ACE5B68-6D53-561E-D702-382B67DE3190"/>
+</associations>
+</Column>
+<Column name="id_turno" id="AD037B64-8F2B-8355-82AC-C7AA0472B225">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:17:43 UTC</createdTime>
+<comment>Código del turno en que atiende el médico</comment>
+<commentInRDBMS>Código del turno en que atiende el médico</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A0DA5CCA-5CD2-DA81-C99B-1BB31414C67B" referredColumn="56724903-5882-3FE7-C86E-EFEA3229C9D4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4CC69723-4AF0-EB42-71A9-3B17224C3BFE" name="medico_fk">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:33:02 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0F73D3A7-F5D3-2A41-DF1F-54CF9EDE7FFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="467FAD4D-BEAA-C32F-4038-2EC59A95CBCB" name="consultorio_fk">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:33:08 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C3FD2EA-7728-138E-2911-5A360D0ED2F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2763A56C-9F13-0F78-C57D-92E27DEB6426" name="turno_fk">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 13:17:43 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD037B64-8F2B-8355-82AC-C7AA0472B225"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

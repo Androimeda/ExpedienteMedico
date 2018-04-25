@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8B96E259-ACC7-F319-F1A3-F1B7F59162E7" name="TelefonoPersona">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:06:08 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_23</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_persona" id="BDDD9386-F9C7-8014-9D86-71358424E746">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:06:23 UTC</createdTime>
+<comment>Relaciona teléfonos con personas</comment>
+<commentInRDBMS>Código de persona a quien pertenece</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BB82C9FD-6FE1-97E7-D1CE-090680CA298A" referredColumn="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</associations>
+</Column>
+<Column name="id_telefono" id="64FC2F19-A000-81B2-4850-7C34144E9E10">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:06:29 UTC</createdTime>
+<commentInRDBMS>Código de teléfono</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0E66CBE6-05E0-914F-45AD-10D7E3AF277A" referredColumn="9C2ED019-23F3-32ED-F73F-F39726CFD70C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F1C33837-DFC1-DE8F-8C11-FB6EE374905E" name="persona_fk">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:06:23 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BDDD9386-F9C7-8014-9D86-71358424E746"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC93527D-2EBD-607E-E783-94A215B4572B" name="telefono_fk">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:06:29 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="64FC2F19-A000-81B2-4850-7C34144E9E10"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

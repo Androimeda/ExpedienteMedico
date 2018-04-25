@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5C962ADF-3155-C670-8F95-0133EBB2B48E" name="Paramedico">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:37:42 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_paramedico" id="CA5E571F-94F7-6BAE-3822-0FE459D9EFA1">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:40:03 UTC</createdTime>
+<comment>Datos del personal que atiende emergencias en ambulancias</comment>
+<commentInRDBMS>Código de paramédico </commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="licencia" id="B3BE36DE-D82A-A631-6311-CDD17BD772BF">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:40:03 UTC</createdTime>
+<comment>Licencia que certifica al paramédico </comment>
+<commentInRDBMS>Licencia que certifica al paramédico </commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_persona" id="14715D43-9A2C-0A98-AC11-5CA00190AF11">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:47:31 UTC</createdTime>
+<comment>Código de Persona</comment>
+<commentInRDBMS>Código de Persona</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="649736C0-D493-7D1B-632B-52AAE111837C" referredColumn="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="98809646-5369-E86C-3235-5175BC3C1A07" name="PARAMEDICO_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:11:04 UTC</createdTime>
+<comment>Datos del personal que atiende emergencias en ambulancias</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CA5E571F-94F7-6BAE-3822-0FE459D9EFA1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1196023D-D269-67DE-904E-6CF731C278E5" name="Paramedico__UN">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-11 22:02:15 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14715D43-9A2C-0A98-AC11-5CA00190AF11"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B7F4CA23-A1CE-6676-431E-1003235D169E" name="paramedico_persona_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:47:31 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14715D43-9A2C-0A98-AC11-5CA00190AF11"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

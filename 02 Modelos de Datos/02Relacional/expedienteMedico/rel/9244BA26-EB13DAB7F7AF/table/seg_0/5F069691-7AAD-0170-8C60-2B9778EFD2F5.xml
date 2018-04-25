@@ -1,0 +1,185 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5F069691-7AAD-0170-8C60-2B9778EFD2F5" name="Persona">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:23:34 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_persona" id="9168CFAD-0016-7FF5-C123-38E5D04641FA">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Persona	Almacena información relativa a personas</comment>
+<commentInRDBMS>Código de persona</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="p_nombre" id="51035E49-059E-8F89-871E-518C47EF7ADA">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Primer nombre</comment>
+<commentInRDBMS>Primer nombre</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="s_nombre" id="236FF466-67F4-C1D9-5C9C-8F993AD96C8A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Segundo nombre</comment>
+<commentInRDBMS>Segundo nombre</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="p_apellido" id="CE5C2DFF-1065-9093-6411-C84AA85521DE">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Primer apellido</comment>
+<commentInRDBMS>Primer apellido</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="s_apellido" id="24CC54A5-9521-D10A-4D39-9E47D3B63357">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Segundo apellido</comment>
+<commentInRDBMS>Segundo apellido</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="direccion" id="B28C1333-42AA-4040-43DE-3F6FC921FCAF">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Dirección de residencia</comment>
+<commentInRDBMS>Dirección de residencia</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="no_identidad" id="D002AB08-4B68-3CD6-4D67-7329C38A2165">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Número identidad RNP</comment>
+<commentInRDBMS>Número identidad RNP</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_pais" id="EE343F8A-4144-7115-A5A5-DBB0EEFED532">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:52:02 UTC</createdTime>
+<comment>Código del país de nacionalidad</comment>
+<commentInRDBMS>Código del país de nacionalidad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ADFD9B0E-EB51-E984-4A18-32D6547EC753" referredColumn="7F881DEB-9360-4C27-6FCC-F1BB0A3D25D8"/>
+</associations>
+</Column>
+<Column name="sexo" id="741A8054-7285-C3BE-F15E-0F1D5627A87A">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:08:43 UTC</createdTime>
+<comment>Sexo (‘F’ o ‘M’)</comment>
+<commentInRDBMS>Sexo (‘F’ o ‘M’)</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="correo" id="56DCBB5D-0C59-160C-E086-BBF4AA814F65">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 17:08:43 UTC</createdTime>
+<comment>Correo electrónico.</comment>
+<commentInRDBMS>Correo electrónico.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B9621A1A-8053-E86B-DD8D-92D45E7FBF2D" name="persona_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 02:28:28 UTC</createdTime>
+<comment>Persona	Almacena información relativa a personas</comment>
+<notes>Persona	Almacena información relativa a personas</notes>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="29D9EC85-7E0D-4550-BAC3-CA20A166802B" name="Persona__UN">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 02:37:06 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D002AB08-4B68-3CD6-4D67-7329C38A2165"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="723B5216-5547-6936-1DA4-73C2B611EF52" name="Persona_Pais_FK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 16:52:02 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE343F8A-4144-7115-A5A5-DBB0EEFED532"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A6E510F6-39E5-F78B-2BD3-DF80CB16D121" name="Tratamiento">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:07:07 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_34</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tratamiento" id="4F606AFB-7A0E-4E6F-32B6-B7E7EE546826">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:10:04 UTC</createdTime>
+<comment>Medicamentos o terapias brindados para una enfermedad.</comment>
+<commentInRDBMS>Código de tratamiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dosis" id="180476B5-C5EB-870F-14A1-9065244ADFE2">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:10:04 UTC</createdTime>
+<commentInRDBMS>Dosis en que se aplicará</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="intervalo_tiempo" id="69637C16-EF82-3279-0210-33EFB9FCBAFB">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:10:04 UTC</createdTime>
+<commentInRDBMS>Intervalo de tiempo, cada cuanto se ha de aplicar el tratamiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_inicio" id="DE884575-3D74-59EA-FE87-B640090FC183">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:10:04 UTC</createdTime>
+<commentInRDBMS>Fecha en que se inicia el tratamiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="duracion_tratamiento" id="6791C90D-2067-83AC-41DE-DD284623EA61">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:10:04 UTC</createdTime>
+<commentInRDBMS>Duración del tratamiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_tipo" id="F0312F16-8F78-34AD-2705-55419D381971">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:25:44 UTC</createdTime>
+<commentInRDBMS>Código tipo tratamiento</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="68ED8B9F-EB37-3B5B-D20D-B038CC4818FA" referredColumn="94FDFB22-5C3A-3FBA-EAE5-F4BAA05FC2DD"/>
+</associations>
+</Column>
+<Column name="id_via_suministro" id="A187EB8A-491F-4248-471F-4D0B76BE50E6">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 18:36:23 UTC</createdTime>
+<commentInRDBMS>Código tipo de vía suministro</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="970C4F67-22A9-5A77-9DF0-7B7B27094A58" referredColumn="017D387B-8B30-1649-811E-9FB41291B926"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="245C1401-D7C5-4AA4-5C3A-95D76CEB9602" name="TRATAMIENTO_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 18:10:04 UTC</createdTime>
+<comment>Medicamentos o terapias brindados para una enfermedad.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F606AFB-7A0E-4E6F-32B6-B7E7EE546826"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC89A585-4AE2-37D3-CDFA-DFA31FFCF99C" name="tipo_tratamiento_fk">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:25:44 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F0312F16-8F78-34AD-2705-55419D381971"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3A4A471-DDC5-609D-D536-C2C5CEA9F429" name="Tratamiento_Via_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-29 18:36:22 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A187EB8A-491F-4248-471F-4D0B76BE50E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="30F43123-012C-2F0F-C597-CA5C58AEF243" name="Enfermedad">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:01:43 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_enfermedad" id="479AD53B-8793-7DE4-0FBA-1179EA07F463">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:03:16 UTC</createdTime>
+<comment>Patologías clínicas diagnosticada a los pacientes en las distintas áreas.</comment>
+<commentInRDBMS>Codigo enfermedad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="enfermedad" id="4204666A-0A8E-5496-1A33-796593A61B6B">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:03:16 UTC</createdTime>
+<comment>Descripción / Nombre de la enfermedad</comment>
+<commentInRDBMS>Descripción / Nombre de la enfermedad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_tipo_enfermedad" id="A3358C0B-2610-3A37-C8CE-2A59E8946028">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:46:52 UTC</createdTime>
+<comment>Código tipo Enfermedad</comment>
+<commentInRDBMS>Código tipo Enfermedad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5FE2929E-0480-44FD-2D3C-B4908BDFC094" referredColumn="F8F61E72-35BB-6E41-865B-6850FEA08F9D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4A2B8593-C25C-EA79-9854-E67237A9D2AB" name="enfermedad_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 03:03:16 UTC</createdTime>
+<comment>Patologías clínicas diagnosticada a los pacientes en las distintas áreas.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="479AD53B-8793-7DE4-0FBA-1179EA07F463"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0D7A06FA-FD74-3381-6B0F-DA37AEFFE968" name="Enfermedad_TipoEnfermedad_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 00:46:52 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A3358C0B-2610-3A37-C8CE-2A59E8946028"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,143 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AC029A05-0545-C298-6BE1-8354070E10BE" name="AtencionPreHospitalaria">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:25:49 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_38</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_atencion" id="5925772A-97FB-FE44-BAAE-F2FF4437CC4E">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:27:05 UTC</createdTime>
+<comment>Especifica información relacionada al tratamiento de emergencias tratadas en ambulancia.</comment>
+<commentInRDBMS>Codigo Atencion</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observacion" id="46523799-399F-44DC-08B2-8726E622F0DF">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:27:05 UTC</createdTime>
+<comment>Anotaciones sobre el estado del paciente, así como los síntomas o razón de la atención</comment>
+<commentInRDBMS>Anotaciones sobre el estado del paciente, así como los síntomas o razón de la atención</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_hora_atencion" id="7CCA3734-53E8-430E-70CC-33BD1076DD2C">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:27:05 UTC</createdTime>
+<comment>Fecha en que se atiende</comment>
+<commentInRDBMS>Fecha en que se atiende</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_paramedico" id="E4DD2D43-C5E4-DE91-94DC-27A03E757EAB">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:11:07 UTC</createdTime>
+<comment>Código del paramédico que atiende</comment>
+<commentInRDBMS>Código del paramédico que atiende</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="853E330B-96C0-E1AD-4209-3E1BF8BB7B2F" referredColumn="CA5E571F-94F7-6BAE-3822-0FE459D9EFA1"/>
+</associations>
+</Column>
+<Column name="id_ambulancia" id="0FBBD024-8C40-CDA1-B0EA-C81EDF795424">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:06:19 UTC</createdTime>
+<comment>Código de ambulancia que llega al lugar donde se encuentra el paciente</comment>
+<commentInRDBMS>Código de ambulancia que llega al lugar donde se encuentra el paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BBE45B91-5687-ACD9-5224-288D56D1FC41" referredColumn="715893AD-DEED-5CF3-7A69-17D90F59E988"/>
+</associations>
+</Column>
+<Column name="id_expediente" id="A121F987-DA0D-9500-E983-785FA487598A">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-07 02:50:59 UTC</createdTime>
+<commentInRDBMS>Código del expediente del paciente</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C1CC718B-C77A-25F2-91A4-3D6587FB9252" referredColumn="58B51955-C3D1-4540-6CAD-60C1E90E02C7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FBCCA256-D55C-5AC3-6660-F0682923CC0F" name="ATENCIONPREHOSPITALARIA_PK">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 20:27:05 UTC</createdTime>
+<comment>Especifica información relacionada al tratamiento de emergencias tratadas en ambulancia.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5925772A-97FB-FE44-BAAE-F2FF4437CC4E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4DFBEB13-6BE4-1EE8-EA89-00295D2AD2F9" name="atencion_paramed">
+<createdBy>Gerardo</createdBy>
+<createdTime>2018-03-10 21:11:07 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E4DD2D43-C5E4-DE91-94DC-27A03E757EAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C9FD0DD-7C2A-A73F-DD1A-201B510D16E5" name="atencion_ambulancia">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-26 15:06:19 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0FBBD024-8C40-CDA1-B0EA-C81EDF795424"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="67AA56B8-3152-5D4C-45AB-282101CC5E57" name="AtencionPreH_Exp_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-07 02:50:59 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A121F987-DA0D-9500-E983-785FA487598A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

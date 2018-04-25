@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B03B20F8-2647-B9FD-4A4F-B569AF86F3B9" name="Escolaridad">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:22:03 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_46</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_escolaridad" id="FA62591E-56EA-E9FC-BD6B-150E5792CFFC">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:23:46 UTC</createdTime>
+<comment>Guarda el grado académico que posee un paciente.</comment>
+<commentInRDBMS>Codigo escolaridad</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="escolaridad" id="804E2BEF-2142-97D0-C0B4-4C4AE03289DE">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:23:46 UTC</createdTime>
+<comment>Descripción de el nivel educativo.</comment>
+<commentInRDBMS>Descripción de el nivel educativo.</commentInRDBMS>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="392EA674-DB88-2AE2-4884-982ABDA11455" name="Escolaridad_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-03-28 16:24:00 UTC</createdTime>
+<comment>Guarda el grado académico que posee un paciente.</comment>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA62591E-56EA-E9FC-BD6B-150E5792CFFC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
