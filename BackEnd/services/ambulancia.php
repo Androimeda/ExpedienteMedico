@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Ambulancia.php');

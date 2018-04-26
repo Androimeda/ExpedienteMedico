@@ -2,12 +2,12 @@ $("#nav-item-paciente").addClass("active");
 
 $(document).ready(function() {
   $.ajax({
-    url: CONST_SITIO_URL + '/services/paciente.php',
+    url: CONST_SITIO_URL + '/services/Ambulancia.php',
     method: 'POST',
     dataType: 'JSON',
-    crossDomain: true,
     data: {
       'accion': 'listarTodos',
+      'idCentroMedico': 1,
     },
     success: function (respuesta) {
       console.log(respuesta);
