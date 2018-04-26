@@ -74,11 +74,6 @@
             aria-haspopup="true" 
             aria-expanded="false">Consultas<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li class="dropdown-header">Emergencias</li>
-            <li><a href="./emergencia-hoy.php">Listado de hoy</a></li>
-            <li><a href="./emergencia-fecha.php">Listar por fecha</a></li>
-            <li><a href="./agregar-emergencia.php">Agrega Emergencia</a></li>
-            <li role="separator" class="divider"></li>
             <li class="dropdown-header">Hospitalizacion</li>
             <li><a href="./dar-alta.php">Dar Alta</a></li>
             <li><a href="./hospitalizar.php">Hospitalizar Paciente</a></li>
@@ -88,6 +83,26 @@
             <li><a href="./agregar-consulta.php">Agregar Consulta</a></li>
             <li><a href="./consulta-hoy.php">Consultas de Hoy</a></li>
             <li><a href="./agenda-consultorio.php">Agenda Consultorios</a></li>
+          </ul>
+        </li>
+        <!-- Emeregencias -->
+        <li class="dropdown" id="nav-item-emergencia">
+          <a href="#" 
+            class="dropdown-toggle" 
+            data-toggle="dropdown" 
+            role="button" 
+            aria-haspopup="true" 
+            aria-expanded="false">Emergencia<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Atención Pre-Hospitalaria</li>
+            <li><a href="./atencion-hoy.php">Listado de hoy</a></li>
+            <li><a href="./atencion-fecha.php">Listar por fecha</a></li>
+            <li><a href="./agregar-atencion.php">Agregar APH</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Emergencias</li>
+            <li><a href="./emergencia-hoy.php">Listado de hoy</a></li>
+            <li><a href="./emergencia-fecha.php">Listar por fecha</a></li>
+            <li><a href="./agregar-emergencia.php">Agrega Emergencia</a></li>
           </ul>
         </li>
         <!-- Edificios -->

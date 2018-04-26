@@ -1,1 +1,1 @@
-$("#").addClass("active");
+$("#nav-item-consulta").addClass("active");

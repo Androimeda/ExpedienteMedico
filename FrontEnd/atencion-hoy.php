@@ -19,6 +19,6 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/vue.min.js  "></script>
     <script src="./js/config.js  "></script>
-    <script src="./controlador/index.js"></script>
+    <script src="./controlador/atencion-hoy.js"></script>
   </body>
 </html>

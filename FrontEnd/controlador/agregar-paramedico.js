@@ -1,1 +1,1 @@
-$("#").addClass("active");
+$("#nav-item-paramedico").addClass("active");

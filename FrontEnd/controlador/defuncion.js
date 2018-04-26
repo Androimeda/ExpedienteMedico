@@ -1,1 +1,1 @@
-$("#").addClass("active");
+$("#nav-item-paciente").addClass("active");

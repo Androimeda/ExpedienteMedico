@@ -1,1 +1,1 @@
-$("#").addClass("active");
+$("#nav-item-edificio").addClass("active");
