@@ -1,0 +1,37 @@
+// $base: #E70024
+@import conf
+
+.login
+  // height: 100vh
+  margin: 0 auto
+  background-image: url("../img/bg.jpg")
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
+  .blur-box
+    background-color: rgba($txt, 0.1)
+
+  .title, .subtitle
+    color: $bg
+  .box
+    button.is-primary
+      color: $base
+      border-color: $base
+
+    .tile
+      +border-radius(5px)
+      +padding(24px)
+    .tile-em
+      background-color: $base
+      label
+        color: $bg
+    .tile-bd
+      color: lighten($txt, 10)
+      border: 1px solid $base
+      .title
+        color: lighten($txt, 10)
+      button.is-primary:hover,
+      button.is-primary:focus,
+        color: $bg
+        background-color: $base

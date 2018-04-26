@@ -19,5 +19,6 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/vue.min.js  "></script>
     <script src="./js/config.js  "></script>
+    <script src="controlador/agregar-paciente.js"></script>
   </body>
 </html>

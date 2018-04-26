@@ -19,5 +19,6 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/vue.min.js  "></script>
     <script src="./js/config.js  "></script>
+    <script src="controlador/gestionar-via-suministro.js"></script>
   </body>
 </html>

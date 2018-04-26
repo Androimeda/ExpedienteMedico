@@ -1,0 +1,29 @@
+@import conf
+body
+  min-height: 2000px
+  padding-top: 70px
+  color: $txt
+  .navbar, .navbar-default
+    li.active 
+      color: $txt
+      &>a
+        background-color: lighten($secondary, 25) !important
+  .navbar-brand, .logo
+    height: 40px
+    width: 150px
+    padding: 5px
+    line-height: 40px
+  .user-img
+    line-height: 20px
+    height: 35px
+    width: 35px
+    float: right 
+    border: 1px solid black
+    margin-left: 10px
+    margin-top: -7px
+
+  .btn, .btn-primary, .btn-default, .btn-succes
+    color: $bg
+  .dropdown
+    .dropdown-header
+      color: $primary
