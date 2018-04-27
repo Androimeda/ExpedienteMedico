@@ -43,6 +43,6 @@ BEGIN
       ON U.ID_TIPO_USUARIO = TU.ID_TIPO_USUARIO
     WHERE P.CORREO=pcorreo;
   END IF;
-  mensaje:='MAZIZO PRRO';
+  mensaje:='Identificado correctamente';
   resultado:= 1;
 END;
