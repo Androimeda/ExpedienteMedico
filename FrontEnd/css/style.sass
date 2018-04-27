@@ -5,7 +5,7 @@ body
   color: $txt
   .navbar, .navbar-default
     li.active 
-      color: $xt
+      color: $txt
       &>a
         background-color: lighten($secondary, 25) !important
   .navbar-brand, .logo
@@ -27,3 +27,9 @@ body
   .dropdown
     .dropdown-header
       color: $primary
+  .borderless td, .borderless th
+    border: none
+  #centro-head:
+    text-align: right
+  #titulo:
+    text-align: center
