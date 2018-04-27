@@ -108,7 +108,7 @@
         <!-- Edificios -->
         <li id="nav-item-edificio"><a href="./edificio.php">Edificios</a></li>
         <!-- Tratamientos -->
-        <li class="dropdown" id="nav-item-tratamiento">
+        <li class="dropdown" id="nav-item-medicina">
           <a href="#" 
             class="dropdown-toggle" 
             data-toggle="dropdown" 

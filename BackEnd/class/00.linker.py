@@ -94,6 +94,7 @@ filename = 'Cirugia.php'
 def get_file(filename):
 	k=''
 	k+="<?php"+"\n"
+	k+='header("Access-Control-Allow-Origin: *");'+"\n"
 	k+="include_once('./utils/date.php');"+"\n"
 	k+="include_once('../class/Conexion.php');"+"\n"
 	if filename in ('Medico.php', 'Paciente.php', 'Paramedico.php'):
@@ -121,6 +122,6 @@ files = os.listdir('.');
 for filename in files:
 	if ".php" in filename and not ("Conexion" in filename):
 		c = filename[0].lower()+filename[1:-4]
-		f = open("../services/"+filename, "w+")
+		f = open("../services/"+filename.lower(), "w+")
 		f.writelines(get_file(filename))
 		f.close()

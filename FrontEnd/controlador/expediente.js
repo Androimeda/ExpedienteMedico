@@ -2,7 +2,7 @@ $("#nav-item-paciente").addClass("active");
 
 $(document).ready(function() {
   $.ajax({
-    url: CONST_SITIO_URL + '/services/ambulancia.php',
+    url: CONST_SITIO_URL + '/services/Ambulancia.php',
     method: 'POST',
     dataType: 'JSON',
     data: {
