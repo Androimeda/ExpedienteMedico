@@ -8,3 +8,10 @@ data={
 }
 print postear(data,url)
 print
+
+url='Usuario'
+data={
+  'accion':'registrar',
+}
+print postear(data,url)
+print

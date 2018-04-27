@@ -3430,107 +3430,53 @@ SELECT
 END;
 
 
-CREATE OR REPLACE FUNCTION FN_CrearPersona(
-    pNombre     IN  VARCHAR
-  , sNombre     IN  VARCHAR
-  , pApellido   IN  VARCHAR
-  , sApellido   IN  VARCHAR
-  , direccion   IN  VARCHAR
-  , noIdentidad IN  VARCHAR
-  , idPais      IN  INT
-  , sexo        IN  VARCHAR
-  , correo      IN  VARCHAR
-  , mensaje     OUT VARCHAR
-  , resultado   OUT SMALLINT
+CREATE OR REPLACE PROCEDURE PL_Login(
+  pcorreo IN VARCHAR
+  ,pcontrasena IN VARCHAR
+  ,mensaje OUT VARCHAR
+  ,resultado OUT SMALLINT
 )
-  RETURN INTEGER
 IS
-  --DECLARE
-  vnConteo          NUMBER;
-  id_persona_insert INTEGER;
-  BEGIN
-    mensaje := '';
-    resultado := 0;
-    /*----------------VALIDACION DE CAMPOS----------------*/
-    IF pNombre := '' OR pNombre IS NULL
-    THEN
-      mensaje := mensaje || 'pNombre, ';
-    END IF;
-    IF sNombre = '' OR sNombre IS NULL
-    THEN
-      mensaje := mensaje || 'sNombre, ';
-    END IF;
-    IF pApellido = '' OR pApellido IS NULL
-    THEN
-      mensaje := mensaje || 'pApellido, ';
-    END IF;
-    IF sApellido = '' OR sApellido IS NULL
-    THEN
-      mensaje := mensaje || 'sApellido, ';
-    END IF;
-    IF direccion = '' OR direccion IS NULL
-    THEN
-      mensaje := mensaje || 'direccion, ';
-    END IF;
-    IF noIdentidad = '' OR noIdentidad IS NULL
-    THEN
-      mensaje := mensaje || 'noIdentidad, ';
-    END IF;
-    IF idPais = '' OR idPais IS NULL
-    THEN
-      mensaje := mensaje || 'idPais, ';
-    END IF;
-    IF sexo = '' OR sexo IS NULL
-    THEN
-      mensaje := mensaje || 'sexo, ';
-    END IF;
-    IF correo = '' OR correo IS NULL
-    THEN
-      mensaje := mensaje || 'correo, ';
-    END IF;
-    IF mensaje <> '' OR mensaje IS NOT NULL
-    THEN
-      mensaje := 'Campos requeridos: ' || mensaje;
-      RETURN;
-    END IF;
-    /*---------------- CUERPO DEL PL----------------*/
-    SELECT COUNT(*)
-    INTO vnConteo
-    FROM PERSONA
-    WHERE ID_PAIS = idPais;
-    IF vnConteo = 0
-    THEN
-      mensaje := 'EL pais con el identificador: ' || idPais || 'no esta registrado';
-      RETURN;
-    END IF;
+--DECLARE
+  coincide INT;
+  cursorcito SYS_REFCURSOR ;
 
-    INSERT INTO PERSONA (
-      P_NOMBRE,
-      S_NOMBRE,
-      P_APELLIDO,
-      S_APELLIDO,
-      DIRECCION,
-      NO_IDENTIDAD,
-      ID_PAIS,
-      SEXO,
-      CORREO
-    ) VALUES (
-      pNombre,
-      sNombre,
-      pApellido,
-      sApellido,
-      direccion,
-      noIdentidad,
-      idPais,
-      sexo,
-      correo
-    )
-    RETURNING ID_PERSONA INTO id_persona_insert;
-    COMMIT;
-    mensaje := 'Registro insertado satisfactoriamente';
-    resultado := 1;
-    RETURN id_persona_insert;
-  END;
+BEGIN
+  mensaje:='';
+  resultado:=0;
+/*----------------VALIDACION DE CAMPOS----------------*/
+  IF pcorreo = '' OR pcorreo IS NULL THEN
+    mensaje:= mensaje || 'correo, ';
+  END IF;
+  IF pcontrasena = '' OR pcontrasena IS NULL THEN
+    mensaje:= mensaje || 'contrasena, ';
+  END IF;
+  IF mensaje<>'' OR mensaje IS NOT NULL THEN
+    mensaje:='Campos requeridos: '||mensaje;
+    RETURN;
+  END IF;
+/*---------------- CUERPO DEL PL----------------*/
+  coincide:= FN_VERIFICARUSUARIO(pcorreo,pcontrasena,mensaje);
+  IF coincide=0 THEN
+    resultado:=0;
+    RETURN ;
+  ELSE
 
+  OPEN cursorcito FOR
+    SELECT *
+    FROM PERSONA P
+    INNER JOIN USUARIO U
+      ON P.ID_PERSONA=U.ID_PERSONA
+    INNER JOIN CENTROMEDICO CM
+      ON CM.ID_CENTRO_MEDICO=U.ID_CENTRO_MEDICO
+    INNER JOIN TIPOCENTRO TP
+      ON CM.ID_TIPO_CENTRO = TP.ID_TIPO_CENTRO
+    INNER JOIN TIPOUSUARIO TU
+      ON U.ID_TIPO_USUARIO = TU.ID_TIPO_USUARIO
+    WHERE P.CORREO=pcorreo;
+  END IF;
+  mensaje:='MAZIZO PRRO';
+  resultado:= 1;
+END;
 
 

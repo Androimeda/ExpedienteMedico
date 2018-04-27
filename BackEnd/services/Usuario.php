@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 include_once('./utils/date.php');
 include_once('../class/Conexion.php');
 include_once('../class/Usuario.php');
@@ -8,6 +9,11 @@ switch ($_POST['accion']) {
 case 'login':
   $usuario=new Usuario();
   echo $usuario->login($conexion);
+break;
+
+case 'registrar':
+  $usuario=new Usuario();
+  echo $usuario->registrar($conexion);
 break;
 
 default:
