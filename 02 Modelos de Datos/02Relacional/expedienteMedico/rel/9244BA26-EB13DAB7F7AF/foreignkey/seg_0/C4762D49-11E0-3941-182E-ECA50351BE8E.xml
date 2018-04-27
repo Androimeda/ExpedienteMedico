@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C4762D49-11E0-3941-182E-ECA50351BE8E" containerWithKeyObject="B1846B0F-2EF4-3B5D-DC79-CBEB2B1AAA7F" localFKIndex="F95B22BC-88F8-5E53-5A90-E0A1087E70DE" name="Pantalla_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:58:56 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<referredTableLongName>Pantalla</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>625E8DD2-9955-8339-F380-00CB1AD60CAE</referredTableID>
+<keyObject>83BA6769-0B3C-ED53-8F1C-F39EBF6750EB</keyObject>
+<referredKeyID>83BA6769-0B3C-ED53-8F1C-F39EBF6750EB</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_Pantalla</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

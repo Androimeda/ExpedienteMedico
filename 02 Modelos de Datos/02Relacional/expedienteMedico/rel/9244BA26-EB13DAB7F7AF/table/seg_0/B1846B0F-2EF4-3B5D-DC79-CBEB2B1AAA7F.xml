@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B1846B0F-2EF4-3B5D-DC79-CBEB2B1AAA7F" name="PantallaXUsuario">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:57:56 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_51</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Pantalla" id="A373DC40-174A-7A9B-BFAE-ED347DB734E0">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:58:56 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C4762D49-11E0-3941-182E-ECA50351BE8E" referredColumn="FC16EE58-C79E-DB14-AE1D-ACD2DEC88DA8"/>
+</associations>
+</Column>
+<Column name="id_tipo_usuario" id="99AB54E4-55CA-6326-A956-92157B354933">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:59:15 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="13979F37-824D-C5C1-7E5F-4A2E777F2BB6" referredColumn="64B5B2B8-E19A-EF51-B967-D47FFDBFD5FD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F95B22BC-88F8-5E53-5A90-E0A1087E70DE" name="Pantalla_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:58:56 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A373DC40-174A-7A9B-BFAE-ED347DB734E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AA23F373-9311-FA11-B061-FF42876A3627" name="TipoUsuario_FKv2">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:59:15 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99AB54E4-55CA-6326-A956-92157B354933"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

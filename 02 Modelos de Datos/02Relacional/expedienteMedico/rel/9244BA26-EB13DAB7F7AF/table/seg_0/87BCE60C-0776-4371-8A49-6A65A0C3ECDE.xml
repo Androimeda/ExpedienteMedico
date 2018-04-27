@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="87BCE60C-0776-4371-8A49-6A65A0C3ECDE" name="usuario">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:48:27 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_44</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_usuario" id="B0C82C21-0AC0-96C3-35E0-5E77D15F8665">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:49:44 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contrasena" id="5C370526-3562-4DE1-6272-A72C4EC26045">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:49:44 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_persona" id="4DEB258C-03BD-99D3-258A-CBBB60A405F9">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:50:14 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="542697CC-8237-8C1F-D7E0-1CE749D431F8" referredColumn="9168CFAD-0016-7FF5-C123-38E5D04641FA"/>
+</associations>
+</Column>
+<Column name="id_tipo_usuario" id="B299245D-729C-EA89-4ABB-5F8CEEEC6A87">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:54:19 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BD9F122D-B498-6CD4-87F0-BCAF2474D308" referredColumn="64B5B2B8-E19A-EF51-B967-D47FFDBFD5FD"/>
+</associations>
+</Column>
+<Column name="CentroMedico_id_centro_medico" id="1FBDA599-2A7E-10AC-DA86-8352544135A0">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 22:16:16 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="90FBC102-4A34-E78B-1C92-5D5F02E3C0CA" referredColumn="9A84137E-57EB-0557-0E92-09ADCF212427"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E1694570-8F11-AD07-D49E-3CFDB724A539" name="usuario_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:49:44 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0C82C21-0AC0-96C3-35E0-5E77D15F8665"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ABB07940-5475-D785-FC58-132CB1361BF7" name="usuario__UN">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 17:45:50 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DEB258C-03BD-99D3-258A-CBBB60A405F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA18CD33-6BAD-8801-0E15-703C17ACEF29" name="usuario_Persona_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:50:14 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DEB258C-03BD-99D3-258A-CBBB60A405F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32193008-A11B-4D18-BD7F-C8B6C8434855" name="TipoUsuario_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:54:19 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B299245D-729C-EA89-4ABB-5F8CEEEC6A87"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8B63AE95-8C26-5466-ACFD-9D499EACA326" name="CentroMedico_FK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 22:16:16 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FBDA599-2A7E-10AC-DA86-8352544135A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

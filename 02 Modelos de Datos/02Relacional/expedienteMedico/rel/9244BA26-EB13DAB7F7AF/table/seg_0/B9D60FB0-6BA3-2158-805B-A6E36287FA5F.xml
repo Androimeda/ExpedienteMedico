@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B9D60FB0-6BA3-2158-805B-A6E36287FA5F" name="TipoUsuario">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:50:36 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<ordsAlias>table_45</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tipo_usuario" id="64B5B2B8-E19A-EF51-B967-D47FFDBFD5FD">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:52:00 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="CFDF7547-E33A-9D09-AA51-2D4A8AF36C2F">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:52:00 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="006C87F1-28FE-6B51-E9A8-0E9CCC6778BD" name="TipoUsuario_PK">
+<createdBy>jaguilar992</createdBy>
+<createdTime>2018-04-26 16:52:00 UTC</createdTime>
+<ownerDesignName>expedienteMedico</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="64B5B2B8-E19A-EF51-B967-D47FFDBFD5FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
