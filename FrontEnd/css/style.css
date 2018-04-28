@@ -43,8 +43,11 @@ body {
   body .foto-centro {
     width: 50px; }
   body h5 {
-    color: #a02c2c; }
+    color: #a02c2c;
+    padding-left: 20px; }
   body .row {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px; }
 
 /*# sourceMappingURL=style.css.map */

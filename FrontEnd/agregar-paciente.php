@@ -21,7 +21,12 @@
           <h1>Registro de Pacientes</h1>
         </div>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-3">
+            <h5>Foto</h5>
+            <img src="./img/user.png" alt="Foto" class="img img-responsive img-circle">
+            <button type="button" class="btn btn-block btn-primary">Foto</button>
+          </div>
+          <div class="col-lg-9">
             <h5>Datos Personales</h5>
             <table class="table">
               <tr>
@@ -58,7 +63,33 @@
                     <option value="" hidden="">Estado Civil</option>
                   </select>
                 </td>
+              </tr>              
+              <tr>
+                <td>Ocupación: </td>
+                <td colspan="2">
+                  <select class ="form-control" id="slc-ocupacion">
+                    <option value="" hidden="">Ocupación</option>
+                  </select>
+                </td>
               </tr>
+              <tr>              
+              <tr>
+                <td>Escolaridad: </td>
+                <td colspan="2">
+                  <select class ="form-control" id="slc-escolaridad">
+                    <option value="" hidden="">Escolaridad</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Tipo Sangre: </td>
+                <td colspan="2">
+                  <select class ="form-control" id="slc-tipo-sangre">
+                    <option value="" hidden="">Tipo Sangre</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
               <tr>
                 <td>Ascendencia: </td>
                 <td colspan="2">
@@ -69,25 +100,22 @@
               </tr>
               <tr>
                 <td>E-mail: </td>
-                <td colspan="2"><input type="email" placeholder="Email"></td>
+                <td colspan="2"><input class="form-control" type="email" placeholder="Email"></td>
               
               </tr>
               <tr>
                 <td>Contraseña</td>
-                <td></td>
-                <td></td>
+                <td colspan="2"><input type="password" class="form-control" placeholder="Ingresar Contraseña"></td>
               </tr>
               <tr>
                 <td>Contraseña: </td>
-                <td></td>
-                <td></td>
+                <td colspan="2"><input type="password" class="form-control" placeholder="Confirmar Contraseña"></td>
               </tr>
-            </table>
-          </div>
-          <div class="col-lg-6">
-            <h5>Datos Médicos</h5>
-            <table class="table">
-
+              <tr>
+                <td colspan="3">
+                  <button type="button" class="btn btn-block btn-primary">Registrar Paciente</button>
+                </td>
+              </tr>
             </table>
           </div>
         </div>

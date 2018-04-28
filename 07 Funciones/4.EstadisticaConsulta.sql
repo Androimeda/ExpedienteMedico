@@ -38,3 +38,4 @@ Mensaje:='consulta realizada con éxito'
 Resultado:=1;
 RETURN estConsulta;
 END;
+/

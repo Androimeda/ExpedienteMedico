@@ -21,6 +21,7 @@ IS
   temMensaje VARCHAR(2000);
   vnConteo NUMBER;
   id_persona_insert INTEGER;
+  id_paciente_insert INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -185,16 +186,15 @@ END IF;
       idOcupacion,
       idEstadoCivil,
       idAscendencia
-    ) RETURNING ID_PACIENTE INTO id_persona_insert;
-
-
-    INSERT INTO EXPEDIENTE
-    (FECHA_CREACION, ID_PACIENTE)
-    VALUES (SYSDATE, id_persona_insert);
-
-    COMMIT;
-    mensaje:='La insercion fue exitosa';
-    resultado:=1;
+    ) RETURNING ID_PACIENTE INTO id_paciente_insert;
   END IF;
+
+  INSERT INTO EXPEDIENTE
+  (FECHA_CREACION, ID_PACIENTE)
+  VALUES (SYSDATE, id_paciente_insert);
+  COMMIT;
+  mensaje:='La insercion fue exitosa';
+  resultado:=1;
+
 END;
 /

@@ -1,6 +1,7 @@
 @echo off
 cd ".\06 PL-SQL\01 PLSQL\"
 @echo on
+
 bash 00.call.cmd
 copy "99.PROCEDURES.sql" "..\..\03 Scripts\"
 
