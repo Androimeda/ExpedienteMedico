@@ -1,11 +1,11 @@
 CREATE OR REPLACE FUNCTION FN_EstadisticaEmergencias(
 	pidCentro IN INT,
-	mensaje OOUT VARCHAR,
+	mensaje OUT VARCHAR,
 	resultado SMALLINT
-)RETURN DOUBLE
-AS
+)RETURN NUMBER
+IS 
 vnConteo NUMBER;
-estEmergencia DOUBLE;
+estEmergencia NUMBER;
 ----------VERIFICACION DE LOS CAMPOS-----------
 IF pidCentro='' OR pidCentro IS NULL THEN
 	mensaje:= mensaje|| 'pidCentro: ';

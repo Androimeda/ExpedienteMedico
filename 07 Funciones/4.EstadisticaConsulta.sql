@@ -3,11 +3,11 @@ CREATE OR REPLACE FUNCTION FN_EstadisticaConsulta (
 	Mensaje OUT VARCHAR,
 	Resultado OUT SMALLINT			
 
-)RETURN DOUBLE
-AS
+)RETURN NUMBER
+IS
 ------DECLARE-------
 vnConteo NUMBER;
-estConsulta DOUBLE;
+estConsulta NUMBER;
 BEGIN
 	Mensaje:='';
 	Resultado:=0;
@@ -16,7 +16,7 @@ IF pIdCentro= '' OR pIdCentro IS NULL THEN
 	Mensaje:= Mensaje||'pIdCentro, ';
 END IF;
 
-IF Mensaje'' OR Mensaje IS NOT NULL THEN
+IF Mensaje<>'' OR Mensaje IS NOT NULL THEN
 	Mensaje:= 'campos requeridos: ' || Mensaje;
 RETURN 0;
 END IF;
@@ -31,10 +31,10 @@ RETURN -1;
 END IF;
 
 SELECT COUNT(*)
-FROM vw_consultasDiarias vw_con 
+FROM VistaConsultasDiarias vw_con
 WHERE vw_con.id_centro_medico=pIdCentro;
 
-Mensaje:='consulta realizada con éxito'
+Mensaje:='consulta realizada con éxito';
 Resultado:=1;
 RETURN estConsulta;
 END;
