@@ -34,3 +34,5 @@ Mensaje:='consulta realizada con éxito'
 Resultado:=1;
 RETURN estEmergencia;
 END;
+
+/

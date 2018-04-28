@@ -96,3 +96,4 @@ IS
     mensaje := 'Registro insertado satisfactoriamente';
     RETURN id_persona_insert;
   END;
+/
