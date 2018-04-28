@@ -84,3 +84,4 @@ BEGIN
   mensaje:='Actualizada satisfactoriamente';
   resultado:=1;
 END;
+/

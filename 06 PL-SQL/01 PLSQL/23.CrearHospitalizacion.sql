@@ -86,3 +86,4 @@ SELECT COUNT(*) INTO vnConteo
   mensaje:='insercion realizada correctamente';
   resultado:=1;
 END;
+/

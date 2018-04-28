@@ -1,6 +1,6 @@
 @import conf
 body
-  min-height: 2000px
+  min-height: 1000px
   padding-top: 70px
   color: $txt
   background-color: $bg
@@ -23,8 +23,6 @@ body
     margin-left: 10px
     margin-top: -7px
 
-  .btn, .btn-primary, .btn-default, .btn-succes
-    color: $bg
   .dropdown
     .dropdown-header
       color: $primary
@@ -39,11 +37,13 @@ body
     margin-top: 10px
     margin-bottom: 10px
     font-size: 18px
-  .btn-primary, .btn-primary:hover, .btn-primary:active:focus
+  .btn-primary, .btn-primary:hover, .btn-primary:active:focus, .btn-primary:focus
+    color: $bg
     background-color: $primary
-    border-color: $primary
+    border-color: lighten($primary, 10)
   #card-info
     p
       margin: 0
       margin-top: 3px
-      font-weight: 700
+      float: right
+      

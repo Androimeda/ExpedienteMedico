@@ -145,3 +145,4 @@ COMMIT;
   resultado:=1;
   mensaje:='la insercion fue realizada correctamente';
 END;
+/

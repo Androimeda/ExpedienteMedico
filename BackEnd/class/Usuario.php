@@ -95,9 +95,7 @@ class Usuario extends Persona{
 
 		if($res==1){
 		  oci_execute($data);
-		  while($u = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)){
-		    $usuario[]=$u;
-		  }
+		  $usuario = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS);
 		  oci_free_cursor($data);
 		  oci_free_statement($result);
 		  $_SESSION['usuario'] = $usuario;
@@ -109,7 +107,7 @@ class Usuario extends Persona{
 	}
 
 	public function registrar($conexion){
-		
+
 	}
 
 }

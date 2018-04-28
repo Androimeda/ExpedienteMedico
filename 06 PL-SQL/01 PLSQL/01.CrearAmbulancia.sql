@@ -39,3 +39,4 @@ BEGIN
     mensaje:='Creado exitosamente';
     resultado:=1;
 END;
+/

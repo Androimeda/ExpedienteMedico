@@ -19,10 +19,13 @@ SELECT
   pais.NOMBRE as nacionalidad,
   p.SEXO,
   p.CORREO,
+  est.ID_ESTADO_CIVIL,
   est.ESTADO_CIVIL,
   abo.GRUPO as grupo_sanguineo,
   abo.RH as factor_rh,
+  esc.ID_ESCOLARIDAD,
   esc.ESCOLARIDAD,
+  ocup.ID_OCUPACION,
   ocup.OCUPACION,
   exp.ID_EXPEDIENTE,
   exp.FECHA_CREACION as fecha_expediente
@@ -43,6 +46,7 @@ INNER JOIN OCUPACION ocup
   ON ocup.ID_OCUPACION = pa.ID_OCUPACION
 INNER JOIN ESTADOCIVIL est
   ON est.ID_ESTADO_CIVIL = pa.ID_ESTADO_CIVIL
+ORDER BY ID_EXPEDIENTE
 ;
 /*** Vista 2 :: *****/
 /*** Todos los medicos *****/

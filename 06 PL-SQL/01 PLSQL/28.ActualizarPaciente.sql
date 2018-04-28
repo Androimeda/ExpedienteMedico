@@ -88,3 +88,4 @@ UPDATE PACIENTE
   mensaje:='Se actualizaron los registros correctamente';
   resultado:=1;
 END;
+/

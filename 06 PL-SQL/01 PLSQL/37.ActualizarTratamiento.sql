@@ -109,3 +109,4 @@ BEGIN
   mensaje:='Se ingreso la informacion correctamente';
   resultado:=1;
 END;
+/

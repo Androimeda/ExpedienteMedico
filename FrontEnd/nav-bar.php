@@ -151,3 +151,20 @@
           </ul>
    </div>       
 </nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offsset-8">
+    </div>
+    <div class="col-lg-4 well card" id="card-info">
+     <div class="row">
+       <div class="col-lg-9">
+         <p>Centro Médico: <?php echo $user["CENTRO_MEDICO"] ?></p>
+         <p>Dirección: <?php echo $user['DIRECCION_CENTRO'] ?></p>
+       </div>
+       <div class="col-lg-3">
+         <img src="./img/foto-centro.png" alt="Centro" class="img img-responsive img-rounded">
+       </div>
+     </div>
+    </div>
+  </div>
+ </div>

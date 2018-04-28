@@ -39,6 +39,7 @@ BEGIN
     mensaje:='Creado exitosamente';
     resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarAmbulancia(
@@ -103,6 +104,7 @@ BEGIN
   mensaje:='Actualizada satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearAtencionPH(
@@ -174,6 +176,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarAtencionPH(
@@ -272,6 +275,7 @@ BEGIN
   mensaje:='Actualizada   satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearCentroMedico(
@@ -322,6 +326,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarCentroMedico(
@@ -391,6 +396,7 @@ BEGIN
 
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_AgregarCirugia(
@@ -466,6 +472,7 @@ BEGIN
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearConsultaExterna(
@@ -555,6 +562,7 @@ BEGIN
 
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarConsultaExterna(
@@ -668,6 +676,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_PL_CrearConsultorio(
@@ -710,6 +719,8 @@ BEGIN
 
 
 END;
+
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearEdificio(
@@ -756,6 +767,7 @@ BEGIN
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_AgregarPiso(
@@ -802,6 +814,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearEmergencia(
@@ -895,6 +908,7 @@ BEGIN
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarEmergencia(
@@ -1011,6 +1025,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearEnfermedad(
@@ -1055,6 +1070,7 @@ BEGIN
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarEnfermedad(
@@ -1118,6 +1134,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_DiagnosticarEnfermedad(
@@ -1209,6 +1226,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_QuitarDiagnostico(
@@ -1284,6 +1302,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearExamen(
@@ -1367,6 +1386,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarExamen(
@@ -1468,6 +1488,7 @@ BEGIN
   FECHA=pfecha
   WHERE ID_EXAMEN=idExamen;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearHojaTrabajoSocial(
@@ -1527,6 +1548,7 @@ END IF ;
     resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarHojaTrabajoSocial(
@@ -1594,6 +1616,7 @@ BEGIN
       resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearHospitalizacion(
@@ -1684,6 +1707,7 @@ SELECT COUNT(*) INTO vnConteo
   mensaje:='insercion realizada correctamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_DarAlta(
@@ -1727,6 +1751,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearMedico(
@@ -1863,6 +1888,7 @@ END IF;
 
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarMedico(
@@ -1940,6 +1966,7 @@ END IF;
 
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearPaciente(
@@ -2141,6 +2168,7 @@ END IF;
     resultado:=1;
   END IF;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarPaciente(
@@ -2233,6 +2261,7 @@ UPDATE PACIENTE
   mensaje:='Se actualizaron los registros correctamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearParamedico(
@@ -2353,6 +2382,7 @@ END IF;
   resultado:=1;
   END IF;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarParamedico(
@@ -2410,6 +2440,7 @@ END IF;
   mensaje:='Actualizada satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearReferencia(
@@ -2495,6 +2526,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarReferencia(
@@ -2596,6 +2628,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_AgregarTelefonoPersona(
@@ -2677,6 +2710,7 @@ END IF;
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_AgregarTelefonoCentro(
@@ -2757,7 +2791,7 @@ BEGIN
   resultado:=1;
 END;
 
-
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarViaSuministro(
@@ -2801,6 +2835,7 @@ END IF;
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_crearTratamiento(
@@ -2884,6 +2919,7 @@ BEGIN
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarTratamiento(
@@ -2997,6 +3033,7 @@ BEGIN
   mensaje:='Se ingreso la informacion correctamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_Recetar(
@@ -3063,6 +3100,7 @@ SELECT COUNT(*) INTO vnConteo
   mensaje:='se ingreso la informacion correctamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarReceta(
@@ -3129,6 +3167,7 @@ SELECT COUNT(*) INTO vnConteo
   mensaje:='Se actualizo la receta correctamente';
 END;
 
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_VincularMedico(
@@ -3200,6 +3239,7 @@ BEGIN
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_ActualizarHospitalizacion(
@@ -3288,6 +3328,7 @@ BEGIN
   mensaje:='Actualizada satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_AgregarNatalidad(
@@ -3379,6 +3420,7 @@ BEGIN
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_AgregarDefuncion(
@@ -3428,6 +3470,7 @@ SELECT
   resultado:=1;
 
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearUsuario(
@@ -3577,6 +3620,7 @@ COMMIT;
   resultado:=1;
   mensaje:='la insercion fue realizada correctamente';
 END;
+/
 
 
 CREATE OR REPLACE PROCEDURE PL_Login(
@@ -3620,5 +3664,6 @@ BEGIN
   mensaje:='Identificado correctamente';
   resultado:= 1;
 END;
+/
 
 

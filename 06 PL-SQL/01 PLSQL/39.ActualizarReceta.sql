@@ -61,3 +61,5 @@ SELECT COUNT(*) INTO vnConteo
   COMMIT ;
   mensaje:='Se actualizo la receta correctamente';
 END;
+
+/

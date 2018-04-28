@@ -62,3 +62,4 @@ SELECT COUNT(*) INTO vnConteo
   mensaje:='se ingreso la informacion correctamente';
   resultado:=1;
 END;
+/

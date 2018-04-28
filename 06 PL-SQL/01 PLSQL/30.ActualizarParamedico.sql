@@ -53,3 +53,4 @@ END IF;
   mensaje:='Actualizada satisfactoriamente';
   resultado:=1;
 END;
+/

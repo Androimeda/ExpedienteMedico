@@ -87,3 +87,4 @@ BEGIN
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
 END;
+/

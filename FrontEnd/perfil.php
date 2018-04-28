@@ -1,3 +1,4 @@
+<?php include("sesion.php") ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -17,7 +18,7 @@
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/vue.min.js  "></script>
+
     <script src="./js/config.js  "></script>
     <script src="controlador/perfil.js"></script>
   </body>

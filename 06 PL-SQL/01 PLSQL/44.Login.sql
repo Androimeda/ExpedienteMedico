@@ -39,3 +39,4 @@ BEGIN
   mensaje:='Identificado correctamente';
   resultado:= 1;
 END;
+/
