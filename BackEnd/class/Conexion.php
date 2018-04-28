@@ -70,5 +70,9 @@ class Conexion{
   public function close(){
     oci_close($this->link);
   }
+
+  public function getCursor(){
+    return oci_new_cursor($this->link);
+  }
 }
 ?>

@@ -26,11 +26,22 @@ BEGIN
   FROM USUARIO U
   INNER JOIN PERSONA P
     ON P.ID_PERSONA=U.ID_PERSONA
+  WHERE pcorreo=CORREO;
+
+  IF vnConteo=0 THEN
+    mensaje:='No existe usuario: '|| pcorreo;
+    RETURN 0;
+  END IF;
+
+  SELECT COUNT(*)
+  INTO vnConteo
+  FROM USUARIO U
+  INNER JOIN PERSONA P
+    ON P.ID_PERSONA=U.ID_PERSONA
   WHERE CONTRASENA = pcontrasena AND pcorreo=CORREO;
   IF vnConteo=0 THEN
-    mensaje:='No existe el user: '|| pcorreo;
-  RETURN 0;
-  ELSE
-    RETURN 1;
+    mensaje:='Contrasena de usuario es incorrecta: '|| pcorreo;
+    RETURN 0;
   END IF;
+  RETURN 1;
 END;

@@ -12,7 +12,7 @@ CREATE OR REPLACE PROCEDURE PL_CrearUsuario(
   ,noIdentidad IN VARCHAR
   ,idPais IN INT
   ,sexo IN VARCHAR
-  ,correo IN VARCHAR
+  ,pcorreo IN VARCHAR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -65,7 +65,7 @@ BEGIN
   IF sexo = '' OR sexo IS NULL THEN
     mensaje:= mensaje || 'sexo, ';
   END IF;
-  IF correo = '' OR correo IS NULL THEN
+  IF pcorreo = '' OR pcorreo IS NULL THEN
     mensaje:= mensaje || 'correo, ';
   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
@@ -103,9 +103,16 @@ SELECT
     INTO idPersona
     FROM PERSONA
     WHERE NO_IDENTIDAD = noIdentidad;
+
+    /*CAMBIO: SE DEBE FORZAR ACTUALIZACION DE CORREO, QUE DE QUE HAYA SIDO NULL ANTES*/
+    UPDATE PERSONA
+      set CORREO = pcorreo
+    WHERE ID_PERSONA = idPersona
+    ;
+
   ELSE
     idPersona:=FN_CREARPERSONA(pNombre, sNombre, pApellido, sApellido,
-                               direccion, noIdentidad, idPersona, sApellido, correo, mensaje);
+                               direccion, noIdentidad, idPersona, sApellido, pcorreo, mensaje);
     IF idPersona=0 THEN
       resultado:=0;
       mensaje:='No se pudo realizar inserción';
@@ -124,7 +131,7 @@ SELECT
   )RETURNING ID_CENTRO_MEDICO into idCentroMedico;
 
   INSERT INTO USUARIO(
-    CONTRASEÑA,
+    contrasena,
     ID_TIPO_USUARIO,
     ID_PERSONA,
     ID_CENTRO_MEDICO

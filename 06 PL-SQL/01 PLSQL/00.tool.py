@@ -67,7 +67,7 @@ def get_buffer(filename):
 	k=0
 	for i in token[1]:
 		m=i[0].replace(",","")
-		if not (m in ["resultado", "mensaje"]):
+		if not (m in ["resultado", "mensaje", "datos"]):
 			if k!=0:
 				buffer+=tab+","
 			else:

@@ -1,6 +1,7 @@
 CREATE OR REPLACE PROCEDURE PL_Login(
   pcorreo IN VARCHAR
   ,pcontrasena IN VARCHAR
+  , datos OUT SYS_REFCURSOR
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -29,19 +30,11 @@ BEGIN
     resultado:=0;
     RETURN ;
   ELSE
-
-  OPEN cursorcito FOR
-    SELECT *
-    FROM PERSONA P
-    INNER JOIN USUARIO U
-      ON P.ID_PERSONA=U.ID_PERSONA
-    INNER JOIN CENTROMEDICO CM
-      ON CM.ID_CENTRO_MEDICO=U.ID_CENTRO_MEDICO
-    INNER JOIN TIPOCENTRO TP
-      ON CM.ID_TIPO_CENTRO = TP.ID_TIPO_CENTRO
-    INNER JOIN TIPOUSUARIO TU
-      ON U.ID_TIPO_USUARIO = TU.ID_TIPO_USUARIO
-    WHERE P.CORREO=pcorreo;
+  OPEN datos FOR
+    SELECT
+      *
+    FROM VISTAUSUARIO v
+    WHERE v.CORREO=pcorreo;
   END IF;
   mensaje:='Identificado correctamente';
   resultado:= 1;
