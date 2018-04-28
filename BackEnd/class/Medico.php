@@ -190,5 +190,16 @@ class Medico extends Persona{
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
 	}
+
+	public function listarEspecialidad($conexion){
+		$query=sprintf("
+		    SELECT *
+		    FROM ESPECIALIDAD
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
 }
 ?>

@@ -44,9 +44,15 @@
                 <td colspan="2"><input class="form-control" type="text" id="txt-noidentidad" placeholder="Número de Identidad"></td>
               </tr>
               <tr>
+                <td>Dirección: </td>
+                <td colspan="2">
+                  <textarea id="txt-direccion" class="form-control" maxlength="50" rows="1" placeholder="Dirección"></textarea>
+                </td>
+              </tr>
+              <tr>
                 <td>Sexo:</td>
-                <td><input  id="rd-sex1" type="radio" name="rd-sexo" value="F"><label for="rd-sex1">Femenino</label></td>
-                <td><input id="rd-sex2" type="radio" name="rd-sexo" value="M"><label for="rd-sex2">Masculino</label></td>
+                <td><input  id="rbt-sex1" type="radio" name="rbt-sexo" value="F"><label for="rbt-sex1">Femenino</label></td>
+                <td><input id="rbt-sex2" type="radio" name="rbt-sexo" value="M"><label for="rbt-sex2">Masculino</label></td>
               </tr>
               <tr>
                 <td>País</td>
@@ -100,12 +106,12 @@
               </tr>
               <tr>
                 <td>E-mail: </td>
-                <td colspan="2"><input class="form-control" type="email" placeholder="Email"></td>
+                <td colspan="2"><input id="txt-email" class="form-control" type="email" placeholder="Email"></td>
               
               </tr>
               <tr>
                 <td colspan="3">
-                  <button type="button" class="btn btn-block btn-primary">Registrar Paciente</button>
+                  <button type="button" class="btn btn-block btn-primary" onclick="registrar()">Registrar Paciente</button>
                 </td>
               </tr>
             </table>
