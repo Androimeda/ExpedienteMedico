@@ -4,6 +4,8 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'login',
+    'correo': null,
+    'contrasena': null,
   },
   success:function(respuesta){
     console.log(respuesta);

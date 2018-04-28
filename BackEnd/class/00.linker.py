@@ -97,7 +97,7 @@ def get_file(filename):
 	k+='header("Access-Control-Allow-Origin: *");'+"\n"
 	k+="include_once('./utils/date.php');"+"\n"
 	k+="include_once('../class/Conexion.php');"+"\n"
-	if filename in ('Medico.php', 'Paciente.php', 'Paramedico.php'):
+	if filename in ('Medico.php', 'Paciente.php', 'Paramedico.php', 'Usuario.php'):
 		k+="include_once('../class/Persona.php');"+"\n"
 	k+="include_once('../class/"+filename+"');"+"\n"
 	k+="if(isset($_POST['accion'])){"+"\n"

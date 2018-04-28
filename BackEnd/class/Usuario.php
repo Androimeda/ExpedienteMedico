@@ -78,8 +78,31 @@ class Usuario extends Persona{
 	}
 
 	public function login($conexion){
-		
+		$query=sprintf("
+		  BEGIN
+		    PL_Login('%s','%s', :data, :msj, :res);
+		  END;
+		",
+		  $this->getCorreo()
+		  ,$this->contrasena
+		);
+		$result = $conexion->query($query);
+		$data = $conexion->getCursor();
+		oci_bind_by_name($result, ':data', $data, -1, OCI_B_CURSOR);
+		oci_bind_by_name($result, ':msj', $msj, 2000);
+		oci_bind_by_name($result, ':res', $res);
+		oci_execute($result);
 
+		if($res==1){
+		  oci_execute($data);
+		  oci_fetch_all($data, $usuario, null, null, OCI_ASSOC);
+		  oci_free_cursor($data);
+		  oci_free_statement($result);
+		  $_SESSION['usuario'] = $usuario;
+		}
+		$respuesta['resultado'] = $res;
+		$respuesta['mensaje'] = $msj;
+		return json_encode($respuesta);
 	}
 	public function getInfo($conexion){
 

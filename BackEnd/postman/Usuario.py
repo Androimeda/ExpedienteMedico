@@ -5,6 +5,8 @@ def postear(data, url):
 url='Usuario'
 data={
   'accion':'login',
+  'correo': None,
+  'contrasena': None,
 }
 print postear(data,url)
 print
