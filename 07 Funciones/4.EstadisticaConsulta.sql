@@ -30,7 +30,7 @@ IF vnConteo=0 THEN
 RETURN -1;
 END IF;
 
-SELECT COUNT(*)
+SELECT COUNT(*) INTO estConsulta
 FROM VistaConsultasDiarias vw_con
 WHERE vw_con.id_centro_medico=pIdCentro;
 

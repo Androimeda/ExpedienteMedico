@@ -1,13 +1,16 @@
 CREATE OR REPLACE FUNCTION FN_EstadisticaEmergencias(
 	pidCentro IN INT,
 	mensaje OUT VARCHAR,
-	resultado SMALLINT
+	resultado OUT SMALLINT
 )RETURN NUMBER
 IS 
 vnConteo NUMBER;
 estEmergencia NUMBER;
+BEGIN
+	mensaje:='';
+	resultado:=0;
 ----------VERIFICACION DE LOS CAMPOS-----------
-IF pidCentro='' OR pidCentro IS NULL THEN
+IF pidCentro ='' OR pidCentro IS NULL THEN
 	mensaje:= mensaje|| 'pidCentro: ';
 END IF;
 
@@ -22,16 +25,16 @@ FROM CENTROMEDICO
 WHERE id_centro_medico=pidCentro;
 
 IF vnConteo=0 THEN
-mensaje:='El centro medico con id: '||  vnConteo ||'no existe';
+mensaje:='El centro medico con id: '||  pidCentro ||'no existe';
 RETURN -1;
-END IF:
+END IF;
 
-SELECT COUNT(*)
-FROM vw_emergenciasXhoy
+SELECT COUNT(*) INTO estEmergencia
+FROM EMERGENCIAHOY
 WHERE id_centro_medico=pidCentro;
 
-Mensaje:='consulta realizada con éxito'
-Resultado:=1;
+mensaje:='consulta realizada con éxito';
+resultado:=1;
 RETURN estEmergencia;
 END;
 
