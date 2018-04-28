@@ -16,8 +16,22 @@
     <!-- Fin Navbar -->
     <div class="container">   
         <div class="row">
-            <div class="col-lg-4 well card"></div>
-            <div class="col-lg-8 well card"></div>
+            <div class="col-lg-4 well card">
+                <h5>Buscar Expediente</h5>
+                <table class="table">
+                    <tr>
+                        <td>No de indentidad</td>
+                        <td><input type="text" placeholder="Ingresar" class="form-control" id="txt-noidentidad"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-8 well card">
+            <h5>Expediente</h5>
+                
+            </div>
         </div>
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
