@@ -68,6 +68,13 @@ print
 
 url='Medico'
 data={
+  'accion':'listarEspecialidad',
+}
+print postear(data,url)
+print
+
+url='Medico'
+data={
   'accion':'listar',
   'idMedico': None,
 }

@@ -14,7 +14,11 @@
     <!-- Fixed navbar -->
     <?php include("nav-bar.php") ?>
     <!-- Fin Navbar -->
-    <div class="container">      
+    <div class="container">   
+        <div class="row">
+            <div class="col-lg-4 well card"></div>
+            <div class="col-lg-8 well card"></div>
+        </div>
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>

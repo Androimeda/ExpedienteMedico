@@ -1992,6 +1992,7 @@ IS
   temMensaje VARCHAR(2000);
   vnConteo NUMBER;
   id_persona_insert INTEGER;
+  id_paciente_insert INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -2079,9 +2080,9 @@ IF vnConteo=0 THEN
   RETURN ;
 END IF;
 
-SELECT COUNT(*) INTO vnConteo
+SELECT COUNT(ID_PAIS) INTO vnConteo
   FROM PAIS
-  WHERE  idPais=ID_PAIS;
+  WHERE  ID_PAIS=idPais;
 IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
   RETURN ;
@@ -2156,17 +2157,16 @@ END IF;
       idOcupacion,
       idEstadoCivil,
       idAscendencia
-    ) RETURNING ID_PACIENTE INTO id_persona_insert;
-
-
-    INSERT INTO EXPEDIENTE
-    (FECHA_CREACION, ID_PACIENTE)
-    VALUES (SYSDATE, id_persona_insert);
-
-    COMMIT;
-    mensaje:='La insercion fue exitosa';
-    resultado:=1;
+    ) RETURNING ID_PACIENTE INTO id_paciente_insert;
   END IF;
+
+  INSERT INTO EXPEDIENTE
+  (FECHA_CREACION, ID_PACIENTE)
+  VALUES (SYSDATE, id_paciente_insert);
+  COMMIT;
+  mensaje:='La insercion fue exitosa';
+  resultado:=1;
+
 END;
 /
 

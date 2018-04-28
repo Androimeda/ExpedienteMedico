@@ -109,9 +109,9 @@ IF vnConteo=0 THEN
   RETURN ;
 END IF;
 
-SELECT COUNT(*) INTO vnConteo
+SELECT COUNT(ID_PAIS) INTO vnConteo
   FROM PAIS
-  WHERE  idPais=ID_PAIS;
+  WHERE  ID_PAIS=idPais;
 IF vnConteo=0 THEN
     mensaje:='EL pais: '|| idPais ||'no esta registrado.';
   RETURN ;

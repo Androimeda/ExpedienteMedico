@@ -13,19 +13,19 @@ function registrar(){
 	    'idPais': $("#slc-pais").val(),
 	    'noIdentidad': $("#txt-noidentidad").val(),
 	    'pNombre': $("#txt-pnombre").val(),
-	    'idAscendencia': $("#").val(),
-	    'sNombre': $("#").val(),
-	    'sApellido': $("#").val(),
-	    'idEstadoCivil': $("#").val(),
-	    'direccion': $("#").val(),
-	    'correo': $("#").val(),
-	    'idOcupacion': $("#").val(),
-	    'idEscolaridad': $("#").val(),
-	    'pApellido': $("#").val(),
-	    'sexo': $("#").val(),
+	    'idAscendencia': $("#slc-ascendencia").val(),
+	    'sNombre': $("#txt-snombre").val(),
+	    'sApellido': $("#txt-sapellido").val(),
+	    'idEstadoCivil': $("#slc-estado-civil").val(),
+	    'direccion': $("#txt-direccion").val(),
+	    'correo': $("#txt-email").val(),
+	    'idOcupacion': $("#slc-ocupacion").val(),
+	    'idEscolaridad': $("#slc-escolaridad").val(),
+	    'pApellido': $("#txt-papellido").val(),
+	    'sexo': $("input[name='rbt-sexo']:checked").val(),
 	  },
 	  success:function(respuesta){
-	    console.log(respuesta);
+	    alert(respuesta.mensaje);
 	  },
 	  error: function(error){
 	    console.log(error);

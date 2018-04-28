@@ -13,7 +13,9 @@ SELECT
   p.NO_IDENTIDAD,
   pa.NOMBRE as pais,
   p.SEXO,
+  p.DIRECCION,
   p.CORREO,
+  t.ID_ESPECIALIDAD,
   t.especialidad
 FROM MEDICO med
 INNER JOIN PERSONA p

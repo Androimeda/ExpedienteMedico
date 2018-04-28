@@ -279,6 +279,11 @@ case 'buscarPorNombre':
   echo $medico->buscarPorNombre($conexion);
 break;
 
+case 'listarEspecialidad':
+  $medico=new Medico();
+  echo $medico->listarEspecialidad($conexion);
+break;
+
 case 'listar':
 
   if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
