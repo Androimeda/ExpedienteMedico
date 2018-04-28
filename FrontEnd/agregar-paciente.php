@@ -31,17 +31,17 @@
             <table class="table">
               <tr>
                 <td>Nombre: </td>
-                <td><input class="form-control" type="text" id="txt-" placeholder="Primer Nombre"></td>
-                <td><input class="form-control" type="text" id="txt-" placeholder="Segundo Nombre"></td>
+                <td><input class="form-control" type="text" id="txt-pnombre" placeholder="Primer Nombre"></td>
+                <td><input class="form-control" type="text" id="txt-snombre" placeholder="Segundo Nombre"></td>
               </tr>
               <tr>
                 <td>Apellidos: </td>
-                <td><input class="form-control" type="text" id="txt-" placeholder="Primer Apellido"></td>
-                <td><input class="form-control" type="text" id="txt-" placeholder="Segundo Apellido"></td>
+                <td><input class="form-control" type="text" id="txt-papellido" placeholder="Primer Apellido"></td>
+                <td><input class="form-control" type="text" id="txt-sapellido" placeholder="Segundo Apellido"></td>
               </tr>
               <tr>
                 <td>Identidad: </td>
-                <td colspan="2"><input class="form-control" type="text" id="txt-" placeholder="Número de Identidad"></td>
+                <td colspan="2"><input class="form-control" type="text" id="txt-noidentidad" placeholder="Número de Identidad"></td>
               </tr>
               <tr>
                 <td>Sexo:</td>
@@ -102,14 +102,6 @@
                 <td>E-mail: </td>
                 <td colspan="2"><input class="form-control" type="email" placeholder="Email"></td>
               
-              </tr>
-              <tr>
-                <td>Contraseña</td>
-                <td colspan="2"><input type="password" class="form-control" placeholder="Ingresar Contraseña"></td>
-              </tr>
-              <tr>
-                <td>Contraseña: </td>
-                <td colspan="2"><input type="password" class="form-control" placeholder="Confirmar Contraseña"></td>
               </tr>
               <tr>
                 <td colspan="3">

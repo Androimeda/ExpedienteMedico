@@ -9,20 +9,20 @@ function registrar(){
 	  dataType:'JSON',
 	  data:{
 	    'accion':'crear',
-	    'idTipoSangre': null,
-	    'idPais': null,
-	    'noIdentidad': null,
-	    'pNombre': null,
-	    'idAscendencia': null,
-	    'sNombre': null,
-	    'sApellido': null,
-	    'idEstadoCivil': null,
-	    'direccion': null,
-	    'correo': null,
-	    'idOcupacion': null,
-	    'idEscolaridad': null,
-	    'pApellido': null,
-	    'sexo': null,
+	    'idTipoSangre': $("#slc-tipo-sangre").val(),
+	    'idPais': $("#slc-pais").val(),
+	    'noIdentidad': $("#txt-noidentidad").val(),
+	    'pNombre': $("#txt-pnombre").val(),
+	    'idAscendencia': $("#").val(),
+	    'sNombre': $("#").val(),
+	    'sApellido': $("#").val(),
+	    'idEstadoCivil': $("#").val(),
+	    'direccion': $("#").val(),
+	    'correo': $("#").val(),
+	    'idOcupacion': $("#").val(),
+	    'idEscolaridad': $("#").val(),
+	    'pApellido': $("#").val(),
+	    'sexo': $("#").val(),
 	  },
 	  success:function(respuesta){
 	    console.log(respuesta);
@@ -109,3 +109,75 @@ $(document).ready(function() {
 	  }
 	});
 });
+
+$(document).ready(function(){
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Persona.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listarTipoSangre',
+	  },
+	  success:function(respuesta){
+	    for (var i = 0; i < respuesta.length; i++) {
+	    	var tipo = respuesta[i];
+	    	var fila = '<option value="'+tipo.ID_TIPO_SANGRE+'">'+tipo.GRUPO+' '+tipo.RH+'</option>';
+	    	$("#slc-tipo-sangre").append(fila);
+	    }
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+});
+$(document).ready(function(){
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Persona.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listarAscendencia',
+	  },
+	  success:function(respuesta){
+	    for (var i = 0; i < respuesta.length; i++) {
+	    	var asce = respuesta[i];
+	    	var fila = '<option value="'+asce.ID_ASCENDENCIA+'">'+asce.ASCENDENCIA+'</option>';
+	    	$("#slc-ascendencia").append(fila);
+	    }
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+});
+
+$(document).ready(function(){
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Persona.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
+    'accion':'listarPais',
+  },
+  success:function(respuesta){
+    for (var i = 0; i < respuesta.length; i++) {
+    	var pais = respuesta[i];
+    	var fila = '<option value="'+pais.ID_PAIS+'">'+pais.NOMBRE+'</option>';
+    	$("#slc-pais").append(fila);
+    }
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+})
