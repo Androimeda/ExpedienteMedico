@@ -808,7 +808,7 @@ ORDER BY ID_CENTRO_MEDICO
 
 
 
-CREATE VIEW VistaUsuario AS
+CREATE OR REPLACE VIEW VistaUsuario AS
 SELECT
   p.ID_PERSONA
   ,p.P_NOMBRE
@@ -825,6 +825,7 @@ SELECT
   ,tu.TIPO as tipo_usuario
   ,cm.ID_CENTRO_MEDICO
   ,cm.NOMBRE as centro_medico
+  ,cm.DIRECCION as direccion_centro
   ,tp.ID_TIPO_CENTRO
   , tp.DESCRIPCION as tipo_centro
   , tp.HORARIO

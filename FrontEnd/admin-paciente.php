@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  if (isset($_SESSION['usuario'])) {
+    $user = $_SESSION['usuario'];
+  }else{
+    echo "No has iniciado sesion";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -12,52 +21,39 @@
   <body>
     <!-- Fixed navbar -->
     <?php include("nav-bar.php") ?>
-   <div class="container" id="centro-head">
-     <div class="col-lg-4"></div>
-     <div class="col-lg-4"></div>
-     <div class="col-lg-4">
-       <div class="row">LORE</div>
-       <div class="row">LORE</div>
-       <div class="row">LORE</div>
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-8 col-lg-offset-8"></div>
+       <div class="col-lg-4 well card" id="card-info">
+        <p>Centro Médico: <?php  ?></p>
+        <p>Dirección: </p>
+        <p>Teléfono: </p>
+       </div>
      </div>
     </div>
     <!-- Fin Navbar -->
-    <div class="container">
+    <div class="container well card">
       <div class="row">
         <div class="col-lg-12" id="titulo">
-          <h2>Pacientes</h2>
-          <h2>Hospital Escuela Universitario</h2>
+          <h1>Pacientes</h1>
+          <h1>Hospital Escuela Universitario</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-12">
-          <div class="col-lg-4">
-            <table class="table borderless">
-              <td>
-                <td><label>Buscar:</label></td>
-                <td><input type="text" class="form-control" id="txt-paciente"></td>
-              </tr>
-            </table>
-          </div>
-          <div class="col-lg-4">
-            <table class="table borderless">
-              <td>
-                <td><label>Buscar:</label></td>
-                <td><input type="text" class="form-control" id="txt-paciente"></td>
-              </tr>
-            </table>
-          </div>
-          <div class="col-lg-4">
-            <table class="table borderless">
-              <td>
-                <td><label>Buscar:</label></td>
-                <td><input type="text" class="form-control" id="txt-paciente"></td>
-              </tr>
-            </table>
-          </div>
+          <div class="col-lg-12">
+            <div class="col-lg-4">
+              <input type="text" class="form-control" id="txt-paciente" placeholder="Búsqueda">
+            </div>
+            <div class="col-lg-4">
+              <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
+                <option value="" hidden="">Filtro</option>
+              </select>
+            </div>
+            <div class="col-lg-4">
+              <button type="button" class="btn btn-primary">Buscar</button>
+            </div>
         </div>
       </div>
-      <div class="row"></div>
       <div class="row">
         <div class="col-lg-12">
           <table class="table table-striped">
@@ -105,7 +101,6 @@
             </tbody>
           </table>
         </div>
-      </div>   
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>

@@ -13,29 +13,32 @@
 </body>
 </html>
 <?php
-// include_once('./class/Conexion.php');
-// session_start();
-// $query = "
-// BEGIN  
-// PL_Login('%s','11', :data, :msj, :res);
-// END;
-// ";
-// $conexion = new Conexion();
-// $result = $conexion->query($query);
-// $data = $conexion->getCursor();
-// oci_bind_by_name($result, ':data', $data, -1, OCI_B_CURSOR);
-// oci_bind_by_name($result, ':msj', $msj, 2000);
-// oci_bind_by_name($result, ':res', $res);
-// oci_execute($result);
-
-// if($res==1){
-//   oci_execute($data);
-//   oci_fetch_all($data, $usuario, null, null, OCI_ASSOC);
-//   oci_free_cursor($data);
-//   oci_free_statement($result);
-//   $_SESSION['usuario'] = $usuario;
-// }
-// $respuesta['resultado'] = $res;
-// $respuesta['mensaje'] = $msj;
+include_once('./class/Conexion.php');
+session_start();
+$query = "
+BEGIN  
+PL_Login('elmeroqueso@gmail.com','11', :data, :msj, :res);
+END;
+";
+$conexion = new Conexion();
+$result = $conexion->query($query);
+$data = $conexion->getCursor();
+oci_bind_by_name($result, ':data', $data, -1, OCI_B_CURSOR);
+oci_bind_by_name($result, ':msj', $msj, 2000);
+oci_bind_by_name($result, ':res', $res);
+oci_execute($result);
+// 
+if($res==1){
+  oci_execute($data);
+  while($u = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)){
+    $usuario[]=$u;
+  }
+  oci_free_cursor($data);
+  oci_free_statement($result);
+  $_SESSION['usuario'] = $usuario;
+  echo json_encode($usuario);
+}
+$respuesta['resultado'] = $res;
+$respuesta['mensaje'] = $msj;
 // echo json_encode($respuesta);
 ?>

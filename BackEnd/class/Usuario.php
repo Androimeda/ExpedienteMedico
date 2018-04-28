@@ -95,21 +95,21 @@ class Usuario extends Persona{
 
 		if($res==1){
 		  oci_execute($data);
-		  oci_fetch_all($data, $usuario, null, null, OCI_ASSOC);
+		  while($u = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS)){
+		    $usuario[]=$u;
+		  }
 		  oci_free_cursor($data);
 		  oci_free_statement($result);
 		  $_SESSION['usuario'] = $usuario;
+		  echo json_encode($usuario);
 		}
 		$respuesta['resultado'] = $res;
 		$respuesta['mensaje'] = $msj;
 		return json_encode($respuesta);
 	}
-	public function getInfo($conexion){
-
-	}
 
 	public function registrar($conexion){
-
+		
 	}
 
 }
