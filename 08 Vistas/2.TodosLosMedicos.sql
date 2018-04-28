@@ -11,6 +11,7 @@ SELECT
   p.P_APELLIDO,
   p.S_APELLIDO,
   p.NO_IDENTIDAD,
+  p.DIRECCION,
   pa.NOMBRE as pais,
   p.SEXO,
   p.CORREO,
