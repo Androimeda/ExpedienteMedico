@@ -45,9 +45,9 @@ class Conexion{
 	}
 
   public function filas($query){
-    oci_execute($query);
-    $registros = [];
     if($this->do){
+      oci_execute($query);
+      $registros = [];
       while($registro = oci_fetch_array($query, OCI_ASSOC + OCI_RETURN_NULLS)){
         $registros[]=$registro;
       }

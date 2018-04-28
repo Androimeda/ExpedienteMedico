@@ -82,6 +82,27 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
+    'accion':'obtenerNumeroExpediente',
+    'idPersona': null,
+    'idPaciente': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Paciente.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
     'accion':'agregarDefuncion',
     'observacionCausa': null,
     'idExpediente': null,
@@ -105,8 +126,6 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'buscarPorNoIdentidad',
-    'idPersona': null,
-    'idPaciente': null,
     'noIdentidad': null,
   },
   success:function(respuesta){

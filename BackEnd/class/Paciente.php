@@ -279,7 +279,7 @@ class Paciente extends Persona{
 		return json_encode($respuesta);
 	}
 
-	public function getNumeroExpediente($conexion){
+	public function obtenerNumeroExpediente($conexion){
 		$query=sprintf("
 		    SELECT  v.ID_EXPEDIENTE 
 		    FROM VISTAPACIENTE v 

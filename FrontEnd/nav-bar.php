@@ -151,6 +151,7 @@
           </ul>
    </div>       
 </nav>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offsset-8">
@@ -162,7 +163,7 @@
          <p>Dirección: <?php echo $user['DIRECCION_CENTRO'] ?></p>
        </div>
        <div class="col-lg-3">
-         <img src="./img/foto-centro.png" alt="Centro" class="img img-responsive img-rounded">
+         <img src="./img/foto-centro.png" alt="Centro" class="img img-responsive img-rounded foto-centro">
        </div>
      </div>
     </div>

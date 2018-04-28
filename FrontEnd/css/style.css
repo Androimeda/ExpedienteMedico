@@ -40,5 +40,11 @@ body {
     margin: 0;
     margin-top: 3px;
     float: right; }
+  body .foto-centro {
+    width: 50px; }
+  body h5 {
+    color: #a02c2c; }
+  body .row {
+    margin-bottom: 20px; }
 
 /*# sourceMappingURL=style.css.map */

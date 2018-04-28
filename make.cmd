@@ -1,6 +1,3 @@
-#Generacion de codigo en bloques
-#Python scripting
-
 @echo off
 cd ".\06 PL-SQL\01 PLSQL\"
 @echo on

@@ -1,5 +1,27 @@
 $("#nav-item-paciente").addClass("active");
 
+function agregarFilaTablaPaciente(respuesta){
+	$("#tbl-paciente tbody").empty();
+	for (var i = 0; i < respuesta.length; i++) {
+		var paciente = respuesta[i];
+		var fila = 
+		"<tr>"+
+		"  <td>"+paciente.ID_EXPEDIENTE+"</td>"+
+		"  <td>"+paciente.FECHA_EXPEDIENTE+"</td>"+
+		"  <td>"+paciente.P_NOMBRE+"</td>"+
+		"  <td>"+paciente.S_NOMBRE+"</td>"+
+		"  <td>"+paciente.P_APELLIDO+"</td>"+
+		"  <td>"+paciente.S_APELLIDO+"</td>"+
+		"  <td>"+paciente.NO_IDENTIDAD+"</td>"+
+		"  <td>"+paciente.SEXO+"</td>"+
+		"  <td>"+paciente.DIRECCION+"</td>"+
+		"  <td>"+paciente.CORREO+"</td>"+
+		'  	<td><button onclick="editar('+paciente.ID_PACIENTE+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
+		"</tr>"
+		$("#tbl-paciente tbody").append(fila);
+	}
+}
+
 function cargaTablaPaciente(){
 	$.ajax({
 	  url:CONST_SITIO_URL+'/services/Paciente.php',
@@ -9,25 +31,7 @@ function cargaTablaPaciente(){
 	    'accion':'listarTodos',
 	  },
 	  success:function(respuesta){
-	    $("#tbl-paciente tbody").empty();
-	    for (var i = 0; i < respuesta.length; i++) {
-	    	paciente = respuesta[i];
-	    	var fila = 
-	    	"<tr>"+
-	    	"  <td>"+paciente.ID_EXPEDIENTE+"</td>"+
-	    	"  <td>"+paciente.FECHA_EXPEDIENTE+"</td>"+
-	    	"  <td>"+paciente.P_NOMBRE+"</td>"+
-	    	"  <td>"+paciente.S_NOMBRE+"</td>"+
-	    	"  <td>"+paciente.P_APELLIDO+"</td>"+
-	    	"  <td>"+paciente.S_APELLIDO+"</td>"+
-	    	"  <td>"+paciente.NO_IDENTIDAD+"</td>"+
-	    	"  <td>"+paciente.SEXO+"</td>"+
-	    	"  <td>"+paciente.DIRECCION+"</td>"+
-	    	"  <td>"+paciente.CORREO+"</td>"+
-	    	'  	<td><button onclick="editar('+paciente.ID_EXPEDIENTE+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
-	    	"</tr>"
-	    	$("#tbl-paciente tbody").append(fila);
-	    }
+	  	agregarFilaTablaPaciente(respuesta);
 	  },
 	  error: function(error){
 	    console.log(error);
@@ -94,7 +98,7 @@ function actualizar(){
 	  },
 	  success:function(respuesta){
 	    if (respuesta.resultado == true ){
-	    	alert("Actualizacion Correcta");
+	    	alert(respuesta.mensaje);
 	    	cargaTablaPaciente();
 	    }else
 	    	alert("No se pudo actualizar: "+ respuesta.mensaje);
@@ -111,6 +115,7 @@ function actualizar(){
 
 }
 
+//***** AL CARG
 $(document).ready(function(){
 	cargaTablaPaciente();
 });
@@ -187,3 +192,73 @@ $(document).ready(function() {
 	  }
 	});
 });
+
+function buscar(){
+	var criterio = $("#slc-filtro-pac").val();
+	var valor = $("#txt-busqueda").val();
+	switch(criterio){
+		case '1': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/Paciente.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorNombre',
+			    'pNombre': valor,
+			    'sNombre': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaPaciente(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+		case '2': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/Paciente.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorApellido',
+			    'sApellido': valor,
+			    'pApellido': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaPaciente(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+		case '3': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/Paciente.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorNoIdentidad',
+			    'noIdentidad': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaPaciente(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+	}
+
+}

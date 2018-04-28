@@ -14,7 +14,84 @@
     <!-- Fixed navbar -->
     <?php include("nav-bar.php") ?>
     <!-- Fin Navbar -->
-    <div class="container">      
+    <div class="container well card">   
+      <div class="row">
+        <div class="col-lg-12" id="titulo">
+          <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
+          <h1>Registro de Pacientes</h1>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <h5>Datos Personales</h5>
+            <table class="table">
+              <tr>
+                <td>Nombre: </td>
+                <td><input class="form-control" type="text" id="txt-" placeholder="Primer Nombre"></td>
+                <td><input class="form-control" type="text" id="txt-" placeholder="Segundo Nombre"></td>
+              </tr>
+              <tr>
+                <td>Apellidos: </td>
+                <td><input class="form-control" type="text" id="txt-" placeholder="Primer Apellido"></td>
+                <td><input class="form-control" type="text" id="txt-" placeholder="Segundo Apellido"></td>
+              </tr>
+              <tr>
+                <td>Identidad: </td>
+                <td colspan="2"><input class="form-control" type="text" id="txt-" placeholder="Número de Identidad"></td>
+              </tr>
+              <tr>
+                <td>Sexo:</td>
+                <td><input  id="rd-sex1" type="radio" name="rd-sexo" value="F"><label for="rd-sex1">Femenino</label></td>
+                <td><input id="rd-sex2" type="radio" name="rd-sexo" value="M"><label for="rd-sex2">Masculino</label></td>
+              </tr>
+              <tr>
+                <td>País</td>
+                <td colspan="2">
+                  <select class ="form-control" id="slc-pais">
+                    <option value="" hidden="">País</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Estado Civil: </td>
+                <td colspan="2">
+                  <select class ="form-control" id="slc-estado-civil">
+                    <option value="" hidden="">Estado Civil</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Ascendencia: </td>
+                <td colspan="2">
+                  <select class ="form-control" id="slc-ascendencia">
+                    <option value="" hidden="">Ascendencia</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>E-mail: </td>
+                <td colspan="2"><input type="email" placeholder="Email"></td>
+              
+              </tr>
+              <tr>
+                <td>Contraseña</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Contraseña: </td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-lg-6">
+            <h5>Datos Médicos</h5>
+            <table class="table">
+
+            </table>
+          </div>
+        </div>
+      </div>
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>

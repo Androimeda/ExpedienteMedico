@@ -264,6 +264,33 @@ case 'buscarPorApellido':
   echo $paciente->buscarPorApellido($conexion);
 break;
 
+case 'obtenerNumeroExpediente':
+
+  if(isset($_POST['idPersona']) && $_POST['idPersona']!=''){
+    $idPersona= $_POST['idPersona'];
+  }else{
+    $idPersona='null';
+    $res['mensaje']='Se necesita campo: idPersona';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idPaciente']) && $_POST['idPaciente']!=''){
+    $idPaciente= $_POST['idPaciente'];
+  }else{
+    $idPaciente='null';
+    $res['mensaje']='Se necesita campo: idPaciente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $paciente=new Paciente();
+  $paciente->setIdPersona($idPersona);
+  $paciente->setIdPaciente($idPaciente);
+  echo $paciente->obtenerNumeroExpediente($conexion);
+break;
+
 case 'agregarDefuncion':
 
   if(isset($_POST['observacionCausa'])){
@@ -304,26 +331,6 @@ break;
 
 case 'buscarPorNoIdentidad':
 
-  if(isset($_POST['idPersona']) && $_POST['idPersona']!=''){
-    $idPersona= $_POST['idPersona'];
-  }else{
-    $idPersona='null';
-    $res['mensaje']='Se necesita campo: idPersona';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idPaciente']) && $_POST['idPaciente']!=''){
-    $idPaciente= $_POST['idPaciente'];
-  }else{
-    $idPaciente='null';
-    $res['mensaje']='Se necesita campo: idPaciente';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
     $noIdentidad= $_POST['noIdentidad'];
   }else{
@@ -334,8 +341,6 @@ case 'buscarPorNoIdentidad':
     break;
   }
   $paciente=new Paciente();
-  $paciente->setIdPersona($idPersona);
-  $paciente->setIdPaciente($idPaciente);
   $paciente->setNoIdentidad($noIdentidad);
   echo $paciente->buscarPorNoIdentidad($conexion);
 break;

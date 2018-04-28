@@ -25,7 +25,7 @@
       <div class="row">
           <div class="col-lg-12">
             <div class="col-lg-4">
-              <input type="text" class="form-control" id="txt-paciente" placeholder="Búsqueda">
+              <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
             <div class="col-lg-4">
               <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
@@ -36,7 +36,8 @@
               </select>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-primary">Buscar</button>
+              <button type="button" class="btn btn-default" onclick="cargaTablaPaciente()">Limpiar</button>
+              <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
         </div>
       </div>
@@ -62,8 +63,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-offsset-8"></div>
-        <div class="col-lg-4">
+        <div class="col-lg-12">
           <a href="agregar-paciente.php" class="btn btn-primary">Agrega Paciente <span class="glyphicon glyphicon-plus"></span></a>
         </div>
       </div>

@@ -47,6 +47,15 @@ print
 
 url='Paciente'
 data={
+  'accion':'obtenerNumeroExpediente',
+  'idPersona': None,
+  'idPaciente': None,
+}
+print postear(data,url)
+print
+
+url='Paciente'
+data={
   'accion':'agregarDefuncion',
   'observacionCausa': None,
   'idExpediente': None,
@@ -58,8 +67,6 @@ print
 url='Paciente'
 data={
   'accion':'buscarPorNoIdentidad',
-  'idPersona': None,
-  'idPaciente': None,
   'noIdentidad': None,
 }
 print postear(data,url)
