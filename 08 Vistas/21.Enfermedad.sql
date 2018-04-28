@@ -1,0 +1,13 @@
+/*** ------------------- VISTA ENFERMEDAD ------------------------ *****/
+CREATE OR REPLACE VIEW VistaEnfermedad
+AS
+SELECT
+  e.ID_ENFERMEDAD
+,e.ENFERMEDAD
+,e.ID_TIPO_ENFERMEDAD
+,t.DESCRIPCION as tipo_enfermedad
+
+FROM ENFERMEDAD e
+INNER JOIN TIPOENFERMEDAD t
+  ON e.ID_TIPO_ENFERMEDAD = t.ID_TIPO_ENFERMEDAD
+;

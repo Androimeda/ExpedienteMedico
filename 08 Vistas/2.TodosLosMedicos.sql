@@ -1,0 +1,25 @@
+/*** Vista 2 :: *****/
+/*** Todos los medicos *****/
+CREATE OR REPLACE VIEW VistaMedico
+AS
+SELECT
+  med.ID_MEDICO,
+  med.NO_COLEGIACION,
+  p.ID_PERSONA,
+  p.P_NOMBRE,
+  p.S_NOMBRE,
+  p.P_APELLIDO,
+  p.S_APELLIDO,
+  p.NO_IDENTIDAD,
+  pa.NOMBRE as pais,
+  p.SEXO,
+  p.CORREO,
+  t.especialidad
+FROM MEDICO med
+INNER JOIN PERSONA p
+  ON p.ID_PERSONA = med.ID_PERSONA
+INNER JOIN ESPECIALIDAD t
+  ON t.ID_ESPECIALIDAD = med.ID_ESPECIALIDAD
+INNER JOIN PAIS pa
+  ON pa.ID_PAIS = p.ID_PAIS
+;
