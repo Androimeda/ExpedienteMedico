@@ -23,9 +23,35 @@ $.ajax({
 });
 
 }
+function listarEspecialidad(){
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Medico.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
+    'accion':'listarEspecialidad',
+  },
+  success:function(respuesta){
+   for (var i = 0; i < respuesta.length; i++) {
+        var especialidad = respuesta[i];
+        var fila = '<option value="'+especialidad.ID_ESPECIALIDAD+'">'+especialidad.ESPECIALIDAD+'</option>';
+        $("#slc-especialidad").append(fila);
+      }
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+}
 
 $(document).ready(function(){
 cargarTablaMedico();	
+listarEspecialidad();
+
 })
 
 
@@ -69,7 +95,7 @@ function editar(id){
 	    $("#txt-noidentidad").val(medico.NO_IDENTIDAD);
 	    $("#txt-sexo").val(medico.SEXO);
 	    $("#txt-direccion").val(medico.DIRECCION);
-	    $("#slc-especialidad").val(medico.ESPECIALIDAD);
+	    $("#slc-especialidad").val(medico.ID_ESPECIALIDAD);
 	    $("#txt-email").val(medico.CORREO);
 		$("#modal-editar").modal("show");
 	  },
@@ -80,4 +106,43 @@ function editar(id){
 	    //TO-DO
 	  }
 	});
+}
+
+
+function actualizar(){
+	var no_colegiacion= $("#txt-colegiacion").val();
+	var id_medico = $("#txt-id-medico").val();
+	var direccion = $("#txt-direccion").val();
+	var correo = $("#txt-email").val();
+	var especialidad = $("#slc-especialidad").val();
+	console.log(no_colegiacion)
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Medico.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'actualizar',
+	    'noColegiacion': no_colegiacion,
+	    'idMedico': id_medico,
+	    'direccion': direccion,
+	    'correo': correo,
+	    'idEspecialidad': especialidad,
+	  },
+	  success:function(respuesta){
+	    if (respuesta.resultado == true ){
+	    	alert(respuesta.mensaje);
+	    	cargarTablaMedico();
+	    }else
+	    	alert("No se pudo actualizar: "+ respuesta.mensaje);
+
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	    $("#modal-editar").modal("hide");
+	  }
+	});
+
 }

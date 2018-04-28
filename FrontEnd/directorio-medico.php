@@ -78,12 +78,10 @@
           <input type="hidden" value="" id="txt-id-medico">
           <div class="modal-body">
             <table class="table">
-              <tr>
                <tr>
                 <td>No. Colegiacion</td>
                 <td><input type="text" id="txt-colegiacion" disabled="disabled" class="form-control"></td>
-              </tr>
-              <tr>  
+              </tr>  
               <tr>
                 <td>Primer Nombre</td>
                 <td><input type="text" id="txt-pnombre" disabled="disabled" class="form-control"></td>
@@ -139,6 +137,7 @@
         </div>
       </div>
     </div>
+
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 
