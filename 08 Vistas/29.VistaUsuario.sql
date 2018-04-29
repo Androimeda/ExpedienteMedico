@@ -13,6 +13,7 @@ SELECT
   ,u.ID_USUARIO
   ,u.ID_TIPO_USUARIO
   ,tu.TIPO as tipo_usuario
+  ,cm.DIRECCION as direccion_centro
   ,cm.ID_CENTRO_MEDICO
   ,cm.NOMBRE as centro_medico
   ,tp.ID_TIPO_CENTRO

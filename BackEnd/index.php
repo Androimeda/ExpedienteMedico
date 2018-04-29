@@ -17,7 +17,7 @@ include_once('./class/Conexion.php');
 session_start();
 $query = "
 BEGIN  
-PL_Login('elmeroqueso@gmail.com','11', :data, :msj, :res);
+PL_Login('elmeroqueso@gmail.com','444', :data, :msj, :res);
 END;
 ";
 $conexion = new Conexion();
