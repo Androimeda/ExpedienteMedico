@@ -74,7 +74,7 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'listarTodos',
-    'idCentroMedico': null,
+    'idCentroMedico': $("#txt-centro").val(),
   },
   success:function(respuesta){
     console.log(respuesta);
