@@ -145,6 +145,17 @@
         </div>
       </div>
     </div>
+    
+    <!-- FAB ICON -->
+    <div class="container fab">
+      <div class="row">
+        <div class="col-lg-11"></div>
+        <div class="col-lg-1">
+          <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up"></span></a>
+        </div>
+      </div>
+    </div>
+    <!-- /FAB ICON -->
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>

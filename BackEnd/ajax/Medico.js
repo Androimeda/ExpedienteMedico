@@ -142,11 +142,7 @@ $.ajax({
     'accion':'listarEspecialidad',
   },
   success:function(respuesta){
-   for (var i = 0; i < respuesta.length; i++) {
-        var especialidad = respuesta[i];
-        var fila = '<option value="'+especialidad.ID_ESPECIALIDAD+'">'+especialidad.ESPECIALIDAD+'</option>';
-        $("#slc-especialidad").append(fila);
-      }
+    console.log(respuesta);
   },
   error: function(error){
     console.log(error);
