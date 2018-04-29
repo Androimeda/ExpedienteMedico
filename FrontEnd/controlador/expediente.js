@@ -1,5 +1,7 @@
 $("#nav-item-paciente").addClass("active");
 
+var paciente = null;
+
 function buscar(){
   var valor = $("#txt-noidentidad").val();
   $.ajax({
@@ -12,6 +14,7 @@ function buscar(){
     },
     success:function(respuesta){
       agregarFilaTablaBusqueda(respuesta);
+      paciente = respuesta;
     },
     error: function(error){
       console.log(error);
@@ -32,7 +35,7 @@ function agregarFilaTablaBusqueda(respuesta){
     "  <td>"+paciente.P_NOMBRE+" "+paciente.S_NOMBRE+" "+paciente.P_APELLIDO+" "+paciente.S_APELLIDO+"</td>"+
     "  <td>"+paciente.NO_IDENTIDAD+"</td>"+
     '  <td>'+
-      '<button onclick="expediente('+paciente.ID_EXPEDIENTE+')" class="btn btn-default btn-sm">'+
+      '<button onclick="expediente('+i+')" class="btn btn-default btn-sm">'+
         '<span class="glyphicon glyphicon-eye-open"></span>'+
       '</button>'+
     "</td>"+
@@ -47,8 +50,13 @@ function limpiar(){
   $('#txt-noidentidad').val("");
 }
 
-function expediente(id){
+function expediente(i){
+  var id = paciente[i].ID_EXPEDIENTE;
+  var pid = paciente[i].ID_PACIENTE;
   $(".sector-exp").show();
+
+  console.log(paciente[i]);
+
   $.ajax({
     url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
     method:'POST',
@@ -111,5 +119,70 @@ function expediente(id){
   complete: function(){
     //TO-DO
   }
-});
+  });
+  $.ajax({
+    url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
+    method:'POST',
+    dataType:'JSON',
+    data:{
+      'accion':'listarPorPaciente',
+      'idExpediente': id,
+    },
+    success:function(respuesta){
+      $("#tbl-hospitalizacion tbody").empty();
+      for (var i = 0; i < respuesta.length; i++) {
+        hospitalizacion = respuesta[i];
+        var fila =
+        "<tr>"+
+        "  <td>"+hospitalizacion.CENTRO_MEDICO+"</td>"+
+        "  <td>"+hospitalizacion.SALA+"</td>"+
+        "  <td>"+hospitalizacion.CAMA+"</td>"+
+        "  <td>"+hospitalizacion.MEDICO+"</td>"+
+        "  <td>"+hospitalizacion.FECHA_HORA_INGRESO+"</td>"+
+        "  <td>"+hospitalizacion.FECHA_HORA_ALTA+"</td>"+
+        "  <td>"+hospitalizacion.OBSERVACION+"</td>"+
+        "</tr>";
+        $("#tbl-hospitalizacion tbody").append(fila);
+      }
+    },
+    error: function(error){
+      console.log(error);
+    },
+    complete: function(){
+      //TO-DO
+    }
+  });
+
+  $.ajax({
+    url:CONST_SITIO_URL+'/services/Cirugia.php',
+    method:'POST',
+    dataType:'JSON',
+    data:{
+      'accion':'listarPorPaciente',
+      'idExpediente': id,
+    },
+    success:function(respuesta){
+      for (var i = 0; i < respuesta.length; i++) {
+        hospitalizacion = respuesta[i];
+        var fila =
+        "<tr>"+
+        "  <td>"+hospitalizacion.CENTRO_MEDICO+"</td>"+
+        "  <td>"+hospitalizacion.SALA+"</td>"+
+        "  <td>"+hospitalizacion.CAMA+"</td>"+
+        "  <td>"+hospitalizacion.MEDICO+"</td>"+
+        "  <td>"+hospitalizacion.FECHA_HORA_INGRESO+"</td>"+
+        "  <td>"+hospitalizacion.FECHA_HORA_ALTA+"</td>"+
+        "  <td>"+hospitalizacion.OBSERVACION+"</td>"+
+        "</tr>";
+        $("#tbl-hospitalizacion tbody").append(fila);
+      }
+    },
+    error: function(error){
+      console.log(error);
+    },
+    complete: function(){
+      //TO-DO
+    }
+  });
+
 }

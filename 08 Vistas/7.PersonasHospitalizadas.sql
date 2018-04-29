@@ -8,7 +8,7 @@ SELECT
   hp.FECHA_HORA_INGRESO,
   hp.FECHA_HORA_ALTA,
   cem.ID_CENTRO_MEDICO,
-  cem.NOMBRE as centro,
+  cem.NOMBRE as centro_medico,
   tc.DESCRIPCION as tipo_centro,
   ed.NOMBRE as edificio,
   p.ID_PISO,

@@ -1,4 +1,4 @@
-<?php include("sesion.php") ?>
+<?php include("sesion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -16,7 +16,7 @@
     <!-- Fin Navbar -->
     <div class="container">   
         <div class="row">
-            <div class="col-lg-8 well card">
+            <div class="col-lg-6 well card">
                 <h4>Buscar Expediente</h4>
                 <table class="table">
                     <tr>
@@ -40,6 +40,41 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+            </div>
+            <div class="col-lg-6 well card">
+              <h4>Datos Personales</h4>
+              <table class="table" id="tbl-info">
+                <tr>
+                  <td>Nombre: </td>
+                  <td id="td-nombre"></td>
+                  <td>Apellido: </td>
+                  <td id="td-apellido"></td>
+                </tr>
+                <tr>
+                  <td>No Identidad</td>
+                  <td id="td-noidentidad"></td>
+                  <td>Tipo Sanguíneo</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Ascendencia: </td>
+                  <td id="td-ascendencia"></td>
+                  <td>Estado Civil</td>
+                  <td id="td-estado-civil"></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
             </div>
             <div class="col-lg-12 well card sector-exp">
             <h4>Expediente</h4>
@@ -79,6 +114,46 @@
                     </table>
                   </div>
                 </div>
+            </div>            
+            <div class="col-lg-12 well card sector-exp">
+            <h5>Hospitalizacion</h5>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table" id="tbl-hospitalizacion">
+                      <thead>
+                        <th>Centro Medico</th>
+                        <th>Sala</th>
+                        <th>Cama</th>
+                        <th>Médico</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Fecha Alta</th>
+                        <th>Observación</th>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>            
+            <div class="col-lg-12 well card sector-exp">
+            <h5>Cirugía</h5>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table" id="tbl-cirugia">
+                      <thead>
+                        <th>Centro Medico</th>
+                        <th>Sala</th>
+                        <th>Cama</th>
+                        <th>Médico</th>
+                        <th>Fecha Ingreso</th>
+                        <th>Fecha Alta</th>
+                        <th>Observación</th>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
             </div>
         </div>
     </div> <!-- /container -->
@@ -87,7 +162,10 @@
       <div class="row">
         <div class="col-lg-11 col-lg-offsset-11"></div>
         <div class="col-lg-1">
-          <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-home"></span></a>
+          <a href="#tbl-consulta" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Consultas</a>
+          <a href="#tbl-emergencia" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Emergencias</a>
+          <a href="#tbl-hospitalizacion" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Hospitalizacion</a>
+          
           <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up"></span></a>
         </div>
       </div>

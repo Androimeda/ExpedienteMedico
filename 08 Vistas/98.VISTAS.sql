@@ -146,9 +146,11 @@ SELECT
     H.FECHA_HORA_ALTA,
     H.FECHA_HORA_INGRESO,
     PI.ID_PISO,
+    PI.DESCRIPCION as SALA,
     PI.ID_EDIFICIO,
     PI.DESCRIPCION AS descripcion_piso,
     CM.ID_CENTRO_MEDICO,
+    cm.NOMBRE as centro_medico,
     CM.ID_TIPO_CENTRO,
     PE.P_NOMBRE,
     PE.S_NOMBRE,
@@ -611,8 +613,8 @@ SELECT
   C.ID_CONSULTORIO,
   PI.DESCRIPCION AS piso,
   PI.ID_EDIFICIO,
-  M.ID_MEDICO,
-  (SELECT  FROM VistaMedico v WHERE v.ID_MEDICO = m.ID_MEDICO),
+  (SELECT P_NOMBRE ||' '|| S_NOMBRE  ||' '||  P_APELLIDO||' '|| S_APELLIDO FROM VISTAMEDICO v WHERE v.ID_MEDICO = m.ID_MEDICO) as medico,
+  (SELECT ESPECIALIDAD FROM VISTAMEDICO v WHERE v.ID_MEDICO = m.ID_MEDICO) as especialidad,
   CM.NOMBRE as centro_medico,
   EX.ID_PACIENTE,
   PE.P_NOMBRE,
@@ -681,6 +683,7 @@ INNER JOIN TIPOUSUARIO TU
   ON U.ID_TIPO_USUARIO = TU.ID_TIPO_USUARIO
 INNER JOIN PAIS pa
   ON P.ID_PAIS = pa.ID_PAIS
+;
 
 
 /*** Vista 3:: *****/
@@ -804,7 +807,7 @@ SELECT
   hp.FECHA_HORA_INGRESO,
   hp.FECHA_HORA_ALTA,
   cem.ID_CENTRO_MEDICO,
-  cem.NOMBRE as centro,
+  cem.NOMBRE as centro_medico,
   tc.DESCRIPCION as tipo_centro,
   ed.NOMBRE as edificio,
   p.ID_PISO,
