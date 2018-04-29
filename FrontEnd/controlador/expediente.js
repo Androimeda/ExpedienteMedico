@@ -184,19 +184,18 @@ function expediente(i){
       'idExpediente': id,
     },
     success:function(respuesta){
+      console.log(respuesta);
+      $("#tbl-cirugia tbody").empty();
       for (var i = 0; i < respuesta.length; i++) {
-        hospitalizacion = respuesta[i];
+        cirugia = respuesta[i];
         var fila =
         "<tr>"+
-        "  <td>"+hospitalizacion.CENTRO_MEDICO+"</td>"+
-        "  <td>"+hospitalizacion.SALA+"</td>"+
-        "  <td>"+hospitalizacion.CAMA+"</td>"+
-        "  <td>"+hospitalizacion.MEDICO+"</td>"+
-        "  <td>"+hospitalizacion.FECHA_HORA_INGRESO+"</td>"+
-        "  <td>"+hospitalizacion.FECHA_HORA_ALTA+"</td>"+
-        "  <td>"+hospitalizacion.OBSERVACION+"</td>"+
+        "  <td>"+cirugia.CENTRO_MEDICO+"</td>"+
+        "  <td>"+cirugia.MEDICO+"</td>"+
+        "  <td>"+cirugia.FECHA_HORA+"</td>"+
+        "  <td>"+cirugia.TIPO_CIRUGIA+"</td>"+
         "</tr>";
-        $("#tbl-hospitalizacion tbody").append(fila);
+        $("#tbl-cirugia tbody").append(fila);
       }
     },
     error: function(error){
@@ -207,6 +206,6 @@ function expediente(i){
     }
   });
 
-  
-  
+
+
 }

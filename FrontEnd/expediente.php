@@ -146,11 +146,9 @@
                     <table class="table" id="tbl-cirugia">
                       <thead>
                         <th>Centro Medico</th>
-                        <th>Sala</th>
                         <th>Médico</th>
-                        <th>Fecha Ingreso</th>
-                        <th>Fecha Alta</th>
-                        <th>Observación</th>
+                        <th>Fecha/Hora</th>
+                        <th>Cirugía</th>
                       </thead>
                       <tbody>
                       </tbody>
@@ -168,8 +166,9 @@
           <a href="#tbl-consulta" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Consultas</a>
           <a href="#tbl-emergencia" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Emergencias</a>
           <a href="#tbl-hospitalizacion" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Hospitalizacion</a>
+          <a href="#tbl-cirugia" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Cirugía</a>
           
-          <a href="#tbl-busqueda" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-chevron-up"></span></a>
+          <a href="#tbl-busqueda" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-chevron-up"></span> &nbsp; Datos</a>
         </div>
       </div>
     </div>

@@ -66,6 +66,14 @@ print
 
 url='Paramedico'
 data={
+  'accion':'buscarPorLicencia',
+  'licencia': None,
+}
+print postear(data,url)
+print
+
+url='Paramedico'
+data={
   'accion':'listar',
   'idParamedico': None,
 }

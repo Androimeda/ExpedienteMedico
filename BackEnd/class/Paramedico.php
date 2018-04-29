@@ -177,6 +177,18 @@ class Paramedico extends Persona{
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
+	}	
+	public function buscarPorLicencia($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaParamedico v 
+		    WHERE  v.LICENCIA = '%s' 
+		"
+		  ,$this->licencia
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 }
 ?>
