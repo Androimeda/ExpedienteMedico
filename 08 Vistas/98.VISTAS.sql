@@ -74,7 +74,6 @@ SELECT
   p.DIRECCION,
   pa.NOMBRE as pais,
   p.SEXO,
-  p.DIRECCION,
   p.CORREO,
   t.ID_ESPECIALIDAD,
   t.especialidad
@@ -495,7 +494,7 @@ INNER JOIN PACIENTE PA
   ON PA.ID_PACIENTE= EX.ID_PACIENTE
 INNER JOIN PERSONA PE
   ON PE.ID_PERSONA= PA.ID_PERSONA
-ORDER BY FECHA_HORA;
+ORDER BY FECHA_HORA
 ;
 
 
@@ -709,7 +708,7 @@ INNER JOIN PERSONA p
 
 
 /*** -------------------- VISTATRATAMIENTO -------------------------- *****/
-CREATE VIEW VIstaTratamiento
+CREATE OR REPLACE VIEW VIstaTratamiento
 AS
 SELECT
 t.*

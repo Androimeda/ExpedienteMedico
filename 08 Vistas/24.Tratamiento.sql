@@ -1,5 +1,5 @@
 /*** -------------------- VISTATRATAMIENTO -------------------------- *****/
-CREATE VIEW VIstaTratamiento
+CREATE OR REPLACE VIEW VIstaTratamiento
 AS
 SELECT
 t.*
