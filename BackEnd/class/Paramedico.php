@@ -127,7 +127,7 @@ class Paramedico extends Persona{
 
 	public function listarTodos($conexion){
 		$query=sprintf("
-		     SELECT  v.* 
+		     SELECT DISTINCT v.* 
 		     FROM VistaParamedico v INNER JOIN ATENCIONPREHOSPITALARIA a  ON a.ID_PARAMEDICO = v.ID_PARAMEDICO INNER JOIN AMBULANCIA amb  ON a.ID_AMBULANCIA = amb.ID_AMBULANCIA INNER JOIN CENTROMEDICO c  ON amb.ID_CENTRO_MEDICO = c.ID_CENTRO_MEDICO 
 		     WHERE c.ID_CENTRO_MEDICO =%s 
 		"

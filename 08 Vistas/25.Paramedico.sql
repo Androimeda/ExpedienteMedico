@@ -1,7 +1,7 @@
 /*** - --- --- --- --- --- --- --- ---  VISTA --- --- --- --- --- --- --- *****/
 CREATE OR REPLACE VIEW VistaParamedico
 AS
-SELECT
+SELECT DISTINCT
   par.ID_PARAMEDICO
   ,par.LICENCIA
   ,p.ID_PERSONA
@@ -13,6 +13,7 @@ SELECT
   ,pa.NOMBRE as pais
   ,p.SEXO
   ,p.CORREO
+  ,p.DIRECCION
 FROM PARAMEDICO par
 INNER JOIN PERSONA p
   ON par.ID_PERSONA = p.ID_PERSONA

@@ -47,7 +47,7 @@
                 <tr>
                   <td>Nombre: </td>
                   <td id="td-nombre"></td>
-                  <td>Apellido: </td>
+                  <td>Apellidos: </td>
                   <td id="td-apellido"></td>
                 </tr>
                 <tr>
@@ -57,16 +57,16 @@
                   <td></td>
                 </tr>
                 <tr>
+                  <td>Fecha Naciemiento: </td>
+                  <td id="td-fecha"></td>
+                  <td>Nacionalidad: </td>
+                  <td id="td-nacionalidad"></td>
+                </tr>
+                <tr>
                   <td>Ascendencia: </td>
                   <td id="td-ascendencia"></td>
                   <td>Estado Civil</td>
                   <td id="td-estado-civil"></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 <tr>
                   <td></td>

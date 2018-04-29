@@ -14,6 +14,18 @@ SELECT
   (SELECT n.FECHA_HORA FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE) as fecha_nac,
   (SELECT n.ID_MADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE) as id_madre,
   (SELECT n.ID_PADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE) as id_padre,
+  (
+    SELECT
+      per.p_nombre || ' '  || per.s_nombre ||  ' '  || per.p_apellido || ' '  || per.s_apellido
+      FROM PERSONA per
+      WHERE per.ID_PERSONA = (SELECT n.ID_MADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE)
+  ) as madre,
+  (
+    SELECT
+      per.p_nombre || ' '  || per.s_nombre ||  ' '  || per.p_apellido || ' '  || per.s_apellido
+      FROM PERSONA per
+      WHERE per.ID_PERSONA = (SELECT n.ID_PADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE)
+  ) as padre,
   p.DIRECCION,
   asce.ASCENDENCIA,
   pais.NOMBRE as nacionalidad,
