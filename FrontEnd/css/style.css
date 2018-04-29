@@ -56,11 +56,12 @@ body {
   body .fab {
     position: fixed;
     bottom: 5px;
-    right: 70px; }
+    right: 10px; }
   body .btn-success, body .btn-success:hover, body .btn-success:active:focus, body .btn-success:focus {
     color: #F0F0F0;
     background-color: #FFB400;
     border-color: #FFB400;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    color: #555555; }
 
 /*# sourceMappingURL=style.css.map */

@@ -35,10 +35,10 @@ function agregarFilaTablaBusqueda(respuesta){
     "  <td>"+paciente.P_NOMBRE+" "+paciente.S_NOMBRE+" "+paciente.P_APELLIDO+" "+paciente.S_APELLIDO+"</td>"+
     "  <td>"+paciente.NO_IDENTIDAD+"</td>"+
     '  <td>'+
-      '<button onclick="expediente('+i+')" class="btn btn-default btn-sm">'+
-        '<span class="glyphicon glyphicon-eye-open"></span>'+
-      '</button>'+
-    "</td>"+
+        '<button onclick="expediente('+i+')" class="btn btn-default btn-sm">'+
+          '<span class="glyphicon glyphicon-eye-open"></span>'+
+        '</button>'+
+      "</td>"+
     "</tr>";
     $("#tbl-resultado tbody").append(fila);
   }
@@ -51,11 +51,33 @@ function limpiar(){
 }
 
 function expediente(i){
-  var id = paciente[i].ID_EXPEDIENTE;
-  var pid = paciente[i].ID_PACIENTE;
+  var p = paciente[i];
+  var id = p.ID_EXPEDIENTE;
+  var pid = p.ID_PACIENTE;
   $(".sector-exp").show();
 
-  console.log(paciente[i]);
+  $("#td-nombre").html("");
+  $("#td-nombre").html(p.P_NOMBRE +" "+ p.S_NOMBRE);
+  $("#td-apellido").html("");
+  $("#td-apellido").html(p.P_APELLIDO +" "+ p.S_APELLIDO);
+  $("#td-noidentidad").html("");
+  $("#td-noidentidad").html(p.NO_IDENTIDAD);
+  $("#td-tipo-sangre").html("");
+  $("#td-tipo-sangre").html(p.GRUPO_SANGUINEO +" "+p.FACTOR_RH);
+  $("#td-fecha").html("");
+  $("#td-fecha").html(p.FECHA_NAC);
+  $("#td-nacionalidad").html("");
+  $("#td-nacionalidad").html(p.NACIONALIDAD);
+  $("#td-ascendencia").html("");
+  $("#td-ascendencia").html(p.ASCENDENCIA);
+  $("#td-estado-civil").html("");
+  $("#td-estado-civil").html(p.ESTADO_CIVIL);
+  $("#td-madre").html("");
+  $("#td-padre").html("");
+  $("#td-direccion").html("");
+  $("#td-madre").html(p.MADRE);
+  $("#td-padre").html(p.PADRE);
+  $("#td-direccion").html(p.DIRECCION);
 
   $.ajax({
     url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
@@ -185,4 +207,6 @@ function expediente(i){
     }
   });
 
+  
+  
 }

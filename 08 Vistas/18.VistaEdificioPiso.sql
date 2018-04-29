@@ -1,5 +1,5 @@
 /*** ------------------- VISTA EFICIO ------------------------ *****/
-CREATE OR REPLACE VIEW VistaEdificio
+CREATE OR REPLACE VIEW VistaEdificioPiso
 AS
 SELECT
     PI.*,

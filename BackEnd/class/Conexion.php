@@ -23,7 +23,8 @@ class Conexion{
     $this->link = oci_connect(
       $this->usuario,
       $this->pass,
-      $this->host.'/'.$this->db
+      $this->host.'/'.$this->db,
+      "AL32UTF8"
     );
     // Comprueba la conexion
     if (!$this->link) {
