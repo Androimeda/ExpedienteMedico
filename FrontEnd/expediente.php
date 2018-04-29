@@ -147,7 +147,6 @@
                       <thead>
                         <th>Centro Medico</th>
                         <th>Sala</th>
-                        <th>Cama</th>
                         <th>Médico</th>
                         <th>Fecha Ingreso</th>
                         <th>Fecha Alta</th>
