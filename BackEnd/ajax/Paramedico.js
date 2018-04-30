@@ -67,6 +67,25 @@ $.ajax({
   }
 });
 
+// $.ajax({
+//   url:CONST_SITIO_URL+'/services/Paramedico.php',
+//   method:'POST',
+//   dataType:'JSON',
+//   data:{
+//     'accion':'buscarPorLicencia',
+//     'licencia': null,
+  
+//   },
+//   success:function(respuesta){
+//     console.log(respuesta);
+//   },
+//   error: function(error){
+//     console.log(error);
+//   },
+//   complete: function(){
+//     //TO-DO
+//   }
+// });
 
 $.ajax({
   url:CONST_SITIO_URL+'/services/Paramedico.php',
@@ -74,7 +93,7 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'listarTodos',
-    'idCentroMedico': $("#txt-centro").val(),
+    'idCentroMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);

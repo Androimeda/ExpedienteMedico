@@ -27,11 +27,12 @@
               <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
             <div class="col-lg-4">
-              <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
+              <select name="slc-filtro-pm" class ="form-control" id="slc-filtro-pm">
                 <option value="" hidden="">Filtro</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
                 <option value="3">No Identidad</option>
+                <option value="4">Licencia</option>
               </select>
             </div>
             <div class="col-lg-4">
@@ -74,7 +75,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
           </div>
-          <input type="hidden" value="" id="txt-id-paciente">
+          <input type="hidden" value="" id="txt-id-paramedico">
           <div class="modal-body">
             <table class="table">
               <tr>

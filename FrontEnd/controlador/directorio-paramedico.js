@@ -76,29 +76,25 @@ function editar(id){
 
 
 function actualizar(){
-	var id_paciente = $("#txt-id-paciente").val();
-	var direccion = $("#txt-direccion").val();
 	var correo = $("#txt-email").val();
-	var id_escolaridad = $("#slc-escolaridad").val();
-	var id_estado_civil = $("#slc-estado-civil").val();
-	var id_ocupacion = $("#slc-ocupacion").val();
+	var idParamedico = $("#txt-id-paramedico").val();
+	var licencia = $("#txt-plicencia").val();
+	var direccion = $("#txt-direccion").val();
 	$.ajax({
-	  url:CONST_SITIO_URL+'/services/Paciente.php',
+	  url:CONST_SITIO_URL+'/services/Paramedico.php',
 	  method:'POST',
 	  dataType:'JSON',
 	  data:{
 	    'accion':'actualizar',
-	    'direccion': direccion,
-	    'idOcupacion': id_ocupacion,
-	    'idPaciente': id_paciente,
-	    'idEstadoCivil': id_estado_civil,
 	    'correo': correo,
-	    'idEscolaridad': id_escolaridad,
+	    'idParamedico': idParamedico,
+	    'licencia': licencia,
+	    'direccion': direccion,
 	  },
 	  success:function(respuesta){
 	    if (respuesta.resultado == true ){
 	    	alert(respuesta.mensaje);
-	    	cargaTablaPaciente();
+	    	cargaTablaParamedico();
 	    }else
 	    	alert("No se pudo actualizar: "+ respuesta.mensaje);
 
@@ -117,3 +113,94 @@ function actualizar(){
 $(document).ready(function(){
 	cargaTablaParamedico();
 });
+
+
+function buscar(){
+	var criterio = $("#slc-filtro-pm").val();
+	var valor = $("#txt-busqueda").val();
+	switch(criterio){
+		case '1': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/Paramedico.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorNombre',
+			    'pNombre': valor,
+			    'sNombre': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaParamedico(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+		case '2': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/Paramedico.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorApellido',
+			    'sApellido': valor,
+			    'pApellido': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaParamedico(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+		case '3': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/Paramedico.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorNoIdentidad',
+			    'noIdentidad': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaParamedico(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+		case '4': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/Paramedico.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorLicencia',
+			    'licencia': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaParamedico(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+	}
+
+}
