@@ -169,17 +169,17 @@ function buscarPadre(){
 }
 
 function seleccionar(i){
-	// limpiar();
+	limpiar();
 	var p = paciente[i];
 	$("#txt-id-expediente").val(p.ID_EXPEDIENTE);
 }
 function seleccionarMadre(i){
-	// limpiarTablaMadre();
+	limpiarTablaMadre();
 	var p = madre[i];
 	$("#txt-id-madre").val(p.ID_PERSONA);
 }
 function seleccionarPadre(i){
-	// limpiarTablaPadre();
+	limpiarTablaPadre();
 	var p = padre[i];
 	$("#txt-id-padre").val(p.ID_PERSONA);
 }
