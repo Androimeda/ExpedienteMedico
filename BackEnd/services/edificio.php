@@ -33,6 +33,33 @@ case 'crear':
   echo $edificio->crear($conexion);
 break;
 
+case 'listarPisos':
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idEdificio']) && $_POST['idEdificio']!=''){
+    $idEdificio= $_POST['idEdificio'];
+  }else{
+    $idEdificio='null';
+    $res['mensaje']='Se necesita campo: idEdificio';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $edificio=new Edificio();
+  $edificio->setIdCentroMedico($idCentroMedico);
+  $edificio->setIdEdificio($idEdificio);
+  echo $edificio->listarPisos($conexion);
+break;
+
 case 'actualizarPiso':
 
   if(isset($_POST['descripcion'])){

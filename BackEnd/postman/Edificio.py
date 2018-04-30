@@ -13,6 +13,15 @@ print
 
 url='Edificio'
 data={
+  'accion':'listarPisos',
+  'idCentroMedico': None,
+  'idEdificio': None,
+}
+print postear(data,url)
+print
+
+url='Edificio'
+data={
   'accion':'actualizarPiso',
   'descripcion': None,
   'idPiso': None,

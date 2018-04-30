@@ -175,5 +175,21 @@ class Edificio{
 		}
 		return json_encode($respuesta);
 	}
+
+	public function listarPisos($conexion){
+		$query=sprintf("
+		    SELECT *
+		    FROM VistaEdificioPiso
+		    WHERE
+		    	ID_CENTRO_MEDICO = %s
+		    	AND ID_EDIFICIO = %s
+		"
+		  ,$this->idCentroMedico
+		  ,$this->idEdificio
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
 }
 ?>

@@ -2,6 +2,12 @@ $("#nav-item-paciente").addClass("active");
 
 var paciente = null;
 
+
+function limpiar(){
+  $('#tbl-resultado tbody').empty();
+  $('#txt-noidentidad').val("");
+}
+
 function buscar(){
   var valor = $("#txt-noidentidad").val();
   $.ajax({
@@ -45,7 +51,7 @@ function agregarFilaTablaBusqueda(respuesta){
 }
 
 function seleccionar(i){
-	// limpiar();
+	limpiar();
 	var p = paciente[i];
 	$("#txt-id-expediente").val(p.ID_EXPEDIENTE);
 }
