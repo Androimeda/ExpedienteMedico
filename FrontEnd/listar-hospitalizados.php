@@ -81,7 +81,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Editar Hospitalizacion</h4>
           </div>
-          <input type="hidden" value="" id="txt-id-hospitalizaciones">
+          <input type="hidden" value="" id="txt-id-hospitalizaciones" value="<?php echo $user["ID_CENTRO_MEDICO"] ?>">
           <div class="modal-body">
             <table class="table">
               <tr>
