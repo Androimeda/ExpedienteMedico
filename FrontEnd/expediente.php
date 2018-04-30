@@ -46,42 +46,42 @@
               <table class="table" id="tbl-info">
                 <tr>
                   <td>Nombre: </td>
-                  <td id="td-nombre"></td>
+                  <td class="td-info" id="td-nombre"></td>
                   <td>Apellidos: </td>
-                  <td id="td-apellido"></td>
+                  <td class="td-info" id="td-apellido"></td>
                 </tr>
                 <tr>
                   <td>No Identidad</td>
-                  <td id="td-noidentidad"></td>
+                  <td class="td-info" id="td-noidentidad"></td>
                   <td>Tipo Sanguíneo</td>
-                  <td id="td-tipo-sangre"></td>
+                  <td class="td-info" id="td-tipo-sangre"></td>
                 </tr>
                 <tr>
                   <td>Fecha Nacimiento: </td>
-                  <td id="td-fecha"></td>
+                  <td class="td-info" id="td-fecha"></td>
                   <td>Nacionalidad: </td>
-                  <td id="td-nacionalidad"></td>
+                  <td class="td-info" id="td-nacionalidad"></td>
                 </tr>
                 <tr>
                   <td>Ascendencia: </td>
-                  <td id="td-ascendencia"></td>
+                  <td class="td-info" id="td-ascendencia"></td>
                   <td>Estado Civil</td>
-                  <td id="td-estado-civil"></td>
+                  <td class="td-info" id="td-estado-civil"></td>
                 </tr>
                 <tr>
                   <td>Madre</td>
-                  <td id="td-madre"></td>
+                  <td class="td-info" id="td-madre"></td>
                   <td>Padre</td>
-                  <td id="td-padre"></td>
+                  <td class="td-info" id="td-padre"></td>
                 </tr>
                 <tr>
                   <td>Dirección</td>
-                  <td id="td-direccion"></td>
+                  <td class="td-info" id="td-direccion"></td>
                 </tr>
               </table>
             </div>
             <div class="col-lg-12 well card sector-exp">
-            <h4>Expediente</h4>
+            <h4 id="div-consulta">Expediente</h4>
             <h5>Consulta Externa</h5>
                 <div class="row">
                   <div class="col-lg-12">
@@ -102,7 +102,7 @@
                 </div>
             </div>            
             <div class="col-lg-12 well card sector-exp">
-            <h5>Emergencia</h5>
+            <h5 id="div-emergencia">Emergencia</h5>
                 <div class="row">
                   <div class="col-lg-12">
                     <table class="table" id="tbl-emergencia">
@@ -120,7 +120,7 @@
                 </div>
             </div>            
             <div class="col-lg-12 well card sector-exp">
-            <h5>Hospitalizacion</h5>
+            <h5 id="div-hospitalizacion">Hospitalizacion</h5>
                 <div class="row">
                   <div class="col-lg-12">
                     <table class="table" id="tbl-hospitalizacion">
@@ -140,7 +140,7 @@
                 </div>
             </div>            
             <div class="col-lg-12 well card sector-exp">
-            <h5>Cirugía</h5>
+            <h5 id="div-cirugia">Cirugía</h5>
                 <div class="row">
                   <div class="col-lg-12">
                     <table class="table" id="tbl-cirugia">
@@ -157,7 +157,7 @@
                 </div>
             </div>            
             <div class="col-lg-12 well card sector-exp">
-            <h5>Enfermedad</h5>
+            <h5 id="div-enfermedad">Enfermedad</h5>
                 <div class="row">
                   <div class="col-lg-12">
                     <table class="table" id="tbl-enfermedad">
@@ -173,6 +173,25 @@
                     </table>
                   </div>
                 </div>
+            </div>            
+            <div class="col-lg-12 well card sector-exp">
+            <h5 id="div-tratamiento">Tratamiento</h5>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table" id="tbl-tratamiento">
+                      <thead>
+                        <th>Fecha Indicación</th>
+                        <th>Tratamiento</th>
+                        <th>Dosis</th>
+                        <th>Intervalo</th>
+                        <th>Duración</th>
+                        <th>Via Suministro</th>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
             </div>
         </div>
     </div> <!-- /container -->
@@ -180,11 +199,12 @@
     <div class="container fab">
       <div class="row">
         <div class="col-lg-12">
-          <a href="#tbl-consulta" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Consultas</a>
-          <a href="#tbl-emergencia" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Emergencias</a>
-          <a href="#tbl-hospitalizacion" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Hospitalizacion</a>
-          <a href="#tbl-cirugia" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Cirugía</a>
-          <a href="#tbl-enfermedad" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Enfermedad</a>
+          <a href="#div-consulta" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp; Consultas</a>
+          <a href="#div-emergencia" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp; Emergencias</a>
+          <a href="#div-hospitalizacion" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp; Hospitalizacion</a>
+          <a href="#div-cirugia" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp; Cirugía</a>
+          <a href="#div-enfermedad" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp; Enfermedad</a>
+          <a href="#div-tratamiento" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp; Tratamiento</a>
           
           <a href="#tbl-busqueda" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up"></span> &nbsp; Datos</a>
         </div>

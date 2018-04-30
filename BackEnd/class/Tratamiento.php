@@ -301,9 +301,8 @@ class Tratamiento{
 	}
 	public function listarPorPaciente($conexion){
 		$query=sprintf("
-		    SELECT e.ID_PACIENTE ,c.ID_CONSULTA ,v.* 
-		    FROM TRATAMIENTOCONSULTA tc INNER JOIN CONSULTAEXTERNA c  ON tc.ID_CONSULTA = c.ID_CONSULTA INNER JOIN EXPEDIENTE e  ON c.ID_EXPEDIENTE = e.ID_EXPEDIENTE INNER JOIN VIstaTratamiento v  ON v.ID_TRATAMIENTO = tc.ID_TRATAMIENTO 
-		    WHERE e.ID_PACIENTE =%s
+		   SELECT * FROM VISTATRATAMIENTOCONSULTAS v 
+		    WHERE v.ID_PACIENTE =%s
 		"
 		  ,$this->idPaciente
 		);

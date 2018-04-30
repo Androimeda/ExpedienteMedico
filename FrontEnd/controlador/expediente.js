@@ -51,6 +51,7 @@ function limpiar(){
 }
 
 function expediente(i){
+  limpiar();
   var p = paciente[i];
   var id = p.ID_EXPEDIENTE;
   var pid = p.ID_PACIENTE;
@@ -223,7 +224,7 @@ function expediente(i){
         "  <td>"+enfermedad.MEDICO+"</td>"+
         "  <td>"+enfermedad.ESPECIALIDAD+"</td>"+
         "  <td>"+enfermedad.ENFERMEDAD+"</td>"+
-        "  <td>"+enfermedad.ESTADO+"</td>"+
+        "  <td>"+(enfermedad.ESTADO == 1? 'Sí' : 'No') +"</td>"+
         "</tr>";
         $("#tbl-enfermedad tbody").append(fila);
       }
@@ -236,6 +237,38 @@ function expediente(i){
     }
   });
 
+  $.ajax({
+    url:CONST_SITIO_URL+'/services/Tratamiento.php',
+    method:'POST',
+    dataType:'JSON',
+    data:{
+      'accion':'listarPorPaciente',
+      'idPaciente': id,
+    },
+    success:function(respuesta){
+      console.log(respuesta);
+      $("#tbl-tratamiento tbody").empty();
+      for (var i = 0; i < respuesta.length; i++) {
+        tratamiento = respuesta[i];
+        var fila =
+        "<tr>"+
+        "  <td>"+tratamiento.FECHA+"</td>"+
+        "  <td>"+tratamiento.TIPO_TRATAMIENTO+"</td>"+
+        "  <td>"+tratamiento.DOSIS+"</td>"+
+        "  <td>"+tratamiento.INTERVALO_TIEMPO+"</td>"+
+        "  <td>"+tratamiento.DURACION+"</td>"+
+        "  <td>"+tratamiento.VIA_SUMINISTRO+"</td>"+
+        "</tr>";
+        $("#tbl-tratamiento tbody").append(fila);
+      }
+    },
+    error: function(error){
+      console.log(error);
+    },
+    complete: function(){
+      //TO-DO
+    }
+  });
 
 
 }
