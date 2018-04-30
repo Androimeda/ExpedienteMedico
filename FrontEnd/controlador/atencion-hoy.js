@@ -10,7 +10,7 @@ function agregarFilaTablaAPHoy(respuesta){
 		"  <td>"+aph.FECHA_HORA_ATENCION+"</td>"+
 		"  <td>"+aph.ID_ATENCION+"</td>"+
 		"  <td>"+aph.PLACA+"</td>"+
-		"  <td>"+aph.ID_CENTRO+"</td>"+
+		"  <td>"+aph.ID_CENTRO_MEDICO+"</td>"+
 		"  <td>"+aph.OBSERVACION+"</td>"+
 		"  <td>"+aph.P_NOMBRE+"</td>"+
 		"  <td>"+aph.S_NOMBRE+"</td>"+
@@ -47,7 +47,11 @@ function cargaTablaAPHoy(){
 	  }
 	});
 }
+<<<<<<< HEAD
 
+=======
+//***** AL CARG
+>>>>>>> 6877f85a37bca859dcd219f0d2cb2552d45f91d1
 $(document).ready(function(){
 	cargaTablaAPHoy();
 });

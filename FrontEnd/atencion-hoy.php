@@ -28,7 +28,7 @@
               <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
             <div class="col-lg-4">
-              <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
+              <select name="slc-filtro-aph" class ="form-control" id="slc-filtro-aph">
                 <option value="" hidden="">Filtro</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
@@ -69,6 +69,7 @@
         </div>
       </div>   
     </div> <!-- /container -->
+    <input type="hidden" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>" id="txt-id-aph">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 
