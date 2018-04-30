@@ -154,5 +154,15 @@ class Consultorio{
 		$respuesta['resultado'] = $res == 1;
 		return json_encode($respuesta);
 	}
+	public function listarTurnos($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM TURNO
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
 }
 ?>

@@ -12,17 +12,25 @@ print
 
 url='Consultorio'
 data={
-  'accion':'listarPorPiso',
-  'idPiso': None,
+  'accion':'listarTurnos',
 }
 print postear(data,url)
 print
 
 url='Consultorio'
 data={
-  'accion':'listarPorCentro',
-  'idCentroMedico': None,
-  'nombreCentro': None,
+  'accion':'vincularMedico',
+  'idTurno': None,
+  'idMedico': None,
+  'idConsultorio': None,
+}
+print postear(data,url)
+print
+
+url='Consultorio'
+data={
+  'accion':'listarPorPiso',
+  'idPiso': None,
 }
 print postear(data,url)
 print
@@ -37,10 +45,9 @@ print
 
 url='Consultorio'
 data={
-  'accion':'vincularMedico',
-  'idTurno': None,
-  'idMedico': None,
-  'idConsultorio': None,
+  'accion':'listarPorCentro',
+  'idCentroMedico': None,
+  'nombreCentro': None,
 }
 print postear(data,url)
 print
