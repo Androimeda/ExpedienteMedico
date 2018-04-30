@@ -14,8 +14,60 @@
     <!-- Fixed navbar -->
     <?php include("nav-bar.php") ?>
     <!-- Fin Navbar -->
-    <div class="container">      
+    <div class="container"> 
+    <div class="row">
+        <div class="col-lg-12" id="titulo">
+          <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
+          <h1>Listado de pacientes</h1>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-4">
+              <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
+            </div>
+            <div class="col-lg-4">
+              <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
+                <option value="" hidden="">Filtro</option>
+                <option value="1">Nombre</option>
+                <option value="2">Apellido</option>
+                <option value="3">No Identidad</option>
+              </select>
+            </div>
+            <div class="col-lg-4">
+              <button type="button" class="btn btn-default" onclick="cargaTablaPaciente()">Limpiar</button>
+              <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <table class="table table-striped" id="tbl-aph">
+            <thead>
+              <th>Atencion</th>
+              <th>Placa</th>
+              <th>id Centro</th>
+              <th>Observacion</th>
+              <th>Primer Nombre</th>
+              <th>Segundo Nombre</th>
+              <th>Primer Apellido</th>
+              <th>Segundo Apellido</th>
+              <th>No identidad</th>
+              <th>Sexo</th>
+              <th>Paramedico</th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="agregar-paciente.php" class="btn btn-primary">Agrega Paciente <span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+      </div>
     </div> <!-- /container -->
+
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 
