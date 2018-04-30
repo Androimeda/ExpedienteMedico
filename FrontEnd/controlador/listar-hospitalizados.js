@@ -13,12 +13,12 @@ function agregarFilaTablaHospitalizaciones(respuesta){
 		"  <td>"+hospitalizaciones.FECHA_HORA_INGRESO+"</td>"+
 		"  <td>"+hospitalizaciones.FECHA_HORA_ALTA+"</td>"+
 		"  <td>"+hospitalizaciones.ID_CENTRO_MEDICO+"</td>"+
-		"  <td>"+hospitalizaciones.PISO+"</td>"+
+		"  <td>"+hospitalizaciones.DESCRIPCION+"</td>"+
 		"  <td>"+hospitalizaciones.CAMA+"</td>"+
 		"  <td>"+hospitalizaciones.ID_MEDICO+"</td>"+
 		"  <td>"+hospitalizaciones.NO_IDENTIDAD+"</td>"+
-		'  	<td><button onclick="editar('+hospitalizaciones.ID_INGRESO+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
-		"</tr>"
+		// '  	<td><button onclick="editar('+hospitalizaciones.ID_INGRESO+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
+		// "</tr>"
 		$("#tbl-hospitalizaciones tbody").append(fila);
 	}
 }
@@ -51,6 +51,7 @@ $(document).ready(function(){
 
 
 function editar(id){
+
 	$("#txt-id-hospitalizaciones").val(id);
 	$.ajax({
 	  url:CONST_SITIO_URL+'/services/hospitalizacion.php',
@@ -69,11 +70,11 @@ function editar(id){
 	    $("#txt-ingreso").val(hospitalizacion.FECHA_HORA_INGRESO);
 	    $("#txt-alta").val(paramedico.FECHA_HORA_ALTA);
 	    $("#txt-centroMedico").val(hospitalizacion.ID_CENTRO_MEDICO);
-	    $("#txt-sala").val(hospitalizacion.PISO);
+	    $("#txt-sala").val(hospitalizacion.DESCRIPCION);
 	    $("#txt-cama").val(hospitalizacion.CAMA);
 	    $("#txt-medico").val(hospitalizacion.ID_MEDICO);
 	    $("#txt-noidentidad").val(hospitalizacion.NO_IDENTIDAD);
-	   
+	    $("#modal-editar").modal("show");
 	  },
 	  error: function(error){
 	    console.log(error);
