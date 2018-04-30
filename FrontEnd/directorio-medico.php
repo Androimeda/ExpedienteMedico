@@ -28,11 +28,13 @@
               <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
             <div class="col-lg-4">
-              <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
+              <select name="
+              " class ="form-control" id="slc-filtro-med" name="slc-filtro-med">
                 <option value="" hidden="">Filtro</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
                 <option value="3">No Identidad</option>
+                <option value="4">No Colegiacion</option>
               </select>
             </div>
             <div class="col-lg-4">

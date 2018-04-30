@@ -31,7 +31,7 @@
                 <option value="" hidden="">Filtro</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
-                <option value="3">No Identidad</option>
+                <option value="3">NoIdentidad</option>
                 <option value="4">Licencia</option>
               </select>
             </div>

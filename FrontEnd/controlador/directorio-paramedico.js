@@ -112,8 +112,8 @@ function actualizar(){
 
 $(document).ready(function(){
 	cargaTablaParamedico();
-});
 
+});
 
 function buscar(){
 	var criterio = $("#slc-filtro-pm").val();
