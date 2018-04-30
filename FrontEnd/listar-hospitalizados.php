@@ -14,7 +14,131 @@
     <!-- Fixed navbar -->
     <?php include("nav-bar.php") ?>
     <!-- Fin Navbar -->
-    <div class="container">      
+    <div class="container"> 
+    <div class="row">
+        <div class="col-lg-12" id="titulo">
+          <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
+          <h1>Listado de Hospitalizaciones</h1>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-4">
+              <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
+            </div>
+            <div class="col-lg-4">
+              <select name="slc-filtro-hosp" class ="form-control" id="slc-filtro-hosp">
+                <option value="" hidden="">Filtro</option>
+                <option value="1">Nombre</option>
+                <option value="2">Apellido</option>
+                <option value="3">No Identidad</option>
+                <option value="4">Cama</option>
+                <option value="5">Sala</option>
+                <option value="6">Ingreso</option>
+              </select>
+            </div>
+            <div class="col-lg-4">
+              <button type="button" class="btn btn-default" onclick="cargarTablaHospitalizaciones()">Limpiar</button>
+              <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <table class="table table-striped" id="tbl-hospitalizaciones">
+            <thead>
+              <th>Ingreso</th>
+              <th>Primer Nombre</th>
+              <th>Primer Apellido</th>
+              <th>Observación</th>
+              <th>Fecha Ingreso</th>
+              <th>Fecha Alta</th>
+              <th>Centro Medico</th>
+              <th>Sala</th>
+              <th>Cama</th>
+              <th>Médico</th>
+              <th>No identidad</th>
+              <th>Editar</th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="agregar-hospitalizacion.php" class="btn btn-primary">Agrega Hospitalizaciones <span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Editar Hospitalizacion</h4>
+          </div>
+          <input type="hidden" value="" id="txt-id-hospitalizaciones">
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <td>IdIngreso:</td>
+                <td><input type="text" id="txt-idingreso" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr><tr>
+                <td>Primer Nombre:</td>
+                <td><input type="text" id="txt-pnombre" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Primer Apellido:</td>
+                <td><input type="text" id="txt-papellido" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Observacion:</td>
+                <td><input type="text" id ="txt-obs" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr><tr>
+                <td>Ingreso:</td>
+                <td><input type="text" id ="txt-ingreso" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Alta:</td>
+                <td><input type="text" id="txt-alta"  class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Centro Medico: </td>
+                <td>
+                  <textarea id="txt-centroMedico" class="form-control" maxlength="50" rows="1" ></textarea>
+                </td>
+              </tr>
+              <tr><tr>
+                <td>Sala: </td>
+                <td>
+                  <textarea id="txt-sala" class="form-control" maxlength="50" rows="1" ></textarea>
+                </td>
+              </tr>
+              <tr><tr>
+                <td>Cama: </td>
+                <td>
+                  <textarea id="txt-cama" class="form-control" maxlength="50" rows="1" ></textarea>
+                </td>
+              </tr>
+              <tr><tr>
+                <td>Medico: </td>
+                <td>
+                  <textarea id="txt-medico" class="form-control" maxlength="50" rows="1" ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>No Identidad: </td>
+                <td>
+                  <input type="email" id="txt-noidentidad" id="txt-identidad" class="form-control">
+                </td>
+              </tr>
+              
+      </div>     
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
