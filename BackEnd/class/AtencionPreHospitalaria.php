@@ -159,6 +159,48 @@ class AtencionPreHospitalaria{
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
 	}	
+
+	public function buscarPorNombre($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAAPH v 
+		    WHERE  v.P_NOMBRE = '%s'  OR v.S_NOMBRE = '%s' 
+		"
+		  ,$this->getPNombre()
+		  ,$this->getSNombre()
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+	public function buscarPorApellido($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAAPH v 
+		    WHERE  v.P_APELLIDO = '%s'  OR v.S_APELLIDO = '%s' 
+		"
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
+	public function buscarPorNoIdentidad($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAAPH v 
+		    WHERE  v.NO_IDENTIDAD LIKE '%%%s%%'
+		"
+		  ,$this->getNoIdentidad()
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
+
 	public function listarPorCentroDiarias($conexion){
 		$query=sprintf("
 		   SELECT

@@ -64,7 +64,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <a href="agregar-paciente.php" class="btn btn-primary">Agrega Atencion PreHospitalaria <span class="glyphicon glyphicon-plus"></span></a>
+          <a href="agregar-atencion.php" class="btn btn-primary">Agrega Atencion PreHospitalaria <span class="glyphicon glyphicon-plus"></span></a>
         </div>
       </div>
     </div> <!-- /container -->

@@ -50,3 +50,74 @@ function cargaTablaAPHoy(){
 $(document).ready(function(){
 	cargaTablaAPHoy();
 });
+
+
+function buscar(){
+	var criterio = $("#slc-filtro-aph").val();
+	var valor = $("#txt-busqueda").val();
+	switch(criterio){
+		case '1': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorNombre',
+			    'pNombre': valor,
+			    'sNombre': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaAPHoy(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+		case '2': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorApellido',
+			    'sApellido': valor,
+			    'pApellido': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaAPHoy(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+		case '3': 
+			$.ajax({
+			  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+			  method:'POST',
+			  dataType:'JSON',
+			  data:{
+			    'accion':'buscarPorNoIdentidad',
+			    'noIdentidad': valor,
+			  },
+			  success:function(respuesta){
+			    agregarFilaTablaAPHoy(respuesta);
+			  },
+			  error: function(error){
+			    console.log(error);
+			  },
+			  complete: function(){
+			    //TO-DO
+			  }
+			});
+		break;
+	}
+
+}
