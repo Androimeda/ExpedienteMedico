@@ -47,7 +47,7 @@
               <th>Fecha</th>
               <th>Atencion</th>
               <th>Placa</th>
-              <th>id Centro</th>
+              <th>Centro</th>
               <th>Observacion</th>
               <th>Primer Nombre</th>
               <th>Segundo Nombre</th>
