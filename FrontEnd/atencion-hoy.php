@@ -35,7 +35,7 @@
               </select>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-default" onclick="cargaTablaPaciente()">Limpiar</button>
+              <button type="button" class="btn btn-default" onclick="cargaTablaAPHoy()">Limpiar</button>
               <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
         </div>

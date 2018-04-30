@@ -19,9 +19,8 @@ function agregarFilaTablaAPHoy(respuesta){
 		"  <td>"+aph.NO_IDENTIDAD+"</td>"+
 		"  <td>"+aph.SEXO+"</td>"+
 		"  <td>"+aph.ID_PARAMEDICO+"</td>"+
-		'  	<td><button onclick="editar('+aph.ID_ATENCION+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
 		"</tr>"
-		$("#tbl-paciente tbody").append(fila);
+		$("#tbl-apn tbody").append(fila);
 	}
 }
 
@@ -31,8 +30,9 @@ function cargaTablaAPHoy(){
 	  method:'POST',
 	  dataType:'JSON',
 	  data:{
-	    'accion':'listarPorCentroFecha',
-	    
+	     'accion':'listarPorCentroDiarias',
+   		 'idCentroMedico': id,
+
 	  },
 	  success:function(respuesta){
 	  	agregarFilaTablaAPHoy(respuesta);
