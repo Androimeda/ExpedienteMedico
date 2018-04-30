@@ -81,7 +81,29 @@ $(document).ready(function(){
 	  }
 	});
 
-	
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Consultorio.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listarTurnos',
+	  },
+	  success:function(respuesta){
+	    for (var i = 0; i < respuesta.length; i++) {
+	    	var turno = respuesta[i];
+	    	var fila = '<option value="'+turno.ID_TURNO+'">'+
+	    				(turno.DESCRIPCION +" "+turno.HORA_INICIO+" - "+turno.HORA_FIN)+
+	    				'</option>';
+	    	$("#slc-turno").append(fila);
+	    }	
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
 });
 
 $("#slc-edificio").on("change", function(){
@@ -138,3 +160,32 @@ $("#slc-piso").on("change", function(){
 	  }
 	});
 });
+
+function registrar(){
+	var idMedico= $("#txt-id-medico").val();
+	var idConsultorio= $("#slc-consultorio").val();
+	var idTurno= $("#slc-turno").val();
+
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Consultorio.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'vincularMedico',
+	    'idTurno': idTurno,
+	    'idMedico': idMedico,
+	    'idConsultorio': idConsultorio,
+	  },
+	  success:function(respuesta){
+	    alert(respuesta.mensaje);
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+
+
+}
