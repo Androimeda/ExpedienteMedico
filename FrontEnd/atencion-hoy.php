@@ -21,6 +21,7 @@
           <h1>Listado de pacientes</h1>
         </div>
       </div>
+      <input type="hidden" id="txt-id-centro-medico" value="<?php echo $user["ID_CENTRO_MEDICO"] ?>">
       <div class="row">
           <div class="col-lg-12">
             <div class="col-lg-4">

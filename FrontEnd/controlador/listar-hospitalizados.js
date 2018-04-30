@@ -13,12 +13,12 @@ function agregarFilaTablaHospitalizaciones(respuesta){
 		"  <td>"+hospitalizaciones.FECHA_HORA_INGRESO+"</td>"+
 		"  <td>"+hospitalizaciones.FECHA_HORA_ALTA+"</td>"+
 		"  <td>"+hospitalizaciones.ID_CENTRO_MEDICO+"</td>"+
-		"  <td>"+hospitalizaciones.DESCRIPCION+"</td>"+
+		"  <td>"+hospitalizaciones.SALA+"</td>"+
 		"  <td>"+hospitalizaciones.CAMA+"</td>"+
 		"  <td>"+hospitalizaciones.ID_MEDICO+"</td>"+
 		"  <td>"+hospitalizaciones.NO_IDENTIDAD+"</td>"+
 		// '  	<td><button onclick="editar('+hospitalizaciones.ID_INGRESO+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
-		// "</tr>"
+		"</tr>"
 		$("#tbl-hospitalizaciones tbody").append(fila);
 	}
 }

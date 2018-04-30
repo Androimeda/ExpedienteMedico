@@ -9,6 +9,7 @@ class Hospitalizacion{
 	private $idMedico;
 	private $idExpediente;
 	private $idCentroMedico;
+	private $noIdentidad;
 
 	public function __construct(
 		$idIngreso = null,
@@ -108,6 +109,14 @@ class Hospitalizacion{
 		$this->idCentroMedico = $idCentroMedico;
 	}
 
+	public function getNoIdentidad(){
+		return $this->noIdentidad;
+	}
+
+	public function setNoIdentidad($noIdentidad){
+		$this->noIdentidad = $noIdentidad;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -196,6 +205,20 @@ class Hospitalizacion{
 		return json_encode($respuesta);
 	}
 	
+	public function listarPorPacienteActiva($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAHOSPITALIZACIONES v 
+		    WHERE v.NO_IDENTIDAD LIKE '%%%s%%'
+		    AND FECHA_HORA_ALTA IS NULL
+		"
+		  ,$this->getNoIdentidad()
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
 	public function darAlta($conexion){
 		$query=sprintf("
 		  BEGIN

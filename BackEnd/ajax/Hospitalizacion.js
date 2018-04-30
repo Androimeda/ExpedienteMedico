@@ -69,6 +69,26 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
+    'accion':'listarPorPacienteActiva',
+    'noIdentidad': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
     'accion':'listarPorMedico',
     'idCentroMedico': null,
     'idMedico': null,

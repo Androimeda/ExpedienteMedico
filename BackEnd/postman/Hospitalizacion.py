@@ -34,6 +34,14 @@ print
 
 url='Hospitalizacion'
 data={
+  'accion':'listarPorPacienteActiva',
+  'noIdentidad': None,
+}
+print postear(data,url)
+print
+
+url='Hospitalizacion'
+data={
   'accion':'listarPorMedico',
   'idCentroMedico': None,
   'idMedico': None,

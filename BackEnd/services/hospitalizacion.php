@@ -120,6 +120,22 @@ case 'listarPorPaciente':
   echo $hospitalizacion->listarPorPaciente($conexion);
 break;
 
+case 'listarPorPacienteActiva':
+
+  if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
+    $noIdentidad= $_POST['noIdentidad'];
+  }else{
+    $noIdentidad='null';
+    $res['mensaje']='Se necesita campo: noIdentidad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $hospitalizacion=new Hospitalizacion();
+  $hospitalizacion->setNoIdentidad($noIdentidad);
+  echo $hospitalizacion->listarPorPacienteActiva($conexion);
+break;
+
 case 'listarPorMedico':
 
   if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){

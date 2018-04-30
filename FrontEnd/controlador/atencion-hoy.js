@@ -20,7 +20,7 @@ function agregarFilaTablaAPHoy(respuesta){
 		"  <td>"+aph.SEXO+"</td>"+
 		"  <td>"+aph.ID_PARAMEDICO+"</td>"+
 		"</tr>"
-		$("#tbl-apn tbody").append(fila);
+		$("#tbl-aph tbody").append(fila);
 	}
 }
 
@@ -31,10 +31,12 @@ function cargaTablaAPHoy(){
 	  dataType:'JSON',
 	  data:{
 	     'accion':'listarPorCentroDiarias',
-   		 'idCentroMedico': id,
+   		 // 'idCentroMedico': $("#txt-id-centro-medico").val(),
+   		 'idCentroMedico': 1,
 
 	  },
 	  success:function(respuesta){
+	  	console.log(respuesta);
 	  	agregarFilaTablaAPHoy(respuesta);
 	  },
 	  error: function(error){
@@ -45,3 +47,7 @@ function cargaTablaAPHoy(){
 	  }
 	});
 }
+
+$(document).ready(function(){
+	cargaTablaAPHoy();
+});
