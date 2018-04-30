@@ -62,6 +62,7 @@ function editar(id){
 	    $("#txt-direccion").val(paciente.DIRECCION);
 	    $("#txt-email").val(paciente.CORREO);
 	    $("#slc-escolaridad").val(paciente.ID_ESCOLARIDAD);
+	    console.log(paciente.ID_ESCOLARIDAD);
 	    $("#slc-estado-civil").val(paciente.ID_ESTADO_CIVIL);
 	    $("#slc-ocupacion").val(paciente.ID_OCUPACION);
 		$("#modal-editar").modal("show");

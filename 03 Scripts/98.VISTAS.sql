@@ -31,11 +31,14 @@ SELECT
   pais.NOMBRE as nacionalidad,
   p.SEXO,
   p.CORREO,
+  est.ID_ESTADO_CIVIL,
   est.ESTADO_CIVIL,
   abo.GRUPO as grupo_sanguineo,
   abo.RH as factor_rh,
   esc.ESCOLARIDAD,
+  esc.ID_ESCOLARIDAD,
   ocup.OCUPACION,
+  ocup.ID_OCUPACION,
   exp.ID_EXPEDIENTE,
   exp.FECHA_CREACION as fecha_expediente
 FROM Paciente pa
