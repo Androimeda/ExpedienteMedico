@@ -93,8 +93,7 @@ class CentroMedico{
 	}
 	public function listarTodos($conexion){
 		$query=sprintf("
-		  SELECT  * 
-		  FROM vistaCentroMedico 
+		  SELECT * FROM CENTROMEDICO
 		"
 		);
 		$resultado = $conexion->query($query);

@@ -80,6 +80,18 @@ BEGIN
     RETURN;
   END IF;
 
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM NATALIDAD
+  WHERE ID_EXPEDIENTE = idExpediente
+  ;
+  IF contador>0 THEN
+    mensaje:='Ya existe registro de natalidad para la persona';
+    RETURN;
+  END IF;
+
   INSERT INTO NATALIDAD
   (ID_EXPEDIENTE, FECHA_HORA, ORDEN_PARTO_MULTIPLE, ID_CENTRO_MEDICO, ID_MADRE, ID_PADRE) VALUES
   (idExpediente, fechaHora, ordenPartoMultiple, idCentroMedico, idMadre, idPadre);

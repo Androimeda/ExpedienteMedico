@@ -237,6 +237,22 @@ case 'agregarNatalidad':
   echo $paciente->agregarNatalidad($conexion);
 break;
 
+case 'buscarNoNato':
+
+  if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
+    $noIdentidad= $_POST['noIdentidad'];
+  }else{
+    $noIdentidad='null';
+    $res['mensaje']='Se necesita campo: noIdentidad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $paciente=new Paciente();
+  $paciente->setNoIdentidad($noIdentidad);
+  echo $paciente->buscarNoNato($conexion);
+break;
+
 case 'buscarPorApellido':
 
   if(isset($_POST['sApellido']) && $_POST['sApellido']!=''){

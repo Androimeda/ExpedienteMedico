@@ -279,6 +279,20 @@ class Paciente extends Persona{
 		return json_encode($respuesta);
 	}
 
+	public function buscarNoNato($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAPACIENTE v 
+		    WHERE  v.NO_IDENTIDAD LIKE '%%%s%%'
+		    AND FECHA_NAC IS NULL
+		"
+		  ,$this->getNoIdentidad()
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
 	public function obtenerNumeroExpediente($conexion){
 		$query=sprintf("
 		    SELECT  v.ID_EXPEDIENTE 

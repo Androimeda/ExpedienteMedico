@@ -18,6 +18,14 @@ print
 
 url='Persona'
 data={
+  'accion':'buscarPorNoIdentidad',
+  'noIdentidad': None,
+}
+print postear(data,url)
+print
+
+url='Persona'
+data={
   'accion':'listarEstadoCivil',
 }
 print postear(data,url)

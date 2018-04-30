@@ -187,6 +187,18 @@ class Persona{
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
 	}
+	public function buscarPorNoIdentidad($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM PERSONA p
+		    WHERE  p.NO_IDENTIDAD LIKE '%%%s%%'
+		"
+		  ,$this->getNoIdentidad()
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
 
 }
 ?>

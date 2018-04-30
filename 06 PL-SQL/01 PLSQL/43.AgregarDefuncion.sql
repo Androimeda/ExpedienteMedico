@@ -37,6 +37,18 @@ SELECT
     RETURN;
   END IF;
 
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM DEFUNCION
+  WHERE ID_EXPEDIENTE = idExpediente
+  ;
+  IF contador>0 THEN
+    mensaje:='Ya existe registro de defuncion para la persona';
+    RETURN;
+  END IF;
+
+
   INSERT INTO DEFUNCION
   (OBSERVACION_CAUSA, FECHA_HORA, ID_EXPEDIENTE) VALUES
   (observacionCausa, fechaHora, idExpediente);

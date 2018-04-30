@@ -38,6 +38,14 @@ print
 
 url='Paciente'
 data={
+  'accion':'buscarNoNato',
+  'noIdentidad': None,
+}
+print postear(data,url)
+print
+
+url='Paciente'
+data={
   'accion':'buscarPorApellido',
   'sApellido': None,
   'pApellido': None,

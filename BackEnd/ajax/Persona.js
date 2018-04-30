@@ -41,6 +41,26 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
+    'accion':'buscarPorNoIdentidad',
+    'noIdentidad': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Persona.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
     'accion':'listarEstadoCivil',
   },
   success:function(respuesta){

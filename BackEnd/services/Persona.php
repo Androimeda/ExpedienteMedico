@@ -16,6 +16,22 @@ case 'listarAscendencia':
   echo $persona->listarAscendencia($conexion);
 break;
 
+case 'buscarPorNoIdentidad':
+
+  if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
+    $noIdentidad= $_POST['noIdentidad'];
+  }else{
+    $noIdentidad='null';
+    $res['mensaje']='Se necesita campo: noIdentidad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $persona=new Persona();
+  $persona->setNoIdentidad($noIdentidad);
+  echo $persona->buscarPorNoIdentidad($conexion);
+break;
+
 case 'listarEstadoCivil':
   $persona=new Persona();
   echo $persona->listarEstadoCivil($conexion);
