@@ -31,8 +31,8 @@ function cargaTablaAPHoy(){
 	  dataType:'JSON',
 	  data:{
 	     'accion':'listarPorCentroDiarias',
-   		 // 'idCentroMedico': $("#txt-id-centro-medico").val(),
-   		 'idCentroMedico': 1,
+   		 'idCentroMedico': $("#txt-id-centro-medico").val(),
+   		 // 'idCentroMedico': 1,
 
 	  },
 	  success:function(respuesta){

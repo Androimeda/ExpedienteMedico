@@ -64,5 +64,26 @@ body {
     border-color: #FFB400;
     color: #555555;
     margin-bottom: 5px; }
+  body .logout {
+    color: #c83737 !important; }
+
+.login {
+  margin: 0 auto;
+  min-height: 700px;
+  background-image: url("../img/doctor.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .login h1, .login h2, .login h3, .login h4, .login h5 {
+    color: #555555;
+    padding-left: 10px; }
+  .login .table td {
+    border-top: none;
+    color: #555555; }
+  .login .card-bg {
+    background-color: #ffe199;
+    border-color: #ffe199;
+    box-shadow: 0 1px 2px rgba(25, 25, 34, 0.15);
+    -webkit-box-shadow: 0 1px 2px rg; }
 
 /*# sourceMappingURL=style.css.map */

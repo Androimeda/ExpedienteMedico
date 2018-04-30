@@ -70,6 +70,7 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'listarPorPacienteActiva',
+    'idCentroMedico': null,
     'noIdentidad': null,
   },
   success:function(respuesta){

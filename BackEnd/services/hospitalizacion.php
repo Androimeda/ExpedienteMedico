@@ -122,6 +122,16 @@ break;
 
 case 'listarPorPacienteActiva':
 
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
   if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
     $noIdentidad= $_POST['noIdentidad'];
   }else{
@@ -132,6 +142,7 @@ case 'listarPorPacienteActiva':
     break;
   }
   $hospitalizacion=new Hospitalizacion();
+  $hospitalizacion->setIdCentroMedico($idCentroMedico);
   $hospitalizacion->setNoIdentidad($noIdentidad);
   echo $hospitalizacion->listarPorPacienteActiva($conexion);
 break;

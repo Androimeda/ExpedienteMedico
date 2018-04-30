@@ -35,6 +35,7 @@ print
 url='Hospitalizacion'
 data={
   'accion':'listarPorPacienteActiva',
+  'idCentroMedico': None,
   'noIdentidad': None,
 }
 print postear(data,url)

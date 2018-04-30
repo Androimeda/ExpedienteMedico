@@ -50,18 +50,20 @@
             </div>
         </div>
         <div class="col-lg-6 well card">
-            <h4>Datos Defunción:</h4>
+            <input type="hidden" id="txt-id-centro-medico" value="<?php echo $user["ID_CENTRO_MEDICO"]; ?>">
+            <h4>Datos Ingreso:</h4>
             <table class="table">
                 <tr>
                     <td>Expediente</td>
                     <td colspan="2"><input type="text" disabled="disabled" class="form-control" id="txt-id-expediente"></td>
                 </tr>
                 <tr>
-                    <td>Causa:</td>
-                    <td colspan="2">
-                        <textarea id="txt-observacion-causa" class="form-control">
-                        </textarea>
-                    </td>
+                    <td>Ingreso (Identificador):</td>
+                    <td colspan="2"><input type="text" disabled="disabled" class="form-control" id="txt-id-ingreso"></td>
+                </tr>
+                <tr>
+                    <td>Fecha/Hora Ingreso:</td>
+                    <td colspan="2"><input type="text" disabled="disabled" class="form-control" id="txt-id-fecha-ingreso"></td>
                 </tr>
                 <tr>
                     <td>Fecha/Hora</td>

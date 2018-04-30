@@ -16,11 +16,13 @@ function buscar(){
     dataType:'JSON',
     data:{
       'accion':'listarPorPacienteActiva',
-      'noIdentidad': valor,
+      'idCentroMedico': $("#txt-id-centro-medico").val(),
+      'idCentroMedico': 1,
+      // 'noIdentidad': $("#txt-noidentidad").val(),
     },
     success:function(respuesta){
-      agregarFilaTablaBusqueda(respuesta);
-      paciente = respuesta;
+      agregarFilaTablaBusqueda(respuesta)
+      paciente=respuesta;
     },
     error: function(error){
       console.log(error);
@@ -48,4 +50,37 @@ function agregarFilaTablaBusqueda(respuesta){
     "</tr>";
     $("#tbl-resultado tbody").append(fila);
   }
+}
+
+function seleccionar(i){
+	limpiar();
+	var p = paciente[i];
+	$("#txt-id-expediente").val(p.ID_EXPEDIENTE);
+	$("#txt-id-ingreso").val(p.ID_INGRESO);
+	$("#txt-id-fecha-ingreso").val(p.FECHA_HORA_INGRESO);
+}
+
+function registrar(){
+	var fecha= $("#txt-fecha").val();
+	var hora = $("#txt-hora").val();
+	var fecha_hora = parseFecha(fecha, hora); // Funcion ubicada en el archivo config.js
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Hospitalizacion.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'darAlta',
+	    'fechaHoraAlta': fecha_hora,
+	    'idIngreso': $("#txt-id-ingreso").val(),
+	  },
+	  success:function(respuesta){
+	    alert(respuesta.mensaje)
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
 }

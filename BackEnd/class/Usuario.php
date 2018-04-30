@@ -98,8 +98,8 @@ class Usuario extends Persona{
 		  $usuario = oci_fetch_array($data, OCI_ASSOC + OCI_RETURN_NULLS);
 		  oci_free_cursor($data);
 		  oci_free_statement($result);
+		  session_start();
 		  $_SESSION['usuario'] = $usuario;
-		  echo json_encode($usuario);
 		}
 		$respuesta['resultado'] = $res;
 		$respuesta['mensaje'] = $msj;

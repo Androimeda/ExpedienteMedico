@@ -148,6 +148,7 @@
             <li><a href="./preferencias.php">Preferencias</a></li>
             <li><a href="#">Manual de Usuario</a></li>
             <li><a href="./acerca-de.php">Acerca de</a></li>
+            <li><a href="./logout.php" class="logout">Cerrar Sesión</a></li>
           </ul>
    </div>       
 </nav>

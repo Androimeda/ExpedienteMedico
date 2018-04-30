@@ -210,9 +210,11 @@ class Hospitalizacion{
 		    SELECT  * 
 		    FROM VISTAHOSPITALIZACIONES v 
 		    WHERE v.NO_IDENTIDAD LIKE '%%%s%%'
+		    AND v.ID_CENTRO_MEDICO = %s
 		    AND FECHA_HORA_ALTA IS NULL
 		"
 		  ,$this->getNoIdentidad()
+		  ,$this->idCentroMedico
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
