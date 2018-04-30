@@ -87,7 +87,7 @@
                 <td>IdIngreso:</td>
                 <td><input type="text" id="txt-idingreso" disabled="disabled" class="form-control"></td>
               </tr>
-              <tr><tr>
+              <tr>
                 <td>Primer Nombre:</td>
                 <td><input type="text" id="txt-pnombre" disabled="disabled" class="form-control"></td>
               </tr>
@@ -99,7 +99,7 @@
                 <td>Observacion:</td>
                 <td><input type="text" id ="txt-obs" disabled="disabled" class="form-control"></td>
               </tr>
-              <tr><tr>
+              <tr>
                 <td>Ingreso:</td>
                 <td><input type="text" id ="txt-ingreso" disabled="disabled" class="form-control"></td>
               </tr>
@@ -113,19 +113,19 @@
                   <textarea id="txt-centroMedico" class="form-control" maxlength="50" rows="1" ></textarea>
                 </td>
               </tr>
-              <tr><tr>
+              <tr>
                 <td>Sala: </td>
                 <td>
                   <textarea id="txt-sala" class="form-control" maxlength="50" rows="1" ></textarea>
                 </td>
               </tr>
-              <tr><tr>
+              <tr>
                 <td>Cama: </td>
                 <td>
                   <textarea id="txt-cama" class="form-control" maxlength="50" rows="1" ></textarea>
                 </td>
               </tr>
-              <tr><tr>
+              <tr>
                 <td>Medico: </td>
                 <td>
                   <textarea id="txt-medico" class="form-control" maxlength="50" rows="1" ></textarea>

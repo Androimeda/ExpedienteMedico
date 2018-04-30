@@ -65,6 +65,7 @@ function editar(id){
 	    $("#txt-idingreso").val(hospitalizacion.ID_INGRESO);
 	    $("#txt-pnombre").val(hospitalizacion.P_NOMBRE);
 	    $("#txt-papellido").val(hospitalizacion.P_APELLIDO);
+	    $("#txt-obs").val(hospitalizacion.OBSERVACION);
 	    $("#txt-ingreso").val(hospitalizacion.FECHA_HORA_INGRESO);
 	    $("#txt-alta").val(paramedico.FECHA_HORA_ALTA);
 	    $("#txt-centroMedico").val(hospitalizacion.ID_CENTRO_MEDICO);
