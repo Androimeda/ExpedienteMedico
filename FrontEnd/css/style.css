@@ -1,67 +1,72 @@
-body {
-  min-height: 1000px;
-  padding-top: 70px;
-  color: #222;
-  background-color: #F0F0F0;
-  scroll-behavior: smooth; }
-  body .navbar li.active, body .navbar-default li.active {
-    color: #222; }
-    body .navbar li.active > a, body .navbar-default li.active > a {
-      background-color: #ffda80 !important; }
-  body .navbar-brand, body .logo {
-    height: 40px;
-    width: 150px;
-    padding: 5px;
-    line-height: 40px; }
-  body .user-img {
-    line-height: 20px;
-    height: 35px;
-    width: 35px;
-    float: right;
-    border: 1px solid black;
-    margin-left: 10px;
-    margin-top: -7px; }
-  body .dropdown .dropdown-header {
-    color: #c83737; }
-  body .card {
-    background-color: #fff;
-    box-shadow: 0 1px 2px rgba(25, 25, 34, 0.15);
-    -webkit-box-shadow: 0 1px 2px rgba(25, 25, 34, 0.15); }
-  body #titulo h1 {
-    text-align: center;
-    margin: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px; }
-  body .btn-primary, body .btn-primary:hover, body .btn-primary:active:focus, body .btn-primary:focus {
-    color: #F0F0F0;
-    background-color: #ce4b4b;
-    border-color: #d35f5f;
-    margin-bottom: 5px; }
-  body #card-info p {
-    margin: 0;
-    margin-top: 3px;
-    float: right; }
-  body .foto-centro {
-    width: 50px; }
-  body h1, body h2, body h3, body h4, body h5 {
-    color: #a02c2c;
-    padding-left: 10px; }
-  body .row {
-    margin-bottom: 20px;
-    padding-left: 10px;
-    padding-right: 10px; }
-  body .sector-exp {
-    display: none; }
-  body .fab {
-    position: fixed;
-    bottom: 5px;
-    right: 10px; }
-  body .btn-success, body .btn-success:hover, body .btn-success:active:focus, body .btn-success:focus {
-    color: #F0F0F0;
-    background-color: #FFB400;
-    border-color: #FFB400;
-    margin-bottom: 5px;
-    color: #555555; }
+/*
+Error: Invalid CSS after "right": expected expression (e.g. 1px, bold), was ":"
+        on line 67 of style.sass
 
-/*# sourceMappingURL=style.css.map */
+62:   .fab
+63:     position: fixed
+64:     bottom: 5px
+65:     right: 10px
+66:     &>*
+67:       float: right: 
+68:   .btn-success, .btn-success:hover, .btn-success:active:focus, .btn-success:focus
+69:     color: $bg
+70:     background-color: lighten($secondary, 20)
+71:     border-color: $secondary
+72:     color: lighten($txt, 20)
+
+Backtrace:
+style.sass:67
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1278:in `expected'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script/lexer.rb:231:in `expected!'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script/parser.rb:762:in `assert_done'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script/parser.rb:69:in `parse'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script/parser.rb:228:in `parse'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/script.rb:27:in `parse'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:1177:in `parse_script'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:749:in `parse_property'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:708:in `parse_property_or_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:667:in `parse_line'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:540:in `build_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:559:in `block in append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:549:in `block in build_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:542:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:542:in `build_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:559:in `block in append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:549:in `block in build_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:542:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:542:in `build_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:559:in `block in append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:549:in `block in build_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:542:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:542:in `build_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:559:in `block in append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:558:in `append_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:417:in `_to_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:320:in `block in watch'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"right\": expected expression (e.g. 1px, bold), was \":\"\A         on line 67 of style.sass\A \A 62:   .fab\A 63:     position: fixed\A 64:     bottom: 5px\A 65:     right: 10px\A 66:     &>*\A 67:       float: right: \A 68:   .btn-success, .btn-success:hover, .btn-success:active:focus, .btn-success:focus\A 69:     color: $bg\A 70:     background-color: lighten($secondary, 20)\A 71:     border-color: $secondary\A 72:     color: lighten($txt, 20)"; }

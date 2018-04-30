@@ -155,20 +155,38 @@
                     </table>
                   </div>
                 </div>
+            </div>            
+            <div class="col-lg-12 well card sector-exp">
+            <h5>Enfermedad</h5>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table class="table" id="tbl-enfermedad">
+                      <thead>
+                        <th>Fecha Diagnóstico</th>
+                        <th>Médico</th>
+                        <th>Especialidad</th>
+                        <th>Diagnóstico</th>
+                        <th>Padece?</th>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
             </div>
         </div>
     </div> <!-- /container -->
     <!-- FAB ICON -->
     <div class="container fab">
       <div class="row">
-        <div class="col-lg-10 col-lg-offsset-10"></div>
-        <div class="col-lg-2">
-          <a href="#tbl-consulta" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Consultas</a>
-          <a href="#tbl-emergencia" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Emergencias</a>
-          <a href="#tbl-hospitalizacion" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Hospitalizacion</a>
-          <a href="#tbl-cirugia" class="btn btn-success btn-block"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Cirugía</a>
+        <div class="col-lg-12">
+          <a href="#tbl-consulta" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Consultas</a>
+          <a href="#tbl-emergencia" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Emergencias</a>
+          <a href="#tbl-hospitalizacion" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Hospitalizacion</a>
+          <a href="#tbl-cirugia" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Cirugía</a>
+          <a href="#tbl-enfermedad" class="btn btn-success"><span class="glyphicon glyphicon-cloud"></span>&nbsp; Enfermedad</a>
           
-          <a href="#tbl-busqueda" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-chevron-up"></span> &nbsp; Datos</a>
+          <a href="#tbl-busqueda" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up"></span> &nbsp; Datos</a>
         </div>
       </div>
     </div>

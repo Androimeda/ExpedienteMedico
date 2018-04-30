@@ -189,7 +189,7 @@ class Enfermedad{
 	public function listarPorPaciente($conexion){
 		$query=sprintf("
 		    SELECT  * 
-		    FROM VistaEnfermedadPaciente V 
+		    FROM VistaEnfermedadesConsultas V 
 		    WHERE  V.ID_EXPEDIENTE=%s 
 		"
 		  ,$this->idExpediente

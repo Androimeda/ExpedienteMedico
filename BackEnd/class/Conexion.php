@@ -40,6 +40,8 @@ class Conexion{
     if ($this->do) {
       $query = oci_parse($this->link, "ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'DD/MM/YYYY HH:MI am'");
       oci_execute($query);
+      $query = oci_parse($this->link, "ALTER SESSION SET NLS_DATE_FORMAT = 'DD/MM/YYYY'");
+      oci_execute($query);
       $query = oci_parse($this->link, $sql);
       return $query;
     }else{

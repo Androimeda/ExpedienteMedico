@@ -35,8 +35,8 @@ function agregarFilaTablaBusqueda(respuesta){
     "  <td>"+paciente.P_NOMBRE+" "+paciente.S_NOMBRE+" "+paciente.P_APELLIDO+" "+paciente.S_APELLIDO+"</td>"+
     "  <td>"+paciente.NO_IDENTIDAD+"</td>"+
     '  <td>'+
-        '<button onclick="expediente('+i+')" class="btn btn-default btn-sm">'+
-          '<span class="glyphicon glyphicon-eye-open"></span>'+
+        '<button onclick="expediente('+i+')" class="btn btn-default btn-md">'+
+          '<span class="glyphicon glyphicon-eye-open"></span> &nbsp; Ver'+
         '</button>'+
       "</td>"+
     "</tr>";
@@ -184,7 +184,6 @@ function expediente(i){
       'idExpediente': id,
     },
     success:function(respuesta){
-      console.log(respuesta);
       $("#tbl-cirugia tbody").empty();
       for (var i = 0; i < respuesta.length; i++) {
         cirugia = respuesta[i];
@@ -196,6 +195,37 @@ function expediente(i){
         "  <td>"+cirugia.TIPO_CIRUGIA+"</td>"+
         "</tr>";
         $("#tbl-cirugia tbody").append(fila);
+      }
+    },
+    error: function(error){
+      console.log(error);
+    },
+    complete: function(){
+      //TO-DO
+    }
+  });
+
+  $.ajax({
+    url:CONST_SITIO_URL+'/services/Enfermedad.php',
+    method:'POST',
+    dataType:'JSON',
+    data:{
+      'accion':'listarPorPaciente',
+      'idExpediente': id,
+    },
+    success:function(respuesta){
+      $("#tbl-enfermedad tbody").empty();
+      for (var i = 0; i < respuesta.length; i++) {
+        enfermedad = respuesta[i];
+        var fila =
+        "<tr>"+
+        "  <td>"+enfermedad.FECHA+"</td>"+
+        "  <td>"+enfermedad.MEDICO+"</td>"+
+        "  <td>"+enfermedad.ESPECIALIDAD+"</td>"+
+        "  <td>"+enfermedad.ENFERMEDAD+"</td>"+
+        "  <td>"+enfermedad.ESTADO+"</td>"+
+        "</tr>";
+        $("#tbl-enfermedad tbody").append(fila);
       }
     },
     error: function(error){

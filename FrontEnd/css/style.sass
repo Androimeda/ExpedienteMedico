@@ -63,9 +63,12 @@ body
     position: fixed
     bottom: 5px
     right: 10px
+    &>*
+      float: right
   .btn-success, .btn-success:hover, .btn-success:active:focus, .btn-success:focus
     color: $bg
-    background-color: $secondary
+    background-color: lighten($secondary, 20)
     border-color: $secondary
+    color: lighten($txt, 20)
     margin-bottom: 5px
-    color: lighten($txt,20)
+    

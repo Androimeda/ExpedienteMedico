@@ -71,7 +71,7 @@ class Paramedico extends Persona{
 		  ,$this->getNoIdentidad()
 		  ,$this->getCorreo()
 		  ,$this->getIdPais()
-		  ,$this->Licencia
+		  ,$this->licencia
 		);
 		$resultado=$conexion->query($query);
 		oci_bind_by_name($resultado, ':msg', $msg, 2000);
@@ -173,6 +173,19 @@ class Paramedico extends Persona{
 		    WHERE  v.NO_IDENTIDAD = '%s' 
 		"
 		  ,$this->getNoIdentidad()
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}	
+	
+	public function buscarPorLicencia($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaParamedico v 
+		    WHERE  v.LICENCIA = '%s' 
+		"
+		  ,$this->licencia
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
