@@ -191,6 +191,19 @@ class Medico extends Persona{
 		return json_encode($respuesta);
 	}
 
+	public function buscarPorNoColegiacion($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VISTAMEDICO v 
+		    WHERE  v.NO_COLEGIACION = '%s' 
+		"
+		  ,$this->noColegiacion
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
 	public function listarEspecialidad($conexion){
 		$query=sprintf("
 		    SELECT *

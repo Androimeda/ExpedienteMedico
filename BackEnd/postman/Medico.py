@@ -22,6 +22,14 @@ print
 
 url='Medico'
 data={
+  'accion':'buscarPorNoColegiacion',
+  'noColegiacion': None,
+}
+print postear(data,url)
+print
+
+url='Medico'
+data={
   'accion':'buscarPorApellido',
   'sApellido': None,
   'pApellido': None,

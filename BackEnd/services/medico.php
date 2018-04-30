@@ -133,6 +133,22 @@ case 'crear':
   echo $medico->crear($conexion);
 break;
 
+case 'buscarPorNoColegiacion':
+
+  if(isset($_POST['noColegiacion'])){
+    $noColegiacion= $_POST['noColegiacion'];
+  }else{
+    $noColegiacion=null;
+    $res['mensaje']='Se necesita campo: noColegiacion';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $medico=new Medico();
+  $medico->setNoColegiacion($noColegiacion);
+  echo $medico->buscarPorNoColegiacion($conexion);
+break;
+
 case 'buscarPorApellido':
 
   if(isset($_POST['sApellido']) && $_POST['sApellido']!=''){

@@ -182,22 +182,6 @@ INNER JOIN CENTROMEDICO cem
 ;
 
 
-/*** Vista 6 *****/
-/*** Consultas al dia de hoy *****/
-
-CREATE OR REPLACE VIEW VistaConsultasDiarias
-AS
-SELECT
-  *
-FROM VistaConsultas vc
-WHERE
-  EXTRACT (DAY FROM vc.fecha) = EXTRACT(DAY FROM SYSDATE)
-  AND EXTRACT (MONTH FROM vc.fecha) = EXTRACT(MONTH FROM SYSDATE)
-  AND EXTRACT (YEAR FROM vc.fecha) = EXTRACT(YEAR FROM SYSDATE)
-ORDER BY vc.centro_medico, vc.medico, vc.fecha
-;
-
-
 /*** Vista 7 *****/
 /*** Personas Hospitalizadas *****/
 CREATE OR REPLACE VIEW VistaHospitalizaciones
@@ -542,7 +526,7 @@ INNER JOIN TIPOCENTRO TC
 
 
 /*** ------------------- VISTA EFICIO ------------------------ *****/
-CREATE OR REPLACE VIEW VistaEdificio
+CREATE OR REPLACE VIEW VistaEdificioPiso
 AS
 SELECT
     PI.*,
@@ -708,7 +692,7 @@ INNER JOIN PERSONA p
 
 
 /*** -------------------- VISTATRATAMIENTO -------------------------- *****/
-CREATE OR REPLACE VIEW VIstaTratamiento
+CREATE OR REPLACE VIEW VistaTratamiento
 AS
 SELECT
 t.*
@@ -884,7 +868,7 @@ INNER JOIN PERSONA PE
 
 
 
-CREATE OR REPLACE VIEW EmergenciaHoy
+CREATE OR REPLACE VIEW VistaEmergenciasHoy
 AS
 SELECT * FROM VISTAEMERGENCIA EH
 WHERE EXTRACT(DAY FROM EH.FECHA_HORA_ATENCION)= EXTRACT(DAY FROM SYSDATE)
@@ -907,6 +891,7 @@ SELECT
   ,u.ID_USUARIO
   ,u.ID_TIPO_USUARIO
   ,tu.TIPO as tipo_usuario
+  ,cm.DIRECCION as direccion_centro
   ,cm.ID_CENTRO_MEDICO
   ,cm.NOMBRE as centro_medico
   ,tp.ID_TIPO_CENTRO
@@ -923,6 +908,22 @@ INNER JOIN TIPOUSUARIO TU
   ON U.ID_TIPO_USUARIO = TU.ID_TIPO_USUARIO
 INNER JOIN PAIS pa
   ON P.ID_PAIS = pa.ID_PAIS
+;
+
+
+/*** Vista 6 *****/
+/*** Consultas al dia de hoy *****/
+
+CREATE OR REPLACE VIEW VistaConsultasDiarias
+AS
+SELECT
+  *
+FROM VistaConsultas vc
+WHERE
+  EXTRACT (DAY FROM vc.fecha) = EXTRACT(DAY FROM SYSDATE)
+  AND EXTRACT (MONTH FROM vc.fecha) = EXTRACT(MONTH FROM SYSDATE)
+  AND EXTRACT (YEAR FROM vc.fecha) = EXTRACT(YEAR FROM SYSDATE)
+ORDER BY vc.centro_medico, vc.medico, vc.fecha
 ;
 
 

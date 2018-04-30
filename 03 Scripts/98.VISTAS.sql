@@ -14,6 +14,18 @@ SELECT
   (SELECT n.FECHA_HORA FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE) as fecha_nac,
   (SELECT n.ID_MADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE) as id_madre,
   (SELECT n.ID_PADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE) as id_padre,
+  (
+    SELECT
+      per.p_nombre || ' '  || per.s_nombre ||  ' '  || per.p_apellido || ' '  || per.s_apellido
+      FROM PERSONA per
+      WHERE per.ID_PERSONA = (SELECT n.ID_MADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE)
+  ) as madre,
+  (
+    SELECT
+      per.p_nombre || ' '  || per.s_nombre ||  ' '  || per.p_apellido || ' '  || per.s_apellido
+      FROM PERSONA per
+      WHERE per.ID_PERSONA = (SELECT n.ID_PADRE FROM NATALIDAD n WHERE n.ID_EXPEDIENTE=exp.ID_EXPEDIENTE)
+  ) as padre,
   p.DIRECCION,
   asce.ASCENDENCIA,
   pais.NOMBRE as nacionalidad,
@@ -43,6 +55,247 @@ INNER JOIN OCUPACION ocup
   ON ocup.ID_OCUPACION = pa.ID_OCUPACION
 INNER JOIN ESTADOCIVIL est
   ON est.ID_ESTADO_CIVIL = pa.ID_ESTADO_CIVIL
+;
+
+
+/*** Vista 2 :: *****/
+/*** Todos los medicos *****/
+CREATE OR REPLACE VIEW VistaMedico
+AS
+SELECT
+  med.ID_MEDICO,
+  med.NO_COLEGIACION,
+  p.ID_PERSONA,
+  p.P_NOMBRE,
+  p.S_NOMBRE,
+  p.P_APELLIDO,
+  p.S_APELLIDO,
+  p.NO_IDENTIDAD,
+  p.DIRECCION,
+  pa.NOMBRE as pais,
+  p.SEXO,
+  p.CORREO,
+  t.ID_ESPECIALIDAD,
+  t.especialidad
+FROM MEDICO med
+INNER JOIN PERSONA p
+  ON p.ID_PERSONA = med.ID_PERSONA
+INNER JOIN ESPECIALIDAD t
+  ON t.ID_ESPECIALIDAD = med.ID_ESPECIALIDAD
+INNER JOIN PAIS pa
+  ON pa.ID_PAIS = p.ID_PAIS
+;
+
+
+/*** Vista 3:: *****/
+ /*** Telefonos por pacientes *****/
+
+CREATE OR REPLACE VIEW VistaTelefonoPaciente
+AS
+SELECT
+  vp.id_persona
+  ,vp.id_paciente
+  ,t.ID_TELEFONO
+  ,t.TELEFONO
+  ,tipo.TIPO_TELEFONO
+  ,pa.CODIGO_POSTAL as codigo_area
+FROM TELEFONOPERSONA tp
+INNER JOIN VistaPaciente vp
+  ON vp.id_persona = tp.ID_PERSONA
+INNER JOIN TELEFONO t
+  ON tp.ID_TELEFONO = t.ID_TELEFONO
+INNER JOIN TIPOTELEFONO tipo
+  On t.ID_TIPO_TELEFONO = tipo.ID_TIPO_TELEFONO
+INNER JOIN pais pa
+  ON pa.ID_PAIS = t.ID_PAIS
+ORDER BY id_persona
+;
+
+
+/*** Vista 4: *****/
+/*** Telefono Doctor *****/
+CREATE OR REPLACE VIEW VistaTelefonoDoctor(
+  id,
+  codigo_area,
+  telefono,
+  id_medico,
+  id_persona
+)
+AS
+SELECT
+  t.ID_TELEFONO,
+  pa.CODIGO_POSTAL,
+  t.TELEFONO,
+  vm.id_medico,
+  vm.id_persona
+FROM TELEFONOPERSONA tp
+INNER JOIN VistaMedico vm
+  ON vm.id_persona = tp.ID_PERSONA
+INNER JOIN TELEFONO t
+  ON tp.ID_TELEFONO = t.ID_TELEFONO
+INNER JOIN pais pa
+  ON pa.ID_PAIS = t.ID_PAIS
+ORDER BY id_persona
+;
+
+
+/*** Vista 5 *****/
+/*** Consultas por persona, doctor y centro medico *****/
+CREATE OR REPLACE VIEW VistaConsultas
+AS
+SELECT
+  ce.ID_CONSULTA,
+  cem.ID_CENTRO_MEDICO,
+  cem.NOMBRE as centro_medico,
+  con.ID_CONSULTORIO,
+  p.DESCRIPCION as piso,
+  ed.NOMBRE as edificio,
+  vp.id_persona,
+  vp.id_paciente,
+  vp.p_nombre,
+  vp.s_nombre,
+  vp.p_apellido,
+  vp.s_apellido,
+  vp.no_identidad,
+  vp.sexo,
+  vp.id_expediente,
+  vm.id_medico,
+  vm.p_nombre || ' '  || vm.s_nombre ||  ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico,
+  vm.especialidad as especialidad,
+  ce.DIAGNOSTICO,
+  ce.SINTOMAS,
+  ce.OBSERVACION,
+  ce.FECHA_HORA as fecha
+FROM CONSULTAEXTERNA ce
+INNER JOIN VistaPaciente vp
+  ON ce.ID_EXPEDIENTE = vp.id_expediente
+INNER JOIN VistaMedico vm
+  ON vm.id_medico = ce.ID_MEDICO
+INNER JOIN CONSULTORIO con
+  ON con.ID_CONSULTORIO = ce.ID_CONSULTORIO
+INNER JOIN PISO p
+  ON p.ID_PISO = con.ID_PISO
+INNER JOIN EDIFICIO ed
+  ON ed.ID_EDIFICIO = p.ID_EDIFICIO
+INNER JOIN CENTROMEDICO cem
+  ON cem.ID_CENTRO_MEDICO = ed.ID_CENTRO_MEDICO
+;
+
+
+/*** Vista 7 *****/
+/*** Personas Hospitalizadas *****/
+CREATE OR REPLACE VIEW VistaHospitalizaciones
+AS
+SELECT
+  hp.ID_INGRESO,
+  hp.OBSERVACION,
+  hp.FECHA_HORA_INGRESO,
+  hp.FECHA_HORA_ALTA,
+  cem.ID_CENTRO_MEDICO,
+  cem.NOMBRE as centro_medico,
+  tc.DESCRIPCION as tipo_centro,
+  ed.NOMBRE as edificio,
+  p.ID_PISO,
+  p.DESCRIPCION as sala,
+  hp.CAMA,
+  vm.id_medico,
+  vm.p_nombre || ' '  || vm.s_nombre ||  ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico,
+  vm.especialidad as especialidad,
+  vp.id_expediente,
+  vp.id_paciente,
+  vp.p_nombre,
+  vp.s_nombre,
+  vp.p_apellido,
+  vp.s_apellido,
+  vp.no_identidad,
+  vp.sexo
+FROM HOSPITALIZACION hp
+INNER JOIN VistaMedico vm
+  ON vm.id_medico = hp.ID_MEDICO
+INNER JOIN PISO p
+  ON hp.ID_PISO = p.ID_PISO
+INNER JOIN EDIFICIO ed
+  ON p.ID_EDIFICIO = ed.ID_EDIFICIO
+INNER JOIN CENTROMEDICO cem
+  ON cem.ID_CENTRO_MEDICO = ed.ID_CENTRO_MEDICO
+INNER JOIN TIPOCENTRO tc
+  ON tc.ID_TIPO_CENTRO = cem.ID_TIPO_CENTRO
+INNER JOIN VistaPaciente vp
+  ON vp.id_expediente = hp.ID_EXPEDIENTE
+ORDER BY cem.ID_CENTRO_MEDICO, vm.id_medico
+;
+
+
+/*** Vista 8 *****/
+/*** Consultorios por centro medico y medico *****/
+CREATE OR REPLACE VIEW VistaConsultorioTurno
+AS
+SELECT
+  con.ID_CONSULTORIO
+  ,vm.id_medico
+  ,vm.p_nombre || ' '  || vm.s_nombre ||  ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico
+  ,vm.especialidad as especialidad
+  ,t.DESCRIPCION turno
+  ,t.HORA_INICIO
+  ,t.HORA_FIN
+  ,p.DESCRIPCION as piso
+  ,ed.NOMBRE as edificio
+  ,ed.ID_CENTRO_MEDICO
+  ,tc.DESCRIPCION as tipo_centro
+  ,cem.NOMBRE as nombre_centro
+FROM CONSULTORIO con
+INNER JOIN MEDICOCONSULTORIO medcon
+  ON medcon.ID_CONSULTORIO = con.ID_CONSULTORIO
+INNER JOIN CONSULTORIO con
+  ON con.ID_CONSULTORIO = medcon.ID_CONSULTORIO
+INNER JOIN VistaMedico vm
+  ON vm.id_medico = medcon.ID_MEDICO
+INNER JOIN PISO p
+  ON p.ID_PISO = con.ID_PISO
+INNER JOIN EDIFICIO ed
+  ON ed.ID_EDIFICIO = p.ID_EDIFICIO
+INNER JOIN CENTROMEDICO cem
+  ON cem.ID_CENTRO_MEDICO = ed.ID_CENTRO_MEDICO
+INNER JOIN TURNO t
+  ON t.ID_TURNO = medcon.ID_TURNO
+INNER JOIN TIPOCENTRO tc
+  ON tc.ID_TIPO_CENTRO = cem.ID_TIPO_CENTRO
+ORDER BY cem.ID_CENTRO_MEDICO, vm.id_medico
+;
+
+
+/*** Vista 9 *****/
+/*** Enfermedades diagnosticadas *****/
+CREATE OR REPLACE VIEW VistaEnfermedadesConsultas
+AS
+SELECT
+  e.ID_ENFERMEDAD
+  ,e.ENFERMEDAD
+  ,tpe.DESCRIPCION
+  ,ce.ID_CONSULTA
+  ,ec.estado
+  ,ec.FECHA_DIAGNOSTICO as fecha
+  ,vm.p_nombre || ' '  || vm.s_nombre || ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico
+  ,vm.especialidad as especialidad
+  ,vp.id_expediente
+  ,vp.id_paciente
+  ,vp.p_nombre
+  ,vp.s_nombre
+  ,vp.p_apellido
+  ,vp.s_apellido
+  ,vp.no_identidad
+  ,vp.grupo_sanguineo || vp.factor_rh as tipo_sangre
+FROM ENFERMEDADCONSULTA ec
+INNER JOIN ENFERMEDAD e
+  ON e.ID_ENFERMEDAD = ec.ID_ENFERMEDAD
+INNER JOIN TIPOENFERMEDAD tpe
+  ON tpe.ID_TIPO_ENFERMEDAD = e.ID_TIPO_ENFERMEDAD
+INNER JOIN VistaMedico vm
+  ON vm.id_medico = ec.ID_MEDICO
+INNER JOIN VistaPaciente vp
+  ON vp.id_expediente = ec.ID_EXPEDIENTE
+INNER JOIN CONSULTAEXTERNA ce
+  ON ce.ID_CONSULTA = ec.ID_CONSULTA
 ;
 
 
@@ -146,9 +399,11 @@ SELECT
     H.FECHA_HORA_ALTA,
     H.FECHA_HORA_INGRESO,
     PI.ID_PISO,
+    PI.DESCRIPCION as SALA,
     PI.ID_EDIFICIO,
     PI.DESCRIPCION AS descripcion_piso,
     CM.ID_CENTRO_MEDICO,
+    cm.NOMBRE as centro_medico,
     CM.ID_TIPO_CENTRO,
     PE.P_NOMBRE,
     PE.S_NOMBRE,
@@ -223,7 +478,7 @@ INNER JOIN PACIENTE PA
   ON PA.ID_PACIENTE= EX.ID_PACIENTE
 INNER JOIN PERSONA PE
   ON PE.ID_PERSONA= PA.ID_PERSONA
-ORDER BY FECHA_HORA;
+ORDER BY FECHA_HORA
 ;
 
 
@@ -271,7 +526,7 @@ INNER JOIN TIPOCENTRO TC
 
 
 /*** ------------------- VISTA EFICIO ------------------------ *****/
-CREATE OR REPLACE VIEW VistaEdificio
+CREATE OR REPLACE VIEW VistaEdificioPiso
 AS
 SELECT
     PI.*,
@@ -301,36 +556,6 @@ INNER JOIN EDIFICIO e
   ON p.ID_EDIFICIO = e.ID_EDIFICIO
 INNER JOIN CENTROMEDICO c
   ON e.ID_CENTRO_MEDICO = c.ID_CENTRO_MEDICO
-;
-
-
-/*** Vista 2 :: *****/
-/*** Todos los medicos *****/
-CREATE OR REPLACE VIEW VistaMedico
-AS
-SELECT
-  med.ID_MEDICO,
-  med.NO_COLEGIACION,
-  p.ID_PERSONA,
-  p.P_NOMBRE,
-  p.S_NOMBRE,
-  p.P_APELLIDO,
-  p.S_APELLIDO,
-  p.NO_IDENTIDAD,
-  p.DIRECCION,
-  pa.NOMBRE as pais,
-  p.SEXO,
-  p.DIRECCION,
-  p.CORREO,
-  t.ID_ESPECIALIDAD,
-  t.especialidad
-FROM MEDICO med
-INNER JOIN PERSONA p
-  ON p.ID_PERSONA = med.ID_PERSONA
-INNER JOIN ESPECIALIDAD t
-  ON t.ID_ESPECIALIDAD = med.ID_ESPECIALIDAD
-INNER JOIN PAIS pa
-  ON pa.ID_PAIS = p.ID_PAIS
 ;
 
 
@@ -467,7 +692,7 @@ INNER JOIN PERSONA p
 
 
 /*** -------------------- VISTATRATAMIENTO -------------------------- *****/
-CREATE VIEW VIstaTratamiento
+CREATE OR REPLACE VIEW VistaTratamiento
 AS
 SELECT
 t.*
@@ -484,7 +709,7 @@ ON t.ID_VIA_SUMINISTRO = v.ID_VIA_SUMINISTRO
 /*** - --- --- --- --- --- --- --- ---  VISTA --- --- --- --- --- --- --- *****/
 CREATE OR REPLACE VIEW VistaParamedico
 AS
-SELECT
+SELECT DISTINCT
   par.ID_PARAMEDICO
   ,par.LICENCIA
   ,p.ID_PERSONA
@@ -496,6 +721,7 @@ SELECT
   ,pa.NOMBRE as pais
   ,p.SEXO
   ,p.CORREO
+  ,p.DIRECCION
 FROM PARAMEDICO par
 INNER JOIN PERSONA p
   ON par.ID_PERSONA = p.ID_PERSONA
@@ -642,7 +868,7 @@ INNER JOIN PERSONA PE
 
 
 
-CREATE OR REPLACE VIEW EmergenciaHoy
+CREATE OR REPLACE VIEW VistaEmergenciasHoy
 AS
 SELECT * FROM VISTAEMERGENCIA EH
 WHERE EXTRACT(DAY FROM EH.FECHA_HORA_ATENCION)= EXTRACT(DAY FROM SYSDATE)
@@ -665,6 +891,7 @@ SELECT
   ,u.ID_USUARIO
   ,u.ID_TIPO_USUARIO
   ,tu.TIPO as tipo_usuario
+  ,cm.DIRECCION as direccion_centro
   ,cm.ID_CENTRO_MEDICO
   ,cm.NOMBRE as centro_medico
   ,tp.ID_TIPO_CENTRO
@@ -681,100 +908,6 @@ INNER JOIN TIPOUSUARIO TU
   ON U.ID_TIPO_USUARIO = TU.ID_TIPO_USUARIO
 INNER JOIN PAIS pa
   ON P.ID_PAIS = pa.ID_PAIS
-
-
-/*** Vista 3:: *****/
- /*** Telefonos por pacientes *****/
-
-CREATE OR REPLACE VIEW VistaTelefonoPaciente
-AS
-SELECT
-  vp.id_persona
-  ,vp.id_paciente
-  ,t.ID_TELEFONO
-  ,t.TELEFONO
-  ,tipo.TIPO_TELEFONO
-  ,pa.CODIGO_POSTAL as codigo_area
-FROM TELEFONOPERSONA tp
-INNER JOIN VistaPaciente vp
-  ON vp.id_persona = tp.ID_PERSONA
-INNER JOIN TELEFONO t
-  ON tp.ID_TELEFONO = t.ID_TELEFONO
-INNER JOIN TIPOTELEFONO tipo
-  On t.ID_TIPO_TELEFONO = tipo.ID_TIPO_TELEFONO
-INNER JOIN pais pa
-  ON pa.ID_PAIS = t.ID_PAIS
-ORDER BY id_persona
-;
-
-
-/*** Vista 4: *****/
-/*** Telefono Doctor *****/
-CREATE OR REPLACE VIEW VistaTelefonoDoctor(
-  id,
-  codigo_area,
-  telefono,
-  id_medico,
-  id_persona
-)
-AS
-SELECT
-  t.ID_TELEFONO,
-  pa.CODIGO_POSTAL,
-  t.TELEFONO,
-  vm.id_medico,
-  vm.id_persona
-FROM TELEFONOPERSONA tp
-INNER JOIN VistaMedico vm
-  ON vm.id_persona = tp.ID_PERSONA
-INNER JOIN TELEFONO t
-  ON tp.ID_TELEFONO = t.ID_TELEFONO
-INNER JOIN pais pa
-  ON pa.ID_PAIS = t.ID_PAIS
-ORDER BY id_persona
-;
-
-
-/*** Vista 5 *****/
-/*** Consultas por persona, doctor y centro medico *****/
-CREATE OR REPLACE VIEW VistaConsultas
-AS
-SELECT
-  ce.ID_CONSULTA,
-  cem.ID_CENTRO_MEDICO,
-  cem.NOMBRE as centro_medico,
-  con.ID_CONSULTORIO,
-  p.DESCRIPCION as piso,
-  ed.NOMBRE as edificio,
-  vp.id_persona,
-  vp.id_paciente,
-  vp.p_nombre,
-  vp.s_nombre,
-  vp.p_apellido,
-  vp.s_apellido,
-  vp.no_identidad,
-  vp.sexo,
-  vp.id_expediente,
-  vm.id_medico,
-  vm.p_nombre || ' '  || vm.s_nombre ||  ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico,
-  vm.especialidad as especialidad,
-  ce.DIAGNOSTICO,
-  ce.SINTOMAS,
-  ce.OBSERVACION,
-  ce.FECHA_HORA as fecha
-FROM CONSULTAEXTERNA ce
-INNER JOIN VistaPaciente vp
-  ON ce.ID_EXPEDIENTE = vp.id_expediente
-INNER JOIN VistaMedico vm
-  ON vm.id_medico = ce.ID_MEDICO
-INNER JOIN CONSULTORIO con
-  ON con.ID_CONSULTORIO = ce.ID_CONSULTORIO
-INNER JOIN PISO p
-  ON p.ID_PISO = con.ID_PISO
-INNER JOIN EDIFICIO ed
-  ON ed.ID_EDIFICIO = p.ID_EDIFICIO
-INNER JOIN CENTROMEDICO cem
-  ON cem.ID_CENTRO_MEDICO = ed.ID_CENTRO_MEDICO
 ;
 
 
@@ -791,123 +924,6 @@ WHERE
   AND EXTRACT (MONTH FROM vc.fecha) = EXTRACT(MONTH FROM SYSDATE)
   AND EXTRACT (YEAR FROM vc.fecha) = EXTRACT(YEAR FROM SYSDATE)
 ORDER BY vc.centro_medico, vc.medico, vc.fecha
-;
-
-
-/*** Vista 7 *****/
-/*** Personas Hospitalizadas *****/
-CREATE OR REPLACE VIEW VistaHospitalizaciones
-AS
-SELECT
-  hp.ID_INGRESO,
-  hp.OBSERVACION,
-  hp.FECHA_HORA_INGRESO,
-  hp.FECHA_HORA_ALTA,
-  cem.ID_CENTRO_MEDICO,
-  cem.NOMBRE as centro_medico,
-  tc.DESCRIPCION as tipo_centro,
-  ed.NOMBRE as edificio,
-  p.ID_PISO,
-  p.DESCRIPCION as sala,
-  hp.CAMA,
-  vm.id_medico,
-  vm.p_nombre || ' '  || vm.s_nombre ||  ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico,
-  vm.especialidad as especialidad,
-  vp.id_expediente,
-  vp.id_paciente,
-  vp.p_nombre,
-  vp.s_nombre,
-  vp.p_apellido,
-  vp.s_apellido,
-  vp.no_identidad,
-  vp.sexo
-FROM HOSPITALIZACION hp
-INNER JOIN VistaMedico vm
-  ON vm.id_medico = hp.ID_MEDICO
-INNER JOIN PISO p
-  ON hp.ID_PISO = p.ID_PISO
-INNER JOIN EDIFICIO ed
-  ON p.ID_EDIFICIO = ed.ID_EDIFICIO
-INNER JOIN CENTROMEDICO cem
-  ON cem.ID_CENTRO_MEDICO = ed.ID_CENTRO_MEDICO
-INNER JOIN TIPOCENTRO tc
-  ON tc.ID_TIPO_CENTRO = cem.ID_TIPO_CENTRO
-INNER JOIN VistaPaciente vp
-  ON vp.id_expediente = hp.ID_EXPEDIENTE
-ORDER BY cem.ID_CENTRO_MEDICO, vm.id_medico
-;
-
-
-/*** Vista 8 *****/
-/*** Consultorios por centro medico y medico *****/
-CREATE OR REPLACE VIEW VistaConsultorioTurno
-AS
-SELECT
-  con.ID_CONSULTORIO
-  ,vm.id_medico
-  ,vm.p_nombre || ' '  || vm.s_nombre ||  ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico
-  ,vm.especialidad as especialidad
-  ,t.DESCRIPCION turno
-  ,t.HORA_INICIO
-  ,t.HORA_FIN
-  ,p.DESCRIPCION as piso
-  ,ed.NOMBRE as edificio
-  ,ed.ID_CENTRO_MEDICO
-  ,tc.DESCRIPCION as tipo_centro
-  ,cem.NOMBRE as nombre_centro
-FROM CONSULTORIO con
-INNER JOIN MEDICOCONSULTORIO medcon
-  ON medcon.ID_CONSULTORIO = con.ID_CONSULTORIO
-INNER JOIN CONSULTORIO con
-  ON con.ID_CONSULTORIO = medcon.ID_CONSULTORIO
-INNER JOIN VistaMedico vm
-  ON vm.id_medico = medcon.ID_MEDICO
-INNER JOIN PISO p
-  ON p.ID_PISO = con.ID_PISO
-INNER JOIN EDIFICIO ed
-  ON ed.ID_EDIFICIO = p.ID_EDIFICIO
-INNER JOIN CENTROMEDICO cem
-  ON cem.ID_CENTRO_MEDICO = ed.ID_CENTRO_MEDICO
-INNER JOIN TURNO t
-  ON t.ID_TURNO = medcon.ID_TURNO
-INNER JOIN TIPOCENTRO tc
-  ON tc.ID_TIPO_CENTRO = cem.ID_TIPO_CENTRO
-ORDER BY cem.ID_CENTRO_MEDICO, vm.id_medico
-;
-
-
-/*** Vista 9 *****/
-/*** Enfermedades diagnosticadas *****/
-CREATE OR REPLACE VIEW VistaEnfermedadesConsultas
-AS
-SELECT
-  e.ID_ENFERMEDAD
-  ,e.ENFERMEDAD
-  ,tpe.DESCRIPCION
-  ,ce.ID_CONSULTA
-  ,ec.estado
-  ,ec.FECHA_DIAGNOSTICO as fecha
-  ,vm.p_nombre || ' '  || vm.s_nombre || ' '  || vm.p_apellido || ' '  || vm.s_apellido as medico
-  ,vm.especialidad as especialidad
-  ,vp.id_expediente
-  ,vp.id_paciente
-  ,vp.p_nombre
-  ,vp.s_nombre
-  ,vp.p_apellido
-  ,vp.s_apellido
-  ,vp.no_identidad
-  ,vp.grupo_sanguineo || vp.factor_rh as tipo_sangre
-FROM ENFERMEDADCONSULTA ec
-INNER JOIN ENFERMEDAD e
-  ON e.ID_ENFERMEDAD = ec.ID_ENFERMEDAD
-INNER JOIN TIPOENFERMEDAD tpe
-  ON tpe.ID_TIPO_ENFERMEDAD = e.ID_TIPO_ENFERMEDAD
-INNER JOIN VistaMedico vm
-  ON vm.id_medico = ec.ID_MEDICO
-INNER JOIN VistaPaciente vp
-  ON vp.id_expediente = ec.ID_EXPEDIENTE
-INNER JOIN CONSULTAEXTERNA ce
-  ON ce.ID_CONSULTA = ec.ID_CONSULTA
 ;
 
 

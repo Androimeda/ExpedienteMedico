@@ -257,6 +257,22 @@ case 'buscarPorNombre':
   echo $paramedico->buscarPorNombre($conexion);
 break;
 
+case 'buscarPorLicencia':
+
+  if(isset($_POST['licencia'])){
+    $licencia= $_POST['licencia'];
+  }else{
+    $licencia=null;
+    $res['mensaje']='Se necesita campo: licencia';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $paramedico=new Paramedico();
+  $paramedico->setLicencia($licencia);
+  echo $paramedico->buscarPorLicencia($conexion);
+break;
+
 case 'listar':
 
   if(isset($_POST['idParamedico']) && $_POST['idParamedico']!=''){

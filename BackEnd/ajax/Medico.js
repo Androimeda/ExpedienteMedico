@@ -33,6 +33,26 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
+    'accion':'buscarPorNoColegiacion',
+    'noColegiacion': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Medico.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
     'accion':'buscarPorApellido',
     'sApellido': null,
     'pApellido': null,
