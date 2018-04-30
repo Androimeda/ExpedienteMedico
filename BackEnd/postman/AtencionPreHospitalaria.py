@@ -22,6 +22,14 @@ print
 
 url='AtencionPreHospitalaria'
 data={
+  'accion':'listarPorCentroDiarias',
+  'idCentroMedico': None,
+}
+print postear(data,url)
+print
+
+url='AtencionPreHospitalaria'
+data={
   'accion':'listarPorCentroFecha',
   'idCentroMedico': None,
   'fechaHoraAtencion': None,

@@ -60,6 +60,22 @@ case 'listarPorParamedico':
   echo $atencionprehospitalaria->listarPorParamedico($conexion);
 break;
 
+case 'listarPorCentroDiarias':
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $atencionprehospitalaria=new AtencionPreHospitalaria();
+  $atencionprehospitalaria->setIdCentroMedico($idCentroMedico);
+  echo $atencionprehospitalaria->listarPorCentroDiarias($conexion);
+break;
+
 case 'listarPorCentroFecha':
 
   if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){

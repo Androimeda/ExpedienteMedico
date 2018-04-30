@@ -158,6 +158,23 @@ class AtencionPreHospitalaria{
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
+	}	
+	public function listarPorCentroDiarias($conexion){
+		$query=sprintf("
+		   SELECT
+		     *
+		   FROM VISTAAPH V
+		   WHERE ID_CENTRO_MEDICO = %s
+		   AND EXTRACT(DAY FROM V.FECHA_HORA_ATENCION) = EXTRACT(DAY FROM SYSDATE)
+		   AND EXTRACT(MONTH FROM V.FECHA_HORA_ATENCION) = EXTRACT(MONTH FROM SYSDATE)
+		   AND EXTRACT(YEAR FROM V.FECHA_HORA_ATENCION) = EXTRACT(YEAR FROM SYSDATE)
+		   ;
+		"
+		  ,$this->idCentroMedico
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 
 	public function listarPorParamedico($conexion){

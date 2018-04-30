@@ -45,6 +45,26 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
+    'accion':'listarPorCentroDiarias',
+    'idCentroMedico': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
     'accion':'listarPorCentroFecha',
     'idCentroMedico': null,
     'fechaHoraAtencion': null,
