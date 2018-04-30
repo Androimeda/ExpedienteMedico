@@ -47,11 +47,6 @@ function cargaTablaAPHoy(){
 	  }
 	});
 }
-<<<<<<< HEAD
-
-=======
-//***** AL CARG
->>>>>>> 6877f85a37bca859dcd219f0d2cb2552d45f91d1
 $(document).ready(function(){
 	cargaTablaAPHoy();
 });
