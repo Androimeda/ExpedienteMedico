@@ -8,8 +8,8 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'listarTodos',
-    'idCentroMedico': 1,
-    //'idCentroMedico': $("#txt-centro").val(),
+    // 'idCentroMedico': 1,
+    'idCentroMedico': $("#txt-centro").val(),
   },
   success:function(respuesta){
     agregarFilaTablaMedico(respuesta);

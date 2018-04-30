@@ -27,8 +27,8 @@ function cargaTablaParamedico(){
 	  dataType:'JSON',
 	  data:{
 	    'accion':'listarTodos',
-	    // 'idCentroMedico' : $("#txt-centro").val(),
-	    'idCentroMedico' : 1,
+	    'idCentroMedico' : $("#txt-centro").val(),
+	    // 'idCentroMedico' : 1,
 	  },
 	  success:function(respuesta){
 	  	agregarFilaTablaParamedico(respuesta);

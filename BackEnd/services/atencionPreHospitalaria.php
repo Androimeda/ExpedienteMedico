@@ -60,20 +60,31 @@ case 'listarPorParamedico':
   echo $atencionprehospitalaria->listarPorParamedico($conexion);
 break;
 
-case 'listarPorPaciente':
+case 'listarPorCentroFecha':
 
-  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
-    $idExpediente= $_POST['idExpediente'];
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
   }else{
-    $idExpediente='null';
-    $res['mensaje']='Se necesita campo: idExpediente';
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['fechaHoraAtencion'])){
+    $fechaHoraAtencion= $_POST['fechaHoraAtencion'];
+  }else{
+    $fechaHoraAtencion=null;
+    $res['mensaje']='Se necesita campo: fechaHoraAtencion';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $atencionprehospitalaria=new AtencionPreHospitalaria();
-  $atencionprehospitalaria->setIdExpediente($idExpediente);
-  echo $atencionprehospitalaria->listarPorPaciente($conexion);
+  $atencionprehospitalaria->setIdCentroMedico($idCentroMedico);
+  $atencionprehospitalaria->setFechaHoraAtencion($fechaHoraAtencion);
+  echo $atencionprehospitalaria->listarPorCentroFecha($conexion);
 break;
 
 case 'actualizar':
@@ -172,6 +183,22 @@ case 'listarPorCentroMedico':
   $atencionprehospitalaria->setIdCentroMedico($idCentroMedico);
   $atencionprehospitalaria->setNombreCentro($nombreCentro);
   echo $atencionprehospitalaria->listarPorCentroMedico($conexion);
+break;
+
+case 'listarPorPaciente':
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $atencionprehospitalaria=new AtencionPreHospitalaria();
+  $atencionprehospitalaria->setIdExpediente($idExpediente);
+  echo $atencionprehospitalaria->listarPorPaciente($conexion);
 break;
 
 default:

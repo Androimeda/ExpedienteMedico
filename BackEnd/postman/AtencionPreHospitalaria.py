@@ -22,8 +22,9 @@ print
 
 url='AtencionPreHospitalaria'
 data={
-  'accion':'listarPorPaciente',
-  'idExpediente': None,
+  'accion':'listarPorCentroFecha',
+  'idCentroMedico': None,
+  'fechaHoraAtencion': None,
 }
 print postear(data,url)
 print
@@ -46,6 +47,14 @@ data={
   'accion':'listarPorCentroMedico',
   'idCentroMedico': None,
   'nombreCentro': None,
+}
+print postear(data,url)
+print
+
+url='AtencionPreHospitalaria'
+data={
+  'accion':'listarPorPaciente',
+  'idExpediente': None,
 }
 print postear(data,url)
 print
