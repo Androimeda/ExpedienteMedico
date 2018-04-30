@@ -190,6 +190,6 @@ class Paramedico extends Persona{
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
-	}	
-	
+	}
+}		
 ?>
