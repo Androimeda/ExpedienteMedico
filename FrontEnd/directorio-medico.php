@@ -16,7 +16,7 @@
     <!-- Fin Navbar -->
     <div class="container well card"> 
         <input type="hidden" name="" id="txt-centro" value="<?php echo $user["ID_CENTRO_MEDICO"]; ?>">
-|       <div class="row">
+       <div class="row">
         <div class="col-lg-12" id="titulo">
           <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
           <h1>Listado de Medicos</h1>
@@ -38,7 +38,7 @@
               </select>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-default" onclick="cargaTablaMedico()">Limpiar</button>
+              <button type="button" class="btn btn-default" onclick="cargarTablaMedico()">Limpiar</button>
               <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
         </div>
