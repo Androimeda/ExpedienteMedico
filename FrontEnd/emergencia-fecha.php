@@ -9,7 +9,6 @@
     <title>Hope Medics</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <input type="date"  class="form-control" id="#txt-fecha">
   </head>
   <body>
     <!-- Fixed navbar -->
@@ -25,6 +24,7 @@
       <div class="row">
           <div class="col-lg-12">
             <div class="col-lg-4">
+              <input type="date"  class="form-control" id="txt-fecha">
               <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
             <div class="col-lg-4">

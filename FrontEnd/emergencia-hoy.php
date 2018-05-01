@@ -18,13 +18,13 @@
     <div class="row">
         <div class="col-lg-12" id="titulo">
           <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
-          <h1>Listado de pacientes</h1>
+          <h1>Listado de emergencias</h1>
         </div>
       </div>
       <div class="row">
           <div class="col-lg-12">
             <div class="col-lg-4">
-              <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
+              <input type="text" class="form-control" id="txt-busqueda" placeholder="Fecha">
             </div>
             <div class="col-lg-4">
               <select name="slc-filtro-e" class ="form-control" id="slc-filtro-e">
@@ -35,7 +35,7 @@
               </select>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-default" onclick="cargaTablaPaciente()">Limpiar</button>
+              <button type="button" class="btn btn-default" onclick="cargaTablaEmergenciaHoy()">Limpiar</button>
               <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
         </div>
