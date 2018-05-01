@@ -151,7 +151,6 @@ $.ajax({
     'accion':'recetar',
     'idTratamiento': null,
     'idConsulta': null,
-    'idMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);

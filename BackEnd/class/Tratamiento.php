@@ -316,7 +316,6 @@ class Tratamiento{
 		    PL_Recetar(
 		      %s
 		      ,%s
-		      ,%s
 		      ,:msg
 		      ,:res
 		    );
@@ -324,7 +323,6 @@ class Tratamiento{
 		",
 		  $this->idTratamiento
 		  ,$this->idConsulta
-		  ,$this->idMedico
 		);
 		$resultado=$conexion->query($query);
 		oci_bind_by_name($resultado, ':msg', $msg, 2000);

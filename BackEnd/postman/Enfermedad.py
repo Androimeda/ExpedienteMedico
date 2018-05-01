@@ -82,7 +82,6 @@ url='Enfermedad'
 data={
   'accion':'diagnosticarEnfermedad',
   'idConsulta': None,
-  'fechaDiagnostico': None,
   'idExpediente': None,
   'idMedico': None,
   'idEnfermedad': None,

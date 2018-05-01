@@ -68,7 +68,6 @@ data={
   'accion':'recetar',
   'idTratamiento': None,
   'idConsulta': None,
-  'idMedico': None,
 }
 print postear(data,url)
 print

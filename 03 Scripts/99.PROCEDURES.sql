@@ -904,7 +904,6 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarEmergencia(
   ,pobservacion IN VARCHAR
   ,fechaHoraAtencion IN TIMESTAMP
   ,idExpediente IN INT
-  ,idAtencion IN INT
   ,idCentroMedico IN INT
   ,idMedico IN INT
   ,mensaje OUT VARCHAR
@@ -929,9 +928,9 @@ BEGIN
   IF idExpediente = '' OR idExpediente IS NULL THEN
     mensaje:= mensaje || 'idExpediente, ';
   END IF;
-  IF idAtencion = '' OR idAtencion IS NULL THEN
-    mensaje:= mensaje || 'idAtencion, ';
-  END IF;
+--   IF idAtencion = '' OR idAtencion IS NULL THEN
+--     mensaje:= mensaje || 'idAtencion, ';
+--   END IF;
   IF idCentroMedico = '' OR idCentroMedico IS NULL THEN
     mensaje:= mensaje || 'idCentroMedico, ';
   END IF;
@@ -965,16 +964,16 @@ BEGIN
     RETURN;
   END IF;
 
-  SELECT
-    COUNT(*)
-  INTO contador
-  FROM ATENCIONPREHOSPITALARIA
-  WHERE ID_ATENCION = idAtencion
-  ;
-  IF idAtencion IS NOT NULL AND contador=0 THEN
-    mensaje:='No existe codigo de Atencion Pre Hospitalaria';
-    RETURN;
-  END IF;
+--   SELECT
+--     COUNT(*)
+--   INTO contador
+--   FROM ATENCIONPREHOSPITALARIA
+--   WHERE ID_ATENCION = idAtencion
+--   ;
+--   IF idAtencion IS NOT NULL AND contador=0 THEN
+--     mensaje:='No existe codigo de Atencion Pre Hospitalaria';
+--     RETURN;
+--   END IF;
 
   SELECT
     COUNT(*)
@@ -1003,7 +1002,7 @@ BEGIN
   OBSERVACION=pobservacion,
   FECHA_HORA_ATENCION=fechaHoraAtencion,
   ID_EXPEDIENTE=idExpediente,
-  ID_ATENCION=idAtencion,
+--   ID_ATENCION=idAtencion,
   ID_CENTRO_MEDICO=idCentroMedico,
   ID_MEDICO=idMedico
   WHERE ID_INGRESO=idIngreso
@@ -1128,7 +1127,6 @@ END;
 CREATE OR REPLACE PROCEDURE PL_DiagnosticarEnfermedad(
   idEnfermedad IN INT
   ,idMedico IN INT
-  ,fechaDiagnostico IN TIMESTAMP
   ,idExpediente IN INT
   ,idConsulta IN INT
   ,mensaje OUT VARCHAR
@@ -1147,9 +1145,9 @@ BEGIN
   IF idMedico = '' OR idMedico IS NULL THEN
     mensaje:= mensaje || 'idMedico, ';
   END IF;
-  IF fechaDiagnostico = '' OR fechaDiagnostico IS NULL THEN
-    mensaje:= mensaje || 'fechaDiagnostico, ';
-  END IF;
+--   IF fechaDiagnostico = '' OR fechaDiagnostico IS NULL THEN
+--     mensaje:= mensaje || 'fechaDiagnostico, ';
+--   END IF;
   IF idExpediente = '' OR idExpediente IS NULL THEN
     mensaje:= mensaje || 'idExpediente, ';
   END IF;
@@ -1208,7 +1206,7 @@ BEGIN
 
   INSERT INTO ENFERMEDADCONSULTA
   (ID_MEDICO, ESTADO, FECHA_DIAGNOSTICO, ID_EXPEDIENTE, ID_CONSULTA) VALUES
-  (idMedico, 1, fechaDiagnostico, idExpediente, idConsulta);
+  (idMedico, 1, SYSDATE, idExpediente, idConsulta);
   COMMIT;
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
@@ -3046,7 +3044,7 @@ END;
 CREATE OR REPLACE PROCEDURE PL_Recetar(
   idTratamiento IN INT
   ,idConsulta IN INT
-  ,idMedico IN INT
+  --,idMedico IN INT
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -3063,9 +3061,9 @@ BEGIN
   IF idConsulta = '' OR idConsulta IS NULL THEN
     mensaje:= mensaje || 'idConsulta, ';
   END IF;
-  IF idMedico = '' OR idMedico IS NULL THEN
-    mensaje:= mensaje || 'idMedico, ';
-  END IF;
+--   IF idMedico = '' OR idMedico IS NULL THEN
+--     mensaje:= mensaje || 'idMedico, ';
+--   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
@@ -3086,22 +3084,20 @@ SELECT COUNT(*) INTO vnConteo
     RETURN ;
   END IF;
 
-  SELECT COUNT(*) INTO vnConteo
-    FROM  MEDICO
-    WHERE idMedico=ID_MEDICO;
-  IF vnConteo=0 THEN
-    mensaje:='el medico con identificador: '||idMedico||'no esta registradi';
-    RETURN ;
-  END IF;
+--   SELECT COUNT(*) INTO vnConteo
+--     FROM  MEDICO
+--     WHERE idMedico=ID_MEDICO;
+--   IF vnConteo=0 THEN
+--     mensaje:='el medico con identificador: '||idMedico||'no esta registradi';
+--     RETURN ;
+--   END IF;
 
   INSERT  INTO TRATAMIENTOCONSULTA(
     ID_CONSULTA,
-    ID_TRATAMIENTO,
-    ID_MEDICO
+    ID_TRATAMIENTO
   )VALUES (
     idConsulta,
-    idTratamiento,
-    idMedico
+    idTratamiento
   );
   COMMIT;
   mensaje:='se ingreso la informacion correctamente';

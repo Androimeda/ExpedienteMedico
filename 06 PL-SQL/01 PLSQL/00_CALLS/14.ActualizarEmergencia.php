@@ -12,7 +12,6 @@ $query=sprintf("
       ,%s
       ,%s
       ,%s
-      ,%s
       ,:msg
       ,:res
     );
@@ -22,7 +21,6 @@ $query=sprintf("
   ,$this->pobservacion
   ,$this->fechaHoraAtencion
   ,$this->idExpediente
-  ,$this->idAtencion
   ,$this->idCentroMedico
   ,$this->idMedico
 );
