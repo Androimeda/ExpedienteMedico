@@ -140,10 +140,8 @@
           <ul class="dropdown-menu">
             <li class="dropdown-header">Información</li>
             <li><a href="./perfil.php">Perfil</a></li>
-            <li><a href="./datos-centro.php">Datos del centro</a></li>
             <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Ajustes</li>
-            <li><a href="./preferencias.php">Preferencias</a></li>
+            <li class="dropdown-header">Ayuda</li>
             <li><a href="#">Manual de Usuario</a></li>
             <li><a href="./acerca-de.php">Acerca de</a></li>
             <li><a href="./logout.php" class="logout">Cerrar Sesión</a></li>

@@ -222,14 +222,16 @@ class Emergencia{
 	
 	public function listarPorCentroFecha($conexion){
 		$query=sprintf("
-		     SELECT* 
+		     SELECT * 
 		     FROM VistaEmergencia V 
 		     WHERE v.ID_CENTRO_MEDICO=%s 
-		     EXTRACT(DAY FROM V.FECHA_HORA_ATENCION) = EXTRACT(DAY FROM SYSDATE)
-		     AND EXTRACT(MONTH FROM V.FECHA_HORA_ATENCION) = EXTRACT(MONTH FROM SYSDATE)
-		     AND EXTRACT(YEAR FROM V.FECHA_HORA_ATENCION) = EXTRACT(YEAR FROM SYSDATE)
+		     AND EXTRACT(DAY FROM V.FECHA_HORA_ATENCION) = EXTRACT(DAY FROM %s)
+		     AND EXTRACT(MONTH FROM V.FECHA_HORA_ATENCION) = EXTRACT(MONTH FROM %s)
+		     AND EXTRACT(YEAR FROM V.FECHA_HORA_ATENCION) = EXTRACT(YEAR FROM %s)
 		"
 		  ,$this->idCentroMedico
+		  ,$this->fechaHoraAtencion
+		  ,$this->fechaHoraAtencion
 		  ,$this->fechaHoraAtencion
 		);
 		$resultado = $conexion->query($query);

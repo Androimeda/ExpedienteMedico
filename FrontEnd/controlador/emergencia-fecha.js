@@ -22,14 +22,15 @@ function agregarFilaTablaEmergencia(respuesta){
 }
 
 function cargaTablaEmergenciaFecha(){
+	var fecha_hora = parseFecha($("#txt-fecha").val(), "00:00");
 	$.ajax({
 	  url:CONST_SITIO_URL+'/services/Emergencia.php',
 	  method:'POST',
 	  dataType:'JSON',
 	  data:{
    		 'accion':'listarPorCentroFecha',
-   		 'idCentroMedico': $("#txt-id-centro-medico"),
-   		 'fechaHoraAtencion': $("#txt-fecha"),
+   		 'idCentroMedico': $("#txt-id-centro-medico").val(),
+   		 'fechaHoraAtencion': fecha_hora,
 	    
 	     // no se que carajo ponerle acá
 	     // Aquí va algo que estoy usando con esos

@@ -19,7 +19,7 @@
         <div class="row">
           <div class="col-lg-12" id="titulo">
             <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
-            <h1>Consultas Diarias</h1>
+            <h1>Consulta Externa Hoy</h1>
           </div>
         </div>
         <div class="row">
@@ -78,14 +78,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Consultalta</h4>
+            <h4 class="modal-title" id="myModalLabel">Consulta</h4>
           </div>
           <input type="hidden" value="" id="txt-id-consulta">
+          <input type="hidden" value="" id="txt-id-expediente">
+          <input type="hidden" value="" id="txt-id-medico">
           <div class="modal-body">
             <table class="table">
               <tr>
                 <td>Nombre</td>
-                <td><input type="text" id="txt-pnombre" disabled="disabled" class="form-control"></td>
+                <td><input type="text" id="txt-nombre" disabled="disabled" class="form-control"></td>
               </tr>
               <tr>
                 <td>No Identidad</td>
@@ -93,15 +95,19 @@
               </tr>
               <tr>
                 <td>Médico</td>
-                <td><input type="text" id="txt-snombre" disabled="disabled" class="form-control"></td>
+                <td><input type="text" id="txt-medico" disabled="disabled" class="form-control"></td>
               </tr>              
               <tr>
                 <td>Especialidad</td>
-                <td><input type="text" id="txt-snombre" disabled="disabled" class="form-control"></td>
+                <td><input type="text" id="txt-especialidad" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Consultorio</td>
+                <td><input type="text" id="txt-consultorio" disabled="disabled" class="form-control"></td>
               </tr>
               <tr>
                 <td>Fecha</td>
-                <td><input type="text" id="txt-papellido" disabled="disabled" class="form-control"></td>
+                <td><input type="text" id="txt-fecha" disabled="disabled" class="form-control"></td>
               </tr>
               <tr>
                 <td>Síntomas</td>

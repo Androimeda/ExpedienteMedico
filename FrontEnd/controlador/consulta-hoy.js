@@ -165,4 +165,74 @@ function limpiar(){
 
 function editar(id) {
 	$("#modal-editar").modal("show");
+	$("#txt-id-consulta").val(id);
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listar',
+	    'idConsulta': id,
+	  },
+	  success:function(respuesta){
+	  	console.log(respuesta)
+	  	consulta = respuesta[0];
+	  	$("#txt-nombre").val(
+	  		consulta.P_NOMBRE	
+	  		+" "+consulta.S_NOMBRE
+	  		+" "+consulta.P_APELLIDO	
+	  		+" "+consulta.S_APELLIDO
+	  	);
+	  	$("#txt-medico").val(consulta.MEDICO);
+	  	$("#txt-especialidad").val(consulta.ESPECIALIDAD);
+	  	$("#txt-noidentidad").val(consulta.NO_IDENTIDAD);
+	  	$("#txt-noidentidad").val(consulta.NO_IDENTIDAD);
+	    $("#txt-id-expediente").val(consulta.ID_EXPEDIENTE);
+	    $("#txt-id-medico").val(consulta.ID_MEDICO);
+	    $("#txt-consultorio").val(consulta.ID_CONSULTORIO);
+	    $("#txt-fecha").val(consulta.FECHA_HORA);
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+}
+
+function actualizar(){
+	var idMedico= $("#txt-id-medico").val();
+	var consultorio= $("#txt-consultorio").val();
+	var diagnostico= $("#txt-diagnostico").val();
+	var idConsulta= $("#txt-id-consulta").val();
+	var sintomas= $("#txt-sintomas").val();
+	var idExpediente= $("#txt-id-expediente").val();
+	var observacion= $("#txt-observacion").val();
+	var fechaHora= $("#txt-fecha").val();
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'actualizar',
+	    'idMedico': idMedico,
+	    'idConsultorio': consultorio,
+	    'diagnostico': diagnostico,
+	    'idConsulta': idConsulta,
+	    'sintomas': sintomas,
+	    'idExpediente': idExpediente,
+	    'observ': observ,
+	    'fechaHora': fechaHora,
+	  },
+	  success:function(respuesta){
+	    console.log(respuesta);
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
 }
