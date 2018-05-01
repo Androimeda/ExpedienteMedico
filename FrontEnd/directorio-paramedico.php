@@ -73,7 +73,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Editar Usuario</h4>
+            <h4 class="modal-title" id="myModalLabel">Editar Paramédico</h4>
           </div>
           <input type="hidden" value="" id="txt-id-paramedico">
           <div class="modal-body">

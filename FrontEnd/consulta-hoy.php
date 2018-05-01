@@ -57,6 +57,7 @@
                     <th>Especialidad</th>
                     <th>Síntomas</th>
                     <th>Diagnostico</th>
+                    <th>Editar</th>
                   </thead>
                   <tbody>
                   </tbody>
@@ -69,6 +70,81 @@
             </div>
         </div>
     </div> <!-- /container -->
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modal-editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Consultalta</h4>
+          </div>
+          <input type="hidden" value="" id="txt-id-consulta">
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <td>Nombre</td>
+                <td><input type="text" id="txt-pnombre" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>No Identidad</td>
+                <td><input type="text" id="txt-noidentidad" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Médico</td>
+                <td><input type="text" id="txt-snombre" disabled="disabled" class="form-control"></td>
+              </tr>              
+              <tr>
+                <td>Especialidad</td>
+                <td><input type="text" id="txt-snombre" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Fecha</td>
+                <td><input type="text" id="txt-papellido" disabled="disabled" class="form-control"></td>
+              </tr>
+              <tr>
+                <td>Síntomas</td>
+                <td>
+                  <textarea class="form-control" id="txt-sintomas"></textarea>
+                </td>
+              </tr>              
+              <tr>
+                <td>Diagnóstico</td>
+                <td>
+                  <textarea class="form-control" id="txt-diagnostico"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>Observación</td>
+                <td>
+                  <textarea class="form-control" id="txt-observacion"></textarea>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="actualizar()">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FAB ICON -->
+    <div class="container fab">
+      <div class="row">
+        <div class="col-lg-11"></div>
+        <div class="col-lg-1">
+          <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-up"></span></a>
+        </div>
+      </div>
+    </div>
+    <!-- /FAB ICON -->
+
+
+
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 

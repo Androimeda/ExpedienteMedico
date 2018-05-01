@@ -96,7 +96,7 @@
             <div class="col-lg-7"></div>
             <div class="col-lg-5 well card">
                 <h3>Acceder</h3>
-                <div class="col-lg-12 well card-bg">
+                <div class="col-lg-12">
                     <table class="table">
                         <tr>
                             <td>Correo Electrónico</td>

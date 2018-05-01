@@ -200,6 +200,18 @@ class ConsultaExterna{
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
+	}	
+	public function listar($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM VistaConsultaExterna V 
+		    WHERE  V.ID_CONSULTA=%s 
+		"
+		  ,$this->idConsulta
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 	public function listarPorHoy($conexion){
 		$query=sprintf("

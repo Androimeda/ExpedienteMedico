@@ -33,6 +33,15 @@ print
 
 url='ConsultaExterna'
 data={
+  'accion':'listarPorCentroMedicoFecha',
+  'idCentroMedico': None,
+  'fechaHora': None,
+}
+print postear(data,url)
+print
+
+url='ConsultaExterna'
+data={
   'accion':'listarPorConsultorio',
   'idConsultorio': None,
 }
@@ -81,9 +90,8 @@ print
 
 url='ConsultaExterna'
 data={
-  'accion':'listarPorCentroMedicoFecha',
-  'idCentroMedico': None,
-  'fechaHora': None,
+  'accion':'listar',
+  'idConsulta': None,
 }
 print postear(data,url)
 print
