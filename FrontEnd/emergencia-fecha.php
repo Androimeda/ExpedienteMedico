@@ -9,6 +9,7 @@
     <title>Hope Medics</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <input type="date"  class="form-control" id="#txt-fecha">
   </head>
   <body>
     <!-- Fixed navbar -->
@@ -18,7 +19,7 @@
     <div class="row">
         <div class="col-lg-12" id="titulo">
           <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
-          <h1>Listado de pacientes</h1>
+          <h1>Listado de emergencias</h1>
         </div>
       </div>
       <div class="row">
@@ -35,7 +36,7 @@
               </select>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-default" onclick="cargaTablaPaciente()">Limpiar</button>
+              <button type="button" class="btn btn-default" onclick="cargaTablaEmergenciaFecha()">Limpiar</button>
               <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
         </div>
@@ -65,7 +66,7 @@
         </div>
       </div>
     </div> <!-- /container -->
-    <input type="hidden" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>" id="txt-id-aph">
+    <input type="hidden" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>" id="txt-id-centro-medico">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/config.js  "></script>
