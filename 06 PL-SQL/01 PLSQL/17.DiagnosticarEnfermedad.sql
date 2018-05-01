@@ -1,7 +1,6 @@
 CREATE OR REPLACE PROCEDURE PL_DiagnosticarEnfermedad(
   idEnfermedad IN INT
   ,idMedico IN INT
-  ,fechaDiagnostico IN TIMESTAMP
   ,idExpediente IN INT
   ,idConsulta IN INT
   ,mensaje OUT VARCHAR
@@ -20,9 +19,9 @@ BEGIN
   IF idMedico = '' OR idMedico IS NULL THEN
     mensaje:= mensaje || 'idMedico, ';
   END IF;
-  IF fechaDiagnostico = '' OR fechaDiagnostico IS NULL THEN
-    mensaje:= mensaje || 'fechaDiagnostico, ';
-  END IF;
+--   IF fechaDiagnostico = '' OR fechaDiagnostico IS NULL THEN
+--     mensaje:= mensaje || 'fechaDiagnostico, ';
+--   END IF;
   IF idExpediente = '' OR idExpediente IS NULL THEN
     mensaje:= mensaje || 'idExpediente, ';
   END IF;
@@ -81,7 +80,7 @@ BEGIN
 
   INSERT INTO ENFERMEDADCONSULTA
   (ID_MEDICO, ESTADO, FECHA_DIAGNOSTICO, ID_EXPEDIENTE, ID_CONSULTA) VALUES
-  (idMedico, 1, fechaDiagnostico, idExpediente, idConsulta);
+  (idMedico, 1, SYSDATE, idExpediente, idConsulta);
   COMMIT;
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;

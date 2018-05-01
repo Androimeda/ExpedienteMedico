@@ -30,3 +30,9 @@ bash 00.link.cmd
 @echo off
 cd "..\..\"
 @echo on
+
+
+@echo off
+pause
+@echo on
+cls

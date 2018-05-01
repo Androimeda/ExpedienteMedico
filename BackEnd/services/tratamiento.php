@@ -194,20 +194,9 @@ case 'recetar':
     echo json_encode($res);
     break;
   }
-
-  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
-    $idMedico= $_POST['idMedico'];
-  }else{
-    $idMedico='null';
-    $res['mensaje']='Se necesita campo: idMedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
   $tratamiento=new Tratamiento();
   $tratamiento->setIdTratamiento($idTratamiento);
   $tratamiento->setIdConsulta($idConsulta);
-  $tratamiento->setIdMedico($idMedico);
   echo $tratamiento->recetar($conexion);
 break;
 

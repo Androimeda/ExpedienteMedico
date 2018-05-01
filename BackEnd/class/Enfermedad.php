@@ -207,7 +207,6 @@ class Enfermedad{
 		      ,%s
 		      ,%s
 		      ,%s
-		      ,%s
 		      ,:msg
 		      ,:res
 		    );
@@ -215,7 +214,6 @@ class Enfermedad{
 		",
 		  $this->idEnfermedad
 		  ,$this->idMedico
-		  ,$this->fechaDiagnostico
 		  ,$this->idExpediente
 		  ,$this->idConsulta
 		);

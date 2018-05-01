@@ -155,23 +155,21 @@
           <input type="hidden" value="" id="txt-id-medico">
           <div class="modal-body">
             <table class="table">
-              <td><input type="text" id="txt-medico" disabled="disabled" class="form-control"></td>              
+              <input type="hidden" id="txt-medico" class="form-control">
               <tr>
-                <td>Especialidad</td>
-                <td><input type="text" id="txt-especialidad" disabled="disabled" class="form-control"></td>
-              </tr>
-              <tr>
-                <td>Consultorio</td>
-                <td><input type="text" id="txt-consultorio" disabled="disabled" class="form-control"></td>
-              </tr>
-              <tr>
-                <td>Fecha</td>
-                <td><input type="text" id="txt-fecha" disabled="disabled" class="form-control"></td>
-              </tr>
-              <tr>
-                <td>Síntomas</td>
+                <td>Tipo Enfermedad</td>
                 <td>
-                  <textarea class="form-control" id="txt-sintomas"></textarea>
+                  <select id="slc-tipo-enfermedad" class="form-control">
+                    <option value="" hidden="">Tipo Enfermedad</option>
+                  </select>
+                </td>                
+              </tr>              
+              <tr>
+                <td>Enfermedad</td>
+                <td>
+                  <select id="slc-enfermedad" class="form-control">
+                    <option value="" hidden="">Enfermedad</option>
+                  </select>
                 </td>
               </tr>              
               <tr>

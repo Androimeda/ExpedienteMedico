@@ -8,22 +8,6 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_consulta" id="2D72B030-0D29-7311-4EAF-34AB71A35B9D">
-<createdBy>jaguilar992</createdBy>
-<createdTime>2018-03-29 21:34:31 UTC</createdTime>
-<comment>Relaciona los tratamientos asignados por consulta de paciente</comment>
-<commentInRDBMS>Código de consulta</commentInRDBMS>
-<ownerDesignName>expedienteMedico</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="B5973593-612E-AA82-AD6B-C7B3C635D0AC" referredColumn="1B7235AD-881B-4536-3230-7DF2D32E3FD1"/>
-</associations>
-</Column>
 <Column name="id_tratamiento" id="0B13055D-4509-4A96-0EC3-B0E7AE5731AF">
 <createdBy>Gerardo</createdBy>
 <createdTime>2018-03-10 18:10:09 UTC</createdTime>
@@ -74,16 +58,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="104D22D4-C177-1699-ED37-FCF8241BBACF"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="817C6AB8-919D-83F4-36C5-ECA63AD77560" name="TratamientoConsultaCE_FK">
-<createdBy>jaguilar992</createdBy>
-<createdTime>2018-03-29 21:34:31 UTC</createdTime>
-<ownerDesignName>expedienteMedico</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="2D72B030-0D29-7311-4EAF-34AB71A35B9D"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

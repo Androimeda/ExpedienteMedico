@@ -16,7 +16,7 @@ $query=sprintf("
 ",
   $this->idTratamiento
   ,$this->idConsulta
-  ,$this->idMedico
+  ,$this->--idMedico
 );
 $resultado=$conexion->query($query);
 oci_bind_by_name($resultado, ':msg', $msg, 2000);

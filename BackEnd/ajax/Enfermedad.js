@@ -189,7 +189,6 @@ $.ajax({
   data:{
     'accion':'diagnosticarEnfermedad',
     'idConsulta': null,
-    'fechaDiagnostico': null,
     'idExpediente': null,
     'idMedico': null,
     'idEnfermedad': null,

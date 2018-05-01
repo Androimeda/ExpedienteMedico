@@ -10,7 +10,6 @@ $query=sprintf("
       ,%s
       ,%s
       ,%s
-      ,%s
       ,:msg
       ,:res
     );
@@ -18,7 +17,6 @@ $query=sprintf("
 ",
   $this->idEnfermedad
   ,$this->idMedico
-  ,$this->fechaDiagnostico
   ,$this->idExpediente
   ,$this->idConsulta
 );

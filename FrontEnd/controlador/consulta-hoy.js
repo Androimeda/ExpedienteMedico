@@ -53,6 +53,7 @@ function cargaTabla(){
 }
 
 $(document).ready(function(){
+	$("#modal-enfermedad").modal("show");
 	cargaTabla();
 });
 
