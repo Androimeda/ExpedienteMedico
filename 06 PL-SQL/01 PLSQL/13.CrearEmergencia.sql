@@ -70,9 +70,9 @@ BEGIN
 
   INSERT INTO EMERGENCIA
   (OBSERVACION, FECHA_HORA_ATENCION,
-   ID_EXPEDIENTE, ID_ATENCION, ID_CENTRO_MEDICO, ID_MEDICO)
+   ID_EXPEDIENTE, ID_CENTRO_MEDICO, ID_MEDICO)
   VALUES
-  (observacion, fechaHoraAtencion, idExpediente,idAtencion, idCentroMedico, idMedico);
+  (observacion, fechaHoraAtencion, idExpediente, idCentroMedico, idMedico);
   COMMIT;
   mensaje:='Registro insertado satisfactoriamente';
   resultado:=1;
