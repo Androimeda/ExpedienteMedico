@@ -97,7 +97,7 @@ function agregarFilaTablaBusquedaParamedico(respuesta){
     "  <td>"+paramedico.P_NOMBRE+" "+paramedico.S_NOMBRE+" "+paramedico.P_APELLIDO+" "+paramedico.S_APELLIDO+"</td>"+
     "  <td>"+paramedico.NO_IDENTIDAD+"</td>"+
     '  <td>'+
-        '<button onclick="seleccionarparaMedico('+i+')" class="btn btn-default btn-md">'+
+        '<button onclick="seleccionarParamedico('+i+')" class="btn btn-default btn-md">'+
           '<span class="glyphicon glyphicon-ok"></span> &nbsp; Seleccionar'+
         '</button>'+
       "</td>"+
