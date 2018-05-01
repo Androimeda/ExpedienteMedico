@@ -28,7 +28,7 @@
                     <table class="table" id="tbl-busqueda">
                         <tr>
                             <td>No de indentidad</td>
-                            <td><input type="text" onkeyup="buscar()" placeholder="Ingresar" class="form-control" id="txt-noidentidad"></td>
+                            <td><input type="text" onkeyup="buscar()" placeholder="Ingresar" class="form-control" id="txt-noidentidad" ></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -91,14 +91,7 @@
                             <textarea id="txt-observacion" class="form-control"></textarea>
                         </td>
                     </tr>
-                    <tr>
-                    <tr>
-                        <td>Atencion:</td>
-                        <td colspan="2">
-                            <input id="txt-atencion" type="text" class="form-control">
-                        </td>
-                    </tr>
-                    <tr>  <tr>
+                    <tr> 
                         <td>Centro Medico:</td>
                         <td colspan="2">
                             <input id="txt-centroMedico" type="text" class="form-control">
@@ -118,7 +111,7 @@
             </div>
         </div>   
     </div> <!-- /container -->
-    <<input type="hidden" name="" value="">
+    <input type="hidden" name="" value="">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 

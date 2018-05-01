@@ -3,7 +3,6 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarEmergencia(
   ,pobservacion IN VARCHAR
   ,fechaHoraAtencion IN TIMESTAMP
   ,idExpediente IN INT
-  ,idAtencion IN INT
   ,idCentroMedico IN INT
   ,idMedico IN INT
   ,mensaje OUT VARCHAR
@@ -28,9 +27,9 @@ BEGIN
   IF idExpediente = '' OR idExpediente IS NULL THEN
     mensaje:= mensaje || 'idExpediente, ';
   END IF;
-  IF idAtencion = '' OR idAtencion IS NULL THEN
-    mensaje:= mensaje || 'idAtencion, ';
-  END IF;
+--   IF idAtencion = '' OR idAtencion IS NULL THEN
+--     mensaje:= mensaje || 'idAtencion, ';
+--   END IF;
   IF idCentroMedico = '' OR idCentroMedico IS NULL THEN
     mensaje:= mensaje || 'idCentroMedico, ';
   END IF;
@@ -64,16 +63,16 @@ BEGIN
     RETURN;
   END IF;
 
-  SELECT
-    COUNT(*)
-  INTO contador
-  FROM ATENCIONPREHOSPITALARIA
-  WHERE ID_ATENCION = idAtencion
-  ;
-  IF idAtencion IS NOT NULL AND contador=0 THEN
-    mensaje:='No existe codigo de Atencion Pre Hospitalaria';
-    RETURN;
-  END IF;
+--   SELECT
+--     COUNT(*)
+--   INTO contador
+--   FROM ATENCIONPREHOSPITALARIA
+--   WHERE ID_ATENCION = idAtencion
+--   ;
+--   IF idAtencion IS NOT NULL AND contador=0 THEN
+--     mensaje:='No existe codigo de Atencion Pre Hospitalaria';
+--     RETURN;
+--   END IF;
 
   SELECT
     COUNT(*)
@@ -102,7 +101,7 @@ BEGIN
   OBSERVACION=pobservacion,
   FECHA_HORA_ATENCION=fechaHoraAtencion,
   ID_EXPEDIENTE=idExpediente,
-  ID_ATENCION=idAtencion,
+--   ID_ATENCION=idAtencion,
   ID_CENTRO_MEDICO=idCentroMedico,
   ID_MEDICO=idMedico
   WHERE ID_INGRESO=idIngreso
