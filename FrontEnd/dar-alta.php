@@ -51,7 +51,7 @@
         </div>
         <div class="col-lg-6 well card">
             <input type="hidden" id="txt-id-centro-medico" value="<?php echo $user["ID_CENTRO_MEDICO"]; ?>">
-            <h4>Datos Ingreso:</h4>
+            <h4>Datos Hospitalización:</h4>
             <table class="table">
                 <tr>
                     <td>Expediente</td>
@@ -66,7 +66,7 @@
                     <td colspan="2"><input type="text" disabled="disabled" class="form-control" id="txt-id-fecha-ingreso"></td>
                 </tr>
                 <tr>
-                    <td>Fecha/Hora</td>
+                    <td>Fecha/Hora Alta:</td>
                     <td><input type="date" id="txt-fecha" class="form-control"></td>
                     <td><input type="time" id="txt-hora" class="form-control"></td>
                 </tr>
