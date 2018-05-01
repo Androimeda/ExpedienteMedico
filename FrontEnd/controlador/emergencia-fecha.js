@@ -1,43 +1,41 @@
 $("#nav-item-emergencia").addClass("active");
 
 
-function agregarFilaTablaAPHoy(respuesta){
+function agregarFilaTablaEmergencia(respuesta){
 	$("#tbl-emergencia tbody").empty();
 	for (var i = 0; i < respuesta.length; i++) {
 		var aph = respuesta[i];
 		var fila = 
 		"<tr>"+
-		"  <td>"+aph.FECHA_HORA_ATENCION+"</td>"+
-		"  <td>"+aph.ID_ATENCION+"</td>"+
-		"  <td>"+aph.PLACA+"</td>"+
-		"  <td>"+aph.ID_CENTRO_MEDICO+"</td>"+
+		"  <td>"+aph.ID_INGRESO+"</td>"+
 		"  <td>"+aph.OBSERVACION+"</td>"+
+		"  <td>"+aph.FECHA_HORA_ATENCION+"</td>"+
 		"  <td>"+aph.P_NOMBRE+"</td>"+
 		"  <td>"+aph.S_NOMBRE+"</td>"+
 		"  <td>"+aph.P_APELLIDO+"</td>"+
 		"  <td>"+aph.S_APELLIDO+"</td>"+
 		"  <td>"+aph.NO_IDENTIDAD+"</td>"+
-		"  <td>"+aph.SEXO+"</td>"+
-		"  <td>"+aph.ID_PARAMEDICO+"</td>"+
 		"</tr>"
-		$("#tbl-aph tbody").append(fila);
+		$("#tbl-emergencia tbody").append(fila);
 	}
 }
 
-function cargaTablaAPHoy(){
+function cargaTablaEmergenciaFecha(){
 	$.ajax({
-	  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+	  url:CONST_SITIO_URL+'/services/Emergencia.php',
 	  method:'POST',
 	  dataType:'JSON',
 	  data:{
+   		 'accion':'listarPorCentroFecha',
+   		 'idCentroMedico': $("#txt-id-centro-medico"),
+   		 'fechaHoraAtencion': $("#txt-fecha"),
 	     'accion':'listarPorCentroDiarias',
-   		 'idCentroMedico': $("#txt-id-centro-medico").val(),
-   		 // 'idCentroMedico': 1,
+	     // no se que carajo ponerle acá
 
 	  },
 	  success:function(respuesta){
 	  	console.log(respuesta);
-	  	agregarFilaTablaAPHoy(respuesta);
+	  	agregarFilaTablaEmergencia(respuesta);
 	  },
 	  error: function(error){
 	    console.log(error);
@@ -48,7 +46,7 @@ function cargaTablaAPHoy(){
 	});
 }
 $(document).ready(function(){
-	cargaTablaAPHoy();
+	cargaTablaEmergenciaFecha();
 });
 
 
@@ -58,7 +56,7 @@ function buscar(){
 	switch(criterio){
 		case '1': 
 			$.ajax({
-			  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+			  url:CONST_SITIO_URL+'/services/Emergencia.php',
 			  method:'POST',
 			  dataType:'JSON',
 			  data:{
@@ -67,7 +65,7 @@ function buscar(){
 			    'sNombre': valor,
 			  },
 			  success:function(respuesta){
-			    agregarFilaTablaAPHoy(respuesta);
+			    agregarFilaTablaEmergencia(respuesta);
 			  },
 			  error: function(error){
 			    console.log(error);
@@ -79,7 +77,7 @@ function buscar(){
 		break;
 		case '2': 
 			$.ajax({
-			  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+			  url:CONST_SITIO_URL+'/services/Emergencia.php',
 			  method:'POST',
 			  dataType:'JSON',
 			  data:{
@@ -88,7 +86,7 @@ function buscar(){
 			    'pApellido': valor,
 			  },
 			  success:function(respuesta){
-			    agregarFilaTablaAPHoy(respuesta);
+			    agregarFilaTablaEmergencia(respuesta);
 			  },
 			  error: function(error){
 			    console.log(error);
@@ -100,7 +98,7 @@ function buscar(){
 		break;
 		case '3': 
 			$.ajax({
-			  url:CONST_SITIO_URL+'/services/AtencionPreHospitalaria.php',
+			  url:CONST_SITIO_URL+'/services/Emergencia.php',
 			  method:'POST',
 			  dataType:'JSON',
 			  data:{
@@ -108,7 +106,7 @@ function buscar(){
 			    'noIdentidad': valor,
 			  },
 			  success:function(respuesta){
-			    agregarFilaTablaAPHoy(respuesta);
+			    agregarFilaTablaEmergencia(respuesta);
 			  },
 			  error: function(error){
 			    console.log(error);
