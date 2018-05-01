@@ -113,7 +113,7 @@ function seleccionarMedico(i){
 }
 
 function registrar(){
-	var idCentroMedico= $("#txt-centroMedico").val();
+	var idCentroMedico= $("#txt-id-centro-medico").val();
 	var idMedico= $("#txt-id-medico").val();
 	var idExpediente= $("#txt-id-expediente").val();
 	var obs = $("#txt-observacion").val();

@@ -77,7 +77,7 @@
             <div class="col-lg-6 well card">
                 <h4>Datos de Ingreso:</h4>
                 <table class="table">
-                    <input type="hidden" id="txt-centroMedico" name="" value="<?php echo $user[ID_CENTRO_MEDICO] ?>">
+                    <input type="hidden" id="txt-id-centro-medico" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>">
                     <tr>
                         <td>Expediente</td>
                         <td colspan="2"><input type="text" disabled="disabled" class="form-control" id="txt-id-expediente"></td>
