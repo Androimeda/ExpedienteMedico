@@ -20,6 +20,6 @@
     <script src="./js/bootstrap.min.js"></script>
 
     <script src="./js/config.js  "></script>
-    <script src="controlador/gestionar-tipo-tratamiento.js"></script>
+    <script src="controlador/indicar-tratamiento.js"></script>
   </body>
 </html>

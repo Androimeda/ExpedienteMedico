@@ -20,6 +20,6 @@
     <script src="./js/bootstrap.min.js"></script>
 
     <script src="./js/config.js  "></script>
-    <script src="controlador/gestionar-via-suministro.js"></script>
+    <script src="controlador/diagnosticar-enfermedad.js"></script>
   </body>
 </html>

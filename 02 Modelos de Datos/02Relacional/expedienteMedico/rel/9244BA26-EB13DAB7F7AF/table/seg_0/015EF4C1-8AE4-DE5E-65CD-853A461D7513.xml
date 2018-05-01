@@ -54,6 +54,7 @@
 <comment>Fecha y hora en que sale el paciente</comment>
 <commentInRDBMS>Fecha y hora en que sale el paciente</commentInRDBMS>
 <ownerDesignName>expedienteMedico</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>91229484-D19C-D458-8647-333C7FFE7B60</logicalDatatype>
