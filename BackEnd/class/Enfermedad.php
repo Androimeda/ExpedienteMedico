@@ -5,6 +5,8 @@ class Enfermedad{
 	private $idTipoEnfermedad;
 	private $descripcion;
 	private $idExpediente;
+	private $idConsulta;
+	private $idMedico;
 
 	public function __construct(
 		$idEnfermedad = null,
@@ -60,6 +62,22 @@ class Enfermedad{
 
 	public function setIdExpediente($idExpediente){
 		$this->idExpediente = $idExpediente;
+	}
+
+	public function getIdConsulta(){
+		return $this->idConsulta;
+	}
+
+	public function setIdConsulta($idConsulta){
+		$this->idConsulta = $idConsulta;
+	}
+
+	public function getIdMedico(){
+		return $this->idMedico;
+	}
+
+	public function setIdMedico($idMedico){
+		$this->idMedico = $idMedico;
 	}
 
 	public function agregarTipoEnfermedad($conexion){
@@ -205,16 +223,12 @@ class Enfermedad{
 		    PL_DiagnosticarEnfermedad(
 		      %s
 		      ,%s
-		      ,%s
-		      ,%s
 		      ,:msg
 		      ,:res
 		    );
 		  END;
 		",
 		  $this->idEnfermedad
-		  ,$this->idMedico
-		  ,$this->idExpediente
 		  ,$this->idConsulta
 		);
 		$resultado=$conexion->query($query);

@@ -82,8 +82,6 @@ url='Enfermedad'
 data={
   'accion':'diagnosticarEnfermedad',
   'idConsulta': None,
-  'idExpediente': None,
-  'idMedico': None,
   'idEnfermedad': None,
 }
 print postear(data,url)

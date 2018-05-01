@@ -28,6 +28,27 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
+    'accion':'actualizarViaSuministro',
+    'viaSuministro': null,
+    'idViaSuministro': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/Tratamiento.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
     'accion':'agregarTipoTratamiento',
     'tipoTratamiento': null,
   },
@@ -149,8 +170,12 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'recetar',
-    'idTratamiento': null,
+    'dosis': null,
+    'idTipoTratamiento': null,
+    'intervaloTiempo': null,
     'idConsulta': null,
+    'idViaSuministro': null,
+    'duracionTratamiento': null,
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -169,9 +194,8 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
-    'accion':'actualizarViaSuministro',
-    'viaSuministro': null,
-    'idViaSuministro': null,
+    'accion':'listarPorTipoTratamiento',
+    'idTipoTratamiento': null,
   },
   success:function(respuesta){
     console.log(respuesta);

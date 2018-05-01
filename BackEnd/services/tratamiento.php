@@ -77,6 +77,33 @@ case 'crear':
   echo $tratamiento->crear($conexion);
 break;
 
+case 'actualizarViaSuministro':
+
+  if(isset($_POST['viaSuministro'])){
+    $viaSuministro= $_POST['viaSuministro'];
+  }else{
+    $viaSuministro=null;
+    $res['mensaje']='Se necesita campo: viaSuministro';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idViaSuministro']) && $_POST['idViaSuministro']!=''){
+    $idViaSuministro= $_POST['idViaSuministro'];
+  }else{
+    $idViaSuministro='null';
+    $res['mensaje']='Se necesita campo: idViaSuministro';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $tratamiento=new Tratamiento();
+  $tratamiento->setViaSuministro($viaSuministro);
+  $tratamiento->setIdViaSuministro($idViaSuministro);
+  echo $tratamiento->actualizarViaSuministro($conexion);
+break;
+
 case 'agregarTipoTratamiento':
 
   if(isset($_POST['tipoTratamiento'])){
@@ -175,11 +202,31 @@ break;
 
 case 'recetar':
 
-  if(isset($_POST['idTratamiento']) && $_POST['idTratamiento']!=''){
-    $idTratamiento= $_POST['idTratamiento'];
+  if(isset($_POST['dosis'])){
+    $dosis= $_POST['dosis'];
   }else{
-    $idTratamiento='null';
-    $res['mensaje']='Se necesita campo: idTratamiento';
+    $dosis=null;
+    $res['mensaje']='Se necesita campo: dosis';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idTipoTratamiento']) && $_POST['idTipoTratamiento']!=''){
+    $idTipoTratamiento= $_POST['idTipoTratamiento'];
+  }else{
+    $idTipoTratamiento='null';
+    $res['mensaje']='Se necesita campo: idTipoTratamiento';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['intervaloTiempo'])){
+    $intervaloTiempo= $_POST['intervaloTiempo'];
+  }else{
+    $intervaloTiempo=null;
+    $res['mensaje']='Se necesita campo: intervaloTiempo';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -194,23 +241,6 @@ case 'recetar':
     echo json_encode($res);
     break;
   }
-  $tratamiento=new Tratamiento();
-  $tratamiento->setIdTratamiento($idTratamiento);
-  $tratamiento->setIdConsulta($idConsulta);
-  echo $tratamiento->recetar($conexion);
-break;
-
-case 'actualizarViaSuministro':
-
-  if(isset($_POST['viaSuministro'])){
-    $viaSuministro= $_POST['viaSuministro'];
-  }else{
-    $viaSuministro=null;
-    $res['mensaje']='Se necesita campo: viaSuministro';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
 
   if(isset($_POST['idViaSuministro']) && $_POST['idViaSuministro']!=''){
     $idViaSuministro= $_POST['idViaSuministro'];
@@ -221,10 +251,40 @@ case 'actualizarViaSuministro':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['duracionTratamiento'])){
+    $duracionTratamiento= $_POST['duracionTratamiento'];
+  }else{
+    $duracionTratamiento=null;
+    $res['mensaje']='Se necesita campo: duracionTratamiento';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $tratamiento=new Tratamiento();
-  $tratamiento->setViaSuministro($viaSuministro);
+  $tratamiento->setDosis($dosis);
+  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
+  $tratamiento->setIntervaloTiempo($intervaloTiempo);
+  $tratamiento->setIdConsulta($idConsulta);
   $tratamiento->setIdViaSuministro($idViaSuministro);
-  echo $tratamiento->actualizarViaSuministro($conexion);
+  $tratamiento->setDuracionTratamiento($duracionTratamiento);
+  echo $tratamiento->recetar($conexion);
+break;
+
+case 'listarPorTipoTratamiento':
+
+  if(isset($_POST['idTipoTratamiento']) && $_POST['idTipoTratamiento']!=''){
+    $idTipoTratamiento= $_POST['idTipoTratamiento'];
+  }else{
+    $idTipoTratamiento='null';
+    $res['mensaje']='Se necesita campo: idTipoTratamiento';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $tratamiento=new Tratamiento();
+  $tratamiento->setIdTipoTratamiento($idTipoTratamiento);
+  echo $tratamiento->listarPorTipoTratamiento($conexion);
 break;
 
 case 'actualizarTipoTratamiento':

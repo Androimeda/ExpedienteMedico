@@ -171,25 +171,64 @@
                     <option value="" hidden="">Enfermedad</option>
                   </select>
                 </td>
-              </tr>              
-              <tr>
-                <td>Diagnóstico</td>
-                <td>
-                  <textarea class="form-control" id="txt-diagnostico"></textarea>
-                </td>
               </tr>
-              <tr>
-                <td>Observación</td>
-                <td>
-                  <textarea class="form-control" id="txt-observacion"></textarea>
-                </td>
-              </tr>
-
             </table>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" onclick="actualizar()">Guardar Cambios</button>
+            <button type="button" class="btn btn-primary" onclick="diagnostico()">Agregar Diagnóstico</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-tratamiento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Tratamiento</h4>
+          </div>
+          <input type="hidden" value="" id="txt-id-consulta">
+          <input type="hidden" value="" id="txt-id-expediente">
+          <input type="hidden" value="" id="txt-id-medico">
+          <div class="modal-body">
+            <table class="table">
+              <input type="hidden" id="txt-medico" class="form-control">
+              <tr>
+                <td>Tipo Tratamiento</td>
+                <td>
+                  <select id="slc-tipo-tratamiento" class="form-control">
+                    <option value="" hidden="">Tipo Tratamiento</option>
+                  </select>
+                </td>                
+              </tr>              
+              <tr>
+                <td>Via Suministro</td>
+                <td>
+                  <select id="slc-via-suministro" class="form-control">
+                    <option value="" hidden="">Via Suministro</option>
+                  </select>
+                </td>                
+              </tr>
+              <tr>
+                <td>Dosis: </td>
+                <td><input type="text" id="txt-dosis" class="form-control" placeholder="Dosis"></td>
+              </tr>
+              <tr>
+                <td>Intervalo (horas)</td>
+                <td><input type="number" id="txt-intervalo" min=1 class="form-control" placeholder=""></td>
+              </tr>
+              <tr>
+                <td>Duración (Días)</td>
+                <td><input type="number" id="txt-duracion" min=1 class="form-control" placeholder=""></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="recetar()">Agregar Receta</button>
           </div>
         </div>
       </div>

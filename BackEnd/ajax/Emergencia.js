@@ -111,7 +111,6 @@ $.ajax({
     'idCentroMedico': null,
     'idIngreso': null,
     'idMedico': null,
-    'idAtencion': null,
     'idExpediente': null,
     'observacion': null,
     'fechaHoraAtencion': null,

@@ -52,7 +52,6 @@ data={
   'idCentroMedico': None,
   'idIngreso': None,
   'idMedico': None,
-  'idAtencion': None,
   'idExpediente': None,
   'observacion': None,
   'fechaHoraAtencion': None,

@@ -106,8 +106,9 @@
         </li>
         <!-- Edificios -->
         <li id="nav-item-edificio"><a href="./edificio.php">Edificios</a></li>
+        <li id="nav-item-medicina"><a href="./gestionar-enfermedad.php">Enfermedad</a></li>
         <!-- Tratamientos -->
-        <li class="dropdown" id="nav-item-medicina">
+<!--         <li class="dropdown" id="nav-item-medicina">
           <a href="#" 
             class="dropdown-toggle" 
             data-toggle="dropdown" 
@@ -116,14 +117,14 @@
             aria-expanded="false">Medicina<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">Tratamiento</li>
-            <!-- <li><a href="./indicar-tratamiento.php">Indicar Tratamiento</a></li> -->
+            <li><a href="./indicar-tratamiento.php">Indicar Tratamiento</a></li>
             <li><a href="./gestionar-tratamiento.php">Gestionar Tratamiento</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Enfermedad</li>
-            <!-- <li><a href="./diagnosticar-enfermedad.php">Diagnosticar Enfermedad</a></li> -->
+            <li><a href="./diagnosticar-enfermedad.php">Diagnosticar Enfermedad</a></li>
             <li><a href="./gestionar-enfermedad.php">Gestionar Enfermedad</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <!-- Menu de Administradror -->
       <ul class="nav navbar-nav navbar-right">
