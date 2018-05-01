@@ -113,11 +113,12 @@ function seleccionarMedico(i){
 }
 
 function registrar(){
-	var idCentroMedico= $("#txt-id-centroMedico").val();
+	var idCentroMedico= $("#txt-centroMedico").val();
 	var idMedico= $("#txt-id-medico").val();
-	var idAtencion= $("#txt-atencion").val();
 	var idExpediente= $("#txt-id-expediente").val();
 	var obs = $("#txt-observacion").val();
+  var fecha = $("#txt-fecha").val();
+  var hora = $("#txt-hora").val();
 	var fecha_hora = parseFecha(fecha, hora); // Funcion ubicada en el archivo config.js
 	
 	$.ajax({
@@ -126,12 +127,11 @@ function registrar(){
 	  dataType:'JSON',
 	  data:{
 		 'accion':'crear',
-	    'idCentroMedico': null,
-	    'idMedico': null,
-	    'idAtencion': null,
-	    'idExpediente': null,
-	    'observacion': null,
-	    'fechaHoraAtencion': null,
+	    'idCentroMedico':idCentroMedico,
+	    'idMedico':idMedico,
+	    'idExpediente': idExpediente,
+	    'observacion': obs,
+	    'fechaHoraAtencion': fecha_hora,
 	  },
 	  success:function(respuesta){
 	    alert(respuesta.mensaje);
