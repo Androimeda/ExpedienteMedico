@@ -87,11 +87,11 @@ class Tratamiento{
 		$this->idTipoTratamiento = $idTipoTratamiento;
 	}
 	public function getIdViaSuministro(){
-		return $this->IdViaSuministro;
+		return $this->idViaSuministro;
 	}
 
-	public function setIdViaSuministro($IdViaSuministro){
-		$this->IdViaSuministro = $IdViaSuministro;
+	public function setIdViaSuministro($idViaSuministro){
+		$this->idViaSuministro = $idViaSuministro;
 	}
 
 	public function getViaSuministro(){
@@ -184,6 +184,20 @@ class Tratamiento{
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
 	}
+
+	public function listarPorTipoTratamiento($conexion){
+		$query=sprintf("
+		    SELECT  * 
+		    FROM TRATAMIENTO
+		    WHERE ID_TIPO = %s
+		"
+		, $this->idTipoTratamiento
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
+
 	public function listarViaSuministro($conexion){
 		$query=sprintf("
 		    SELECT  * 
@@ -315,14 +329,22 @@ class Tratamiento{
 		  BEGIN
 		    PL_Recetar(
 		      %s
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,%s
 		      ,%s
 		      ,:msg
 		      ,:res
 		    );
 		  END;
 		",
-		  $this->idTratamiento
-		  ,$this->idConsulta
+		  $this->idConsulta
+		  ,$this->dosis
+		  ,$this->intervaloTiempo
+		  ,$this->duracionTratamiento
+		  ,$this->idTipoTratamiento
+		  ,$this->idViaSuministro
 		);
 		$resultado=$conexion->query($query);
 		oci_bind_by_name($resultado, ':msg', $msg, 2000);

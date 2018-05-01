@@ -17,6 +17,15 @@ print
 
 url='Tratamiento'
 data={
+  'accion':'actualizarViaSuministro',
+  'viaSuministro': None,
+  'idViaSuministro': None,
+}
+print postear(data,url)
+print
+
+url='Tratamiento'
+data={
   'accion':'agregarTipoTratamiento',
   'tipoTratamiento': None,
 }
@@ -66,17 +75,20 @@ print
 url='Tratamiento'
 data={
   'accion':'recetar',
-  'idTratamiento': None,
+  'dosis': None,
+  'idTipoTratamiento': None,
+  'intervaloTiempo': None,
   'idConsulta': None,
+  'idViaSuministro': None,
+  'duracionTratamiento': None,
 }
 print postear(data,url)
 print
 
 url='Tratamiento'
 data={
-  'accion':'actualizarViaSuministro',
-  'viaSuministro': None,
-  'idViaSuministro': None,
+  'accion':'listarPorTipoTratamiento',
+  'idTipoTratamiento': None,
 }
 print postear(data,url)
 print

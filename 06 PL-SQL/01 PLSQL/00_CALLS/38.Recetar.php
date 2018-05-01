@@ -7,6 +7,9 @@ $query=sprintf("
   BEGIN
     PL_Recetar(
       %s
+      ,'%s'
+      ,'%s'
+      ,'%s'
       ,%s
       ,%s
       ,:msg
@@ -14,9 +17,12 @@ $query=sprintf("
     );
   END;
 ",
-  $this->idTratamiento
-  ,$this->idConsulta
-  ,$this->--idMedico
+  $this->idConsulta
+  ,$this->dosis
+  ,$this->intervaloTiempo
+  ,$this->duracionTratamiento
+  ,$this->idTipoTratamiento
+  ,$this->idViaSuministro
 );
 $resultado=$conexion->query($query);
 oci_bind_by_name($resultado, ':msg', $msg, 2000);

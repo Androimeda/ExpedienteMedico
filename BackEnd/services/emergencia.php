@@ -162,16 +162,6 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['idAtencion']) && $_POST['idAtencion']!=''){
-    $idAtencion= $_POST['idAtencion'];
-  }else{
-    $idAtencion='null';
-    $res['mensaje']='Se necesita campo: idAtencion';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
     $idExpediente= $_POST['idExpediente'];
   }else{
@@ -205,7 +195,6 @@ case 'actualizar':
   $emergencia->setIdCentroMedico($idCentroMedico);
   $emergencia->setIdIngreso($idIngreso);
   $emergencia->setIdMedico($idMedico);
-  $emergencia->setIdAtencion($idAtencion);
   $emergencia->setIdExpediente($idExpediente);
   $emergencia->setObservacion($observacion);
   $emergencia->setFechaHoraAtencion($fechaHoraAtencion);

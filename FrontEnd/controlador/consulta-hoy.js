@@ -53,10 +53,67 @@ function cargaTabla(){
 }
 
 $(document).ready(function(){
-	$("#modal-enfermedad").modal("show");
 	cargaTabla();
 });
 
+function cargaTipoEnfermedad(){
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Enfermedad.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listarTipoEnfermedad',
+	  },
+	  success:function(respuesta){
+	    $("#slc-tipo-enfermedad").empty();
+	    $("#slc-tipo-enfermedad").append("<option value='' hidden=''>Tipo Enfermedad</option>");
+	    for (var i = 0; i < respuesta.length; i++) {
+	    	var tipo = respuesta[i];
+	    	var fila = 
+	    	'<option value="'+tipo.ID_TIPO_ENFERMEDAD+'">'+tipo.DESCRIPCION+'</option>';
+	    	$("#slc-tipo-enfermedad").append(fila);
+	    }
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+}
+
+function cargaEnfermedad(){
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Enfermedad.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listarPorTipo',
+	    'idTipoEnfermedad': $("#slc-tipo-enfermedad").val(),
+	  },
+	  success:function(respuesta){
+	    $("#slc-enfermedad").empty();
+	    $("#slc-enfermedad").append("<option value='' hidden=''>Tipo Enfermedad</option>");
+	    for (var i = 0; i < respuesta.length; i++) {
+	    	var enfe = respuesta[i];
+	    	var fila = 
+	    	'<option value="'+enfe.ID_ENFERMEDAD+'">'+enfe.ENFERMEDAD+'</option>';
+	    	$("#slc-enfermedad").append(fila);
+	    }
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+}
+
+$("#slc-tipo-enfermedad").on("change",function(){
+	cargaEnfermedad();
+});
 
 $(document).ready(function(){
 	$.ajax({
@@ -248,5 +305,125 @@ function actualizar(){
 }
 
 function enfermedad(id){
+	$("#txt-id-consulta").val(id);
 	$("#modal-enfermedad").modal("show");
+	cargaTipoEnfermedad();
+}
+
+
+function diagnostico(){
+	var idConsulta= $("#txt-id-consulta").val();
+	var idEnfermedad= $("#slc-enfermedad").val();
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Enfermedad.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'diagnosticarEnfermedad',
+	    'idConsulta': idConsulta,
+	    'idEnfermedad': idEnfermedad,
+	  },
+	  success:function(respuesta){
+	    alert(respuesta.mensaje);
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+
+}
+
+function tratamiento(id){
+	$("#modal-tratamiento").modal("show");
+	$("#txt-id-consulta").val(id);
+	cargaTratamiento();
+	cargarViaSuministro();
+}
+
+function cargaTratamiento(){
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Tratamiento.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listarTipoTratamiento',
+	  },
+	  success:function(respuesta){
+	  	$("#slc-tipo-tratamiento").empty();
+	  	$("#slc-tipo-tratamiento").append('<option value="" hidden="">Tipo Tratamiento</option>');
+	    for (var i = 0; i < respuesta.length; i++) {
+	    	var tipo = respuesta[i];
+	    	var fila ='<option value="'+tipo.ID_TIPO+'">'+tipo.TIPO_TRATAMIENTO+'</option>';
+	    	$("#slc-tipo-tratamiento").append(fila);
+	    }
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+}
+
+function cargarViaSuministro(){
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Tratamiento.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'listarViaSuministro',
+	  },
+	  success:function(respuesta){
+	  	console.log(respuesta);
+	  	$("#slc-via-suministro").empty();
+	  	$("#slc-via-suministro").append('<option value="" hidden="">Via Suministro</option>');
+	    for (var i = 0; i < respuesta.length; i++) {
+	    	var via = respuesta[i];
+	    	var fila = '<option value="'+via.ID_VIA_SUMINISTRO+'">'+via.VIA_SUMINISTRO+'</option>';
+	  		$("#slc-via-suministro").append(fila);
+	    }
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
+}
+
+function recetar(){
+	console.log($("#txt-dosis").val());
+	console.log($("#slc-tipo-tratamiento").val());
+	console.log($("#txt-intervalo").val());
+	console.log($("#txt-id-consulta").val());
+	console.log($("#slc-via-suministro").val());
+	console.log($("#txt-duracion").val());
+	$.ajax({
+	  url:CONST_SITIO_URL+'/services/Tratamiento.php',
+	  method:'POST',
+	  dataType:'JSON',
+	  data:{
+	    'accion':'recetar',
+	    'dosis': $("#txt-dosis").val(),
+	    'idTipoTratamiento': $("#slc-tipo-tratamiento").val(),
+	    'intervaloTiempo': $("#txt-intervalo").val() +" horas",
+	    'idConsulta': $("#txt-id-consulta").val(),
+	    'idViaSuministro': $("#slc-via-suministro").val(),
+	    'duracionTratamiento': $("#txt-duracion").val() +" meses",
+	  },
+	  success:function(respuesta){
+	    alert(respuesta.mensaje)
+	  },
+	  error: function(error){
+	    console.log(error);
+	  },
+	  complete: function(){
+	    //TO-DO
+	  }
+	});
 }

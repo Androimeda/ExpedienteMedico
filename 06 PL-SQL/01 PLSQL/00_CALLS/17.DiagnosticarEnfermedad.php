@@ -8,16 +8,12 @@ $query=sprintf("
     PL_DiagnosticarEnfermedad(
       %s
       ,%s
-      ,%s
-      ,%s
       ,:msg
       ,:res
     );
   END;
 ",
   $this->idEnfermedad
-  ,$this->idMedico
-  ,$this->idExpediente
   ,$this->idConsulta
 );
 $resultado=$conexion->query($query);

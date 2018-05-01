@@ -23,10 +23,9 @@
 <colAssociation fkAssociation="27E3A470-4DDC-2E15-E4DD-20FF4FA6769B" referredColumn="4F606AFB-7A0E-4E6F-32B6-B7E7EE546826"/>
 </associations>
 </Column>
-<Column name="id_medico" id="104D22D4-C177-1699-ED37-FCF8241BBACF">
+<Column name="id_consulta" id="7F1939E4-9ED1-7173-BDEF-0F90939A91E4">
 <createdBy>jaguilar992</createdBy>
-<createdTime>2018-03-11 23:26:50 UTC</createdTime>
-<commentInRDBMS>Código del medico que indica el tratamiento</commentInRDBMS>
+<createdTime>2018-05-01 20:23:50 UTC</createdTime>
 <ownerDesignName>expedienteMedico</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -35,7 +34,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="B8BE9BB3-2874-A29A-77DF-8B71F47E37C9" referredColumn="A1BB91D1-2314-CFB9-A0F6-735631672385"/>
+<colAssociation fkAssociation="109E1FDB-ABD6-D0B1-4A89-1926A6055C02" referredColumn="1B7235AD-881B-4536-3230-7DF2D32E3FD1"/>
 </associations>
 </Column>
 </columns>
@@ -50,14 +49,14 @@
 <colUsage columnID="0B13055D-4509-4A96-0EC3-B0E7AE5731AF"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="47303237-0298-C8AF-4ECC-D26E20CD62E4" name="med_tratamiento_fk">
+<ind_PK_UK id="008076E4-9C68-CB28-C23B-38B89CAE01F8" name="TratamientoConsulta_ConsultaExterna_FK">
 <createdBy>jaguilar992</createdBy>
-<createdTime>2018-03-11 23:26:50 UTC</createdTime>
+<createdTime>2018-05-01 20:23:50 UTC</createdTime>
 <ownerDesignName>expedienteMedico</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="104D22D4-C177-1699-ED37-FCF8241BBACF"/>
+<colUsage columnID="7F1939E4-9ED1-7173-BDEF-0F90939A91E4"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

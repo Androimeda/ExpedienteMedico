@@ -1126,8 +1126,6 @@ END;
 
 CREATE OR REPLACE PROCEDURE PL_DiagnosticarEnfermedad(
   idEnfermedad IN INT
-  ,idMedico IN INT
-  ,idExpediente IN INT
   ,idConsulta IN INT
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
@@ -1135,6 +1133,8 @@ CREATE OR REPLACE PROCEDURE PL_DiagnosticarEnfermedad(
 IS
 --DECLARE
   contador INTEGER;
+  idExpediente INTEGER;
+  idMedico INTEGER;
 BEGIN
   mensaje:='';
   resultado:=0;
@@ -1142,15 +1142,15 @@ BEGIN
   IF idEnfermedad = '' OR idEnfermedad IS NULL THEN
     mensaje:= mensaje || 'idEnfermedad, ';
   END IF;
-  IF idMedico = '' OR idMedico IS NULL THEN
-    mensaje:= mensaje || 'idMedico, ';
-  END IF;
+--   IF idMedico = '' OR idMedico IS NULL THEN
+--     mensaje:= mensaje || 'idMedico, ';
+--   END IF;
 --   IF fechaDiagnostico = '' OR fechaDiagnostico IS NULL THEN
 --     mensaje:= mensaje || 'fechaDiagnostico, ';
 --   END IF;
-  IF idExpediente = '' OR idExpediente IS NULL THEN
-    mensaje:= mensaje || 'idExpediente, ';
-  END IF;
+--   IF idExpediente = '' OR idExpediente IS NULL THEN
+--     mensaje:= mensaje || 'idExpediente, ';
+--   END IF;
   IF idConsulta = '' OR idConsulta IS NULL THEN
     mensaje:= mensaje || 'idConsulta, ';
   END IF;
@@ -1173,18 +1173,6 @@ BEGIN
   SELECT
     COUNT(*)
   INTO contador
-  FROM MEDICO
-  WHERE ID_MEDICO = idMedico
-  ;
-  IF contador=0 THEN
-    mensaje:='No existe codigo de medico ingresado';
-    RETURN;
-  END IF;
-
-
-  SELECT
-    COUNT(*)
-  INTO contador
   FROM CONSULTAEXTERNA
   WHERE ID_CONSULTA = idConsulta
   ;
@@ -1194,15 +1182,18 @@ BEGIN
   END IF;
 
   SELECT
-    COUNT(*)
-  INTO contador
-  FROM EXPEDIENTE
-  WHERE id_expediente = idExpediente
+    ID_MEDICO
+  INTO idMedico
+  FROM CONSULTAEXTERNA
+  WHERE ID_CONSULTA = idConsulta
   ;
-  IF contador=0 THEN
-    mensaje:='No existe codigo expediente';
-    RETURN;
-  END IF;
+
+  SELECT
+    ID_EXPEDIENTE
+  INTO idExpediente
+  FROM CONSULTAEXTERNA
+  WHERE ID_CONSULTA = idConsulta
+  ;
 
   INSERT INTO ENFERMEDADCONSULTA
   (ID_MEDICO, ESTADO, FECHA_DIAGNOSTICO, ID_EXPEDIENTE, ID_CONSULTA) VALUES
@@ -3042,66 +3033,103 @@ END;
 
 
 CREATE OR REPLACE PROCEDURE PL_Recetar(
-  idTratamiento IN INT
-  ,idConsulta IN INT
-  --,idMedico IN INT
+  idConsulta IN INT
+  ,dosis IN VARCHAR
+  ,intervaloTiempo IN VARCHAR
+  ,duracionTratamiento IN VARCHAR
+  ,idTipoTratamiento IN INT
+  ,idViaSuministro IN INT
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
 IS
 --DECLARE
-  vnConteo NUMBER;
+  contador INT;
+  id_insert_tratamiento INT;
 BEGIN
   mensaje:='';
   resultado:=0;
+  id_insert_tratamiento:=0;
 /*----------------VALIDACION DE CAMPOS----------------*/
-  IF idTratamiento = '' OR idTratamiento IS NULL THEN
-    mensaje:= mensaje || 'idTratamiento, ';
-  END IF;
   IF idConsulta = '' OR idConsulta IS NULL THEN
     mensaje:= mensaje || 'idConsulta, ';
   END IF;
---   IF idMedico = '' OR idMedico IS NULL THEN
---     mensaje:= mensaje || 'idMedico, ';
---   END IF;
+  IF dosis = '' OR dosis IS NULL THEN
+    mensaje:= mensaje || 'dosis, ';
+  END IF;
+  IF intervaloTiempo = '' OR intervaloTiempo IS NULL THEN
+    mensaje:= mensaje || 'intervaloTiempo, ';
+  END IF;
+  IF duracionTratamiento = '' OR duracionTratamiento IS NULL THEN
+    mensaje:= mensaje || 'duracionTratamiento, ';
+  END IF;
+  IF idTipoTratamiento = '' OR idTipoTratamiento IS NULL THEN
+    mensaje:= mensaje || 'idTipo, ';
+  END IF;
+  IF idViaSuministro = '' OR idViaSuministro IS NULL THEN
+    mensaje:= mensaje || 'idViaSuministro, ';
+  END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
   END IF;
 /*---------------- CUERPO DEL PL----------------*/
-SELECT COUNT(*) INTO vnConteo
-    FROM  TRATAMIENTO
-    WHERE idTratamiento=ID_TRATAMIENTO;
-  IF vnConteo=0 THEN
-    mensaje:='el tratamiento con identificador: '||idTratamiento||'no esta registrada';
-    RETURN ;
-  END IF;
-  SELECT COUNT(*) INTO vnConteo
-    FROM  CONSULTAEXTERNA
-    WHERE idConsulta=ID_CONSULTA;
-  IF vnConteo=0 THEN
-    mensaje:='la consulta con identificador: '||idConsulta||'no esta registrada';
-    RETURN ;
+
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM TIPOTRATAMIENTO
+  WHERE ID_TIPO = idTipoTratamiento
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe TIPO';
+    RETURN;
   END IF;
 
---   SELECT COUNT(*) INTO vnConteo
---     FROM  MEDICO
---     WHERE idMedico=ID_MEDICO;
---   IF vnConteo=0 THEN
---     mensaje:='el medico con identificador: '||idMedico||'no esta registradi';
---     RETURN ;
---   END IF;
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM VIASUMINISTRO
+  WHERE ID_VIA_SUMINISTRO = idViaSuministro
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe VIA';
+    RETURN;
+  END IF;
 
-  INSERT  INTO TRATAMIENTOCONSULTA(
+  SELECT
+    COUNT(*)
+  INTO contador
+  FROM CONSULTAEXTERNA
+  WHERE ID_CONSULTA = idConsulta
+  ;
+  IF contador=0 THEN
+    mensaje:='No existe CONSULTA';
+    RETURN;
+  END IF;
+
+
+  INSERT INTO TRATAMIENTO
+  (DOSIS, INTERVALO_TIEMPO, FECHA_INICIO, DURACION_TRATAMIENTO, ID_TIPO, ID_VIA_SUMINISTRO) VALUES
+  (dosis, intervaloTiempo, SYSDATE, duracionTratamiento, idTipoTratamiento, idViaSuministro)
+  RETURNING ID_TRATAMIENTO INTO id_insert_tratamiento;
+
+  if id_insert_tratamiento!=0 THEN
+    INSERT  INTO TRATAMIENTOCONSULTA(
     ID_CONSULTA,
     ID_TRATAMIENTO
   )VALUES (
     idConsulta,
-    idTratamiento
+    id_insert_tratamiento
   );
   COMMIT;
   mensaje:='se ingreso la informacion correctamente';
   resultado:=1;
+  ELSE
+    mensaje:='Fallo insecion';
+    ROLLBACK;
+    RETURN;
+  END IF;
 END;
 /
 
