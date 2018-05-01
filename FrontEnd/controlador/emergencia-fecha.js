@@ -29,7 +29,7 @@ function cargaTablaEmergenciaFecha(){
    		 'accion':'listarPorCentroFecha',
    		 'idCentroMedico': $("#txt-id-centro-medico"),
    		 'fechaHoraAtencion': $("#txt-fecha"),
-	     'accion':'listarPorCentroDiarias',
+	    
 	     // no se que carajo ponerle acá
 
 	  },
