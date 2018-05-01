@@ -17,6 +17,7 @@ function agregarFilaTabla(respuesta){
 	  "  <td>"+consulta.ESPECIALIDAD+"</td>"+
 	  "  <td>"+consulta.SINTOMAS+"</td>"+
 	  "  <td>"+consulta.DIAGNOSTICO+"</td>"+
+	  '  	<td><button onclick="editar('+consulta.ID_CONSULTA+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
 	  "</tr>";
 	  $("#tbl-consulta tbody").append(fila);
 	}
@@ -115,6 +116,7 @@ $("#slc-piso").on("click", function(){
 	  },
 	  success:function(respuesta){
 	  	$("#slc-consultorio").empty();
+	  	$("#slc-consultorio").append("<option value='' hidden=''>Consultorio</option>");
 	    for (var i = 0; i < respuesta.length; i++) {
 	    	var conslt = respuesta[i];
 	    	var fila = '<option value="'+conslt.ID_CONSULTORIO+'">'+conslt.ID_CONSULTORIO+'</option>';
@@ -155,4 +157,12 @@ function buscar(){
 
 function limpiar(){
 	cargaTabla();
+	$("#slc-edificio").val("");
+	$("#slc-piso").val("");
+	$("#slc-consultorio").val("");
+}
+
+
+function editar(id) {
+	$("#modal-editar").modal("show");
 }

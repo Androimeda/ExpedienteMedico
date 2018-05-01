@@ -109,6 +109,33 @@ case 'listarPorHoy':
   echo $consultaexterna->listarPorHoy($conexion);
 break;
 
+case 'listarPorCentroMedicoFecha':
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['fechaHora'])){
+    $fechaHora= $_POST['fechaHora'];
+  }else{
+    $fechaHora=null;
+    $res['mensaje']='Se necesita campo: fechaHora';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $consultaexterna=new ConsultaExterna();
+  $consultaexterna->setIdCentroMedico($idCentroMedico);
+  $consultaexterna->setFechaHora($fechaHora);
+  echo $consultaexterna->listarPorCentroMedicoFecha($conexion);
+break;
+
 case 'listarPorConsultorio':
 
   if(isset($_POST['idConsultorio']) && $_POST['idConsultorio']!=''){
@@ -277,31 +304,20 @@ case 'listarDiariasPorConsultorio':
   echo $consultaexterna->listarDiariasPorConsultorio($conexion);
 break;
 
-case 'listarPorCentroMedicoFecha':
+case 'listar':
 
-  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
-    $idCentroMedico= $_POST['idCentroMedico'];
+  if(isset($_POST['idConsulta']) && $_POST['idConsulta']!=''){
+    $idConsulta= $_POST['idConsulta'];
   }else{
-    $idCentroMedico='null';
-    $res['mensaje']='Se necesita campo: idCentroMedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['fechaHora'])){
-    $fechaHora= $_POST['fechaHora'];
-  }else{
-    $fechaHora=null;
-    $res['mensaje']='Se necesita campo: fechaHora';
+    $idConsulta='null';
+    $res['mensaje']='Se necesita campo: idConsulta';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $consultaexterna=new ConsultaExterna();
-  $consultaexterna->setIdCentroMedico($idCentroMedico);
-  $consultaexterna->setFechaHora($fechaHora);
-  echo $consultaexterna->listarPorCentroMedicoFecha($conexion);
+  $consultaexterna->setIdConsulta($idConsulta);
+  echo $consultaexterna->listar($conexion);
 break;
 
 default:
