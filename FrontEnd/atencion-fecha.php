@@ -68,7 +68,7 @@
         </div>
       </div>
     </div> <!-- /container -->
-
+    <input type="hidden" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>" id="txt-id-aph">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 

@@ -14,8 +14,8 @@
     <!-- Fixed navbar -->
     <?php include("nav-bar.php") ?>
     <!-- Fin Navbar -->
-    <div class="container well card">
-      <div class="row">
+    <div class="container well card">    
+    <div class="row">
         <div class="col-lg-12" id="titulo">
           <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
           <h1>Listado de pacientes</h1>
@@ -27,7 +27,7 @@
               <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
             <div class="col-lg-4">
-              <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
+              <select name="slc-filtro-e" class ="form-control" id="slc-filtro-e">
                 <option value="" hidden="">Filtro</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
@@ -44,9 +44,9 @@
         <div class="col-lg-12">
           <table class="table table-striped" id="tbl-emergencia">
             <thead>
-              <th>Id Ingreso</th>
+              <th>Ingreso</th>
               <th>Observacion</th>
-              <th>Atencion</th>
+              <th>fecha</th>
               <th>Primer Nombre</th>
               <th>Segundo Nombre</th>
               <th>Primer Apellido</th>
@@ -63,7 +63,7 @@
         <div class="col-lg-12">
           <a href="agregar-emergencia.php" class="btn btn-primary">Agrega Emergencia <span class="glyphicon glyphicon-plus"></span></a>
         </div>
-      </div>      
+      </div>
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
