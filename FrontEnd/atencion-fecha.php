@@ -16,26 +16,23 @@
     <!-- Fin Navbar -->
     <div class="container well card"> 
     <div class="row">
-        <div class="col-lg-12" id="titulo">
-          <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
-          <h1>Listado de pacientes</h1>
-        </div>
-      </div>
-      <div class="row">
           <div class="col-lg-12">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
+              <input type="date"  class="form-control" id="txt-fecha">
+            </div>
+            <div class="col-lg-3">
               <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
-            <div class="col-lg-4">
-              <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
+            <div class="col-lg-3">
+              <select name="slc-filtro-aph" class ="form-control" id="slc-filtro-aph">
                 <option value="" hidden="">Filtro</option>
                 <option value="1">Nombre</option>
                 <option value="2">Apellido</option>
                 <option value="3">No Identidad</option>
               </select>
             </div>
-            <div class="col-lg-4">
-              <button type="button" class="btn btn-default" onclick="cargaTablaPaciente()">Limpiar</button>
+            <div class="col-lg-3">
+              <button type="button" class="btn btn-default" onclick="cargaTablaAPH()">Limpiar</button>
               <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
         </div>
@@ -68,7 +65,7 @@
         </div>
       </div>
     </div> <!-- /container -->
-    <input type="hidden" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>" id="txt-id-aph">
+    <input type="hidden" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>" id="txt-id-centro-medico">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 
