@@ -570,7 +570,7 @@ CREATE OR REPLACE PROCEDURE PL_ActualizarConsultaExterna(
   ,idExpediente IN INT
   ,idConsultorio IN INT
   ,idMedico IN INT
-  ,fechaHora IN TIMESTAMP
+  --,fechaHora IN TIMESTAMP
   ,psintomas IN VARCHAR
   ,pdiagnostico IN VARCHAR
   ,pobservacion IN VARCHAR
@@ -596,9 +596,9 @@ BEGIN
   IF idMedico = '' OR idMedico IS NULL THEN
     mensaje:= mensaje || 'idMedico, ';
   END IF;
-  IF fechaHora = '' OR fechaHora IS NULL THEN
-    mensaje:= mensaje || 'fechaHora, ';
-  END IF;
+--   IF fechaHora = '' OR fechaHora IS NULL THEN
+--     mensaje:= mensaje || 'fechaHora, ';
+--   END IF;
   IF psintomas = '' OR psintomas IS NULL THEN
     mensaje:= mensaje || 'sintomas, ';
   END IF;

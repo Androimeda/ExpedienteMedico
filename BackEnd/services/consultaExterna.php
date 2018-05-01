@@ -230,21 +230,11 @@ case 'actualizar':
     break;
   }
 
-  if(isset($_POST['observ'])){
-    $observ= $_POST['observ'];
+  if(isset($_POST['observacion'])){
+    $observacion= $_POST['observacion'];
   }else{
-    $observ=null;
-    $res['mensaje']='Se necesita campo: observ';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['fechaHora'])){
-    $fechaHora= $_POST['fechaHora'];
-  }else{
-    $fechaHora=null;
-    $res['mensaje']='Se necesita campo: fechaHora';
+    $observacion=null;
+    $res['mensaje']='Se necesita campo: observacion';
     $res['resultado']=false;
     echo json_encode($res);
     break;
@@ -256,8 +246,7 @@ case 'actualizar':
   $consultaexterna->setIdConsulta($idConsulta);
   $consultaexterna->setSintomas($sintomas);
   $consultaexterna->setIdExpediente($idExpediente);
-  $consultaexterna->setObserv($observ);
-  $consultaexterna->setFechaHora($fechaHora);
+  $consultaexterna->setObservacion($observacion);
   echo $consultaexterna->actualizar($conexion);
 break;
 

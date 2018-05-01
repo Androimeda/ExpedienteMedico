@@ -17,7 +17,15 @@ function agregarFilaTabla(respuesta){
 	  "  <td>"+consulta.ESPECIALIDAD+"</td>"+
 	  "  <td>"+consulta.SINTOMAS+"</td>"+
 	  "  <td>"+consulta.DIAGNOSTICO+"</td>"+
-	  '  	<td><button onclick="editar('+consulta.ID_CONSULTA+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
+	  '  <td>'+
+	  		'<button onclick="editar('+consulta.ID_CONSULTA+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
+	  	'</td>'+
+	  '  <td>'+
+	  '  	<button onclick="enfermedad('+consulta.ID_CONSULTA+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
+	  	'</td>'+
+	  '  <td>'+
+	  '  	<button onclick="tratamiento('+consulta.ID_CONSULTA+')" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></button>'+
+	  	'</<td></td>>'+
 	  "</tr>";
 	  $("#tbl-consulta tbody").append(fila);
 	}
@@ -190,6 +198,9 @@ function editar(id) {
 	    $("#txt-id-expediente").val(consulta.ID_EXPEDIENTE);
 	    $("#txt-id-medico").val(consulta.ID_MEDICO);
 	    $("#txt-consultorio").val(consulta.ID_CONSULTORIO);
+	    $("#txt-diagnostico").val(consulta.DIAGNOSTICO);
+	    $("#txt-sintomas").val(consulta.SINTOMAS);
+	    $("#txt-observacion").val(consulta.OBSERVACION);
 	    $("#txt-fecha").val(consulta.FECHA_HORA);
 	  },
 	  error: function(error){
@@ -209,7 +220,6 @@ function actualizar(){
 	var sintomas= $("#txt-sintomas").val();
 	var idExpediente= $("#txt-id-expediente").val();
 	var observacion= $("#txt-observacion").val();
-	var fechaHora= $("#txt-fecha").val();
 	$.ajax({
 	  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
 	  method:'POST',
@@ -222,11 +232,10 @@ function actualizar(){
 	    'idConsulta': idConsulta,
 	    'sintomas': sintomas,
 	    'idExpediente': idExpediente,
-	    'observ': observ,
-	    'fechaHora': fechaHora,
+	    'observacion': observacion,
 	  },
 	  success:function(respuesta){
-	    console.log(respuesta);
+	    alert(respuesta.mensaje);
 	  },
 	  error: function(error){
 	    console.log(error);
@@ -235,4 +244,8 @@ function actualizar(){
 	    //TO-DO
 	  }
 	});
+}
+
+function enfermedad(id){
+	$("#modal-enfermedad").modal("show");
 }

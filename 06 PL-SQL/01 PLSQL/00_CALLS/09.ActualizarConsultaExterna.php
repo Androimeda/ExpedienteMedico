@@ -23,7 +23,7 @@ $query=sprintf("
   ,$this->idExpediente
   ,$this->idConsultorio
   ,$this->idMedico
-  ,$this->fechaHora
+  ,$this->--fechaHora
   ,$this->psintomas
   ,$this->pdiagnostico
   ,$this->pobservacion

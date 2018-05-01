@@ -116,11 +116,11 @@
             aria-expanded="false">Medicina<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">Tratamiento</li>
-            <li><a href="./indicar-tratamiento.php">Indicar Tratamiento</a></li>
+            <!-- <li><a href="./indicar-tratamiento.php">Indicar Tratamiento</a></li> -->
             <li><a href="./gestionar-tratamiento.php">Gestionar Tratamiento</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Enfermedad</li>
-            <li><a href="./diagnosticar-enfermedad.php">Diagnosticar Enfermedad</a></li>
+            <!-- <li><a href="./diagnosticar-enfermedad.php">Diagnosticar Enfermedad</a></li> -->
             <li><a href="./gestionar-enfermedad.php">Gestionar Enfermedad</a></li>
           </ul>
         </li>

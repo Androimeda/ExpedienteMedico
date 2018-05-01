@@ -42,6 +42,8 @@ class Conexion{
       oci_execute($query);
       $query = oci_parse($this->link, "ALTER SESSION SET NLS_DATE_FORMAT = 'DD/MM/YYYY'");
       oci_execute($query);
+      // $query = oci_parse($this->link, "ALTER SESSION SET NULL 'ND'");
+      // oci_execute($query);
       $query = oci_parse($this->link, $sql);
       return $query;
     }else{
@@ -53,7 +55,7 @@ class Conexion{
     if($this->do){
       oci_execute($query);
       $registros = [];
-      while($registro = oci_fetch_array($query, OCI_ASSOC + OCI_RETURN_NULLS)){
+      while($registro = oci_fetch_array($query, OCI_ASSOC)){
         $registros[]=$registro;
       }
       oci_free_statement($query);

@@ -160,7 +160,6 @@ class ConsultaExterna{
 		      ,%s
 		      ,%s
 		      ,%s
-		      ,%s
 		      ,'%s'
 		      ,'%s'
 		      ,'%s'
@@ -173,10 +172,9 @@ class ConsultaExterna{
 		  ,$this->idExpediente
 		  ,$this->idConsultorio
 		  ,$this->idMedico
-		  ,$this->fechaHora
 		  ,$this->sintomas
 		  ,$this->diagnostico
-		  ,$this->observ
+		  ,$this->observacion
 		);
 		$resultado=$conexion->query($query);
 		oci_bind_by_name($resultado, ':msg', $msg, 2000);

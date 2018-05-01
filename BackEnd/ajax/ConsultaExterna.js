@@ -136,8 +136,7 @@ $.ajax({
     'idConsulta': null,
     'sintomas': null,
     'idExpediente': null,
-    'observ': null,
-    'fechaHora': null,
+    'observacion': null,
   },
   success:function(respuesta){
     console.log(respuesta);

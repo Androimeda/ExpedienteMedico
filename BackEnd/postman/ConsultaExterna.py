@@ -65,8 +65,7 @@ data={
   'idConsulta': None,
   'sintomas': None,
   'idExpediente': None,
-  'observ': None,
-  'fechaHora': None,
+  'observacion': None,
 }
 print postear(data,url)
 print
