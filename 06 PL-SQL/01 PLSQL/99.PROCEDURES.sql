@@ -664,7 +664,7 @@ BEGIN
   ID_EXPEDIENTE= idExpediente,
   ID_CONSULTORIO= idConsultorio,
   ID_MEDICO= idMedico,
-  FECHA_HORA= fechaHora,
+--  FECHA_HORA= fechaHora,
   SINTOMAS= psintomas,
   DIAGNOSTICO= pdiagnostico,
   OBSERVACION= pobservacion

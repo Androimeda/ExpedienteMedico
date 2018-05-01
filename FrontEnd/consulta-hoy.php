@@ -155,18 +155,7 @@
           <input type="hidden" value="" id="txt-id-medico">
           <div class="modal-body">
             <table class="table">
-              <tr>
-                <td>Nombre</td>
-                <td><input type="text" id="txt-nombre" disabled="disabled" class="form-control"></td>
-              </tr>
-              <tr>
-                <td>No Identidad</td>
-                <td><input type="text" id="txt-noidentidad" disabled="disabled" class="form-control"></td>
-              </tr>
-              <tr>
-                <td>Médico</td>
-                <td><input type="text" id="txt-medico" disabled="disabled" class="form-control"></td>
-              </tr>              
+              <td><input type="text" id="txt-medico" disabled="disabled" class="form-control"></td>              
               <tr>
                 <td>Especialidad</td>
                 <td><input type="text" id="txt-especialidad" disabled="disabled" class="form-control"></td>

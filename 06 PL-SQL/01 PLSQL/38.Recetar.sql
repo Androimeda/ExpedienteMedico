@@ -1,7 +1,7 @@
 CREATE OR REPLACE PROCEDURE PL_Recetar(
   idTratamiento IN INT
   ,idConsulta IN INT
-  ,idMedico IN INT
+  --,idMedico IN INT
   ,mensaje OUT VARCHAR
   ,resultado OUT SMALLINT
 )
@@ -18,9 +18,9 @@ BEGIN
   IF idConsulta = '' OR idConsulta IS NULL THEN
     mensaje:= mensaje || 'idConsulta, ';
   END IF;
-  IF idMedico = '' OR idMedico IS NULL THEN
-    mensaje:= mensaje || 'idMedico, ';
-  END IF;
+--   IF idMedico = '' OR idMedico IS NULL THEN
+--     mensaje:= mensaje || 'idMedico, ';
+--   END IF;
   IF mensaje<>'' OR mensaje IS NOT NULL THEN
     mensaje:='Campos requeridos: '||mensaje;
     RETURN;
@@ -41,22 +41,20 @@ SELECT COUNT(*) INTO vnConteo
     RETURN ;
   END IF;
 
-  SELECT COUNT(*) INTO vnConteo
-    FROM  MEDICO
-    WHERE idMedico=ID_MEDICO;
-  IF vnConteo=0 THEN
-    mensaje:='el medico con identificador: '||idMedico||'no esta registradi';
-    RETURN ;
-  END IF;
+--   SELECT COUNT(*) INTO vnConteo
+--     FROM  MEDICO
+--     WHERE idMedico=ID_MEDICO;
+--   IF vnConteo=0 THEN
+--     mensaje:='el medico con identificador: '||idMedico||'no esta registradi';
+--     RETURN ;
+--   END IF;
 
   INSERT  INTO TRATAMIENTOCONSULTA(
     ID_CONSULTA,
-    ID_TRATAMIENTO,
-    ID_MEDICO
+    ID_TRATAMIENTO
   )VALUES (
     idConsulta,
-    idTratamiento,
-    idMedico
+    idTratamiento
   );
   COMMIT;
   mensaje:='se ingreso la informacion correctamente';
