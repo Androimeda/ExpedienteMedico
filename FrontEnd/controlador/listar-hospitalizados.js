@@ -30,10 +30,11 @@ function cargaTablaHospitalizaciones(){
 	  dataType:'JSON',
 	  data:{
 	    'accion':'listarPorCentro',
-	    // 'idCentroMedico' : $("#txt-centro").val(),
-	    'idCentroMedico' : 1,
+	    'idCentroMedico' : $("#txt-id-centro-medico").val(),
+	    // 'idCentroMedico' : 1,
 	  },
 	  success:function(respuesta){
+	  	console.log(respuesta);
 	  	agregarFilaTablaHospitalizaciones(respuesta);
 	  },
 	  error: function(error){
@@ -46,7 +47,6 @@ function cargaTablaHospitalizaciones(){
 }
 $(document).ready(function(){
 	cargaTablaHospitalizaciones();
-
 });
 
 

@@ -191,7 +191,7 @@ class Medico extends Persona{
 		$query=sprintf("
 		    SELECT  * 
 		    FROM VISTAMEDICO v 
-		    WHERE  v.NO_IDENTIDAD = '%s' 
+		    WHERE  v.NO_IDENTIDAD LIKE '%%%s%%' 
 		"
 		  ,$this->getNoIdentidad()
 		);

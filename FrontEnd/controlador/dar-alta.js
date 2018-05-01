@@ -17,8 +17,8 @@ function buscar(){
     data:{
       'accion':'listarPorPacienteActiva',
       'idCentroMedico': $("#txt-id-centro-medico").val(),
-      'idCentroMedico': 1,
-      // 'noIdentidad': $("#txt-noidentidad").val(),
+      // 'idCentroMedico': 1,
+      'noIdentidad': $("#txt-noidentidad").val(),
     },
     success:function(respuesta){
       agregarFilaTablaBusqueda(respuesta)

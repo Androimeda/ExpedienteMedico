@@ -124,13 +124,11 @@ END IF;
 
   IF vnConteo>0 THEN
     mensaje:='El numero de identidad: '|| noIdentidad||' ya existe';
-
     SELECT
       ID_PERSONA
     INTO id_persona_insert
     FROM PERSONA
     WHERE NO_IDENTIDAD = noIdentidad;
-
   ELSE
     INSERT INTO PERSONA(
       P_NOMBRE,
@@ -153,12 +151,12 @@ END IF;
       sexo,
       correo
     ) RETURNING ID_PERSONA INTO id_persona_insert;
+  END IF;
 
-     IF id_persona_insert=0 THEN
+  IF id_persona_insert=0 THEN
       mensaje:='Ocurrio un error en la insercion de persona, no se guardó nada';
       ROLLBACK;
       RETURN;
-    END IF;
   END IF;
 
 
@@ -170,7 +168,11 @@ END IF;
 
   IF vnConteo!=0 THEN
     mensaje:='Registro de Paciente ya existe en la tabla, persona con el mismo noIdentidad en tabla paciente';
-    RETURN;
+    SELECT
+      ID_PACIENTE
+    INTO id_paciente_insert
+    FROM PACIENTE
+    WHERE ID_PERSONA = id_persona_insert;
   ELSE
     INSERT INTO PACIENTE(
       ID_PERSONA,
@@ -189,12 +191,29 @@ END IF;
     ) RETURNING ID_PACIENTE INTO id_paciente_insert;
   END IF;
 
-  INSERT INTO EXPEDIENTE
+  IF id_paciente_insert=0 THEN
+      mensaje:='Ocurrio un error en la insercion de paciente, no se guardó nada';
+      ROLLBACK;
+      RETURN;
+  END IF;
+
+  SELECT
+    COUNT(*)
+  INTO vnConteo
+  FROM EXPEDIENTE
+  WHERE ID_PACIENTE = id_paciente_insert;
+
+  IF vnConteo!=0 THEN
+    mensaje:='Registro de Paciente ya existe en la tabla de expediente';
+    RETURN;
+  ELSE
+    INSERT INTO EXPEDIENTE
   (FECHA_CREACION, ID_PACIENTE)
-  VALUES (SYSDATE, id_paciente_insert);
-  COMMIT;
-  mensaje:='La insercion fue exitosa';
-  resultado:=1;
+    VALUES (SYSDATE, id_paciente_insert);
+    COMMIT;
+    mensaje:='La insercion fue exitosa';
+    resultado:=1;
+    END IF;
 
 END;
 /
