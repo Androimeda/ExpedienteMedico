@@ -45,6 +45,11 @@ function cargaTablaEmergenciaFecha(){
 	  }
 	});
 }
+
+$("#txt-fecha").on("change", function(){
+cargaTablaEmergenciaFecha();
+});
+
 $(document).ready(function(){
 	cargaTablaEmergenciaFecha();
 });

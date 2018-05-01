@@ -23,11 +23,13 @@
       </div>
       <div class="row">
           <div class="col-lg-12">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <input type="date"  class="form-control" id="txt-fecha">
+            </div>
+            <div class="col-lg-3">
               <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <select name="slc-filtro-e" class ="form-control" id="slc-filtro-e">
                 <option value="" hidden="">Filtro</option>
                 <option value="1">Nombre</option>
@@ -35,7 +37,7 @@
                 <option value="3">No Identidad</option>
               </select>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <button type="button" class="btn btn-default" onclick="cargaTablaEmergenciaFecha()">Limpiar</button>
               <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
