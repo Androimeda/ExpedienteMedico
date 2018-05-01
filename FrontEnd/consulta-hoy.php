@@ -14,6 +14,7 @@
     <!-- Fixed navbar -->
     <?php include("nav-bar.php") ?>
     <!-- Fin Navbar -->
+    <input type="hidden" value="<?php echo $user["ID_CENTRO_MEDICO"];?>" id="txt-id-centro-medico">
     <div class="container well card">   
         <div class="row">
           <div class="col-lg-12" id="titulo">
@@ -23,19 +24,23 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-              <div class="col-lg-4">
-                <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
-              </div>
-              <div class="col-lg-4">
-                <select name="slc-filtro-pac" class ="form-control" id="slc-filtro-pac">
-                  <option value="" hidden="">Filtro</option>
-                  <option value="1">Nombre</option>
-                  <option value="2">Apellido</option>
-                  <option value="3">No Identidad</option>
+              <div class="col-lg-3">
+                <select class ="form-control" id="slc-edificio">
+                  <option value="" hidden="">Edificio</option>
                 </select>
               </div>
-              <div class="col-lg-4">
-                <button type="button" class="btn btn-default" onclick="cargaTablaPaciente()">Limpiar</button>
+              <div class="col-lg-3">
+                <select class ="form-control" id="slc-piso">
+                  <option value="" hidden="">Piso</option>
+                </select>
+              </div>              
+              <div class="col-lg-3">
+                <select class ="form-control" id="slc-consultorio">
+                  <option value="" hidden="">Consultorio</option>
+                </select>
+              </div>
+              <div class="col-lg-3">
+                <button type="button" class="btn btn-default" onclick="cargaTabla()">Limpiar</button>
                 <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
               </div>
           </div>
@@ -47,6 +52,7 @@
                     <th>Fecha</th>
                     <th>Centro Medico</th>
                     <th>Piso</th>
+                    <th>Nombre</th>
                     <th>Medico</th>
                     <th>Especialidad</th>
                     <th>Síntomas</th>
@@ -55,6 +61,11 @@
                   <tbody>
                   </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="agregar-consulta.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> &nbsp; Agregar Consulta</a>
             </div>
         </div>
     </div> <!-- /container -->

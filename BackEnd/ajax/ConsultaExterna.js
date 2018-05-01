@@ -156,6 +156,26 @@ $.ajax({
   method:'POST',
   dataType:'JSON',
   data:{
+    'accion':'listarDiariasPorConsultorio',
+    'idConsultorio': null,
+  },
+  success:function(respuesta){
+    console.log(respuesta);
+  },
+  error: function(error){
+    console.log(error);
+  },
+  complete: function(){
+    //TO-DO
+  }
+});
+
+
+$.ajax({
+  url:CONST_SITIO_URL+'/services/ConsultaExterna.php',
+  method:'POST',
+  dataType:'JSON',
+  data:{
     'accion':'listarPorCentroMedicoFecha',
     'idCentroMedico': null,
     'fechaHora': null,

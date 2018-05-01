@@ -261,6 +261,22 @@ case 'listarPorCentroMedico':
   echo $consultaexterna->listarPorCentroMedico($conexion);
 break;
 
+case 'listarDiariasPorConsultorio':
+
+  if(isset($_POST['idConsultorio']) && $_POST['idConsultorio']!=''){
+    $idConsultorio= $_POST['idConsultorio'];
+  }else{
+    $idConsultorio='null';
+    $res['mensaje']='Se necesita campo: idConsultorio';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $consultaexterna=new ConsultaExterna();
+  $consultaexterna->setIdConsultorio($idConsultorio);
+  echo $consultaexterna->listarDiariasPorConsultorio($conexion);
+break;
+
 case 'listarPorCentroMedicoFecha':
 
   if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){

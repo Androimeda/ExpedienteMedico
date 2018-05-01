@@ -84,6 +84,42 @@ class AtencionPreHospitalaria{
 		$this->idCentroMedico = $idCentroMedico;
 	}
 
+	public function getPNombre(){
+		return $this->pNombre;
+	}
+
+	public function setPNombre($pNombre){
+		$this->pNombre = $pNombre;
+	}
+	public function getSNombre(){
+		return $this->sNombre;
+	}
+
+	public function setSNombre($sNombre){
+		$this->sNombre = $sNombre;
+	}
+	public function getPApellido(){
+		return $this->pApellido;
+	}
+
+	public function setPApellido($pApellido){
+		$this->pApellido = $pApellido;
+	}
+	public function getSApellido(){
+		return $this->sApellido;
+	}
+
+	public function setSApellido($sApellido){
+		$this->sApellido = $sApellido;
+	}
+	public function getNoIdentidad(){
+		return $this->noIdentidad;
+	}
+
+	public function setNoIdentidad($noIdentidad){
+		$this->noIdentidad = $noIdentidad;
+	}
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN

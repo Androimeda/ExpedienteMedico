@@ -55,9 +55,20 @@ case 'crear':
   echo $atencionprehospitalaria->crear($conexion);
 break;
 
-case 'listarPorParamedico':
+case 'listarPorPaciente':
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $atencionprehospitalaria=new AtencionPreHospitalaria();
-  echo $atencionprehospitalaria->listarPorParamedico($conexion);
+  $atencionprehospitalaria->setIdExpediente($idExpediente);
+  echo $atencionprehospitalaria->listarPorPaciente($conexion);
 break;
 
 case 'listarPorCentroDiarias':
@@ -74,6 +85,60 @@ case 'listarPorCentroDiarias':
   $atencionprehospitalaria=new AtencionPreHospitalaria();
   $atencionprehospitalaria->setIdCentroMedico($idCentroMedico);
   echo $atencionprehospitalaria->listarPorCentroDiarias($conexion);
+break;
+
+case 'buscarPorApellido':
+
+  if(isset($_POST['sApellido']) && $_POST['sApellido']!=''){
+    $sApellido= $_POST['sApellido'];
+  }else{
+    $sApellido='null';
+    $res['mensaje']='Se necesita campo: sApellido';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['pApellido']) && $_POST['pApellido']!=''){
+    $pApellido= $_POST['pApellido'];
+  }else{
+    $pApellido='null';
+    $res['mensaje']='Se necesita campo: pApellido';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $atencionprehospitalaria=new AtencionPreHospitalaria();
+  $atencionprehospitalaria->setSApellido($sApellido);
+  $atencionprehospitalaria->setPApellido($pApellido);
+  echo $atencionprehospitalaria->buscarPorApellido($conexion);
+break;
+
+case 'listarPorCentroMedico':
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['nombreCentro'])){
+    $nombreCentro= $_POST['nombreCentro'];
+  }else{
+    $nombreCentro=null;
+    $res['mensaje']='Se necesita campo: nombreCentro';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $atencionprehospitalaria=new AtencionPreHospitalaria();
+  $atencionprehospitalaria->setIdCentroMedico($idCentroMedico);
+  $atencionprehospitalaria->setNombreCentro($nombreCentro);
+  echo $atencionprehospitalaria->listarPorCentroMedico($conexion);
 break;
 
 case 'listarPorCentroFecha':
@@ -101,6 +166,22 @@ case 'listarPorCentroFecha':
   $atencionprehospitalaria->setIdCentroMedico($idCentroMedico);
   $atencionprehospitalaria->setFechaHoraAtencion($fechaHoraAtencion);
   echo $atencionprehospitalaria->listarPorCentroFecha($conexion);
+break;
+
+case 'buscarPorNoIdentidad':
+
+  if(isset($_POST['noIdentidad']) && $_POST['noIdentidad']!=''){
+    $noIdentidad= $_POST['noIdentidad'];
+  }else{
+    $noIdentidad='null';
+    $res['mensaje']='Se necesita campo: noIdentidad';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+  $atencionprehospitalaria=new AtencionPreHospitalaria();
+  $atencionprehospitalaria->setNoIdentidad($noIdentidad);
+  echo $atencionprehospitalaria->buscarPorNoIdentidad($conexion);
 break;
 
 case 'actualizar':
@@ -174,47 +255,36 @@ case 'actualizar':
   echo $atencionprehospitalaria->actualizar($conexion);
 break;
 
-case 'listarPorCentroMedico':
+case 'buscarPorNombre':
 
-  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
-    $idCentroMedico= $_POST['idCentroMedico'];
+  if(isset($_POST['pNombre'])){
+    $pNombre= $_POST['pNombre'];
   }else{
-    $idCentroMedico='null';
-    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $pNombre=null;
+    $res['mensaje']='Se necesita campo: pNombre';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
 
-  if(isset($_POST['nombreCentro'])){
-    $nombreCentro= $_POST['nombreCentro'];
+  if(isset($_POST['sNombre'])){
+    $sNombre= $_POST['sNombre'];
   }else{
-    $nombreCentro=null;
-    $res['mensaje']='Se necesita campo: nombreCentro';
+    $sNombre=null;
+    $res['mensaje']='Se necesita campo: sNombre';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $atencionprehospitalaria=new AtencionPreHospitalaria();
-  $atencionprehospitalaria->setIdCentroMedico($idCentroMedico);
-  $atencionprehospitalaria->setNombreCentro($nombreCentro);
-  echo $atencionprehospitalaria->listarPorCentroMedico($conexion);
+  $atencionprehospitalaria->setPNombre($pNombre);
+  $atencionprehospitalaria->setSNombre($sNombre);
+  echo $atencionprehospitalaria->buscarPorNombre($conexion);
 break;
 
-case 'listarPorPaciente':
-
-  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
-    $idExpediente= $_POST['idExpediente'];
-  }else{
-    $idExpediente='null';
-    $res['mensaje']='Se necesita campo: idExpediente';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
+case 'listarPorParamedico':
   $atencionprehospitalaria=new AtencionPreHospitalaria();
-  $atencionprehospitalaria->setIdExpediente($idExpediente);
-  echo $atencionprehospitalaria->listarPorPaciente($conexion);
+  echo $atencionprehospitalaria->listarPorParamedico($conexion);
 break;
 
 default:

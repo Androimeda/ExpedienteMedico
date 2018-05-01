@@ -252,6 +252,21 @@ class ConsultaExterna{
 		$respuesta = $conexion->filas($resultado);
 		return json_encode($respuesta);
 	}
+	public function listarDiariasPorConsultorio($conexion){
+		$query=sprintf("
+		   SELECT  * 
+		   FROM VistaConsultaExterna V  
+		   WHERE  V.ID_CONSULTORIO=%s
+		   AND EXTRACT(DAY FROM V.FECHA_HORA) = EXTRACT(DAY FROM SYSDATE)
+		   AND EXTRACT(MONTH FROM V.FECHA_HORA) = EXTRACT(MONTH FROM SYSDATE)
+		   AND EXTRACT(YEAR FROM V.FECHA_HORA) = EXTRACT(YEAR FROM SYSDATE)
+		"
+		  ,$this->idConsultorio
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
+	}
 
 	public function listarPorCentroMedicoFecha($conexion){
 		$query=sprintf("

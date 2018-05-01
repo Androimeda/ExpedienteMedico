@@ -82,7 +82,6 @@
             <li class="dropdown-header">Consulta Externa</li>
             <li><a href="./agregar-consulta.php">Agregar Consulta</a></li>
             <li><a href="./consulta-hoy.php">Consultas de Hoy</a></li>
-            <li><a href="./agenda-consultorio.php">Agenda Consultorios</a></li>
           </ul>
         </li>
         <!-- Emeregencias -->

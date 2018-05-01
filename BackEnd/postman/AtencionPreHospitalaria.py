@@ -15,7 +15,8 @@ print
 
 url='AtencionPreHospitalaria'
 data={
-  'accion':'listarPorParamedico',
+  'accion':'listarPorPaciente',
+  'idExpediente': None,
 }
 print postear(data,url)
 print
@@ -30,9 +31,35 @@ print
 
 url='AtencionPreHospitalaria'
 data={
+  'accion':'buscarPorApellido',
+  'sApellido': None,
+  'pApellido': None,
+}
+print postear(data,url)
+print
+
+url='AtencionPreHospitalaria'
+data={
+  'accion':'listarPorCentroMedico',
+  'idCentroMedico': None,
+  'nombreCentro': None,
+}
+print postear(data,url)
+print
+
+url='AtencionPreHospitalaria'
+data={
   'accion':'listarPorCentroFecha',
   'idCentroMedico': None,
   'fechaHoraAtencion': None,
+}
+print postear(data,url)
+print
+
+url='AtencionPreHospitalaria'
+data={
+  'accion':'buscarPorNoIdentidad',
+  'noIdentidad': None,
 }
 print postear(data,url)
 print
@@ -52,17 +79,16 @@ print
 
 url='AtencionPreHospitalaria'
 data={
-  'accion':'listarPorCentroMedico',
-  'idCentroMedico': None,
-  'nombreCentro': None,
+  'accion':'buscarPorNombre',
+  'pNombre': None,
+  'sNombre': None,
 }
 print postear(data,url)
 print
 
 url='AtencionPreHospitalaria'
 data={
-  'accion':'listarPorPaciente',
-  'idExpediente': None,
+  'accion':'listarPorParamedico',
 }
 print postear(data,url)
 print
