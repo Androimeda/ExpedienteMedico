@@ -8,46 +8,6 @@ $conexion = new Conexion();
 switch ($_POST['accion']) {
 case 'crear':
 
-  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
-    $idCentroMedico= $_POST['idCentroMedico'];
-  }else{
-    $idCentroMedico='null';
-    $res['mensaje']='Se necesita campo: idCentroMedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
-    $idMedico= $_POST['idMedico'];
-  }else{
-    $idMedico='null';
-    $res['mensaje']='Se necesita campo: idMedico';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idAtencion']) && $_POST['idAtencion']!=''){
-    $idAtencion= $_POST['idAtencion'];
-  }else{
-    $idAtencion='null';
-    $res['mensaje']='Se necesita campo: idAtencion';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
-  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
-    $idExpediente= $_POST['idExpediente'];
-  }else{
-    $idExpediente='null';
-    $res['mensaje']='Se necesita campo: idExpediente';
-    $res['resultado']=false;
-    echo json_encode($res);
-    break;
-  }
-
   if(isset($_POST['observacion'])){
     $observacion= $_POST['observacion'];
   }else{
@@ -67,13 +27,42 @@ case 'crear':
     echo json_encode($res);
     break;
   }
+
+  if(isset($_POST['idExpediente']) && $_POST['idExpediente']!=''){
+    $idExpediente= $_POST['idExpediente'];
+  }else{
+    $idExpediente='null';
+    $res['mensaje']='Se necesita campo: idExpediente';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idMedico']) && $_POST['idMedico']!=''){
+    $idMedico= $_POST['idMedico'];
+  }else{
+    $idMedico='null';
+    $res['mensaje']='Se necesita campo: idMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
+
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
+  }else{
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
+    $res['resultado']=false;
+    echo json_encode($res);
+    break;
+  }
   $emergencia=new Emergencia();
-  $emergencia->setIdCentroMedico($idCentroMedico);
-  $emergencia->setIdMedico($idMedico);
-  $emergencia->setIdAtencion($idAtencion);
-  $emergencia->setIdExpediente($idExpediente);
   $emergencia->setObservacion($observacion);
   $emergencia->setFechaHoraAtencion($fechaHoraAtencion);
+  $emergencia->setIdExpediente($idExpediente);
+  $emergencia->setIdMedico($idMedico);
+  $emergencia->setIdCentroMedico($idCentroMedico);
   echo $emergencia->crear($conexion);
 break;
 

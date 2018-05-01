@@ -106,7 +106,6 @@ class Emergencia{
 		      ,%s
 		      ,%s
 		      ,%s
-		      ,%s
 		      ,:msg
 		      ,:res
 		    );
@@ -115,7 +114,6 @@ class Emergencia{
 		  $this->observacion
 		  ,$this->fechaHoraAtencion
 		  ,$this->idExpediente
-		  ,$this->idAtencion
 		  ,$this->idCentroMedico
 		  ,$this->idMedico
 		);

@@ -2,7 +2,6 @@ CREATE OR REPLACE PROCEDURE PL_CrearEmergencia(
   observacion IN VARCHAR
   ,fechaHoraAtencion IN TIMESTAMP
   ,idExpediente IN INT
-  ,idAtencion IN INT
   ,idCentroMedico IN INT
   ,idMedico IN INT
   ,mensaje OUT VARCHAR
@@ -44,17 +43,6 @@ BEGIN
   ;
   IF contador=0 THEN
     mensaje:='No existe codigo Expediente';
-    RETURN;
-  END IF;
-
-  SELECT
-    COUNT(*)
-  INTO contador
-  FROM ATENCIONPREHOSPITALARIA
-  WHERE ID_ATENCION = idAtencion
-  ;
-  IF idAtencion IS NOT NULL AND contador=0 THEN
-    mensaje:='No existe codigo de Atencion Pre Hospitalaria';
     RETURN;
   END IF;
 

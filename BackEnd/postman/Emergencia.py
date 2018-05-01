@@ -5,12 +5,11 @@ def postear(data, url):
 url='Emergencia'
 data={
   'accion':'crear',
-  'idCentroMedico': None,
-  'idMedico': None,
-  'idAtencion': None,
-  'idExpediente': None,
   'observacion': None,
   'fechaHoraAtencion': None,
+  'idExpediente': None,
+  'idMedico': None,
+  'idCentroMedico': None,
 }
 print postear(data,url)
 print

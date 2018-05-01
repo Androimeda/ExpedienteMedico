@@ -4,12 +4,11 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'crear',
-    'idCentroMedico': null,
-    'idMedico': null,
-    'idAtencion': null,
-    'idExpediente': null,
     'observacion': null,
     'fechaHoraAtencion': null,
+    'idExpediente': null,
+    'idMedico': null,
+    'idCentroMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);
