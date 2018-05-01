@@ -22,7 +22,6 @@
         </div>
       </div>
       <div class="row">
-        <input type="date"  class="form-control" id="txt-fecha">
       </div>
       <div class="row">
           <div class="col-lg-12">

@@ -4,17 +4,18 @@ $("#nav-item-emergencia").addClass("active");
 function agregarFilaTablaEmergencia(respuesta){
 	$("#tbl-emergencia tbody").empty();
 	for (var i = 0; i < respuesta.length; i++) {
-		var aph = respuesta[i];
+		var E = respuesta[i];
 		var fila = 
 		"<tr>"+
-		"  <td>"+aph.ID_INGRESO+"</td>"+
-		"  <td>"+aph.OBSERVACION+"</td>"+
-		"  <td>"+aph.FECHA_HORA_ATENCION+"</td>"+
-		"  <td>"+aph.P_NOMBRE+"</td>"+
-		"  <td>"+aph.S_NOMBRE+"</td>"+
-		"  <td>"+aph.P_APELLIDO+"</td>"+
-		"  <td>"+aph.S_APELLIDO+"</td>"+
-		"  <td>"+aph.NO_IDENTIDAD+"</td>"+
+		"  <td>"+E.ID_CENTRO_MEDICO+"</td>"+
+		"  <td>"+E.ID_INGRESO+"</td>"+
+		"  <td>"+E.OBSERVACION+"</td>"+
+		"  <td>"+E.FECHA_HORA_ATENCION+"</td>"+
+		"  <td>"+E.P_NOMBRE+"</td>"+
+		"  <td>"+E.S_NOMBRE+"</td>"+
+		"  <td>"+E.P_APELLIDO+"</td>"+
+		"  <td>"+E.S_APELLIDO+"</td>"+
+		"  <td>"+E.NO_IDENTIDAD+"</td>"+
 		"</tr>"
 		$("#tbl-emergencia tbody").append(fila);
 	}
@@ -32,6 +33,7 @@ function cargaTablaEmergenciaFecha(){
 	    
 	     // no se que carajo ponerle acá
 	     // Aquí va algo que estoy usando con esos
+	     //kha?
 	  },
 	  success:function(respuesta){
 	  	console.log(respuesta);

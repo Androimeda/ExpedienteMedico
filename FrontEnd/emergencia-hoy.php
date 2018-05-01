@@ -24,7 +24,7 @@
       <div class="row">
           <div class="col-lg-12">
             <div class="col-lg-4">
-              <input type="text" class="form-control" id="txt-busqueda" placeholder="Fecha">
+              <input type="text" class="form-control" id="txt-busqueda" placeholder="Búsqueda">
             </div>
             <div class="col-lg-4">
               <select name="slc-filtro-e" class ="form-control" id="slc-filtro-e">
@@ -65,9 +65,9 @@
         </div>
       </div>
     </div> <!-- /container -->
+    <input type="hidden" name="" value="<?php echo $user['ID_CENTRO_MEDICO'] ?>" id="txt-id-centro-medico">
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-
     <script src="./js/config.js  "></script>
     <script src="controlador/emergencia-hoy.js"></script>
   </body>

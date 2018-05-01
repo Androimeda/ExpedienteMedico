@@ -4,17 +4,17 @@ $("#nav-item-emergencia").addClass("active");
 function agregarFilaTablaEmergenciaHoy(respuesta){
 	$("#tbl-emergencia tbody").empty();
 	for (var i = 0; i < respuesta.length; i++) {
-		var aph = respuesta[i];
+		var e = respuesta[i];
 		var fila = 
 		"<tr>"+
-		"  <td>"+aph.ID_INGRESO+"</td>"+
-		"  <td>"+aph.OBSERVACION+"</td>"+
-		"  <td>"+aph.FECHA_HORA_ATENCION+"</td>"+
-		"  <td>"+aph.P_NOMBRE+"</td>"+
-		"  <td>"+aph.S_NOMBRE+"</td>"+
-		"  <td>"+aph.P_APELLIDO+"</td>"+
-		"  <td>"+aph.S_APELLIDO+"</td>"+
-		"  <td>"+aph.NO_IDENTIDAD+"</td>"+
+		"  <td>"+e.ID_INGRESO+"</td>"+
+		"  <td>"+e.OBSERVACION+"</td>"+
+		"  <td>"+e.FECHA_HORA_ATENCION+"</td>"+
+		"  <td>"+e.P_NOMBRE+"</td>"+
+		"  <td>"+e.S_NOMBRE+"</td>"+
+		"  <td>"+e.P_APELLIDO+"</td>"+
+		"  <td>"+e.S_APELLIDO+"</td>"+
+		"  <td>"+e.NO_IDENTIDAD+"</td>"+
 		"</tr>"
 		$("#tbl-emergencia tbody").append(fila);
 	}
