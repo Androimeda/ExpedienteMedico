@@ -9,7 +9,6 @@
     <title>Hope Medics</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <input type="date"  class="form-control" id="#txt-fecha">
   </head>
   <body>
     <!-- Fixed navbar -->
@@ -21,6 +20,9 @@
           <h1><?php echo $user["CENTRO_MEDICO"] ?></h1>
           <h1>Listado de emergencias</h1>
         </div>
+      </div>
+      <div class="row">
+        <input type="date"  class="form-control" id="txt-fecha">
       </div>
       <div class="row">
           <div class="col-lg-12">

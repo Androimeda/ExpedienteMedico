@@ -31,7 +31,7 @@ function cargaTablaEmergenciaFecha(){
    		 'fechaHoraAtencion': $("#txt-fecha"),
 	    
 	     // no se que carajo ponerle acá
-
+	     // Aquí va algo que estoy usando con esos
 	  },
 	  success:function(respuesta){
 	  	console.log(respuesta);
