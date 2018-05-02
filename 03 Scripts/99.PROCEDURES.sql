@@ -3188,8 +3188,8 @@ SELECT COUNT(*) INTO vnConteo
   UPDATE TRATAMIENTOCONSULTA
     SET
     ID_CONSULTA=idConsulta,
-    ID_TRATAMIENTO=idTratamiento,
-    ID_MEDICO=idMedico
+    ID_TRATAMIENTO=idTratamiento
+--     ,ID_MEDICO=idMedico
   WHERE
     ID_TRATAMIENTO=idTratamiento
     AND ID_CONSULTA = idConsulta

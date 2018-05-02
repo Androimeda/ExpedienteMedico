@@ -216,7 +216,17 @@ INSERT INTO PACIENTE (ID_PERSONA, ID_TIPO_SANGRE, ID_ESCOLARIDAD, ID_OCUPACION, 
 INSERT INTO PACIENTE (ID_PERSONA, ID_TIPO_SANGRE, ID_ESCOLARIDAD, ID_OCUPACION, ID_ESTADO_CIVIL, ID_ASCENDENCIA) VALUES (17, 7, 2, 7, 3, 2);
 INSERT INTO PACIENTE (ID_PERSONA, ID_TIPO_SANGRE, ID_ESCOLARIDAD, ID_OCUPACION, ID_ESTADO_CIVIL, ID_ASCENDENCIA) VALUES (18, 8, 5, 8, 4, 10);
 INSERT INTO PACIENTE (ID_PERSONA, ID_TIPO_SANGRE, ID_ESCOLARIDAD, ID_OCUPACION, ID_ESTADO_CIVIL, ID_ASCENDENCIA) VALUES (19, 7, 3, 9, 5, 9);
-INSERT INTO PACIENTE (ID_PERSONA, ID_TIPO_SANGRE, ID_ESCOLARIDAD, ID_OCUPACION, ID_ESTADO_CIVIL, ID_ASCENDENCIA) VALUES (22, 3, 2, 10, 1, 8);
+COMMIT;
+-- INSERT TABLA EXPEDIENTE
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(1,to_date('1995/02/02','yyyy/mm/dd'),1);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(2,to_date('1996/02/02','yyyy/mm/dd'),2);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(3,to_date('1997/02/02','yyyy/mm/dd'),3);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(4,to_date('1998/02/02','yyyy/mm/dd'),4);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(5,to_date('1999/02/02','yyyy/mm/dd'),5);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(6,to_date('2000/02/02','yyyy/mm/dd'),6);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(7,to_date('2001/12/02','yyyy/mm/dd'),7);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(8,to_date('1995/03/02','yyyy/mm/dd'),8);
+INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(9,to_date('2012/12/12','yyyy/mm/dd'),9);
 COMMIT;
 --INSERTS TABLA MEDICO
 INSERT INTO MEDICO(NO_colegiacion,id_persona,id_especialidad)VALUES('111',1,21);
@@ -367,17 +377,6 @@ INSERT INTO CONSULTORIO (ID_PISO) VALUES (18);
 INSERT INTO CONSULTORIO (ID_PISO) VALUES (19);
 INSERT INTO CONSULTORIO (ID_PISO) VALUES (2);
 INSERT INTO CONSULTORIO (ID_PISO) VALUES (3);
-COMMIT;
--- INSERT TABLA EXPEDIENTE
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(1,to_date('1995/02/02','yyyy/mm/dd'),1);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(2,to_date('1996/02/02','yyyy/mm/dd'),2);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(3,to_date('1997/02/02','yyyy/mm/dd'),3);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(4,to_date('1998/02/02','yyyy/mm/dd'),4);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(5,to_date('1999/02/02','yyyy/mm/dd'),5);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(6,to_date('2000/02/02','yyyy/mm/dd'),6);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(7,to_date('2001/12/02','yyyy/mm/dd'),7);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(8,to_date('1995/03/02','yyyy/mm/dd'),8);
-INSERT INTO EXPEDIENTE(id_expediente,fecha_creacion,id_paciente)VALUES(9,to_date('2012/12/12','yyyy/mm/dd'),9);
 COMMIT;
 --INSERTS TABLA REFERENCIA
 INSERT INTO REFERENCIA (DESCRIPCION, ID_MEDICO, ID_EXPEDIENTE, ID_CENTRO_MEDICO_REMITE, ID_CENTRO_MEDICO_RECIBE) VALUES ('paciente con trombosis cerebral', 1, 1, 2, 1);
