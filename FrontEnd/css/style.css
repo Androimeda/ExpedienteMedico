@@ -71,6 +71,11 @@ body {
     margin-bottom: 5px; }
   body .logout {
     color: #c83737 !important; }
+  body .number {
+    text-align: center; }
+    body .number p {
+      font-size: 50px;
+      color: #c83737; }
 
 .login {
   margin: 0 auto;
