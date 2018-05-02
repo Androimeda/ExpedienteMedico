@@ -7,6 +7,7 @@ class AtencionPreHospitalaria{
 	private $idExpediente;
 	private $nombreCentro;
 	private $idCentroMedico;
+	private $fechaHoraAtencion;
 
 	public function __construct(
 		$idAtencion = null,
@@ -120,6 +121,15 @@ class AtencionPreHospitalaria{
 		$this->noIdentidad = $noIdentidad;
 	}
 
+	public function getFechaHoraAtencion(){
+		return $this->fechaHoraAtencion;
+	}
+
+	public function setFechaHoraAtencion($fechaHoraAtencion){
+		$this->fechaHoraAtencion = to_timestamp($fechaHoraAtencion);
+	}
+
+
 	public function crear($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -184,7 +194,6 @@ class AtencionPreHospitalaria{
 		   AND EXTRACT(DAY FROM V.FECHA_HORA_ATENCION) = EXTRACT(DAY FROM %s)
 		   AND EXTRACT(MONTH FROM V.FECHA_HORA_ATENCION) = EXTRACT(MONTH FROM %s)
 		   AND EXTRACT(YEAR FROM V.FECHA_HORA_ATENCION) = EXTRACT(YEAR FROM %s)
-		   ;
 		"
 		  ,$this->idCentroMedico
 		  ,$this->fechaHoraAtencion

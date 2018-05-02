@@ -99,7 +99,10 @@ class Enfermedad{
 
 	public function listarTipoEnfermedad($conexion){
 		$query=sprintf("
-			SELECT * FROM TIPOENFERMEDAD
+			SELECT
+			  t.*
+			, (SELECT COUNT(*) FROM ENFERMEDAD e WHERE e.ID_TIPO_ENFERMEDAD = t.ID_TIPO_ENFERMEDAD) as total
+			FROM TIPOENFERMEDAD t
 		"
 		);
 		$resultado = $conexion->query($query);
