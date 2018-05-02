@@ -60,15 +60,15 @@ IS
       RETURN 0;
     END IF;
     /*---------------- CUERPO DEL PL----------------*/
-    SELECT COUNT(*)
-    INTO vnConteo
-    FROM PERSONA
-    WHERE ID_PAIS = idPais;
-    IF vnConteo = 0
-    THEN
-      mensaje := 'EL pais con el identificador: ' || idPais || 'no esta registrado';
-      RETURN 0;
-    END IF;
+--     SELECT COUNT(*)
+--     INTO vnConteo
+--     FROM PERSONA
+--     WHERE ID_PAIS = idPais;
+--     IF vnConteo = 0
+--     THEN
+--       mensaje := 'EL pais con el identificador: ' || idPais || 'no esta registrado';
+--       RETURN 0;
+--     END IF;
 
     INSERT INTO PERSONA (
       P_NOMBRE,
@@ -93,6 +93,8 @@ IS
     )
     RETURNING ID_PERSONA INTO id_persona_insert;
     COMMIT;
+    DBMS_OUTPUT.PUT_LINE(id_persona_insert);
+    DBMS_OUTPUT.PUT_LINE('Que pasa');
     mensaje := 'Registro insertado satisfactoriamente';
     RETURN id_persona_insert;
   END;

@@ -6,11 +6,11 @@
 $query=sprintf("
   BEGIN
     PL_CrearUsuario(
-      %s
+      '%s'
       ,%s
       ,%s
       ,'%s'
-      ,%s
+      ,'%s'
       ,'%s'
       ,'%s'
       ,'%s'

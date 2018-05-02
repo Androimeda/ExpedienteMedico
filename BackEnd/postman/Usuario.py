@@ -4,6 +4,13 @@ def postear(data, url):
 
 url='Usuario'
 data={
+  'accion':'listarTipos',
+}
+print postear(data,url)
+print
+
+url='Usuario'
+data={
   'accion':'login',
   'correo': None,
   'contrasena': None,
@@ -14,6 +21,20 @@ print
 url='Usuario'
 data={
   'accion':'registrar',
+  'idPais': None,
+  'noIdentidad': None,
+  'nombreCentroMedico': None,
+  'pNombre': None,
+  'sNombre': None,
+  'sApellido': None,
+  'idTipoUsuario': None,
+  'direccion': None,
+  'correo': None,
+  'idTipoCentroMedico': None,
+  'pApellido': None,
+  'contrasena': None,
+  'sexo': None,
+  'direccionCentroMedico': None,
 }
 print postear(data,url)
 print

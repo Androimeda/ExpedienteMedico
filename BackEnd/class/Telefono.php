@@ -192,11 +192,11 @@ class Telefono{
 
 	public function buscarPorCentro($conexion){
 		$query=sprintf("
-		     SELECT t.DESCRIPCION as tipo_centro_medico ,c.NOMBRE as centro_medico ,v.* 
-		     FROM VistaTelefonoCentroMedico v INNER JOIN CENTROMEDICO c  ON v.ID_CENTRO_MEDICO = c.ID_CENTRO_MEDICO INNER JOIN TIPOCENTRO t  ON c.ID_TIPO_CENTRO = t.ID_TIPO_CENTRO 
-		     WHERE  LOWER(c.NOMBRE) LIKE '%s' 
+		     SELECT v.* 
+		     FROM VistaTelefonoCentroMedico v
+		     WHERE  v.ID_CENTRO_MEDICO = %s
 		"
-		  ,$this->nombreCentro
+		  ,$this->idCentroMedico
 		);
 		$resultado = $conexion->query($query);
 		$respuesta = $conexion->filas($resultado);

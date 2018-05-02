@@ -210,7 +210,7 @@ $.ajax({
   dataType:'JSON',
   data:{
     'accion':'buscarPorCentro',
-    'nombreCentro': null,
+    'idCentroMedico': null,
   },
   success:function(respuesta){
     console.log(respuesta);

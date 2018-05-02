@@ -234,17 +234,17 @@ break;
 
 case 'buscarPorCentro':
 
-  if(isset($_POST['nombreCentro'])){
-    $nombreCentro= $_POST['nombreCentro'];
+  if(isset($_POST['idCentroMedico']) && $_POST['idCentroMedico']!=''){
+    $idCentroMedico= $_POST['idCentroMedico'];
   }else{
-    $nombreCentro=null;
-    $res['mensaje']='Se necesita campo: nombreCentro';
+    $idCentroMedico='null';
+    $res['mensaje']='Se necesita campo: idCentroMedico';
     $res['resultado']=false;
     echo json_encode($res);
     break;
   }
   $telefono=new Telefono();
-  $telefono->setNombreCentro($nombreCentro);
+  $telefono->setIdCentroMedico($idCentroMedico);
   echo $telefono->buscarPorCentro($conexion);
 break;
 

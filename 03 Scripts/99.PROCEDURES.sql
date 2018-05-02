@@ -3529,11 +3529,11 @@ END;
 
 
 CREATE OR REPLACE PROCEDURE PL_CrearUsuario(
-  contrasena IN INT
+  contrasena IN VARCHAR
   ,idTipoUsuario IN INT
   ,idTipoCentroMedico IN INT
   ,cnombre IN VARCHAR
-  ,cdIreccion IN INT
+  ,cdIreccion IN VARCHAR
   ,pNombre IN VARCHAR
   ,sNombre IN VARCHAR
   ,pApellido IN VARCHAR
@@ -3626,7 +3626,6 @@ SELECT
   END IF;
 
   existePersona:=FN_VERIFICARPERSONA(noIdentidad, mensaje);
-
   IF existePersona = 1 THEN
     SELECT
       ID_PERSONA
@@ -3634,20 +3633,52 @@ SELECT
     FROM PERSONA
     WHERE NO_IDENTIDAD = noIdentidad;
 
-    /*CAMBIO: SE DEBE FORZAR ACTUALIZACION DE CORREO, QUE DE QUE HAYA SIDO NULL ANTES*/
-    UPDATE PERSONA
-      set CORREO = pcorreo
-    WHERE ID_PERSONA = idPersona
-    ;
+    SELECT
+      COUNT(*)
+    INTO vnconteo
+    FROM PERSONA
+    WHERE correo = pcorreo AND ID_PERSONA = idPersona;
+    IF vnconteo!=0 THEN
+      mensaje:='ya existe correo ingresado el correo igresado';
+      RETURN;
+    ELSE
+      /*CAMBIO: SE DEBE FORZAR ACTUALIZACION DE CORREO, QUE DE QUE HAYA SIDO NULL ANTES*/
+      UPDATE PERSONA
+        set CORREO = pcorreo
+      WHERE ID_PERSONA = idPersona
+      ;
+    END IF;
 
   ELSE
-    idPersona:=FN_CREARPERSONA(pNombre, sNombre, pApellido, sApellido,
-                               direccion, noIdentidad, idPersona, sApellido, pcorreo, mensaje);
+    SELECT
+      COUNT(*)
+    INTO vnconteo
+    FROM PERSONA
+    WHERE correo = pcorreo;
+    IF vnconteo!=0 THEN
+      mensaje:='ya existe correo ingresado el correo igresado';
+      RETURN;
+    END IF;
+
+    idPersona:=FN_CREARPERSONA(pNombre, sNombre, pApellido, sApellido, direccion, noIdentidad,
+                               idPais, sexo ,pcorreo, mensaje);
+    DBMS_OUTPUT.PUT_LINE(idPersona);
     IF idPersona=0 THEN
       resultado:=0;
       mensaje:='No se pudo realizar inserción';
       RETURN;
     END IF;
+  END IF;
+
+
+  SELECT
+    COUNT(*)
+  INTO vnconteo
+  FROM USUARIO
+  WHERE ID_PERSONA = idPersona;
+  IF vnconteo!=0 THEN
+    mensaje:='Ya existe usuario registrado';
+    RETURN ;
   END IF;
 
   INSERT INTO CENTROMEDICO (

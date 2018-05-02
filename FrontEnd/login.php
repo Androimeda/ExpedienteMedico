@@ -93,8 +93,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-7"></div>
-            <div class="col-lg-5 well card">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6 well card">
                 <h3>Acceder</h3>
                 <div class="col-lg-12">
                     <table class="table">
@@ -113,6 +113,86 @@
                         </tr>
                     </table>
                 </div>
+            </div>
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6 well card">
+              <h3>Registrar</h3>
+              <table class="table" id="tbl-registrar">
+                <tr>
+                  <td>Primer Nombre:</td>
+                  <td><input type="text"  class="form-control" id="txt-primer-nombre" placeholder="Primer Nombre:"></td>
+                  <td>Segundo Nombre:</td>
+                  <td><input type="text"  class="form-control" id="txt-segundo-nombre" placeholder="Segundo Nombre:"></td>
+                </tr>
+                <tr>
+                  <td>Primer Apellido:</td>
+                  <td><input type="text"  class="form-control" id="txt-primer-apellido" placeholder="Primer Apellido:"></td>
+                  <td>Segundo Apellido:</td>
+                  <td><input type="text"  class="form-control" id="txt-segundo-apellido" placeholder="Segundo Apellido:"></td>
+                </tr>
+                <tr>
+                  <td>Número Identidad:</td>
+                  <td colspan="3"><input type="text"  class="form-control" id="txt-no-identidad" placeholder="Número Identidad"></td>
+                </tr>
+                <tr>
+                  <td>Sexo:</td>
+                  <td colspan="3">
+                    <select id="slc-sexo" class="form-control">
+                      <option value="" hidden="">Sexo</option>
+                      <option value="F">F</option>
+                      <option value="M">M</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pais:</td>
+                  <td colspan="3">
+                  <select id="slc-pais" class="form-control">
+                      <option value="" hidden="">Pais</option>
+                  </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dirección:</td>
+                  <td colspan="3"><textarea id="txt-direccion" class="form-control" placeholder="Dirección"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Tipo Usuario:</td>
+                  <td colspan="3">
+                    <select id="slc-tipo-usuario" class="form-control">
+                        <option value="" hidden="">Tipo Usuario</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nombre Centro Médico:</td>
+                  <td colspan="3"><input type="text"  class="form-control" id="txt-nombre-centro" placeholder="Nombre Centro Médico"></td>
+                </tr>
+                <tr>
+                  <td>Tipo Centro Médico:</td>
+                  <td colspan="3">
+                  <select id="slc-tipo-centro-medico" class="form-control">
+                      <option value="" hidden="">Tipo Centro Médico</option>
+                  </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dirección del centro:</td>
+                  <td colspan="3"><textarea id="txt-direccion-centro" class="form-control" placeholder="Dirección"></textarea></td>
+                </tr>
+                <tr>
+                  <td>E-mail:</td>
+                  <td colspan="3"><input type="text"  class="form-control" id="txt-correo" placeholder="E-mail"></td>
+                </tr>
+                <tr>
+                  <td>Contraseña:</td>
+                  <td colspan="2"><input type="password"  class="form-control" id="txt-contra" placeholder="Ingrese Contraseña"></td>
+                  <td colspan="2"><input type="password"  class="form-control" id="txt-contra2" placeholder="Confirme Contraseña"></td>
+                </tr>
+                <tr>
+                  <td colspan="4"><button type="button" class="btn btn-primary btn-block" onclick="registrar()">Registrar</button></td>
+                </tr>
+              </table>
             </div>
         </div> 
     </div> <!-- /container -->

@@ -5,7 +5,10 @@ class Usuario extends Persona{
 	private $contrasena;
 	private $idCentroMedico;
 	private $idTipoUsuario;
+	private $idTipoCentroMedico;
 	private $permisos;
+	private $nombreCentroMedico;
+	private $direccionCentroMedico;
 
 	public function __construct(
 		$idUsuario = null,
@@ -77,6 +80,30 @@ class Usuario extends Persona{
 		$this->permisos = $permisos;
 	}
 
+	public function getNombreCentroMedico(){
+		return $this->nombreCentroMedico;
+	}
+
+	public function setNombreCentroMedico($nombreCentroMedico){
+		$this->nombreCentroMedico = $nombreCentroMedico;
+	}
+	public function getDireccionCentroMedico(){
+		return $this->direccionCentroMedico;
+	}
+
+	public function setDireccionCentroMedico($direccionCentroMedico){
+		$this->direccionCentroMedico = $direccionCentroMedico;
+	}
+
+	public function getIdTipoCentroMedico(){
+		return $this->idTipoCentroMedico;
+	}
+
+	public function setIdTipoCentroMedico($idTipoCentroMedico){
+		$this->idTipoCentroMedico = $idTipoCentroMedico;
+	}
+
+
 	public function login($conexion){
 		$query=sprintf("
 		  BEGIN
@@ -84,8 +111,8 @@ class Usuario extends Persona{
 		  END;
 		",
 		  $this->getCorreo()
-		  ,$this->contrasena
-		);
+		  ,hash("sha512",$this->contrasena)
+		); 
 		$result = $conexion->query($query);
 		$data = $conexion->getCursor();
 		oci_bind_by_name($result, ':data', $data, -1, OCI_B_CURSOR);
@@ -107,7 +134,63 @@ class Usuario extends Persona{
 	}
 
 	public function registrar($conexion){
+		$query=sprintf("
+		  BEGIN
+		    PL_CrearUsuario(
+		      '%s'
+		      ,%s
+		      ,%s
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,'%s'
+		      ,%s
+		      ,'%s'
+		      ,'%s'
+		      ,:msg
+		      ,:res
+		    );
+		  END;
+		",
+		  hash("sha512",$this->contrasena)
+		  ,$this->idTipoUsuario
+		  ,$this->idTipoCentroMedico
+		  ,$this->nombreCentroMedico
+		  ,$this->direccionCentroMedico
+		  ,$this->getPNombre()
+		  ,$this->getSNombre()
+		  ,$this->getPApellido()
+		  ,$this->getSApellido()
+		  ,$this->getDireccion()
+		  ,$this->getNoIdentidad()
+		  ,$this->getIdPais()
+		  ,$this->getSexo()
+		  ,$this->getCorreo()
+		);
+		$resultado=$conexion->query($query);
+		oci_bind_by_name($resultado, ':msg', $msg, 2000);
+		oci_bind_by_name($resultado, ':res', $res);
+		oci_execute($resultado);
+		oci_free_statement($resultado);
+		$respuesta=[];
+		$respuesta['mensaje'] = $msg;
+		$respuesta['resultado'] = $res == 1;
+		return json_encode($respuesta);
+	}
 
+	public function listarTipos($conexion){
+		$query=sprintf("
+		  SELECT  * 
+		  FROM TIPOUSUARIO
+		"
+		);
+		$resultado = $conexion->query($query);
+		$respuesta = $conexion->filas($resultado);
+		return json_encode($respuesta);
 	}
 
 }
