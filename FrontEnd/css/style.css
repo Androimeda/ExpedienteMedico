@@ -3,8 +3,13 @@ body {
   padding-top: 70px;
   padding-bottom: 70px;
   color: #222;
+  scroll-behavior: smooth;
   background-color: #F0F0F0;
-  scroll-behavior: smooth; }
+  background-image: url("../img/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat; }
   body .navbar li.active, body .navbar-default li.active {
     color: #222; }
     body .navbar li.active > a, body .navbar-default li.active > a {
@@ -66,6 +71,11 @@ body {
     margin-bottom: 5px; }
   body .logout {
     color: #c83737 !important; }
+  body .number {
+    text-align: center; }
+    body .number p {
+      font-size: 50px;
+      color: #c83737; }
 
 .login {
   margin: 0 auto;
@@ -73,7 +83,8 @@ body {
   background-image: url("../img/doctor.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
   .login h1, .login h2, .login h3, .login h4, .login h5 {
     color: #555555;
     padding-left: 10px; }

@@ -7,7 +7,7 @@ function agregarFilaTablaAPH(respuesta){
 		var aph = respuesta[i];
 		var fila = 
 		"<tr>"+
-		"  <td>"+E.FECHA_HORA_ATENCION+"</td>"+
+		"  <td>"+aph.FECHA_HORA_ATENCION+"</td>"+
 		"  <td>"+aph.ID_ATENCION+"</td>"+
 		"  <td>"+aph.PLACA+"</td>"+
 		"  <td>"+aph.ID_CENTRO_MEDICO+"</td>"+

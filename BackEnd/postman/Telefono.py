@@ -91,7 +91,7 @@ print
 url='Telefono'
 data={
   'accion':'buscarPorCentro',
-  'nombreCentro': None,
+  'idCentroMedico': None,
 }
 print postear(data,url)
 print

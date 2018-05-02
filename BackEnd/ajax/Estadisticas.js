@@ -1,9 +1,9 @@
 $.ajax({
-  url:CONST_SITIO_URL+'/services/Usuario.php',
+  url:CONST_SITIO_URL+'/services/Estadisticas.php',
   method:'POST',
   dataType:'JSON',
   data:{
-    'accion':'listarTipos',
+    'accion':'medicos',
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -18,13 +18,11 @@ $.ajax({
 
 
 $.ajax({
-  url:CONST_SITIO_URL+'/services/Usuario.php',
+  url:CONST_SITIO_URL+'/services/Estadisticas.php',
   method:'POST',
   dataType:'JSON',
   data:{
-    'accion':'login',
-    'correo': null,
-    'contrasena': null,
+    'accion':'centros',
   },
   success:function(respuesta){
     console.log(respuesta);
@@ -39,25 +37,11 @@ $.ajax({
 
 
 $.ajax({
-  url:CONST_SITIO_URL+'/services/Usuario.php',
+  url:CONST_SITIO_URL+'/services/Estadisticas.php',
   method:'POST',
   dataType:'JSON',
   data:{
-    'accion':'registrar',
-    'idPais': null,
-    'noIdentidad': null,
-    'nombreCentroMedico': null,
-    'pNombre': null,
-    'sNombre': null,
-    'sApellido': null,
-    'idTipoUsuario': null,
-    'direccion': null,
-    'correo': null,
-    'idTipoCentroMedico': null,
-    'pApellido': null,
-    'contrasena': null,
-    'sexo': null,
-    'direccionCentroMedico': null,
+    'accion':'pacienteMax',
   },
   success:function(respuesta){
     console.log(respuesta);

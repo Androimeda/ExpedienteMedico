@@ -21,14 +21,20 @@ def get_data(filename):
 			c=li
 			data[li]=[]
 		if "$this->" in li and not(":" in li) and not("=" in li) and not("return" in li):
-			li = li.replace(",","")
-			li = li.replace("\"","")
-			li = li.replace("\t","")
-			li = li.replace(" ","")
-			li = li.replace("$this->","")
-			if "get" in li:
-				li=li[3:4].lower()+li[4:-2]
-			data[c].append(li)
+			if not ("hash" in li):
+				li = li.replace(",","")
+				li = li.replace("\"","")
+				li = li.replace("\t","")
+				li = li.replace(" ","")
+				li = li.replace("$this->","")
+				if "get" in li:
+					li=li[3:4].lower()+li[4:-2]
+				data[c].append(li)
+			else:
+				li = li.replace(" ","").replace(")", "").split("$this->")[1]
+				if "get" in li:
+					li=li[3:4].lower()+li[4:-2]
+				data[c].append(li)
 	for i in data:
 		lista = data[i]
 		lista = set(lista)
