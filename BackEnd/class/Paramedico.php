@@ -170,7 +170,7 @@ class Paramedico extends Persona{
 		$query=sprintf("
 		    SELECT  * 
 		    FROM VistaParamedico v 
-		    WHERE  v.NO_IDENTIDAD = '%s' 
+		    WHERE  v.NO_IDENTIDAD LIKE '%%%s%%' 
 		"
 		  ,$this->getNoIdentidad()
 		);

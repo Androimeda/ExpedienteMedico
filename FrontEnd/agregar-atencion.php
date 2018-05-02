@@ -92,12 +92,13 @@
                             <textarea id="txt-observacion" class="form-control"></textarea>
                         </td>
                     </tr>
-                    <tr></tr>
                     <tr>
-                        <td>Ambulancia:</td>
-                        <td colspan="2">
-                            <input type="text" id="txt-ambulancia" class="form-control">
-                        </td>
+                      <td>Ambulancia: </td>
+                      <td colspan="2">
+                        <select class="form-control" id="slc-ambulancia">
+                          <option value="" hidden="">Ambulancia</option>
+                        </select>
+                      </td>
                     </tr>
                      <td colspan="3">
                             <button type="button" class="btn btn-primary btn-block" onclick="registrar()">Registrar</button>

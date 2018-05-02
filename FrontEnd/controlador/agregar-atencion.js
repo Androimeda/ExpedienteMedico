@@ -58,6 +58,32 @@ function seleccionar(i){
 
 
 
+$(document).ready(function(){
+  $.ajax({
+    url:CONST_SITIO_URL+'/services/Ambulancia.php',
+    method:'POST',
+    dataType:'JSON',
+    data:{
+      'accion':'listarPorCentroMedico',
+      'idCentroMedico': $("#txt-id-centro-medico").val(),
+      'nombreCentro': 'hospital',
+    },
+    success:function(respuesta){
+      for (var i = 0; i < respuesta.length; i++) {
+        var ambulancia = respuesta[i];
+        var fila = '<option value="'+ambulancia.ID_AMBULANCIA+'">'+ambulancia.PLACA+'</option>';
+        $("#slc-ambulancia").append(fila);
+      } 
+    },
+    error: function(error){
+      console.log(error);
+    },
+    complete: function(){
+      //TO-DO
+    }
+  });
+});
+
 function limpiarTablaParamedico(){
   $('#tbl-resultado-paramedico tbody').empty();
   $('#txt-noidentidad-paramedico').val("");
@@ -114,7 +140,7 @@ function seleccionarParamedico(i){
 
 function registrar(){
 	var obs = $("#txt-observacion").val();
-	var idAmbulancia = $("#txt-ambulancia").val();
+	var idAmbulancia = $("#slc-ambulancia").val();
 	var idParamedico= $("#txt-id-paramedico").val();
 	var idExpediente= $("#txt-id-expediente").val();
  
