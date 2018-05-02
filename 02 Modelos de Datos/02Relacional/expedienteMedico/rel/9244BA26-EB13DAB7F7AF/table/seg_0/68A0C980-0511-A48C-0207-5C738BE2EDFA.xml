@@ -49,7 +49,7 @@
 <colUsage columnID="0B13055D-4509-4A96-0EC3-B0E7AE5731AF"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="008076E4-9C68-CB28-C23B-38B89CAE01F8" name="TratamientoConsulta_ConsultaExterna_FK">
+<ind_PK_UK id="008076E4-9C68-CB28-C23B-38B89CAE01F8" name="TRATACONSULT_FK">
 <createdBy>jaguilar992</createdBy>
 <createdTime>2018-05-01 20:23:50 UTC</createdTime>
 <ownerDesignName>expedienteMedico</ownerDesignName>

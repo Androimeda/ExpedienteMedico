@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="109E1FDB-ABD6-D0B1-4A89-1926A6055C02" containerWithKeyObject="68A0C980-0511-A48C-0207-5C738BE2EDFA" localFKIndex="008076E4-9C68-CB28-C23B-38B89CAE01F8" name="TratamientoConsulta_ConsultaExterna_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="109E1FDB-ABD6-D0B1-4A89-1926A6055C02" containerWithKeyObject="68A0C980-0511-A48C-0207-5C738BE2EDFA" localFKIndex="008076E4-9C68-CB28-C23B-38B89CAE01F8" name="TRATACONSULT_FK">
 <createdBy>jaguilar992</createdBy>
 <createdTime>2018-05-01 20:23:50 UTC</createdTime>
 <ownerDesignName>expedienteMedico</ownerDesignName>
