@@ -38,5 +38,5 @@ INNER JOIN TIPOCENTRO tc
   ON tc.ID_TIPO_CENTRO = cem.ID_TIPO_CENTRO
 INNER JOIN VistaPaciente vp
   ON vp.id_expediente = hp.ID_EXPEDIENTE
-ORDER BY cem.ID_CENTRO_MEDICO, vm.id_medico
+ORDER BY hp.FECHA_HORA_INGRESO,cem.ID_CENTRO_MEDICO, vm.id_medico
 ;

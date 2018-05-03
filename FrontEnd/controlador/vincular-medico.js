@@ -134,7 +134,7 @@ $("#slc-edificio").on("change", function(){
 	});
 });
 
-$("#slc-piso").on("change", function(){
+$("#slc-piso").on("click", function(){
 	$.ajax({
 	  url:CONST_SITIO_URL+'/services/Consultorio.php',
 	  method:'POST',

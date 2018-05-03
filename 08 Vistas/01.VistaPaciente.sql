@@ -35,10 +35,13 @@ SELECT
   est.ESTADO_CIVIL,
   abo.GRUPO as grupo_sanguineo,
   abo.RH as factor_rh,
-  esc.ESCOLARIDAD,
-  ocup.OCUPACION,
-  exp.ID_EXPEDIENTE,
-  exp.FECHA_CREACION as fecha_expediente
+  esc.ESCOLARIDAD
+  ,esc.ID_ESCOLARIDAD
+  ,ocup.ID_OCUPACION
+  ,est.ID_ESTADO_CIVIL
+  ,ocup.OCUPACION
+  ,exp.ID_EXPEDIENTE
+  ,exp.FECHA_CREACION as fecha_expediente
 FROM Paciente pa
 INNER JOIN PERSONA p
   ON p.ID_PERSONA = pa.ID_PERSONA

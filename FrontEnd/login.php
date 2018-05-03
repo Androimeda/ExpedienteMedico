@@ -90,7 +90,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12" >
-                <div class="col-lg-6">
+                <div class="col-lg-9"></div>
+                <div class="col-lg-3 well card">
                     <img src="./img/icon.png" class="img img-responsive" width="300px">
                 </div>
             </div>
