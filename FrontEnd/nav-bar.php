@@ -135,7 +135,7 @@
           role="button" 
           aria-haspopup="true" 
           aria-expanded="false">
-          Administrador<span class="caret"></span>
+          <?php echo $user["P_NOMBRE"].' '.$user["P_APELLIDO"]; ?><span class="caret"></span>
           <img src="img/user.png" class="img img-responsive img-circle user-img" alt="">
         </a>
           <ul class="dropdown-menu">
@@ -143,7 +143,8 @@
             <li><a href="./perfil.php">Perfil</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Ayuda</li>
-            <li><a href="#">Manual de Usuario</a></li>
+            <li><a target="blank" href="./doc/manual_instalacion.pdf">Manual de Instalación</a></li>
+            <li><a target="blank" href="./doc/manual_usuario.pdf">Manual de Usuario</a></li>
             <li><a href="./acerca-de.php">Acerca de</a></li>
             <li><a href="./logout.php" class="logout">Cerrar Sesión</a></li>
           </ul>

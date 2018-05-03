@@ -33,6 +33,8 @@ body {
     background-color: #fff;
     box-shadow: 0 1px 2px rgba(25, 25, 34, 0.15);
     -webkit-box-shadow: 0 1px 2px rgba(25, 25, 34, 0.15); }
+    body .card hr {
+      border: solid 2px #c83737; }
   body #titulo h1 {
     text-align: center;
     margin: 0;
@@ -76,6 +78,8 @@ body {
     body .number p {
       font-size: 50px;
       color: #c83737; }
+  body .icon-stats {
+    float: right; }
 
 .login {
   margin: 0 auto;

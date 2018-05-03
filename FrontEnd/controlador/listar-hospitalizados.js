@@ -138,7 +138,7 @@ function buscar(){
 			    'sNombre': valor,
 			  },
 			  success:function(respuesta){
-			    agregarFilaTablaParamedico(respuesta);
+			    agregarFilaTablaHospitalizaciones(respuesta);
 			  },
 			  error: function(error){
 			    console.log(error);
@@ -159,7 +159,7 @@ function buscar(){
 			    'pApellido': valor,
 			  },
 			  success:function(respuesta){
-			    agregarFilaTablaParamedico(respuesta);
+			    agregarFilaTablaHospitalizaciones(respuesta);
 			  },
 			  error: function(error){
 			    console.log(error);
@@ -179,7 +179,7 @@ function buscar(){
 			    'noIdentidad': valor,
 			  },
 			  success:function(respuesta){
-			    agregarFilaTablaParamedico(respuesta);
+			    agregarFilaTablaHospitalizaciones(respuesta);
 			  },
 			  error: function(error){
 			    console.log(error);
@@ -199,7 +199,7 @@ function buscar(){
 			    'licencia': valor,
 			  },
 			  success:function(respuesta){
-			    agregarFilaTablaParamedico(respuesta);
+			    agregarFilaTablaHospitalizaciones(respuesta);
 			  },
 			  error: function(error){
 			    console.log(error);

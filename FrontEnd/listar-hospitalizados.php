@@ -39,7 +39,7 @@
               </select>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-default" onclick="cargarTablaHospitalizaciones()">Limpiar</button>
+              <button type="button" class="btn btn-default" onclick="cargaTablaHospitalizaciones()">Limpiar</button>
               <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
             </div>
         </div>
