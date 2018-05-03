@@ -32,7 +32,6 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           
-
             <!-- Pacientes -->
 <!--             <li class="dropdown" id="nav-item-paciente">
               <a href="#" 
@@ -87,6 +86,7 @@
        </div>  
     </nav>
     <!-- Fin Navbar -->
+    <div id="particles-js"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-12" >
@@ -209,10 +209,6 @@
                       </tr>
                     </table>
                   </div>
-                  <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" onclick="actualizar()">Guardar Cambios</button>
-                  </div> -->
                 </div>
               </div>
             </div>
@@ -220,7 +216,8 @@
     </div> <!-- /container -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-
+    <script src="./js/particles.min.js"></script>
+    <script src="./js/app.js  "></script>
     <script src="./js/config.js  "></script>
     <script src="./controlador/login.js"></script>
   </body>
