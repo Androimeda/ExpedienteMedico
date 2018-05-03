@@ -76,7 +76,8 @@ function registrar(){
 		    'direccionCentroMedico': direccionCentro,
 		  },
 		    success:function(respuesta){
-		      alert(respuesta.mensaje)
+		      alert(respuesta.mensaje);
+		      $("#modal-editar").modal("hide");
 		    },
 		    error: function(error){
 		      console.log(error);
